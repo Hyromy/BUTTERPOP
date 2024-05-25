@@ -31,6 +31,22 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
 
 ---
 ## ÍNDICE
+- [Introducción](#introducción)
+- [Objetivos](#objetivos)
+    - [General](#objetivo-general)
+    - [Específicos](#objetivos-específicos)
+- [Programa y cronograma](#programa-y-cronograma)
+- [Marco teórico](#marco-teórico)
+- [Metodología](#metodología)
+- [Capitulo 1: Recolección y refinamiento de requisitos](#capitulo-1-recolección-y-refinamiento-de-requisitos)
+    - [Nececidades del cliente](#11-nececidades-del-cliente)
+    - [Identificación y definición de roles de usuario](#12-identificación-y-definición-de-roles-de-usuario)
+    - [Requerimientos funcionales](#13-requerimientos-funcionales)
+    - [Requerimientos no funcionales](#14-requerimientos-no-funcionales)
+    - [Requerimientos de hardware](#15-requerimientos-de-hardware)
+    - [Requerimientos de software](#16-requerimientos-de-software)
+    - [Diagrama general de casos de uso](#17-diagrama-general-de-casos-de-uso)
+    - [Especificación de los casos de uso](#18-especificación-de-los-casos-de-uso)
 
 ## INTRODUCCIÓN
 Cinemex, es una empresa mexicana líder en entretenimiento dedicada al desarrollo y operación de complejos múltiples de exhibición cinematográfica, con más de 23 años en el mercado, se encuentra posicionada en el top 10 de las mejores cadenas cinematográficas del mundo, y cuenta con 335 complejos y 2,898 pantallas en 98 ciudades de la República Mexicana.
@@ -80,6 +96,78 @@ En cuanto a la atracción y retención audiencia, en la industria del entretenim
 Según diversos foros de internet, muchos consumidores han dejado de asistir al cine debido a los altos costos, por lo que proporcionar este tipo de incentivos podría motivar a los usuarios a acudir al cine, revertir esta tendencia y beneficiar significativamente a la empresa.
 
 Una aplicación bien diseñada no solo facilitará la compra y renta de películas, sino que también mejorará la interacción general del usuario con la marca.
+
+- Apache NetBeans
+<br>Es un entorno de desarrollo, plataforma de herramientas y marco de aplicación.
+<br><br>Se utilizará este entorno de desarrollo debido a su completo entorno de ejecución y asistencias de depuración.
+
+
+- Visual Studio Code
+<br>Es un editor de código fuente liviano pero potente que se ejecuta en el escritorio y está disponible para Windows macOS y Linux. Viene con un soporte integrado para JavaScript TypeScript y Node.js y tiene un rico ecosistema de extensiones para otros lenguajes y tiempos de ejecución, como C++, C#, Java, Python, PHP, Go y .Net.
+<br><br>Se hará uso de esta herramienta debido a su flexibilidad, simpleza y su soporte para diferentes lenguajes de programación.
+
+- Android Studio
+<br>Es el IDE oficial para el desarrollo de Android e incluye todo lo necesario para compilar Apps para Android.
+<br><br>Se empleará este entorno de desarrollo debido a que se debe garantizar la compatibilidad con dispositivos Android además de facilitar su desarrollo para las mismas.
+
+- Xamarin
+<br>Es un marco de interfaz de usuario de código abierto. Xamarin.froms permite a los desarrolladores compilar aplicaciones en xamarin, Android y xamarin.ios y Windows desde un código base compartido. Xamarin.forms permite a los desarrolladores crear interfaces de usuario XAML con código subyacente en C#. Estas interfaces se representan como controles nativos con mejor rendimiento en cada plataforma.
+<br><br>Se utilizará este Framework ya que es requisito que la aplicación sea multiplataforma, usando como entorno de desarrollo Android Studio para posteriormente ser compilada a diversos sistemas operativos móviles de manera sencilla, rápida y eficiente.
+
+- git
+<br>Es un sistema de control de versiones distribuido, cada desarrollador tiene una copia integral del mismo. A diferencia de los sistemas de control de versiones centralizados los DVCS necesitan una conexión constante a un repositorio central. Git es un sistema de control de versiones distribuido mas popular y se utiliza el desarrollo de proyectos de código abierto.
+<br><br>Se hará uso de esta herramienta para facilitar y agilizar un flujo colaborativo para el equipo, además de mejorar el versionado del proyecto y aumentar la eficiencia de correcciones, implementaciones y reducir tiempos de desarrollo.
+
+- MongoBD
+<br>Es una base de datos de documentos que ofrece una gran escalabilidad y flexibilidad y un modelo de consultas e indexación avanzada.
+<br><br>Se hará uso de este gestor de base de datos no relacional para poder almacenar grandes volúmenes de datos cuya información no sea sensible.
+
+- PostgreSQL
+<br>Es potente sistema de base de datos relacional de objetos de código abierto con mas de 35 datos de desarrollo activo que le ha ganado una sólida reputación por su confiabilidad solidez de funciones y rendimiento. 
+<br><br>Se empleará este gestor de base de datos relacional para tener un control preciso de aquellos registros que requieran ser protegidos ya que estos pueden presentar información sensible.
+
+- StarUML
+<br>Es un sofisticado modelador de software destinado a soportar un modelado ágil y conciso.
+<br><br>Se utilizará este programa para modelar diagramas de casos de uso, de secuencia, actividades, entre otros, para sustentar el desarrollo del proyecto. 
+
+- Testlink
+<br>Es un sistema de gestión de pruebas basado en la web que facilita el control de calidad del software. Ofrece soporte para casos de prueba, conjuntos de pruebas, planes de pruebas, proyectos de prueba y gestión de usuarios, así como diversos informes y estadísticas.
+<br><br>Se usará este programa en la fase de pruebas para así garantizar la calidad, funcionabilidad y consistencia de comportamiento del proyecto, para así hacer las respectivas correcciones o robustecer el proyecto o ciertas partes de este.
+
+- MantisBT
+<br>Es un software que constituye una solución completa para gestionar tareas en un equipo de trabajo. Es una aplicación OpenSource que se utiliza para probar soluciones automatizadas, llevando un registro histórico de las alteraciones y gestionando equipos de trabajo de forma remota.
+<br><br>Se empleará este software para tener un control de las fallas que pueda presentar la aplicación y tener un registro de dichas fallas y como se podrían solucionar.
+
+- Java
+<br>Es un lenguaje de programación de alto nivel, compilado y caracterizado por su enfoque en la orientación a objetos, lo que facilita la creación de aplicaciones modulares y fomenta la reutilización de código.
+<br><br>Se utilizará este lenguaje debido a su potencia y consistencia en la sintaxis además de permitir el uso de las Java Server Pages.
+
+- JavaScript
+<br>Es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico.
+<br><br>Se utilizará este lenguaje en el front-end o del lado del cliente para aportar un mayor dinamismo a la aplicación además de reducir costos de procesamiento y energéticos a o los servidores que se vayan a emplear.
+
+- HTML 5
+<br>El Hypertext Markup Language (HTML), en su quinta edición (HTML5), es el lenguaje de marcado estándar utilizado en la construcción y diseño de websites. Debido a su versatilidad, estabilidad y soporte universal.
+<br><br>Se hará uso de este lenguaje para definir la estructura de cada una de las interfaces de la aplicación debido a su modelo de cajas.
+
+- CSS 3
+<br>Cascade Style Sheet u "Hojas de Estilo en Cascada", se trata de la tercera revisión del lenguaje de hoja de estilos utilizado para describir la presentación de un documento escrito en HTML o XML (incluyendo formatos XML como SVG, XHTML o MathML). El CSS3 es una actualización significativa de la versión anterior, CSS2, e introduce una serie de nuevas características y mejoras.
+<br><br>Se utilizará esta tecnología para definir estilo a las interfaces y estas resulten ser agradables y atractivas para los usuarios, además de que esta presenta diversas opciones y funciones integradas que desencadenan en una enorme variedad de diseños.
+
+- JSP
+<br>JavaServer Pages (JSP) es una tecnología que ayuda a los desarrolladores de software a generar contenido web dinámico, interactivo, y basado en HTML, XML o cualquier otro tipo de documento dinámico.
+
+- PHP
+<br>Es un lenguaje de programación de código abierto, ampliamente utilizado por desarrolladores web y es el fundamento de muchas plataformas robustas. Proporciona una forma eficiente y eficaz de desarrollar sitios web dinámicos e interactivos.
+<br><br>Se utilizará este lenguaje en el lado del back-end debido a su tipado dinámico y rápida implementación en el mismo.
+
+- Node.js
+<br>Es un entorno de ejecución de JavaScript que se utiliza para desarrollar aplicaciones de servidor. Impulsado por el motor V8 de Google, Node.js utiliza un modelo de programación orientado a eventos y entradas/salidas (I/O) no bloqueantes, lo que lo hace ligero y eficiente, perfecto para aplicaciones en tiempo real con intercambio intenso de datos a través de dispositivos distribuidos.
+<br><br>Se utilizará este lenguaje debido a que su sintaxis es idéntica a la de JavaScrip por lo que su implementación en el lado del back-end o del servidor será rápida, eficiente y potente.
+
+- Figma
+<br>Figma es un editor de gráficos vectorial y una herramienta de generación de prototipos, principalmente basada en la web, con características off-line adicionales habilitadas por aplicaciones de escritorio en macOS y Windows.
+<br><br>Se usará este programa para realizar el maquetado de diseño de interfaces.
 
 ## METODOLOGÍA
 Dentro del ámbito del desarrollo de aplicaciones móviles, elegir una metodología se toma de gran importancia, debido a que el equipo se puede sincronizar y planificar las fases del proyecto con mayor facilidad.
