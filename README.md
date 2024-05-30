@@ -860,7 +860,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>Versión</td>
-        <td colspan="2">1.0 (15/05/24)</td>
+        <td colspan="2">1.1 (30/05/24)</td>
     </tr>
     <tr>
         <td>Autores</td>
@@ -928,13 +928,17 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
         <td>El sistema mostrará un mensaje: "Transacción realizada exitosamente, revisa tu lista privada ‘mis películas rentadas’ o haz click aquí para ver la película que acabas de rentar".</td>
     </tr>
     <tr>
-        <td rowspan="4">Flujo alternativo</td>
+        <td rowspan="5">Flujo alternativo</td>
         <td>Paso</td>
         <td>Acción</td>
     </tr>
     <tr>
+        <td>5.1</td>
+        <td>En caso de que algún campo este vacío el sistema mostrará que todos los campos son requeridos</td>
+    </tr>
+    <tr>
         <td>6.1</td>
-        <td>En caso de que algún campo este incompleto, el sistema notificara de aquel o aquellos campos vacíos</td>
+        <td>En caso de los datos ingresados no se puedan validar mostrára un mesaje indicando que ocurrío un problema al verificar los datos</td>
     </tr>
     <tr>
         <td>9.1</td>
@@ -1374,7 +1378,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 ![DS registrar usuario]()
 
 #### Rentar película
-![DS rentar película]()
+![DS rentar película](https://media.discordapp.net/attachments/1245554802902040657/1245806390711291965/Rentar_pelicula_v1.1.jpg?ex=665a171d&is=6658c59d&hm=1def016d5de5a64d8ebd920aee11a3a74112eb082913a21d1b278ca34d0852a5&=&format=webp&width=714&height=864)
 
 #### Gestionar lista
 ![DS gestionar lista]()
