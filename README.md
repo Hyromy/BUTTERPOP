@@ -1111,7 +1111,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>Versión</td>
-        <td colspan="2">1.0 (15/05/24)</td>
+        <td colspan="2">1.1 (15/05/24)</td>
     </tr>
     <tr>
         <td>Autores</td>
@@ -1381,7 +1381,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 ![DS rentar película](https://media.discordapp.net/attachments/1245554802902040657/1245806390711291965/Rentar_pelicula_v1.1.jpg?ex=665a171d&is=6658c59d&hm=1def016d5de5a64d8ebd920aee11a3a74112eb082913a21d1b278ca34d0852a5&=&format=webp&width=714&height=864)
 
 #### Gestionar lista
-![DS gestionar lista]()
+![DS gestionar lista](https://media.discordapp.net/attachments/1245554802902040657/1246933081739231232/gestionar_listas.jpg?ex=665e306d&is=665cdeed&hm=d85ce8c4d096f2fc85a13967bcb2fb786e690b9a07762dcb439fbd04225cf62e&=&format=webp&width=620&height=864)
 
 #### Puntuar película
 ![DS puntuar película]()
