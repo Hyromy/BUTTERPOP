@@ -1,6 +1,6 @@
 *`documento sujeto a cambios`*
 
-![uttec](https://becas.news/wp-content/uploads/logo-universidad-tecnologica-de-tecamac.webp)
+![uttec](img_doc/uttec.jpg)
 
 # BUTTERPOP - DIGITAL DREAM<br>INTEGRAGORA II<br>REPORTE TÉCNICO
 
@@ -80,7 +80,7 @@ Diseñar las interfaces de los administradores y clientes con un diseño prácti
 Probar la funcionalidad de las interfaces y registrar los errores que puedan ocurrir, con el objetivo de solucionarlos rápidamente y entregar un trabajo de calidad.
 
 ## PROGRAMA Y CRONOGRAMA
-| **UNIVERSIDAD TECNOLÓGICA DE TECÁMAC DIVISIÓN TIC PROGRAMA DE ESTADÍAS PROFESIONALES** | ![uttect](https://becas.news/wp-content/uploads/logo-universidad-tecnologica-de-tecamac.webp) |
+| **UNIVERSIDAD TECNOLÓGICA DE TECÁMAC DIVISIÓN TIC PROGRAMA DE ESTADÍAS PROFESIONALES** | ![uttect](img_doc/uttec.jpg) |
 | - | - |
 | **PROGRAMA DE TRABAJO** | *FECHA: dd/mm/aaa* |
 
@@ -689,7 +689,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 - MantisBT: Funcionará como gestor de reportes de errores o fallos de funcionalidad u ortográficos.
 
 ### 1.7 Diagrama General De Casos De Uso
-![diagrama general](https://media.discordapp.net/attachments/1245554802902040657/1245554842181566525/diagramaGeneral.jpg?ex=66592cd7&is=6657db57&hm=2a687cefa0c02739d33ad968ea0805e6e5021fdf8948e1831be501f4798449d9&=&format=webp&width=1111&height=864)
+![diagrama general](img_doc/diagramaGeneral.jpg)
 
 ### 1.8 Especificación De Los Casos De Uso
 <table>
@@ -1370,6 +1370,8 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
 </table>
 
+#### Diseño de pruebas basado en Casos de uso
+
 ### 1.9 Diagramas de secuencia
 #### Inicio de sesión
 ![DS inicio de sesión]()
@@ -1378,10 +1380,10 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 ![DS registrar usuario]()
 
 #### Rentar película
-![DS rentar película](https://media.discordapp.net/attachments/1245554802902040657/1245806390711291965/Rentar_pelicula_v1.1.jpg?ex=665a171d&is=6658c59d&hm=1def016d5de5a64d8ebd920aee11a3a74112eb082913a21d1b278ca34d0852a5&=&format=webp&width=714&height=864)
+![DS rentar película](img_doc/Rentar_pelicula_v1.1.jpg)
 
 #### Gestionar lista
-![DS gestionar lista](https://media.discordapp.net/attachments/1245554802902040657/1246933081739231232/gestionar_listas.jpg?ex=665e306d&is=665cdeed&hm=d85ce8c4d096f2fc85a13967bcb2fb786e690b9a07762dcb439fbd04225cf62e&=&format=webp&width=620&height=864)
+![DS gestionar lista](img_doc/diagrama%20listas.jpg)
 
 #### Puntuar película
 ![DS puntuar película]()
