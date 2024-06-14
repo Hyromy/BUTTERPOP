@@ -1,6 +1,41 @@
 *`documento sujeto a cambios`*
 
-![uttec](img_doc/uttec.jpg)
+### Cambios pendientes por realizar
+#### Especificación de casos de uso
+- [ ] Corregir tabla de especificación "Comentar película" en README
+- [ ] Corregir tabla de especificación "Comentar película" en DOC
+- [ ] Corregir tabla de especificación "Puntuar película" en README
+- [ ] Corregir tabla de especificación "Puntuar película" en DOC
+
+#### Diagramas de secuencia
+- [ ] Corregir diagrama "Rentar película"
+- [ ] Agregar diagrama "Gestionar película" en README
+- [ ] Agregar diagrama "Gestionar película" en DOC
+
+#### Diagrama de actividades
+- [ ] Corregir diagrama de actividades
+
+#### Diagrama de base de datos
+- [ ] Agregar modelo de base de datos en README
+- [ ] Agregar modelo de base de datos en DOC
+
+#### Diseño de pruebas
+- [ ] Realizar diseño de pruebas de "crear lista" en README
+- [ ] Realizar diseño de pruebas de "crear lista" en DOC
+- [ ] Realizar diseño de pruebas de "actualizar lista" en README
+- [ ] Realizar diseño de pruebas de "actualizar lista" en DOC
+- [ ] Realizar diseño de pruebas de "rentar pelicula" en README
+- [ ] Realizar diseño de pruebas de "rentar pelicula" en DOC
+- [ ] Realizar diseño de pruebas de "comentar pelicula" en README
+- [ ] Realizar diseño de pruebas de "comentar pelicula" en DOC
+- [ ] Realizar diseño de pruebas de "puntuar pelicula" en README
+- [ ] Realizar diseño de pruebas de "puntuar pelicula" en DOC
+- [ ] Realizar diseño de pruebas de "gestionar pelicula" en README
+- [ ] Realizar diseño de pruebas de "gestionar pelicula" en DOC
+
+---
+
+![uttec](img_doc/general/uttec.jpg)
 
 # BUTTERPOP - DIGITAL DREAM<br>INTEGRAGORA II<br>REPORTE TÉCNICO
 
@@ -10,7 +45,7 @@
 *P R E S E N T A*
 
 **ANDREA DOMÍNGEZ ZENTENO**<br>
-**EMMANUEL GARCIA CAPOTE**<br>
+**EMANUEL GARCIA CAPOTE**<br>
 **JESÚS MÍGUEL ROSALES MURILLO**<br>
 **JOEL GONZÁLEZ CRUZ**<br>
 **JOSÉ JULÁN MARTÍNEZ DE LA CRUZ**<br>
@@ -31,7 +66,7 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
 - [PROGRAMA Y CRONOGRAMA](#programa-y-cronograma)
 - [MARCO TEÓRICO](#marco-teórico)
 - [METODOLOGÍA](#metodología)
-- [CAPÍTULO 1: RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS](#capitulo-1-recolección-y-refinamiento-de-requisitos)
+- [CAPÍTULO 1: RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS](#capítulo-1-recolección-y-refinamiento-de-requisitos)
     - [Necesidades del cliente](#11-nececidades-del-cliente)
     - [Identificación y definición de roles de usuario](#12-identificación-y-definición-de-roles-de-usuario)
     - [Requerimientos funcionales](#13-requerimientos-funcionales)
@@ -42,17 +77,22 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
     - [Especificación de los casos de uso](#18-especificación-de-los-casos-de-uso)
     - [Diagramas de secuencia](#19-diagramas-de-secuencia)
     - [Diagrama de actividades](#110-diagrama-de-actividades)
+- [CAPÍTULO 2: DISEÑO Y DESARROLLO DEL PROYECTO](#capítulo-2-diseño-y-desarrollo-del-proyecto)
+    - [Diagrama de la Base de Datos (relacional)](#21-diagrama-de-la-base-de-datos-relacional)
+    - [Diccionario de Datos](#22-diccionario-de-datos)
+    - [Diseño de Pruebas](#23-diseño-de-pruebas)
+    - [Diseño de las Interfaces (Maquetas)](#24-diseño-de-las-interfaces-maquetas)
 
 ## RESUMEN
 
 ## ABSTRACT
 
 ## INTRODUCCIÓN
-Cinemas AJEM es una empresa mexicana líder en entretenimiento dedicada al desarrollo y operación de complejos múltiples de exhibición cinematográfica. Con más de 23 años en el mercado, se posiciona en el top 10 de las mejores cadenas cinematográficas del mundo, contando con 335 complejos y 2,898 pantallas en 98 ciudades de la República Mexicana.
+Cinemas AJEM será una empresa mexicana líder en entretenimiento dedicada al desarrollo y operación de complejos múltiples de exhibición cinematográfica. Con más de 23 años en el mercado, se posicionará en el top 10 de las mejores cadenas cinematográficas del mundo, contando con 335 complejos y 2,898 pantallas en 98 ciudades de la República Mexicana.
 
-El departamento de ventas de Cinemas AJEM se encarga no solo del manejo y control de todas las ventas registradas dentro del cine, sino que también participa en diversas actividades con el objetivo de promover la compra de sus servicios y productos por parte de los clientes, tales como la venta de comida, boletería, dulcería, etc.
+El departamento de ventas de Cinemas AJEM se encargará no solo del manejo y control de todas las ventas registradas dentro del cine, sino que también participará en diversas actividades con el objetivo de promover la compra de sus servicios y productos por parte de los clientes, tales como la venta de comida, boletería, dulcería, etc.
 
-Respecto a estas operaciones, existe un problema relacionado al apartado de boletería, ya que con la llegada de las plataformas de streaming, su público fuente prefiere ver películas vía online en lugar de acudir al cine, lo que reduce considerablemente sus ventas.
+Respecto a estas operaciones, existirá un problema relacionado al apartado de boletería, ya que con la llegada de las plataformas de streaming, su público fuente, prefiere ver películas vía online en lugar de acudir al cine, lo que reduce considerablemente sus ventas.
 
 Basándose en este problema surgirá la necesidad de incrementar sus ventas por medio de una aplicación multiplataforma amigable, segura, estable y fácil de usar que permitirá a los usuarios, que no lograron ver la película en su momento, o que prefieran volver a disfrutar de ella desde la comodidad de su casa, la compra/renta de las películas disponibles en su cartelera.
 
@@ -69,20 +109,18 @@ En el capítulo dos se abordará el diseño y desarrollo del proyecto. Aquí se 
 Finalmente, el capítulo tres se centrará en la implementación y pruebas de la aplicación. Se documentará todo lo relacionado con las interfaces diseñadas en el capítulo dos y se llevarán a cabo las pruebas para garantizar el funcionamiento adecuado del sistema.
 
 ## OBJETIVOS
-### OBJETIVO GENERAL
-Desarrollar una aplicación multiplataforma destinada a mejorar la experiencia de los clientes, permitiéndoles la compra y renta las películas de la cartelera, de modo que aquellos usuarios que no pudieron verlas en el cine puedan disfrutarlas en cualquier momento o durante el período de renta, además el desarrollo de esta aplicación podría incrementar significativamente las ventas del cine.
+### Objetivo General
+Desarrollar una aplicación multiplataforma innovadora, amigable, segura e intuitiva que permita a los clientes de Cinemas AJEM comprar y rentar las películas más recientes de su cartelera desde la comodidad de sus hogares. La aplicación proporcionará una experiencia de usuario única al ofrecer funcionalidades como la creación de listas de reproducción, acumulación de puntos para descuentos, y la opción de dejar opiniones sobre las películas. Con el objetivo de revertir la tendencia a la baja en ventas debido a la popularidad de las plataformas de streaming, esta aplicación se posicionará como una solución integral para incrementar significativamente las ventas del cine y atraer a los usuarios que no lograron ver las películas en el cine o desean volver a disfrutar de ellas en cualquier momento durante el período de renta.
 
-### OBJETIVOS ESPECÍFICOS 
-Realizar la base de datos que almacene la información relacionada con los administradores, clientes y el catálogo de películas, lo cual será fundamental para la codificación y elaboración de las interfaces.
-
-Diseñar las interfaces de los administradores y clientes con un diseño práctico y atractivo, para posteriormente llevar a cabo las pruebas.
-
-Probar la funcionalidad de las interfaces y registrar los errores que puedan ocurrir, con el objetivo de solucionarlos rápidamente y entregar un trabajo de calidad.
+### Objetivos Específicos
+- Realizar la base de datos que almacene la información relacionada con los administradores, clientes y el catálogo de películas, lo cual será fundamental para la codificación y elaboración de las interfaces.
+- Diseñar las interfaces de los administradores y clientes con un diseño práctico y atractivo, para posteriormente llevar a cabo las pruebas.
+- Probar la funcionalidad de las interfaces y registrar los errores que puedan ocurrir, con el objetivo de solucionarlos rápidamente y entregar un trabajo de calidad.
 
 ## PROGRAMA Y CRONOGRAMA
-| **UNIVERSIDAD TECNOLÓGICA DE TECÁMAC DIVISIÓN TIC PROGRAMA DE ESTADÍAS PROFESIONALES** | ![uttect](img_doc/uttec.jpg) |
+| **UNIVERSIDAD TECNOLÓGICA DE TECÁMAC DIVISIÓN TIC PROGRAMA DE ESTADÍAS PROFESIONALES** | ![uttect](img_doc/general/uttec.jpg) |
 | - | - |
-| **PROGRAMA DE TRABAJO** | *FECHA: dd/mm/aaa* |
+| **PROGRAMA DE TRABAJO** | *FECHA: dd/mm/aaaa* |
 
 ### DATOS DEL O DE LA ESTUDIANTE
 | NOMBRE: | Domínguez Zenteno Andrea<br>Garcia Capote Emanuel<br>González Cruz Joel<br>Martínez de la Cruz José Julián<br>Rosales Murillo Jesús Miguel  |
@@ -122,10 +160,10 @@ Probar la funcionalidad de las interfaces y registrar los errores que puedan ocu
 | NOMBRE: | BUTTERPOP |
 | - | - | 
 | DESCRIPCIÓN: | El presente proyecto consiste en la elaboración de una aplicación multiplataforma que sea auxiliar a la empresa Cinemas AJEM, con el fin de incrementar sus ventas y sea de alternativa a los clientes como una forma de ver películas en estreno. |
-| OBJETIVO GENERAL: | Desarrollar una aplicación multiplataforma destinada a mejorar la experiencia de los clientes, permitiéndoles la compra y renta las películas de la cartelera, de modo que aquellos usuarios que no pudieron verlas en el cine puedan disfrutarlas en cualquier momento o durante el período de renta, además el desarrollo de esta aplicación podría incrementar significativamente las ventas del cine. |
-| OBJETIVOS ESPECÍFICOS: | Realizar la base de datos que almacene la información relacionada con los administradores, clientes y el catálogo de películas, lo cual será fundamental para la codificación y elaboración de las interfaces.<br>Diseñar las interfaces de los administradores y clientes con un diseño práctico y atractivo, para posteriormente llevar a cabo las pruebas.<br>Probar la funcionalidad de las interfaces y registrar los errores que puedan ocurrir, con el objetivo de solucionarlos rápidamente y entregar un trabajo de calidad. | 
+| OBJETIVO GENERAL: | Desarrollar una aplicación multiplataforma innovadora, amigable, segura e intuitiva que permita a los clientes de Cinemas AJEM comprar y rentar las películas más recientes de su cartelera desde la comodidad de sus hogares. La aplicación proporcionará una experiencia de usuario única al ofrecer funcionalidades como la creación de listas de reproducción, acumulación de puntos para descuentos, y la opción de dejar opiniones sobre las películas. Con el objetivo de revertir la tendencia a la baja en ventas debido a la popularidad de las plataformas de streaming, esta aplicación se posicionará como una solución integral para incrementar significativamente las ventas del cine y atraer a los usuarios que no lograron ver las películas en el cine o desean volver a disfrutar de ellas en cualquier momento durante el período de renta. |
+| OBJETIVOS ESPECÍFICOS: | Realizar la base de datos que almacene la información relacionada con los administradores, clientes y el catálogo de películas, lo cual será fundamental para la codificación y elaboración de las interfaces.<br><br>Diseñar las interfaces de los administradores y clientes con un diseño práctico y atractivo, para posteriormente llevar a cabo las pruebas.<br><br>Probar la funcionalidad de las interfaces y registrar los errores que puedan ocurrir, con el objetivo de solucionarlos rápidamente y entregar un trabajo de calidad. |
 | ALCANCE(S): | La aplicación podrá usarla administradores de Cinemas AJEM para la gestión de películas en estreno de temporada. De igual forma será adaptada a los usuarios que quieran una alternativa de rentar y/o comprar películas. |
-| META(S): | La aplicación cumplirá en su totalidad a fin de cuatrimestre con las expectativas del cliente, ayudando a la incrementación de sus ventas. |
+| META(S): | La aplicación cumplirá en su totalidad con las expectativas del cliente, ayudando a la incrementación de sus ventas. |
 | RECURSOS: | **Hardware:** Computadoras, memorias USB y router con conexión a internet.<br>**Software:** Android Studio, Visual Studio, PostgreSQL, Testlink, MantisBT. |
 
 ### PLAN DE TRABAJO
@@ -497,100 +535,87 @@ Probar la funcionalidad de las interfaces y registrar los errores que puedan ocu
 </table>
 
 ## MARCO TEÓRICO
-Una aplicación multiplataforma es una pieza de software diseñada para funcionar en multiples sistemas operativos y dispositivos sin la necesidad de diseñar versiones diferentes para cada plataforma. Esto significa que el mismo código fuente puede ser usado en diferentes entornos, tales como: Android, iOS, Windows, macOS, Lunix, entre otros.
+Una aplicación multiplataforma es una pieza de software diseñada para funcionar en múltiples sistemas operativos y dispositivos sin la necesidad de diseñar versiones diferentes para cada plataforma. Esto significa que el mismo código fuente puede ser usado en diferentes entornos, tales como: Android, iOS, Windows, macOS, Linux, entre otros.
 
 En los años 90's, estas aplicaciones surgen como respuesta a la necesidad de las empresas de alcanzar una audiencia más amplia, reducir costos y tiempo de desarrollo. Algunas de las razones por las cuales se usan aplicaciones multiplataforma son.
 
 1. **Diversidad de dispositivos y sistemas operativos**<br>
-Con la proliferación de dispositivos móviles y una amplia variedad de sistemas operativos, presenta el desafio de desarrollar aplicaciones nativas para cada una de las plataformas, lo que implica disponer de multiples equipos de desarrollo, lo que significaba mayores costos y cantidad de tiempo para las empresas en desarrollar dicha aplicacion para cada plataforma.
+Con la proliferación de dispositivos móviles y una amplia variedad de sistemas operativos, presenta el desafío de desarrollar aplicaciones nativas para cada una de las plataformas, lo que implica disponer de múltiples equipos de desarrollo, lo que significaba mayores costos y cantidad de tiempo para las empresas en desarrollar dicha aplicación para cada plataforma.
 
 2. **Eficiencia en el desarrollo**<br>
-Desarrollar una aplicación para cada plataforma es costoso, lento e ineficiente. Las aplicaicones multiplataforma permiten escribir un único código fuente y reutilizarlo en multiples entornos dependiendo de las necesidades y capacidades del dispositivo. Esto acelera en gran medida el desarrollo, facilita el mantenimiento y reduce los costos de la aplicación.
+Desarrollar una aplicación para cada plataforma es costoso, lento e ineficiente. Las aplicaciones multiplataforma permiten escribir un único código fuente y reutilizarlo en múltiples entornos dependiendo de las necesidades y capacidades del dispositivo. Esto acelera en gran medida el desarrollo, facilita el mantenimiento y reduce los costos de la aplicación.
 
 3. **Tecnologías web y móviles**<br>
 El desarrollo de lenguajes, frameworks y herramientas han hecho posible la creación de aplicaciones eficientes en diversas plataformas. estas tecnologías permiten a los desarolladores acceder a características nativas de cada sistema operativo con un solo código fuente.
 
 4. **Demanda del mercado**<br>
-Los consumidores esperan que las aplicaciones esten disponibles en sus dispositivos y estos mismos pueden variar de persona a persona. Las empresan desean llegar a audiencias cada vez más grandes, por lo que necesitan asegurarse de que sus aplicaciones esten disponibles para la mayor cantidad de dispositivos y plataformas posibles para así cumplir con los objetivos planteados por la propia empresa.
+Los consumidores esperan que las aplicaciones estén disponibles en sus dispositivos y estos mismos pueden variar de persona a persona. Las empresas desean llegar a audiencias cada vez más grandes, por lo que necesitan asegurarse de que sus aplicaciones estén disponibles para la mayor cantidad de dispositivos y plataformas posibles para así cumplir con los objetivos planteados por la propia empresa.
 
-Larraín (2023) expone que "La gente ve más contenidos y conoce las plataformas, eso es lo positivo, pero lo negativo es que por un tiempo estuvieron los cines cerrados y eso produjo un cambio cultural en cómo la gente se relaciona con la idea de ir al cine. Hoy en día las personas prefieren consumir contenido de entretenimiento mediante plataformas de streaming a través de sus dispositivos móviles ya que además de la comodidad, le brindan una experiencia al usuario." La experiencia del usuario es fundamental en este tipo de aplicaciones. Una interfaz amigable, intuitiva y segura puede mejorar significativamente la satisfacción del usuario y fomentar su lealtad. 
+Para el desarrollo de este proyecto se utilizarán diversos lenguajes de programación y herramientas de diseño y prueba que permitirán la implementación de la lógica del cliente y las funcionalidades esenciales de la aplicación multiplataforma, entre las cuales se incluyen:
 
-El área de desarrollo de software multiplataforma es justamente, el área que permite crear este tipo de aplicaciones que funcionan en diversos dispositivos y sistemas operativos, optimizando los recursos y alcanzando a una mayor audiencia. Herramientas como Xamarin son populares en este ámbito, proporcionando soluciones eficientes y de alta calidad.
+**Visual Studio**
+<br>Microsoft Visual Studio es un entorno de desarrollo integrado (IDE, por sus siglas en inglés) para Windows y macOS. Es compatible con múltiples lenguajes de programación, tales como C++, C#, Fortran, Visual Basic .NET, F#, Java, Python, Ruby y PHP, al igual que entornos de desarrollo web, como ASP.NET MVC, Django, etc.
+<br>Se hará uso de este entorno para desarrollar la aplicación, compilar y depurarla.
 
-En cuanto a la atracción y retención audiencia, en la industria del entretenimiento, es crucial diversificar los productos y servicios para atraer a diferentes segmentos de clientes. Ofrecer descuentos y cupones a través de la plataforma es una estrategia efectiva para lograrlo.
-
-Para desarrollar una aplicación multiplataforma, eficiente, atractiva y escalable se hará uso de las siguientes herramientas y tecnologías:
-
-Apache NetBeans
-<br>Es un entorno de desarrollo, plataforma de herramientas y marco de aplicación.
-<br>Se utilizará este entorno de desarrollo debido a su completo entorno de ejecución y asistencias de depuración.
-
-Visual Studio Code
-<br>Es un editor de código fuente liviano pero potente que se ejecuta en el escritorio y está disponible para Windows macOS y Linux. Viene con un soporte integrado para JavaScript TypeScript y Node.js y tiene un rico ecosistema de extensiones para otros lenguajes y tiempos de ejecución, como C++, C#, Java, Python, PHP, Go y .Net.
-<br>Se hará uso de esta herramienta debido a su flexibilidad, simpleza y su soporte para diferentes lenguajes de programación.
-
-Android Studio
-<br>Es el IDE oficial para el desarrollo de Android e incluye todo lo necesario para compilar Apps para Android.
-<br>Se empleará este entorno de desarrollo debido a que se debe garantizar la compatibilidad con dispositivos Android además de facilitar su desarrollo para las mismas.
-
-Xamarin
-<br>Es un marco de interfaz de usuario de código abierto. Xamarin.froms permite a los desarrolladores compilar aplicaciones en xamarin, Android y xamarin.ios y Windows desde un código base compartido. Xamarin.forms permite a los desarrolladores crear interfaces de usuario XAML con código subyacente en C#. Estas interfaces se representan como controles nativos con mejor rendimiento en cada plataforma.
+**Xamarin**
+<br>Es un marco de interfaz de usuario de código abierto. Xamarin.froms permite a los desarrolladores compilar aplicaciones en Xamarin, Android y xamarin.ios y Windows desde un código base compartido. Xamarin.forms permite a los desarrolladores crear interfaces de usuario XAML con código subyacente en C#. Estas interfaces se representan como controles nativos con mejor rendimiento en cada plataforma.
 <br>Se utilizará este Framework ya que es requisito que la aplicación sea multiplataforma, usando como entorno de desarrollo Android Studio para posteriormente ser compilada a diversos sistemas operativos móviles de manera sencilla, rápida y eficiente.
 
-git
-<br>Es un sistema de control de versiones distribuido, cada desarrollador tiene una copia integral del mismo. A diferencia de los sistemas de control de versiones centralizados los DVCS necesitan una conexión constante a un repositorio central. Git es un sistema de control de versiones distribuido mas popular y se utiliza el desarrollo de proyectos de código abierto.
+**C#**
+<br>Es un lenguaje de programación multiparadigma desarrollado por Microsoft, que evoluciona de la familia de lenguajes C, toma lo mejor de los lenguajes C y C++, los cuales se asemejan mucho a lenguajes de alto nivel de abstracción como Java y JavaScript. Forma parte de la plataforma .NET de Microsoft.
+<br>Se usará este lenguaje de programación para desarrollar un código general, el cual posteriormente será compilado por XAMARIN para Android e iOS.
+
+**XAML**
+<br>El lenguaje de marcado de aplicaciones extensible (XAML) es un lenguaje declarativo. En concreto, XAML puede inicializar objetos y establecer propiedades de objetos mediante una estructura de lenguaje que muestra relaciones jerárquicas entre varios objetos y una convención de tipo de respaldo que admite la extensión de tipos. Puedes crear elementos visibles de la interfaz de usuario en el marcado XAML declarativo. A continuación, puedes asociar un archivo de código subyacente distinto para cada archivo XAML que puede responder a eventos y manipular los objetos que originalmente declares en XAML.
+<br>Se empleará este lenguaje de marcado para diseñar las interfaces de la aplicación.
+
+**Git**
+<br>Es un sistema de control de versiones distribuido, cada desarrollador tiene una copia integral del mismo. A diferencia de los sistemas de control de versiones centralizados los DVCS necesitan una conexión constante a un repositorio central. Git es un sistema de control de versiones distribuido más popular y se utiliza el desarrollo de proyectos de código abierto.
 <br>Se hará uso de esta herramienta para facilitar y agilizar un flujo colaborativo para el equipo, además de mejorar el versionado del proyecto y aumentar la eficiencia de correcciones, implementaciones y reducir tiempos de desarrollo.
 
-MongoBD
-<br>Es una base de datos de documentos que ofrece una gran escalabilidad y flexibilidad y un modelo de consultas e indexación avanzada.
-<br>Se hará uso de este gestor de base de datos no relacional para poder almacenar grandes volúmenes de datos cuya información no sea sensible.
-
-PostgreSQL
-<br>Es potente sistema de base de datos relacional de objetos de código abierto con mas de 35 datos de desarrollo activo que le ha ganado una sólida reputación por su confiabilidad solidez de funciones y rendimiento. 
-<br>Se empleará este gestor de base de datos relacional para tener un control preciso de aquellos registros que requieran ser protegidos ya que estos pueden presentar información sensible.
-
-StarUML
+**StarUML**
 <br>Es un sofisticado modelador de software destinado a soportar un modelado ágil y conciso.
-<br>Se utilizará este programa para modelar diagramas de casos de uso, de secuencia, actividades, entre otros, para sustentar el desarrollo del proyecto. 
+<br>Se utilizará este programa para modelar diagramas de casos de uso, de secuencia, actividades, entre otros, para sustentar el desarrollo del proyecto.
 
-Testlink
+**Testlink**
 <br>Es un sistema de gestión de pruebas basado en la web que facilita el control de calidad del software. Ofrece soporte para casos de prueba, conjuntos de pruebas, planes de pruebas, proyectos de prueba y gestión de usuarios, así como diversos informes y estadísticas.
 <br>Se usará este programa en la fase de pruebas para así garantizar la calidad, funcionabilidad y consistencia de comportamiento del proyecto, para así hacer las respectivas correcciones o robustecer el proyecto o ciertas partes de este.
 
-MantisBT
+**MantisBT**
 <br>Es un software que constituye una solución completa para gestionar tareas en un equipo de trabajo. Es una aplicación OpenSource que se utiliza para probar soluciones automatizadas, llevando un registro histórico de las alteraciones y gestionando equipos de trabajo de forma remota.
 <br>Se empleará este software para tener un control de las fallas que pueda presentar la aplicación y tener un registro de dichas fallas y como se podrían solucionar.
 
-Java
-<br>Es un lenguaje de programación de alto nivel, compilado y caracterizado por su enfoque en la orientación a objetos, lo que facilita la creación de aplicaciones modulares y fomenta la reutilización de código.
-<br>Se utilizará este lenguaje debido a su potencia y consistencia en la sintaxis además de permitir el uso de las Java Server Pages.
+**Figma**
+<br>Figma es un editor de gráficos vectoriales y una herramienta de generación de prototipos, principalmente basada en la web, con características offline adicionales habilitadas por aplicaciones de escritorio en macOS y Windows. Permite a los diseñadores colaborar en tiempo real, lo cual es ideal para equipos distribuidos geográficamente. Esta herramienta es conocida por su capacidad de mantener un flujo de trabajo eficiente gracias a sus funciones de coedición y comentarios en vivo. Además, Figma soporta la creación de componentes reutilizables, lo que facilita la consistencia en el diseño de la interfaz de usuario.
+<br>Se usará este programa para realizar el maquetado del diseño de interfaces.
 
-JavaScript
-<br>Es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico.
-<br>Se utilizará este lenguaje en el front-end o del lado del cliente para aportar un mayor dinamismo a la aplicación además de reducir costos de procesamiento y energéticos a o los servidores que se vayan a emplear.
+**`pendientes de confirmación`**<br>
+**JavaScript**
+<br>Es un lenguaje de programación ligero, interpretado, de dialecto del estándar ECMAScript con funciones de primera clase. Si bien es más conocido como un lenguaje de secuencias de comandos para páginas web, y es usado en muchos entornos fuera del navegador, es un lenguaje de programación basado en prototipos, multiparadigma, de un solo hilo, dinámico, con soporte para programación orientada a objetos, imperativo, declarativo, débilmente tipado y dinámico. 
+<br>Se utilizará este lenguaje del lado del cliente para aportar un mayor dinamismo a la aplicación además de reducir costos de procesamiento y energéticos a o los servidores que se vayan a emplear.
 
-HTML 5
-<br>El Hypertext Markup Language (HTML), en su quinta edición (HTML5), es el lenguaje de marcado estándar utilizado en la construcción y diseño de websites. Debido a su versatilidad, estabilidad y soporte universal.
-<br>Se hará uso de este lenguaje para definir la estructura de cada una de las interfaces de la aplicación debido a su modelo de cajas.
+**JSP**
+<br>La tecnología Java Server Pages permite generar contenido Web dinámico como, por ejemplo, archivos HTML, DHTML, XHTML y XML, para incluirlos en una aplicación Web. Los archivos JSP son una forma de implementar contenido de páginas dinámico del lado del servidor. Los archivos JSP permiten a un servidor Web como, por ejemplo, Apache Tomcat, añadir contenido dinámicamente a las páginas HTML antes de enviarlas al navegador que las solicita.
+<br>Cuando se despliega un archivo JSP en un servidor Web que proporciona un motor de servlets, se procesa previamente en un servlet que se ejecuta en el servidor. Esto contrasta con JavaScript™ en el lado del cliente (dentro de códigos <\SCRIPT>), que se ejecuta en un navegador. Una página JSP resulta ideal para tareas para tareas cuya ejecución es más adecuada en el servidor como, por ejemplo, acceder a bases de datos.
 
-CSS 3
-<br>Cascade Style Sheet u "Hojas de Estilo en Cascada", se trata de la tercera revisión del lenguaje de hoja de estilos utilizado para describir la presentación de un documento escrito en HTML o XML (incluyendo formatos XML como SVG, XHTML o MathML). El CSS3 es una actualización significativa de la versión anterior, CSS2, e introduce una serie de nuevas características y mejoras.
-<br>Se utilizará esta tecnología para definir estilo a las interfaces y estas resulten ser agradables y atractivas para los usuarios, además de que esta presenta diversas opciones y funciones integradas que desencadenan en una enorme variedad de diseños.
+**CSS3**
+<br>Hojas de Estilo en Cascada (del inglés Cascading Style Sheets) o CSS es el lenguaje de estilos utilizado para describir la presentación de documentos HTML o XML (incluyendo varios lenguajes basados en XML como SVG, MathML o XHTML). CSS describe cómo debe ser renderizado el elemento estructurado en la pantalla, en papel, en el habla o en otros medios. Es muy usado para establecer el diseño visual de los documentos web e interfaces de usuario escritas en HTML La última versión de este lenguaje, CSS3, incrementó significativamente el alcance de las especificaciones y el progreso de los diferentes módulos de CSS comenzó a mostrar varias diferencias, lo que hizo más efectivo desarrollar y publicar recomendaciones separadas por módulos.
 
-JSP
-<br>JavaServer Pages (JSP) es una tecnología que ayuda a los desarrolladores de software a generar contenido web dinámico, interactivo, y basado en HTML, XML o cualquier otro tipo de documento dinámico.
-
-PHP
+**PHP**
 <br>Es un lenguaje de programación de código abierto, ampliamente utilizado por desarrolladores web y es el fundamento de muchas plataformas robustas. Proporciona una forma eficiente y eficaz de desarrollar sitios web dinámicos e interactivos.
 <br>Se utilizará este lenguaje en el lado del back-end debido a su tipado dinámico y rápida implementación en el mismo.
 
-Node.js
+**Node.js**
 <br>Es un entorno de ejecución de JavaScript que se utiliza para desarrollar aplicaciones de servidor. Impulsado por el motor V8 de Google, Node.js utiliza un modelo de programación orientado a eventos y entradas/salidas (I/O) no bloqueantes, lo que lo hace ligero y eficiente, perfecto para aplicaciones en tiempo real con intercambio intenso de datos a través de dispositivos distribuidos.
-<br>Se utilizará este lenguaje debido a que su sintaxis es idéntica a la de JavaScrip por lo que su implementación en el lado del back-end o del servidor será rápida, eficiente y potente.
+<br>Se utilizará este entorno de ejecución debido a que su sintaxis es idéntica a la de JavaScript por lo que su implementación en el lado del back-end o del servidor será rápida, eficiente y potente.
 
-Figma
-<br>Figma es un editor de gráficos vectorial y una herramienta de generación de prototipos, principalmente basada en la web, con características off-line adicionales habilitadas por aplicaciones de escritorio en macOS y Windows.
-<br>Se usará este programa para realizar el maquetado de diseño de interfaces.
+**MongoBD**
+<br>Es una base de datos de documentos que ofrece una gran escalabilidad y flexibilidad y un modelo de consultas e indexación avanzada. 
+<br>Se hará uso de este gestor de base de datos no relacional para poder almacenar grandes volúmenes de datos cuya información no sea sensible.
+
+**PostgreSQL**
+<br>Es potente sistema de base de datos relacional de objetos de código abierto con más de 35 datos de desarrollo activo que le ha ganado una sólida reputación por su confiabilidad solidez de funciones y rendimiento. 
+<br>Se empleará este gestor de base de datos relacional para tener un control preciso de aquellos registros que requieran ser protegidos ya que estos pueden presentar información sensible.
 
 ## METODOLOGÍA
 Dentro del ámbito del desarrollo de aplicaciones móviles, elegir una metodología se toma de gran importancia, debido a que el equipo se puede sincronizar y planificar las fases del proyecto con mayor facilidad.
@@ -599,7 +624,7 @@ La metodología implementada a este proyecto es Mobile-D dada la preferencia en 
 
 Las fases de Mobile-D se basan en un modelo de planificación y entrega:
 
-Fase de exploración: Aquí se define el alcance del proyecto con planificación y atención a los conceptos básicos del proyecto. La aplicación se enfoca al mundo del entretenimiento, por lo que conocer las funcionalidades cercanas a los usuarios no es complejo.
+Fase de exploración: Aquí se define el alcance del proyecto con planificación y atención a los conceptos básicos del proyecto. Nuestra aplicación se enfoca al mundo del entretenimiento, por lo que conocer las funcionalidades cercanas a los usuarios no es complejo.
 
 Fase de iniciación: En esta fase, se preparan los materiales, software y hardware para empezar el proyecto, teniendo un plazo de planificación y el resto de trabajo.
 
@@ -610,9 +635,9 @@ Fase de estabilización: Se realiza la integración del proyecto, es decir, mód
 Fase de pruebas: Una vez pasada una prueba general de la aplicación, se llega a un plazo de testeo hasta llegar a una versión adecuada a las necesidades del cliente y funcionalidades requeridas por el mismo. Se corrigen fallos, se documentan, pero no se agrega más funcionalidades.
 
 ---
-## CAPITULO 1 RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS
+## CAPÍTULO: 1 RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS
 ### 1.1 Nececidades del cliente
-El departamento de ventas de Cinemas AJEM necesita una aplicación multiplataforma llamada "ButterPop" que abarque tanto la compra y renta de las películas más recientes de su cartelera, como la interacción con los usuarios, brindándoles una experiencia amigable. Por lo que proponen que la misma cuente con dos interfaces clave para lograr esto.
+El departamento de ventas de Cinemas AJEM necesita una aplicación multiplataforma llamada "ButterPop" que abarque tanto la compra y renta de las películas más recientes de su cartelera, como la interacción con los usuarios, brindándoles una experiencia amigable. Por lo que proponen que la misma cuente con dos interfaces clave para lograr esto. 
 
 La primera interfaz está destinada a administradores y superadministradores. Permite la gestión eficiente del catálogo de películas del cine. Los administradores pueden introducir información como la imagen relacionada a la película, el género, duración, título, clasificación, y precio.
 
@@ -683,13 +708,13 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 ### 1.6 Requerimientos De Software
 - Conexión a internet por medio del router con mínima velocidad de 61,82 Mb/s.
 - PostgreSQL: Será el gestor de base de datos del proyecto, dada la estructura que facilita a las bases de datos relacionales.
-- Android Studio: Para la realización de la aplicación, tanto diseño como programación con modelo MVC.
-- Apache NetBeans: Para la escritura de etiquetado HTML, CSS y JavaScript.
+- Visual Studio: Para el desarrollo general de la aplicación, así como su compilación y depuración.
+- Xamarin: Para la compilación de la aplicación en plataformas móviles como Android e iOS.
 - Testlink: Gestor de casos de prueba en función de requisitos del cliente.
 - MantisBT: Funcionará como gestor de reportes de errores o fallos de funcionalidad u ortográficos.
 
 ### 1.7 Diagrama General De Casos De Uso
-![diagrama general](img_doc/diagramaGeneral.jpg)
+![diagrama general](img_doc/cap1/_7/DGeneral.jpg)
 
 ### 1.8 Especificación De Los Casos De Uso
 <table>
@@ -921,11 +946,11 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>9</td>
-        <td>El sistema realizará el cobro bajo el concepto "Cinemex – renta – {nombre de la película}, 30 días"</td>
+        <td>El sistema realizará el cobro bajo el concepto "BUTTERPOP - renta - {nombre de la película}, 30 días"</td>
     </tr>
     <tr>
         <td>10</td>
-        <td>El sistema mostrará un mensaje: "Transacción realizada exitosamente, revisa tu lista privada ‘mis películas rentadas’ o haz click aquí para ver la película que acabas de rentar".</td>
+        <td>El sistema mostrará un mensaje: "Transacción realizada exitosamente, revisa tu lista privada 'mis películas rentadas' o haz click aquí para ver la película que acabas de rentar".</td>
     </tr>
     <tr>
         <td rowspan="5">Flujo alternativo</td>
@@ -938,7 +963,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>6.1</td>
-        <td>En caso de los datos ingresados no se puedan validar mostrára un mesaje indicando que ocurrío un problema al verificar los datos</td>
+        <td>En caso de los datos ingresados no se puedan validar mostrará un mensaje indicando que ocurrió un problema al verificar los datos</td>
     </tr>
     <tr>
         <td>9.1</td>
@@ -1198,7 +1223,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
         <td>El sistema muestra la interfaz de "Mis listas".</td>
     </tr>
     <tr>
-        <td colspan="2">Actualizar Lista</td>
+        <td colspan="2">Eliminar Lista</td>
     </tr>
     <tr>
         <td>15</td>
@@ -1374,22 +1399,549 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ### 1.9 Diagramas de secuencia
 #### Inicio de sesión
-![DS inicio de sesión]()
+![DS inicio de sesión](img_doc/cap1/_9/DSSesion.jpg)
 
 #### Registrar usuarios
-![DS registrar usuario]()
+![DS registrar usuario](img_doc/cap1/_9/DSRegistrar.jpg)
 
 #### Rentar película
-![DS rentar película](img_doc/Rentar_pelicula_v1.1.jpg)
+![DS rentar película](img_doc/cap1/_9/DSRentar.jpg)
 
 #### Gestionar lista
-![DS gestionar lista](img_doc/diagrama%20listas.jpg)
+![DS gestionar lista](img_doc/cap1/_9/DSListas.jpg)
 
 #### Puntuar película
-![DS puntuar película]()
+![DS puntuar película](img_doc/cap1/_9/DSPuntuar.jpg)
 
 #### Comentar película
-![DS comentar película]()
+![DS comentar película](img_doc/cap1/_9/DSComentar.jpg)
 
 ### 1.10 Diagrama de actividades
-![diagrama de actividades]()
+![diagrama de actividades](img_doc/cap1/_10/DActividades.jpg)
+
+## CAPÍTULO 2: DISEÑO Y DESARROLLO DEL PROYECTO
+### 2.1 Diagrama de la Base de Datos (relacional)
+![diagrama relacional de la base de datos]()
+
+### 2.2 Diccionario de Datos
+<table>
+    <tr>
+        <td colspan="5">TB PELICULA</td>
+    </tr>
+    <tr>
+        <td>Campo</td>
+        <td>Tipo</td>
+        <td>Extención</td>
+        <td>Restricción</td>
+        <td>Observaciones</td>
+    </tr>
+    <tr>
+        <td>id_pelicula</td>
+        <td>serial</td>
+        <td>N/A</td>
+        <td>PK</td>
+        <td>Llave primaria de película</td>
+    </tr>
+    <tr>
+        <td>correo_admin</td>
+        <td>varchar</td>
+        <td>30</td>
+        <td>FK</td>
+        <td>Llave foránea del administrador que gestiona la película de la tabla administrador</td>
+    </tr>
+    <tr>
+        <td>titulo</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td>N/A</td>
+        <td>Título de la película</td>
+    </tr>
+    <tr>
+        <td>genero</td>
+        <td>varchar</td>
+        <td>30</td>
+        <td>N/A</td>
+        <td>Género de la película</td>
+    </tr>
+    <tr>
+        <td>clasificacion</td>
+        <td>varchar</td>
+        <td>30</td>
+        <td>N/A</td>
+        <td>Clasificación de la película</td>
+    </tr>
+    <tr>
+        <td>duracion</td>
+        <td>float</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Duración de la película (HH.MM)</td>
+    </tr>
+    <tr>
+        <td>archivo</td>
+        <td>bytea</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Archivo de la película</td>
+    </tr>
+    <tr>
+        <td>precio</td>
+        <td>float</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Precio de la renta de la película</td>
+    </tr>
+    <tr>
+        <td>portada</td>
+        <td>bytea</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Portada de la película</td>
+    </tr>
+</table>
+
+---
+
+<table>
+    <tr>
+        <td colspan="5">TB RENTA</td>
+    </tr>
+    <tr>
+        <td>Campo</td>
+        <td>Tipo</td>
+        <td>Extención</td>
+        <td>Restricción</td>
+        <td>Observaciones</td>
+    </tr>
+    <tr>
+        <td>id_renta</td>
+        <td>serial</td>
+        <td>N/A</td>
+        <td>PK</td>
+        <td>Llave primaria de renta</td>
+    </tr>
+    <tr>
+        <td>correo_cliente</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td>FK</td>
+        <td>Llave foránea del cliente que renta la película de la tabla cliente</td>
+    </tr>
+    <tr>
+        <td>id_pelicula</td>
+        <td>int</td>
+        <td>N/A</td>
+        <td>FK</td>
+        <td>Llave foránea de la película de la tabla pelicula</td>
+    </tr>
+    <tr>
+        <td>fecha_renta</td>
+        <td>timestamp</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Fecha y hora en la que se registra la renta</td>
+    </tr>
+</table>
+
+---
+
+<table>
+    <tr>
+        <td colspan="5">TB COMENTAR</td>
+    </tr>
+    <tr>
+        <td>Campo</td>
+        <td>Tipo</td>
+        <td>Extención</td>
+        <td>Restricción</td>
+        <td>Observaciones</td>
+    </tr>
+    <tr>
+        <td>id_comentario</td>
+        <td>serial</td>
+        <td>N/A</td>
+        <td>PK</td>
+        <td>Llave primaria de comentar</td>
+    </tr>
+    <tr>
+        <td>correo_cliente</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td>FK</td>
+        <td>Llave foránea del cliente de la tabla cliente</td>
+    </tr>
+    <tr>
+        <td>comentario</td>
+        <td>varchar</td>
+        <td>100</td>
+        <td>N/A</td>
+        <td>Contenido del comentario</td>
+    </tr>
+    <tr>
+        <td>puntuacion</td>
+        <td>float</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Puntuación de la película (0.0 - 5.0)</td>
+    </tr>
+</table>
+
+---
+
+<table>
+    <tr>
+        <td colspan="5">TB CONTIENE</td>
+    </tr>
+    <tr>
+        <td>Campo</td>
+        <td>Tipo</td>
+        <td>Extención</td>
+        <td>Restricción</td>
+        <td>Observaciones</td>
+    </tr>
+    <tr>
+        <td>id_contiene</td>
+        <td>serial</td>
+        <td>N/A</td>
+        <td>PK</td>
+        <td>Llave primaria de contiene</td>
+    </tr>
+    <tr>
+        <td>id_lista</td>
+        <td>int</td>
+        <td>N/A</td>
+        <td>FK</td>
+        <td>Llave foránea de la lista de la tabla lista</td>
+    </tr>
+    <tr>
+        <td>id_pelicula</td>
+        <td>int</td>
+        <td>N/A</td>
+        <td>FK</td>
+        <td>Llave foránea de la pelicula de la tabla pelicula</td>
+    </tr>
+</table>
+
+---
+
+<table>
+    <tr>
+        <td colspan="5">TB CLIENTE</td>
+    </tr>
+    <tr>
+        <td>Campo</td>
+        <td>Tipo</td>
+        <td>Extención</td>
+        <td>Restricción</td>
+        <td>Observaciones</td>
+    </tr>
+    <tr>
+        <td>correo_cliente</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td>PK</td>
+        <td>Llave primaria del cliente</td>
+    </tr>
+    <tr>
+        <td>contrasena</td>
+        <td>varchar</td>
+        <td>20</td>
+        <td>N/A</td>
+        <td>Hash de la contraseña del cliente</td>
+    </tr>
+    <tr>
+        <td>usuario</td>
+        <td>varchar</td>
+        <td>30</td>
+        <td>N/A</td>
+        <td>Nombre de usuario del cliente</td>
+    </tr>
+    <tr>
+        <td>no_cuenta</td>
+        <td>varchar</td>
+        <td>16</td>
+        <td>N/A</td>
+        <td>Número de cuenta bancario del cliente</td>
+    </tr>
+</table>
+
+---
+
+<table>
+    <tr>
+        <td colspan="5">TB LISTA</td>
+    </tr>
+    <tr>
+        <td>Campo</td>
+        <td>Tipo</td>
+        <td>Extención</td>
+        <td>Restricción</td>
+        <td>Observaciones</td>
+    </tr>
+    <tr>
+        <td>id_lista</td>
+        <td>serial</td>
+        <td>N/A</td>
+        <td>PK</td>
+        <td>Llave primaria de lista</td>
+    </tr>
+    <tr>
+        <td>correo_cliente</td>
+        <td>varchar</td>
+        <td>50</td>
+        <td>FK</td>
+        <td>Llave foránea del cliente de tabla cliente</td>
+    </tr>
+    <tr>
+        <td>nombre</td>
+        <td>varchar</td>
+        <td>30</td>
+        <td>N/A</td>
+        <td>Nombre de la lista</td>
+    </tr>
+    <tr>
+        <td>descripcion</td>
+        <td>varchar</td>
+        <td>100</td>
+        <td>N/A</td>
+        <td>Descripción de la lista</td>
+    </tr>
+    <tr>
+        <td>imagen</td>
+        <td>bytea</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Imagen de la lista</td>
+    </tr>
+</table>
+
+---
+
+<table>
+    <tr>
+        <td colspan="5">TB ADMINISTRADOR</td>
+    </tr>
+    <tr>
+        <td>Campo</td>
+        <td>Tipo</td>
+        <td>Extención</td>
+        <td>Restricción</td>
+        <td>Observaciones</td>
+    </tr>
+    <tr>
+        <td>correo_admin</td>
+        <td>serial</td>
+        <td>N/A</td>
+        <td>PK</td>
+        <td>Llave primaria del administrador</td>
+    </tr>
+    <tr>
+        <td>contrasena</td>
+        <td>varchar</td>
+        <td>20</td>
+        <td>N/A</td>
+        <td>Hash de la contraseña del administrador</td>
+    </tr>
+</table>
+
+### 2.3 Diseño de Pruebas
+Diseño de pruebas por partición de equivalencia es una técnica utilizada en pruebas de software para dividir el dominio de entrada de un programa en clases de equivalencia. Cada clase representa un conjunto de valores de entrada que se espera que el software trate de manera similar. Las pruebas se realizan seleccionando al menos un valor de cada clase, con el objetivo de reducir el número de casos de prueba necesarios mientras se mantiene una cobertura efectiva del comportamiento del sistema.
+
+
+**`puedes copiar y pegar esta tabla`**
+<table>
+    <tr>
+        <td>CONDICIONES DE ENTRADA</td>
+        <td>REGLA EUCARÍSTICA</td>
+        <td>CLASES VÁLIDAS</td>
+        <td>CLASES NO VÁLIDAS</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+</table>
+
+#### INICIAR SESIÓN / REGISTRARSE
+##### TABLAS DE CONSIGNACIÓN
+
+<table>
+    <tr>
+        <td>CONDICIONES DE ENTRADA</td>
+        <td>REGLA EUCARÍSTICA</td>
+        <td>CLASES VÁLIDAS</td>
+        <td>CLASES NO VÁLIDAS</td>
+    </tr>
+    <tr>
+        <td rowspan="9">CREDENCIALES DE INICIO DE SESIÓN</td>
+        <td rowspan="2">VALOR ESPECÍFICO</td>
+        <td rowspan="2">1. CONTRASEÑA = 8 CARACTERES</td>
+        <td>2. CONTRASEÑA > 8 CARACTERES</td>
+    </tr>
+    <tr>
+        <td>3. CONTRASEÑA < 8 CARACTERES</td>
+    </tr>
+    <tr>
+        <td rowspan = "4">CONJUNTO</td>
+        <td>4. AL MENOS UN NÚMERO</td>
+        <td>5. SIN NÚMEROS</td>
+    </tr>
+    <tr>
+        <td>6. AL MENOS UNA MINUSCULA</td>
+        <td>7. SIN MINUSCULAS</td>
+    </tr>
+    <tr>
+        <td>8. AL MENOS UNA MAYUSCULA</td>
+        <td>9. SIN MAYUSCULAS</td>
+    </tr>
+    <tr>
+        <td>10. UN SÍMBOLO</td>
+        <td>11. SIN SÍMBOLO</td>
+    </tr>
+    <tr>
+        <td rowspan="3">BOOLEANO</td>
+        <td>12. CORREO VÁLIDO</td>
+        <td>13. CORREO INVÁLIDO</td>
+    </tr>
+    <tr>
+        <td>14. EXISTE EN BD</td>
+        <td>15. NO EXISTE EN BD</td>
+    </tr>
+    <tr>
+        <td>16. CONTRASEÑA CORRECTA</td>
+        <td>17. CONTRASEÑA INCORRECTA</td>
+    </tr>
+</table>
+
+##### CLASES VÁLIDAS
+| NO. CASO | CREDENCIALES DE INICIO | CLASES VÁLIDAS |
+| - | - | - |
+| 1 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** juLian@1 | 1, 4, 6, 8, 10, 12, 14, 16 |
+
+##### CLASES NO VÁLIDAS
+| NO. CASO | CREDENCIALES DE INICIO | CLASES INVÁLIDAS |
+| - | - | - |
+| 2 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** Juli@n789 | 2, 4, 6, 8, 10, 12, 14, 17 |
+| 3 | **Correo:** alanfugas@gmail.com **Contraseña:** Al@n4 | 3, 4, 6, 8, 10, 12, 14, 17 |
+| 4 | **Correo:** elvale@gmail.com **Contraseña:** Val@ntin | 1, 5, 6, 8, 10, 12, 14, 17 |
+| 5 | **Correo:** elvale@gmail.com **Contraseña:** VAL@NT1N | 1, 4, 7, 8, 10, 12, 14, 17 |
+| 6 | **Correo:** elvale@gmail.com **Contraseña:** val@nt1n | 1, 4, 6, 9, 10, 12, 14, 17 |
+| 7 | **Correo:** elvale@gmail.com **Contraseña:** Valent1n | 1, 4, 6, 8, 11, 12, 14, 17 |
+| 8 | **Correo:** elvale@gmail.com **Contraseña:** 12345678 | 1, 4, 7, 9, 11, 12, 14, 17 |
+| 9 | **Correo:** elvalegmail.com **Contraseña:** Juli@n7 | 1, 4, 6, 8, 10, 13, 15, 17 |
+| 10 | **Correo:** elvale1@gmail.com **Contraseña:** Juli@n7 | 1, 4, 6, 8, 10, 15, 17 |
+| 11 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** Juli@n7 | 1, 4, 6, 8, 10, 14, 17 |
+
+##### CASOS DE PRUEBA
+
+| NO. CASO | CREDENCIALES DE INICIO | RESULTADOS ESPERADOS | RESULTADOS REALES |
+| - | - | - | - |
+| 1 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** juLian@1 | El sistema verifica las credenciales de inicio de sesión y manda al usuario a la interfaz principal | |
+| 2 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** Juli@n789 | El sistema muestra mensaje "Contraseña no cumple con los requisitos" y regresa al usuario a la interfaz de inicio de sesión | |
+| 3 | **Correo:** alanfugas@gmail.com **Contraseña:** Al@n4 | El sistema muestra mensaje "Contraseña no cumple con los requisitos" y regresa al usuario a la interfaz de inicio de sesión | |
+| 4 | **Correo:** elvale@gmail.com **Contraseña:** Val@ntin | El sistema muestra mensaje "Contraseña no cumple con los requisitos" y regresa al usuario a la interfaz de inicio de sesión | |
+| 5 | **Correo:** elvale@gmail.com **Contraseña:** VAL@NT1N | El sistema muestra mensaje "Contraseña no cumple con los requisitos" y regresa al usuario a la interfaz de inicio de sesión | |
+| 6 | **Correo:** elvale@gmail.com **Contraseña:** val@nt1n | El sistema muestra mensaje "Contraseña no cumple con los requisitos" y regresa al usuario a la interfaz de inicio de sesión | |
+| 7 | **Correo:** elvale@gmail.com **Contraseña:** Valent1n | El sistema muestra mensaje "Contraseña no cumple con los requisitos" y regresa al usuario a la interfaz de inicio de sesión | |
+| 8 | **Correo:** elvale@gmail.com **Contraseña:** 12345678 | El sistema muestra mensaje "Contraseña no cumple con los requisitos" y regresa al usuario a la interfaz de inicio de sesión | |
+| 9 | **Correo:** elvalegmail.com **Contraseña:** Juli@n7 | El sistema muestra mensaje "El correo ingresado no es un correo valido" y regresa al usuario a la interfaz de inicio de sesión | |
+| 10 | **Correo:** elvale1@gmail.com **Contraseña:** Juli@n7 | El sistema muestra mensaje "No se pudo localizar la cuenta ingresada" y regresa al usuario a la interfaz de inicio de sesión | |
+| 11 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** Juli@n7 | El sistema muestra mensaje "Contraseña incorrecta" y regresa al usuario a la interfaz de inicio de sesión | |
+
+---
+
+#### ELIMINAR LISTA
+##### TABLAS DE CONSIGNACIÓN
+| Condiciones de entrada | Regla heurística | Clases válidas | Clases no válidas |
+| - | - | - | - |
+| Listas | Booleano | 1. Lista en la base de datos | 2. No está en la base de datos |
+
+##### CLASES VÁLIDAS
+| No. Caso | Lista | Clases válidas |
+| - | - | - |
+| 1 | **Lista:** Está en la base de datos | 1 |
+
+##### CLASES NO VÁLIDAS
+| No. Caso | Lista | Clases inválidas |
+| - | - | - |
+| 2 | **Lista:** No está en la base de datos | 2 |
+
+##### CASOS DE PRUEBA
+| No. Caso | Lista | Resultados esperados | Resultados reales |
+| - | - | - | - |
+| 1 | Lista "Mis favoritos" (Base de datos) | Se elimina la lista de la interfaz del usuario y de la base de datos | |
+| 2 | Lista "Para ver con la familia" (No está en la base de datos) | Manda mensaje de error | |
+
+---
+
+### 2.4 Diseño de las Interfaces (Maquetas)
+![interfaz de bienvenida a la aplicacion](img_doc/cap2/_4/bienvenida.jpg)
+<br>Interfaz de bienvenida a la aplicación
+
+---
+
+![interfaz de inicio de sesion](img_doc/cap2/_4/inicioSesion.jpg)
+<br>Interfaz de inicio de sesión
+
+---
+
+![interfaz de resgitro de usuario](img_doc/cap2/_4/registrar.jpg)
+<br>Interfaz de resgitro de usuario
+
+---
+
+![interfaz principal (cartelera)](img_doc/cap2/_4/cartelera.jpg)
+<br>Interfaz principal (cartelera)
+
+---
+
+![interfaz seleccion de pelicula](img_doc/cap2/_4/seleccionPelicula.jpg)
+<br>Interfaz selección de película
+
+---
+
+![interfaz renta de pelicula](img_doc/cap2/_4/renta.jpg)
+<br>Interfaz renta de película
+
+---
+
+![interfaz del perfil (mis peliculas)](img_doc/cap2/_4/misPeliculas.jpg)
+<br>Interfaz del perfil (mis películas)
+
+---
+
+![interfaz pelicula rentada](img_doc/cap2/_4/peliculaRentada.jpg)
+<br>Interfaz película rentada
+
+---
+
+![interfaz mis listas](img_doc/cap2/_4/misListas.jpg)
+<br>Interfaz mis listas
+
+---
+
+![interfaz crear lista](img_doc/cap2/_4/crearLista.jpg)
+<br>Interfaz crear lista
+
+---
+
+![interfaz lista creada](img_doc/cap2/_4/listaCreada.jpg)
+<br>Interfaz lista creada
+
+---
+
+![interfaz editar lista](img_doc/cap2/_4/editarLista.jpg)
+<br>Interfaz editar lista
+
+---
+
+![interfaz eliminar lista](img_doc/cap2/_4/eliminarLista.jpg)
+<br>Interfaz eliminar lista
+
+---
+
+![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
+<br>Interfaz de mi perfil
