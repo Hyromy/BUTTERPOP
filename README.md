@@ -8,7 +8,6 @@
 - [ ] Corregir tabla de especificación "Puntuar película" en DOC
 
 #### Diagramas de secuencia
-- [ ] Corregir diagrama "Rentar película"
 - [ ] Agregar diagrama "Gestionar película" en README
 - [ ] Agregar diagrama "Gestionar película" en DOC
 
@@ -24,8 +23,6 @@
 - [ ] Realizar diseño de pruebas de "crear lista" en DOC
 - [ ] Realizar diseño de pruebas de "actualizar lista" en README
 - [ ] Realizar diseño de pruebas de "actualizar lista" en DOC
-- [ ] Realizar diseño de pruebas de "rentar pelicula" en README
-- [ ] Realizar diseño de pruebas de "rentar pelicula" en DOC
 - [ ] Realizar diseño de pruebas de "comentar pelicula" en README
 - [ ] Realizar diseño de pruebas de "comentar pelicula" en DOC
 - [ ] Realizar diseño de pruebas de "puntuar pelicula" en README
@@ -1850,6 +1847,107 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 | 9 | **Correo:** elvalegmail.com **Contraseña:** Juli@n7 | El sistema muestra mensaje "El correo ingresado no es un correo valido" y regresa al usuario a la interfaz de inicio de sesión | |
 | 10 | **Correo:** elvale1@gmail.com **Contraseña:** Juli@n7 | El sistema muestra mensaje "No se pudo localizar la cuenta ingresada" y regresa al usuario a la interfaz de inicio de sesión | |
 | 11 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** Juli@n7 | El sistema muestra mensaje "Contraseña incorrecta" y regresa al usuario a la interfaz de inicio de sesión | |
+
+---
+
+#### RENTAR PELÍCULA
+##### TABLAS DE CONSIGNACIÓN
+
+<table>
+    <tr>
+        <td>CONDICIONES DE ENTRADA</td>
+        <td>REGLA EUCARÍSTICA</td>
+        <td>CLASES VÁLIDAS</td>
+        <td>CLASES NO VÁLIDAS</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Número de la tarjeta</td>
+        <td rowspan="2">Valor específico</td>
+        <td rowspan="2">1. Número de caracteres de la tarjeta = 16</td>
+        <td>2. Caracteres de la tarjeta > 16</td>
+    </tr>
+    <tr>
+        <td>3. Caracteres de la tarjeta < 16</td>
+    </tr>
+    <tr>
+        <td>Fecha de expiración</td>
+        <td>Booleano</td>
+        <td>4. Fecha de expiración vigente</td>
+        <td>5. Fecha de expiración no vigente</td>
+    </tr>
+    <tr>
+        <td>Clave de seguridad</td>
+        <td>Booleano</td>
+        <td>6. Clave de seguridad válida</td>
+        <td>7. Clave de seguridad inválida</td>
+    </tr>
+    <tr>
+        <td>Fondos de la tarjeta</td>
+        <td>Booleano</td>
+        <td>8. Fondos de la tarjeta suficientes</td>
+        <td>9. Fondos de la tarheta insuficientes</td>
+    </tr>
+</table>
+
+##### CLASES VÁLIDAS
+| No. Caso | Valores ingresados | Clases válidas |
+| - | - | - |
+| 1 | **Número de tarjeta:** 6754 6785 2345 9800 **Fecha de expiración:** 06/28 **Clave de seguridad:** 347 **Fondos de la tarjeta:** Suficientes | 1, 4, 6, 8 |
+
+##### CLASES NO VÁLIDAS
+| No. Caso | Valores ingresados | Clases no válidas |
+| - | - | - |
+| 2 | **Número de tarjeta:** 5630 4585 4762 5987 **Fecha de expiración:** 07/25 **Clave de seguridad:** 478 **Fondos de la tarjeta:** Insuficientes | 1, 4, 6, 9 |
+| 3 | **Número de tarjeta:** 4576 7589 3485 0054 **Fecha de expiración:** 06/30 **Clave de seguridad:** 04 **Fondos de la tarjeta:** Suficientes | 1, 4, 7, 8 |
+| 4 | **Número de tarjeta:** 3287 2098 2683 5983 **Fecha de expiración:** 02/27 **Clave de seguridad:** 22 **Fondos de la tarjeta:** Insuficientes | 1, 4, 7, 9 |
+| 5 | **Número de tarjeta:** 4327 8523 5932 3478 **Fecha de expiración:** 03/22 **Clave de seguridad:** 349 **Fondos de la tarjeta:** Suficientes | 1, 5, 6, 8 |
+| 6 | **Número de tarjeta:** 2348 7475 6385 8043 **Fecha de expiración:** 12/12 **Clave de seguridad:** 584 **Fondos de la tarjeta:** Insuficientes | 1, 5, 6, 9 |
+| 7 | **Número de tarjeta:** 1295 9230 9572 9054 **Fecha de expiración:** 09/28 **Clave de seguridad:** 01 **Fondos de la tarjeta:** Suficientes | 1, 5, 7, 8 |
+| 8 | **Número de tarjeta:** 7823 4782 3579 0121 **Fecha de expiración:** 05/24 **Clave de seguridad:** -457 **Fondos de la tarjeta:** Insuficientes | 1, 5, 7, 9 |
+| 9 | **Número de tarjeta:** 1295 2467 3468 2476 3498 54 **Fecha de expiración:** 07/28 **Clave de seguridad:** 789 **Fondos de la tarjeta:** Suficientes | 2, 4, 6, 8 |
+| 10 | **Número de tarjeta:** 4567 4577 4564 1209 12 **Fecha de expiración:** 04/25 **Clave de seguridad:** 456 **Fondos de la tarjeta:** Insuficientes | 2, 4, 6, 9 |
+| 11 | **Número de tarjeta:** 3456 5678 7980 7987 6 **Fecha de expiración:** 05/27 **Clave de seguridad:** 4253 **Fondos de la tarjeta:** Suficientes | 2, 4, 7, 8 |
+| 12 | **Número de tarjeta:** 1234 5678 9012 3456 7890 **Fecha de expiración:** 07/27 **Clave de seguridad:** 0727 **Fondos de la tarjeta:** Insuficientes | 2, 4, 7, 9 |
+| 13 | **Número de tarjeta:** 7463 2655 4654 3732 64 **Fecha de expiración:** 01/01 **Clave de seguridad:** 956 **Fondos de la tarjeta:** Suficientes | 2, 5, 6, 8 |
+| 14 | **Número de tarjeta:** 4563 5683 5845 6365 8378 546 **Fecha de expiración:** 07/08 **Clave de seguridad:** 094 **Fondos de la tarjeta:** Insuficientes | 2, 5, 6, 9 |
+| 15 | **Número de tarjeta:** 8734 6582 3745 6275 4273 852 3 **Fecha de expiración:** 10/23 **Clave de seguridad:** 5587456347 **Fondos de la tarjeta:** Suficientes | 2, 5, 7, 8 |
+| 16 | **Número de tarjeta:** 1111 2222 3333 4444 5555 **Fecha de expiración:** 11/22 **Clave de seguridad:** 3456 **Fondos de la tarjeta:** Insuficientes | 2, 5, 7, 9 |
+| 17 | **Número de tarjeta:** 1234 5678 90 **Fecha de expiración:** 05/29 **Clave de seguridad:** 848 **Fondos de la tarjeta:** Suficientes | 3, 4, 6, 8 |
+| 18 | **Número de tarjeta:** 5534 9873 66 **Fecha de expiración:** 12/30 **Clave de seguridad:** 672 **Fondos de la tarjeta:** Insuficientes | 3, 4, 6, 9 |
+| 19 | **Número de tarjeta:** 095 **Fecha de expiración:** 09/26 **Clave de seguridad:** 2346 4576 9038 2759 **Fondos de la tarjeta:** Suficientes | 3, 4, 7, 8 |
+| 20 | **Número de tarjeta:** 4587 3482 1039 439 **Fecha de expiración:** 03/31 **Clave de seguridad:** 4053 **Fondos de la tarjeta:** Insuficientes | 3, 4, 7, 9 |
+| 21 | **Número de tarjeta:** 3568 04 **Fecha de expiración:** 01/24 **Clave de seguridad:** 987 **Fondos de la tarjeta:** Suficientes | 3, 5, 6, 8 |
+| 22 | **Número de tarjeta:** 0112 3581 3471 123 **Fecha de expiración:** 10/07 **Clave de seguridad:** 278 **Fondos de la tarjeta:** Insuficientes | 3, 5, 6, 9 |
+| 23 | **Número de tarjeta:** 3738 2538 746 **Fecha de expiración:** 08/22 **Clave de seguridad:** -000 **Fondos de la tarjeta:** Suficientes | 3, 5, 7, 8 |
+| 24 | **Número de tarjeta:** 3845 7247 38 **Fecha de expiración:** 07/00 **Clave de seguridad:** 123456 **Fondos de la tarjeta:** Insuficientes | 3, 5, 7, 9 |
+
+##### CASOS DE PRUEBA
+| No. Caso | Información de la tarjeta | Resultados esperados | Resultados reales |
+| - | - | - | - |
+| 1 | **Número de tarjeta:** 6754 6785 2345 9800 **Fecha de expiración:** 06/28 **Clave de seguridad:** 347 **Fondos de la tarjeta:** Suficientes | El sistema realiza el cobro y muestra un mensaje de operación exitosa |  |
+| 2 | **Número de tarjeta:** 5630 4585 4762 5987 **Fecha de expiración:** 07/25 **Clave de seguridad:** 478 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje indicando que los fondos de la tarjeta son insuficientes |  |
+| 3 | **Número de tarjeta:** 4576 7589 3485 0054 **Fecha de expiración:** 06/30 **Clave de seguridad:** 04 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 4 | **Número de tarjeta:** 3287 2098 2683 5983 **Fecha de expiración:** 02/27 **Clave de seguridad:** 22 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 5 | **Número de tarjeta:** 4327 8523 5932 3478 **Fecha de expiración:** 03/22 **Clave de seguridad:** 349 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 6 | **Número de tarjeta:** 2348 7475 6385 8043 **Fecha de expiración:** 12/12 **Clave de seguridad:** 584 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 7 | **Número de tarjeta:** 1295 9230 9572 9054 **Fecha de expiración:** 09/28 **Clave de seguridad:** 01 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 8 | **Número de tarjeta:** 7823 4782 3579 0121 **Fecha de expiración:** 05/24 **Clave de seguridad:** -457 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 9 | **Número de tarjeta:** 1295 2467 3468 2476 3498 54 **Fecha de expiración:** 07/28 **Clave de seguridad:** 789 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 10 | **Número de tarjeta:** 4567 4577 4564 1209 12 **Fecha de expiración:** 04/25 **Clave de seguridad:** 456 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 11 | **Número de tarjeta:** 3456 5678 7980 7987 6 **Fecha de expiración:** 05/27 **Clave de seguridad:** 4253 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 12 | **Número de tarjeta:** 1234 5678 9012 3456 7890 **Fecha de expiración:** 07/27 **Clave de seguridad:** 0727 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 13 | **Número de tarjeta:** 7463 2655 4654 3732 64 **Fecha de expiración:** 01/01 **Clave de seguridad:** 956 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 14 | **Número de tarjeta:** 4563 5683 5845 6365 8378 546 **Fecha de expiración:** 07/08 **Clave de seguridad:** 094 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 15 | **Número de tarjeta:** 8734 6582 3745 6275 4273 852 3 **Fecha de expiración:** 10/23 **Clave de seguridad:** 5587456347 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 16 | **Número de tarjeta:** 1111 2222 3333 4444 5555 **Fecha de expiración:** 11/22 **Clave de seguridad:** 3456 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 17 | **Número de tarjeta:** 1234 5678 90 **Fecha de expiración:** 05/29 **Clave de seguridad:** 848 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 18 | **Número de tarjeta:** 5534 9873 66 **Fecha de expiración:** 12/30 **Clave de seguridad:** 672 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 19 | **Número de tarjeta:** 095 **Fecha de expiración:** 09/26 **Clave de seguridad:** 2346 4576 9038 2759 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 20 | **Número de tarjeta:** 4587 3482 1039 439 **Fecha de expiración:** 03/31 **Clave de seguridad:** 4053 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 21 | **Número de tarjeta:** 3568 04 **Fecha de expiración:** 01/24 **Clave de seguridad:** 987 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 22 | **Número de tarjeta:** 0112 3581 3471 123 **Fecha de expiración:** 10/07 **Clave de seguridad:** 278 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 23 | **Número de tarjeta:** 3738 2538 746 **Fecha de expiración:** 08/22 **Clave de seguridad:** -000 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+| 24 | **Número de tarjeta:** 3845 7247 38 **Fecha de expiración:** 07/00 **Clave de seguridad:** 123456 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
 
 ---
 
