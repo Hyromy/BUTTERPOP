@@ -1,6 +1,15 @@
 *`documento sujeto a cambios`*
 
 ### Cambios pendientes por realizar
+#### Capítulos
+- [ ] Agregar introduccion a cada capítulo
+
+#### Requerimientos funionales y no funcionales
+- [ ] Agregar una descripción a cada uno
+
+#### Figuras
+- [ ] Agregar una introducción a cada figura
+
 #### Especificación de casos de uso
 - [ ] Corregir tabla de especificación "Comentar película" en README
 - [ ] Corregir tabla de especificación "Comentar película" en DOC
@@ -63,7 +72,7 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
 - [PROGRAMA Y CRONOGRAMA](#programa-y-cronograma)
 - [MARCO TEÓRICO](#marco-teórico)
 - [METODOLOGÍA](#metodología)
-- [CAPÍTULO 1: RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS](#capítulo-1-recolección-y-refinamiento-de-requisitos)
+- [CAPÍTULO 1 RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS](#capítulo-1-recolección-y-refinamiento-de-requisitos)
     - [Necesidades del cliente](#11-nececidades-del-cliente)
     - [Identificación y definición de roles de usuario](#12-identificación-y-definición-de-roles-de-usuario)
     - [Requerimientos funcionales](#13-requerimientos-funcionales)
@@ -74,11 +83,11 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
     - [Especificación de los casos de uso](#18-especificación-de-los-casos-de-uso)
     - [Diagramas de secuencia](#19-diagramas-de-secuencia)
     - [Diagrama de actividades](#110-diagrama-de-actividades)
-- [CAPÍTULO 2: DISEÑO Y DESARROLLO DEL PROYECTO](#capítulo-2-diseño-y-desarrollo-del-proyecto)
-    - [Diagrama de la Base de Datos (relacional)](#21-diagrama-de-la-base-de-datos-relacional)
-    - [Diccionario de Datos](#22-diccionario-de-datos)
-    - [Diseño de Pruebas](#23-diseño-de-pruebas)
-    - [Diseño de las Interfaces (Maquetas)](#24-diseño-de-las-interfaces-maquetas)
+- [CAPÍTULO 2 DISEÑO Y DESARROLLO DEL PROYECTO](#capítulo-2-diseño-y-desarrollo-del-proyecto)
+    - [Diagrama de la base de datos (relacional)](#21-diagrama-de-la-base-de-datos-relacional)
+    - [Diccionario de datos](#22-diccionario-de-datos)
+    - [Diseño de pruebas](#23-diseño-de-pruebas)
+    - [Diseño de las interfaces (maquetas)](#24-diseño-de-las-interfaces-maquetas)
 
 ## RESUMEN
 
@@ -106,10 +115,10 @@ En el capítulo dos se abordará el diseño y desarrollo del proyecto. Aquí se 
 Finalmente, el capítulo tres se centrará en la implementación y pruebas de la aplicación. Se documentará todo lo relacionado con las interfaces diseñadas en el capítulo dos y se llevarán a cabo las pruebas para garantizar el funcionamiento adecuado del sistema.
 
 ## OBJETIVOS
-### Objetivo General
+### Objetivo general
 Desarrollar una aplicación multiplataforma innovadora, amigable, segura e intuitiva que permita a los clientes de Cinemas AJEM comprar y rentar las películas más recientes de su cartelera desde la comodidad de sus hogares. La aplicación proporcionará una experiencia de usuario única al ofrecer funcionalidades como la creación de listas de reproducción, acumulación de puntos para descuentos, y la opción de dejar opiniones sobre las películas. Con el objetivo de revertir la tendencia a la baja en ventas debido a la popularidad de las plataformas de streaming, esta aplicación se posicionará como una solución integral para incrementar significativamente las ventas del cine y atraer a los usuarios que no lograron ver las películas en el cine o desean volver a disfrutar de ellas en cualquier momento durante el período de renta.
 
-### Objetivos Específicos
+### Objetivos específicos
 - Realizar la base de datos que almacene la información relacionada con los administradores, clientes y el catálogo de películas, lo cual será fundamental para la codificación y elaboración de las interfaces.
 - Diseñar las interfaces de los administradores y clientes con un diseño práctico y atractivo, para posteriormente llevar a cabo las pruebas.
 - Probar la funcionalidad de las interfaces y registrar los errores que puedan ocurrir, con el objetivo de solucionarlos rápidamente y entregar un trabajo de calidad.
@@ -534,18 +543,18 @@ Desarrollar una aplicación multiplataforma innovadora, amigable, segura e intui
 ## MARCO TEÓRICO
 Una aplicación multiplataforma es una pieza de software diseñada para funcionar en múltiples sistemas operativos y dispositivos sin la necesidad de diseñar versiones diferentes para cada plataforma. Esto significa que el mismo código fuente puede ser usado en diferentes entornos, tales como: Android, iOS, Windows, macOS, Linux, entre otros.
 
-En los años 90's, estas aplicaciones surgen como respuesta a la necesidad de las empresas de alcanzar una audiencia más amplia, reducir costos y tiempo de desarrollo. Algunas de las razones por las cuales se usan aplicaciones multiplataforma son.
+En los años 90's, estas aplicaciones surgen como respuesta a la necesidad de las empresas de alcanzar una audiencia más amplia, reducir costos y tiempo de desarrollo. Algunas de las razones por las cuales se usan aplicaciones multiplataforma son:
 
-1. **Diversidad de dispositivos y sistemas operativos**<br>
+- **Diversidad de dispositivos y sistemas operativos**<br>
 Con la proliferación de dispositivos móviles y una amplia variedad de sistemas operativos, presenta el desafío de desarrollar aplicaciones nativas para cada una de las plataformas, lo que implica disponer de múltiples equipos de desarrollo, lo que significaba mayores costos y cantidad de tiempo para las empresas en desarrollar dicha aplicación para cada plataforma.
 
-2. **Eficiencia en el desarrollo**<br>
+- **Eficiencia en el desarrollo**<br>
 Desarrollar una aplicación para cada plataforma es costoso, lento e ineficiente. Las aplicaciones multiplataforma permiten escribir un único código fuente y reutilizarlo en múltiples entornos dependiendo de las necesidades y capacidades del dispositivo. Esto acelera en gran medida el desarrollo, facilita el mantenimiento y reduce los costos de la aplicación.
 
-3. **Tecnologías web y móviles**<br>
-El desarrollo de lenguajes, frameworks y herramientas han hecho posible la creación de aplicaciones eficientes en diversas plataformas. estas tecnologías permiten a los desarolladores acceder a características nativas de cada sistema operativo con un solo código fuente.
+- **Tecnologías web y móviles**<br>
+El desarrollo de lenguajes, frameworks y herramientas han hecho posible la creación de aplicaciones eficientes en diversas plataformas. estas tecnologías permiten a los desarrolladores acceder a características nativas de cada sistema operativo con un solo código fuente.
 
-4. **Demanda del mercado**<br>
+- **Demanda del mercado**<br>
 Los consumidores esperan que las aplicaciones estén disponibles en sus dispositivos y estos mismos pueden variar de persona a persona. Las empresas desean llegar a audiencias cada vez más grandes, por lo que necesitan asegurarse de que sus aplicaciones estén disponibles para la mayor cantidad de dispositivos y plataformas posibles para así cumplir con los objetivos planteados por la propia empresa.
 
 Para el desarrollo de este proyecto se utilizarán diversos lenguajes de programación y herramientas de diseño y prueba que permitirán la implementación de la lógica del cliente y las funcionalidades esenciales de la aplicación multiplataforma, entre las cuales se incluyen:
@@ -632,7 +641,7 @@ Fase de estabilización: Se realiza la integración del proyecto, es decir, mód
 Fase de pruebas: Una vez pasada una prueba general de la aplicación, se llega a un plazo de testeo hasta llegar a una versión adecuada a las necesidades del cliente y funcionalidades requeridas por el mismo. Se corrigen fallos, se documentan, pero no se agrega más funcionalidades.
 
 ---
-## CAPÍTULO: 1 RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS
+## CAPÍTULO 1 RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS
 ### 1.1 Nececidades del cliente
 El departamento de ventas de Cinemas AJEM necesita una aplicación multiplataforma llamada "ButterPop" que abarque tanto la compra y renta de las películas más recientes de su cartelera, como la interacción con los usuarios, brindándoles una experiencia amigable. Por lo que proponen que la misma cuente con dos interfaces clave para lograr esto. 
 
@@ -647,7 +656,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 1. Cliente: Este usuario se tendrá que registrar por medio de correo electrónico y contraseña, e iniciar sesión para poder rentar, comentar, puntuar o guardar una película en alguna lista. Sobre las listas, el usuario podrá crear diferentes dependiendo de sus necesidades. Para poder rentar una película, el cliente tendrá que vincular una forma de pago para poder adquirir la película.
 2. Administrador: El administrador será el responsable de la gestión de la aplicación "pendiente" de manera que pueda manipular la base de datos para la gestión de películas, usuarios y las rentas que el usuario realice.
 
-### 1.3 Requerimientos Funcionales
+### 1.3 Requerimientos funcionales
 | Registro de clientes |
 | - |
 | El sistema deberá permitir el registro de clientes interesados con correo y contraseña como parte del registro. |
@@ -676,7 +685,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 | - |
 | El sistema deberá permitir a los administradores agregar, actualizar y eliminar películas. |
 
-### 1.4 Requerimientos No Funcionales
+### 1.4 Requerimientos no funcionales
 | Encriptar datos |
 | - |
 | El sistema deberá encriptar datos sensibles tanto del administrador como el cliente, por ejemplo, contraseñas e información bancaria. |
@@ -697,12 +706,12 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 | - |
 | El sistema deberá ser de fácil navegación a los usuarios. |
 
-### 1.5 Requerimientos De Hardware
+### 1.5 Requerimientos de hardware
 - Computadoras con mínimo de 16gb RAM y 1TB de almacenamiento. Con monitor de mínimo 22 pulgadas y procesador Intel Core i5 6ta Gen. Para uso general en el proyecto, programación, diseño y documentación.
 - Memorias USB de mínimo 8gb de almacenamiento de la marca Kingston. Se utilizarán como medio de guardado de archivos móviles.
 - Router o modem de cualquier compañía que ofrezca velocidad de internet de mínimo 61,82 Mb/s.
 
-### 1.6 Requerimientos De Software
+### 1.6 Requerimientos de software
 - Conexión a internet por medio del router con mínima velocidad de 61,82 Mb/s.
 - PostgreSQL: Será el gestor de base de datos del proyecto, dada la estructura que facilita a las bases de datos relacionales.
 - Visual Studio: Para el desarrollo general de la aplicación, así como su compilación y depuración.
@@ -710,10 +719,10 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 - Testlink: Gestor de casos de prueba en función de requisitos del cliente.
 - MantisBT: Funcionará como gestor de reportes de errores o fallos de funcionalidad u ortográficos.
 
-### 1.7 Diagrama General De Casos De Uso
+### 1.7 Diagrama general de casos de uso
 ![diagrama general](img_doc/cap1/_7/DGeneral.jpg)
 
-### 1.8 Especificación De Los Casos De Uso
+### 1.8 Especificación de los casos de uso
 <table>
     <tr>
         <td>CU-0001</td>
@@ -1392,7 +1401,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
 </table>
 
-#### Diseño de pruebas basado en Casos de uso
+#### Diseño de pruebas basado en casos de uso
 
 ### 1.9 Diagramas de secuencia
 #### Inicio de sesión
@@ -1416,11 +1425,11 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 ### 1.10 Diagrama de actividades
 ![diagrama de actividades](img_doc/cap1/_10/DActividades.jpg)
 
-## CAPÍTULO 2: DISEÑO Y DESARROLLO DEL PROYECTO
-### 2.1 Diagrama de la Base de Datos (relacional)
+## CAPÍTULO 2 DISEÑO Y DESARROLLO DEL PROYECTO
+### 2.1 Diagrama de la base de datos (relacional)
 ![diagrama relacional de la base de datos]()
 
-### 2.2 Diccionario de Datos
+### 2.2 Diccionario de datos
 <table>
     <tr>
         <td colspan="5">TB PELICULA</td>
@@ -1741,26 +1750,8 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
 </table>
 
-### 2.3 Diseño de Pruebas
+### 2.3 Diseño de pruebas
 Diseño de pruebas por partición de equivalencia es una técnica utilizada en pruebas de software para dividir el dominio de entrada de un programa en clases de equivalencia. Cada clase representa un conjunto de valores de entrada que se espera que el software trate de manera similar. Las pruebas se realizan seleccionando al menos un valor de cada clase, con el objetivo de reducir el número de casos de prueba necesarios mientras se mantiene una cobertura efectiva del comportamiento del sistema.
-
-
-**`puedes copiar y pegar esta tabla`**
-<table>
-    <tr>
-        <td>CONDICIONES DE ENTRADA</td>
-        <td>REGLA EUCARÍSTICA</td>
-        <td>CLASES VÁLIDAS</td>
-        <td>CLASES NO VÁLIDAS</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-
-</table>
 
 #### INICIAR SESIÓN / REGISTRARSE
 ##### TABLAS DE CONSIGNACIÓN
@@ -1833,7 +1824,6 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 | 11 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** Juli@n7 | 1, 4, 6, 8, 10, 14, 17 |
 
 ##### CASOS DE PRUEBA
-
 | NO. CASO | CREDENCIALES DE INICIO | RESULTADOS ESPERADOS | RESULTADOS REALES |
 | - | - | - | - |
 | 1 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** juLian@1 | El sistema verifica las credenciales de inicio de sesión y manda al usuario a la interfaz principal | |
@@ -1975,7 +1965,7 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 
 ---
 
-### 2.4 Diseño de las Interfaces (Maquetas)
+### 2.4 Diseño de las interfaces (maquetas)
 ![interfaz de bienvenida a la aplicacion](img_doc/cap2/_4/bienvenida.jpg)
 <br>Interfaz de bienvenida a la aplicación
 
