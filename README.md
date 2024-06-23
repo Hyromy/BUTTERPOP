@@ -2,10 +2,10 @@
 
 ### Cambios pendientes por realizar
 #### Especificación de casos de uso
-- [ ] Corregir tabla de especificación "Comentar película" en README
-- [ ] Corregir tabla de especificación "Comentar película" en DOC
-- [ ] Corregir tabla de especificación "Puntuar película" en README
-- [ ] Corregir tabla de especificación "Puntuar película" en DOC
+- [x] Corregir tabla de especificación "Comentar película" en README
+- [x] Corregir tabla de especificación "Comentar película" en DOC
+- [x] Corregir tabla de especificación "Puntuar película" en README
+- [x] Corregir tabla de especificación "Puntuar película" en DOC
 
 #### Diagramas de secuencia
 - [ ] Corregir diagrama "Rentar película"
@@ -26,10 +26,10 @@
 - [ ] Realizar diseño de pruebas de "actualizar lista" en DOC
 - [ ] Realizar diseño de pruebas de "rentar pelicula" en README
 - [ ] Realizar diseño de pruebas de "rentar pelicula" en DOC
-- [ ] Realizar diseño de pruebas de "comentar pelicula" en README
-- [ ] Realizar diseño de pruebas de "comentar pelicula" en DOC
-- [ ] Realizar diseño de pruebas de "puntuar pelicula" en README
-- [ ] Realizar diseño de pruebas de "puntuar pelicula" en DOC
+- [x] Realizar diseño de pruebas de "comentar pelicula" en README
+- [x] Realizar diseño de pruebas de "comentar pelicula" en DOC
+- [x] Realizar diseño de pruebas de "puntuar pelicula" en README
+- [x] Realizar diseño de pruebas de "puntuar pelicula" en DOC
 - [ ] Realizar diseño de pruebas de "gestionar pelicula" en README
 - [ ] Realizar diseño de pruebas de "gestionar pelicula" en DOC
 
@@ -981,7 +981,6 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ---
 
-`Correcciones pendientes`
 <table>
     <tr>
         <td>CU-0004</td>
@@ -1005,7 +1004,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>Descripción</td>
-        <td colspan="2">El sistema deberá permitir a los usuarios comentar las películas que hayan visto en su respectiva sección y poder visualizar los comentarios de cada película.</td>
+        <td colspan="2">El sistema deberá permitir a los usuarios puntuar las películas que hayan visto en su respectiva sección y poder visualizar las puntuaciones de cada película.</td>
     </tr>
     <tr>
         <td>Precondición</td>
@@ -1018,15 +1017,15 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>1</td>
-        <td>El usuario deberá darle clic en el botón comentar.</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción “Comentar” en el apartado “Rentar Películas”.</td>
     </tr>
     <tr>
         <td>2</td>
-        <td>El sistema muestra la interfaz del apartado comentar.</td>
+        <td>El sistema muestra la interfaz del apartado comentarios.</td>
     </tr>
     <tr>
         <td>3</td>
-        <td>El usuario rellenará con sus palabras la caja de comentario.</td>
+        <td>El usuario ingresará su comentario en la caja de comentario.</td>
     </tr>
     <tr>
         <td>4</td>
@@ -1034,26 +1033,92 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>5</td>
-        <td>El sistema le mostrará el mensaje de comentario insertado.</td>
+        <td>El sistema le mostrará el mensaje de comentario insertado y lo guardará.</td>
     </tr>
     <tr>
-        <td rowspan="2">Flujo alternativo</td>
-        <td>Paso</td>
-        <td>Acción</td>
+        <td rowspan="7"></td>
+        <td>Modificar comentario</td>
+        <td></td>
     </tr>
     <tr>
-        <td>7.1</td>
-        <td>Si el usuario no ha visto la película, no podrá comentar respecto a ella, apareciéndose un mensaje de error "No es posible comentar si no has visto la película".</td>
+        <td >6</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción “Editar” en su comentario.</td>
+    </tr>
+    <tr>
+        <td >7</td>
+        <td>El sistema muestra la interfaz del apartado comentar con una caja para ingresar texto.</td>
+    </tr>
+    <tr>
+        <td >8</td>
+        <td>El usuario ingresará su nuevo comentario en la caja de comentario.</td>
+    </tr>
+    <tr>
+        <td >9</td>
+        <td>El usuario deberá darle clic en “Guardar”.</td>
+    </tr>
+    <tr>
+        <td >10</td>
+        <td>El sistema guarda el comentario modificado.</td>
+    </tr>
+    <tr>
+        <td >11</td>
+        <td>El sistema muestra  el comentario modificado.</td>
+    </tr>
+     <tr>
+        <td rowspan="6"></td>
+        <td>Eliminar comentario</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td >12</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción “Borrar” en la sección “Editar” de su comentario.</td>
+    </tr>
+    <tr>
+        <td >13</td>
+        <td>El sistema muestra la interfaz de eliminar comentario, donde se le preguntará “¿Está seguro de querer borrar su comentario?”.</td>
+    </tr>
+    <tr>
+        <td >14</td>
+        <td>El usuario deberá seleccionar la opción “BORRAR".</td>
+    </tr>
+    <tr>
+        <td >15</td>
+        <td>El sistema eliminará el comentario.</td>
+    </tr>
+    <tr>
+        <td >16</td>
+        <td>El sistema actualizará los comentarios.</td>
     </tr>
     <tr>
         <td>Postcondición</td>
         <td colspan="2">Los comentarios ingresados se almacenan en la base de datos para que cualquiera pueda visualizarlos.</td>
     </tr>
+    <tr>
+    <tr>
+        <td rowspan="6">Excepciones</td>
+        <td>Paso</td>
+        <td>Acción</td>
+    </tr>
+    <tr>
+        <td>7.1</td>
+        <td>Si el usuario no ha visto la película, no podrá comentar respecto a ella, apareciéndose un mensaje de error “No es posible comentar si no has visto la película”.</td>
+    </tr>
+    <tr>
+        <td>8.1</td>
+        <td>Si el usuario selecciona “Cancelar”, no se realizarán cambios en su comentario.</td>
+    </tr> <tr>
+        <td>Postcondición</td>
+        <td colspan="2">Las puntuaciones guardadas se almacenan en la base de datos para que cualquiera pueda visualizarlas.</td>
+    </tr>
+    <tr>
+        <td>13.1</td>
+        <td>Si el usuario selecciona “Cancelar”, no se borrará su comentario.</td>
+    </tr>
+    </tr>
 </table>
 
 ---
 
-`Correcciones pendientes`
 <table>
     <tr>
         <td>CU-0005</td>
@@ -1090,7 +1155,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>1</td>
-        <td>El usuario deberá darle clic en el botón puntuar.</td>
+        <td>El usuario deberá darle clic en el botón “Deja tu comentario”.</td>
     </tr>
     <tr>
         <td>2</td>
@@ -1098,11 +1163,11 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>3</td>
-        <td>El usuario puntuará de acuerdo con su preferencia (De 0 a 5 puntos).</td>
+        <td>El usuario puntuará de acuerdo con su preferencia (De 0 a 3 estrellas).</td>
     </tr>
     <tr>
         <td>4</td>
-        <td>El usuario deberá darle clic en guardar.</td>
+        <td>El usuario deberá darle clic en "Guardar".</td>
     </tr>
     <tr>
         <td>5</td>
@@ -1111,6 +1176,42 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     <tr>
         <td>6</td>
         <td>El sistema regresará al usuario a la interfaz de películas con su puntuación guardada.</td>
+    </tr>
+     <tr>
+        <td rowspan="8"></td>
+        <td>Modificar Puntuación</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td >7</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción “Editar” en su comentario.</td>
+    </tr>
+    <tr>
+        <td >8</td>
+        <td>El sistema muestra la interfaz del apartado comentar con una caja para ingresar texto.</td>
+    </tr>
+    <tr>
+        <td >9</td>
+        <td>El sistema muestra la interfaz del apartado comentar con una caja para ingresar su nueva puntuación.</td>
+    </tr>
+    <tr>
+        <td >10</td>
+        <td>El usuario ingresará su nueva puntuación en la caja de comentarios.</td>
+    </tr>
+    <tr>
+        <td >11</td>
+        <td>El usuario deberá darle clic en “Guardar”.</td>
+    </tr>
+    <tr>
+        <td >12</td>
+        <td>El sistema guarda la puntuación modificada</td>
+    </tr><tr>
+        <td >13</td>
+        <td>El sistema muestra la puntuación modificada</td>
+    </tr> 
+    <tr>
+        <td>Postcondición</td>
+        <td colspan="2">Las puntuaciones guardadas se almacenan en la base de datos para que cualquiera pueda visualizarlas.</td>
     </tr>
     <tr>
         <td rowspan="2">Flujo alternativo</td>
@@ -1121,10 +1222,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
         <td>7.1</td>
         <td>Si el usuario no ha visto la película, no podrá dar su puntuación respecto a ella, apareciéndose un mensaje de error "No es posible puntuar si no has visto la película".</td>
     </tr>
-    <tr>
-        <td>Postcondición</td>
-        <td colspan="2">Las puntuaciones guardadas se almacenan en la base de datos para que cualquiera pueda visualizarlas.</td>
-    </tr>
+   
 </table>
 
 ---
@@ -1874,6 +1972,53 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 | - | - | - | - |
 | 1 | Lista "Mis favoritos" (Base de datos) | Se elimina la lista de la interfaz del usuario y de la base de datos | |
 | 2 | Lista "Para ver con la familia" (No está en la base de datos) | Manda mensaje de error | |
+
+#### COMENTAR / PUNTUAR
+##### TABLAS DE CONSIGNACIÓN
+
+<table>
+    <tr>
+        <td>CONDICIONES DE ENTRADA</td>
+        <td>REGLA EUCARÍSTICA</td>
+        <td>CLASES VÁLIDAS</td>
+        <td>CLASES NO VÁLIDAS</td>
+    </tr>
+      <tr>
+        <td rowspan="9">COMENTAR / PUNTUAR</td>
+        <td rowspan="2">VALOR ESPECÍFICO</td>
+        <td rowspan="2">1. COMENTARIO <= 100 CARACTERES <br><br>2. PUNTUACIÓN = 0-3</td>
+        <td>3.COMENTARIO  > 100 CARACTERES</td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td rowspan = "4">BOOLEANO</td>
+        <td>4. Película rentada</td>
+        <td>5. Película no rentada.</td>
+    </tr>
+    
+    
+</TABLE>
+
+##### CLASES VÁLIDAS
+| NO. CASO | COMENTAR / PUNTUAR | CLASES VÁLIDAS |
+| - | - | - |
+| 1 | **Comentario:** “Excelente película, muero de ganas de poder volver a verla!” **Puntuación:** 3 Estrellas. | 1, 2, 4 |
+
+##### CLASES NO VÁLIDAS
+| NO. CASO | COMENTAR / PUNTUAR | CLASES INVÁLIDAS |
+| - | - | - |
+| 2 | **Comentario:** (Si supera los 100 caractéres) |3, 5|
+
+##### CASOS DE PRUEBA
+
+| NO. CASO | COMENTAR / PUNTUAR | RESULTADOS ESPERADOS | RESULTADOS REALES |
+| - | - | - | - |
+| 1 | **Comentario:** (De <= 100 caractéres )**Puntuación:** 1 estrella | El sistema verifica la cantidad de carácteres que no sobrepase los 100, verifica la puntuación ingresada y actualiza los comentarios una vez ingresado el comentario.  | |
+| 2 | **Comentario:**  (De = 100 caractéres )**Puntuación:** 2 estrellas | El sistema verifica la cantidad de carácteres que no sobrepase los 100, verifica la puntuación ingresada y actualiza los comentarios una vez ingresado el comentario. | |
+| 3 | **Comentario:** (De > 100 caractéres )**Puntuación:** 3 estrellas| El sistema muestra mensaje “Comentario excede la cantidad permitida  de carácteres” y lo regresa a la caja de comentarios. | |
+
 
 ---
 
