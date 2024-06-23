@@ -10,12 +10,6 @@
 #### Figuras
 - [ ] Agregar una introducción a cada figura
 
-#### Especificación de casos de uso
-- [ ] Corregir tabla de especificación "Comentar película" en README
-- [ ] Corregir tabla de especificación "Comentar película" en DOC
-- [ ] Corregir tabla de especificación "Puntuar película" en README
-- [ ] Corregir tabla de especificación "Puntuar película" en DOC
-
 #### Diagramas de secuencia
 - [ ] Agregar diagrama "Gestionar película" en README
 - [ ] Agregar diagrama "Gestionar película" en DOC
@@ -32,10 +26,6 @@
 - [ ] Realizar diseño de pruebas de "crear lista" en DOC
 - [ ] Realizar diseño de pruebas de "actualizar lista" en README
 - [ ] Realizar diseño de pruebas de "actualizar lista" en DOC
-- [ ] Realizar diseño de pruebas de "comentar pelicula" en README
-- [ ] Realizar diseño de pruebas de "comentar pelicula" en DOC
-- [ ] Realizar diseño de pruebas de "puntuar pelicula" en README
-- [ ] Realizar diseño de pruebas de "puntuar pelicula" en DOC
 - [ ] Realizar diseño de pruebas de "gestionar pelicula" en README
 - [ ] Realizar diseño de pruebas de "gestionar pelicula" en DOC
 
@@ -987,7 +977,6 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ---
 
-`Correcciones pendientes`
 <table>
     <tr>
         <td>CU-0004</td>
@@ -995,7 +984,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>Versión</td>
-        <td colspan="2">1.0 (15/05/24)</td>
+        <td colspan="2">1.1 (23/06/24)</td>
     </tr>
     <tr>
         <td>Autores</td>
@@ -1018,7 +1007,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
         <td colspan="2">El usuario deberá haber visto la película en cuestión previamente y encontrarse en el apartado de películas.</td>
     </tr>
     <tr>
-        <td rowspan="6">Flujo normal</td>
+        <td rowspan="19">Flujo normal</td>
         <td>Paso</td>
         <td>Acción</td>
     </tr>
@@ -1043,13 +1032,71 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
         <td>El sistema le mostrará el mensaje de comentario insertado.</td>
     </tr>
     <tr>
-        <td rowspan="2">Flujo alternativo</td>
+        <td colspan="2">Modificar comentario</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción “Editar” en su comentario.</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>El sistema muestra la interfaz del apartado comentar con una caja para ingresar texto.</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>El usuario ingresará su nuevo comentario en la caja de comentario.</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>El usuario deberá darle clic en “Guardar”.</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>El sistema guarda el comentario modificado</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>El sistema muestra el comentario modificado.</td>
+    </tr>
+    <tr>
+        <td colspan="2">Eliminar comentario</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción “Borrar” en la sección “Editar” de su comentario.</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>El sistema muestra la interfaz de eliminar comentario, donde se le preguntará “¿Está seguro de querer borrar su comentario?”.</td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td>El usuario deberá seleccionar la opción “BORRAR”.</td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td>El sistema eliminará el comentario.</td>
+    </tr>
+    <tr>
+        <td>16</td>
+        <td>El sistema actualizará los comentarios.</td>
+    </tr>
+    <tr>
+        <td rowspan="4">Flujo alternativo</td>
         <td>Paso</td>
         <td>Acción</td>
     </tr>
     <tr>
+        <td>6.1</td>
+        <td>Si el usuario no ha visto la película, no podrá comentar respecto a ella, apareciéndose un mensaje de error “No es posible comentar si no has visto la película”.</td>
+    </tr>
+    <tr>
         <td>7.1</td>
-        <td>Si el usuario no ha visto la película, no podrá comentar respecto a ella, apareciéndose un mensaje de error "No es posible comentar si no has visto la película".</td>
+        <td>Si el usuario selecciona “Cancelar”, no se realizarán cambios en su comentario.</td>
+    </tr>
+    <tr>
+        <td>12.1</td>
+        <td>Si el usuario selecciona “Cancelar”, no se borrará su comentario.</td>
     </tr>
     <tr>
         <td>Postcondición</td>
@@ -1059,7 +1106,6 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ---
 
-`Correcciones pendientes`
 <table>
     <tr>
         <td>CU-0005</td>
@@ -1067,7 +1113,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>Versión</td>
-        <td colspan="2">1.0 (15/05/24)</td>
+        <td colspan="2">1.1 (23/06/24)</td>
     </tr>
     <tr>
         <td>Autores</td>
@@ -1090,7 +1136,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
         <td colspan="2">El usuario deberá haber visto la película en cuestión previamente y encontrarse en el apartado de películas.</td>
     </tr>
     <tr>
-        <td rowspan="7">Flujo normal</td>
+        <td rowspan="14">Flujo normal</td>
         <td>Paso</td>
         <td>Acción</td>
     </tr>
@@ -1104,7 +1150,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
     </tr>
     <tr>
         <td>3</td>
-        <td>El usuario puntuará de acuerdo con su preferencia (De 0 a 5 puntos).</td>
+        <td>El usuario puntuará de acuerdo con su preferencia (De 0 a 3 estrellas).</td>
     </tr>
     <tr>
         <td>4</td>
@@ -1119,13 +1165,40 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
         <td>El sistema regresará al usuario a la interfaz de películas con su puntuación guardada.</td>
     </tr>
     <tr>
+        <td colspan="2">Modificar puntuación</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción “Editar” en su comentario.</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>El sistema muestra la interfaz del apartado comentar con una caja para ingresar su nueva puntuación.</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>El usuario ingresará su nueva puntuación en la caja de comentarios.</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>El usuario deberá darle clic en “Guardar”.</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>El sistema guarda la puntuación modificada</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>El sistema muestra la puntuación modificada</td>
+    </tr>
+    <tr>
         <td rowspan="2">Flujo alternativo</td>
         <td>Paso</td>
         <td>Acción</td>
     </tr>
     <tr>
         <td>7.1</td>
-        <td>Si el usuario no ha visto la película, no podrá dar su puntuación respecto a ella, apareciéndose un mensaje de error "No es posible puntuar si no has visto la película".</td>
+        <td>Si el usuario no ha visto la película, no podrá dar su puntuación respecto a ella, apareciéndose un mensaje de error “No es posible puntuar si no has visto la película”.</td>
     </tr>
     <tr>
         <td>Postcondición</td>
@@ -1938,6 +2011,51 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 | 22 | **Número de tarjeta:** 0112 3581 3471 123 **Fecha de expiración:** 10/07 **Clave de seguridad:** 278 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
 | 23 | **Número de tarjeta:** 3738 2538 746 **Fecha de expiración:** 08/22 **Clave de seguridad:** -000 **Fondos de la tarjeta:** Suficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
 | 24 | **Número de tarjeta:** 3845 7247 38 **Fecha de expiración:** 07/00 **Clave de seguridad:** 123456 **Fondos de la tarjeta:** Insuficientes | El sistema muestra un mensaje diciendo que ocurrió un problema al realizar el cobro |  |
+
+---
+
+#### COMENTAR / PUNTUAR
+##### TABLAS DE CONSIGNACIÓN
+<table>
+    <tr>
+        <td>CONDICIONES DE ENTRADA</td>
+        <td>REGLA HEURÍSTICA</td>
+        <td>CLASES VÁLIDAS</td>
+        <td>CLASES NO VÁLIDAS</td>
+    </tr>
+    <tr>
+        <td rowspan="2">COMENTAR Y DAR PUNTUACIÓN</td>
+        <td rowspan="2">VALOR ESPECÍFICO</td>
+        <td>1. COMENTARIO <= 100 CARACTERES</td>
+        <td rowspan="2">2. COMENTARIO < 100 CARACTERES</td>
+    </tr>
+    <tr>
+        <td>3. PUNTUACION = 0-3</td>
+    </tr>
+    <tr>
+        <td>RENTA</td>
+        <td>Booleano</td>
+        <td>4. Película rentada</td>
+        <td>5. Película no rentada</td>
+    </tr>
+</table>
+
+##### CLASES VÁLIDAS
+| NO. CASO | COMENTAR / PUNTUAR | CLASES VÁLIDAS |
+| - | - | - |
+| 1 | **Comentario:** “¡Excelente película, muero de ganas de poder volver a verla!” **Puntuación:** 3 Estrellas. | 1, 3, 4 |
+
+##### CLASES NO VÁLIDAS
+| NO. CASO | COMENTAR / PUNTUAR | CLASES INVÁLIDAS |
+| - | - | - |
+| 2 | **Comentario:** (Si supera los 100 caracteres) |2, 5|
+
+##### CASOS DE PRUEBA
+| NO. CASO | COMENTAR / PUNTUAR | RESULTADOS ESPERADOS | RESULTADOS REALES |
+| - | - | - | - |
+| 1 | **Comentario:** (De <= 100 caracteres) **Puntuación:** 1 estrella | El sistema verifica la cantidad de caracteres que no sobrepase los 100, verifica la puntuación ingresada y actualiza los comentarios una vez ingresado el comentario. | |
+| 2 | **Comentario:** (De = 100 caracteres) **Puntuación:** 2 estrellas | El sistema verifica la cantidad de caracteres que no sobrepase los 100, verifica la puntuación ingresada y actualiza los comentarios una vez ingresado el comentario. | |
+| 3 | **Comentario:** (De > 100 caracteres) **Puntuación:** 3 estrellas | El sistema muestra mensaje “Comentario excede la cantidad permitida  de carácteres” y lo regresa a la caja de comentarios. | |
 
 ---
 
