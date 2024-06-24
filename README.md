@@ -1,14 +1,60 @@
 *`documento sujeto a cambios`*
 
+<!-- 
+si estas leyendo esto por favor instala la siguiente extencion:
+ve a la seccion extenciones y busca "GitHub Markdown Preview" v0.3.0 o posterior
+
+si vas a realizar algun cambio en el documento hazlo en una sub-rama de doc
+seguido de un nombre general de lo que vayas a hacer. ejemplo:
+
+git switch doc
+git branch doc_ortografia
+git switch doc_ortografia
+
+las cosas que vayas a hacer marcalas con una "x" o "X" de esta manera
+- [x] Nombre de la actividad
+
+para indicar que esa actividad esta en proceso
+cuando hayas terminado elimina la linea que acabas de marcar
+
+esto con la finalidad de:
+saber que actividades aun no se realizan (- [ ])
+saber que actividades estan en desarrollo (- [x])
+saber que actividades fueron completadas (eliminar la actividad de la lista)
+
+es importante que los cambios que vayas a hacer en la documentacion sean identicos
+entre este archivo README.md y el documento word,
+ya que esto facilita la deteccion de cambios en el documento
+
+en caso de que detectes alguna inconcistencia en el documento
+puedes agregar ese punto en esta lista de pendientes
+para que tu o alguien mas lo resuelva posteriormente
+
+cuando quieras comitear tus cambios, guarda y cierra el documento word,
+escribe git status, en la terminal deben de aparecer este archivo .md
+y el documento word en rojo (solo deben de aparecer esos 2)
+posteriormente agrega un nombre al commit, no debe de ser ambiguio
+pero si tiene que ser general, y resumir muy brevemente que fue lo que hiciste
+ejemplo:
+
+git status
+git add .
+git commit -m "correciones ortograficas en resumen, abstact e introduccion"
+
+posteriormente tendras la opcion de:
+subir tu rama (git push -u origin tu_rama)
+importar los cambios a la rama doc (git switch doc    ->    git merge tu_rama)
+o continuar haciendo correciones.
+
+Gracias por tu atencion y paciencia, tqm
+-->
+
 ### Cambios pendientes por realizar
 #### Capítulos
 - [ ] Agregar introduccion a cada capítulo
 
-#### Requerimientos funionales y no funcionales
-- [ ] Agregar una descripción a cada uno
-
 #### Figuras
-- [ ] Agregar una introducción a cada figura
+- [x] Agregar una introducción a cada figura
 
 #### Diagramas de secuencia
 - [ ] Agregar diagrama "Gestionar película" en README
@@ -549,68 +595,84 @@ Los consumidores esperan que las aplicaciones estén disponibles en sus disposit
 
 Para el desarrollo de este proyecto se utilizarán diversos lenguajes de programación y herramientas de diseño y prueba que permitirán la implementación de la lógica del cliente y las funcionalidades esenciales de la aplicación multiplataforma, entre las cuales se incluyen:
 
-**Visual Studio**
-<br>Microsoft Visual Studio es un entorno de desarrollo integrado (IDE, por sus siglas en inglés) para Windows y macOS. Es compatible con múltiples lenguajes de programación, tales como C++, C#, Fortran, Visual Basic .NET, F#, Java, Python, Ruby y PHP, al igual que entornos de desarrollo web, como ASP.NET MVC, Django, etc.
+- **Visual Studio**
+
+Microsoft Visual Studio es un entorno de desarrollo integrado (IDE, por sus siglas en inglés) para Windows y macOS. Es compatible con múltiples lenguajes de programación, tales como C++, C#, Fortran, Visual Basic .NET, F#, Java, Python, Ruby y PHP, al igual que entornos de desarrollo web, como ASP.NET MVC, Django, etc.
 <br>Se hará uso de este entorno para desarrollar la aplicación, compilar y depurarla.
 
-**Xamarin**
-<br>Es un marco de interfaz de usuario de código abierto. Xamarin.froms permite a los desarrolladores compilar aplicaciones en Xamarin, Android y xamarin.ios y Windows desde un código base compartido. Xamarin.forms permite a los desarrolladores crear interfaces de usuario XAML con código subyacente en C#. Estas interfaces se representan como controles nativos con mejor rendimiento en cada plataforma.
+- **Xamarin**
+
+Es un marco de interfaz de usuario de código abierto. Xamarin.froms permite a los desarrolladores compilar aplicaciones en Xamarin, Android y xamarin.ios y Windows desde un código base compartido. Xamarin.forms permite a los desarrolladores crear interfaces de usuario XAML con código subyacente en C#. Estas interfaces se representan como controles nativos con mejor rendimiento en cada plataforma.
 <br>Se utilizará este Framework ya que es requisito que la aplicación sea multiplataforma, usando como entorno de desarrollo Android Studio para posteriormente ser compilada a diversos sistemas operativos móviles de manera sencilla, rápida y eficiente.
 
-**C#**
-<br>Es un lenguaje de programación multiparadigma desarrollado por Microsoft, que evoluciona de la familia de lenguajes C, toma lo mejor de los lenguajes C y C++, los cuales se asemejan mucho a lenguajes de alto nivel de abstracción como Java y JavaScript. Forma parte de la plataforma .NET de Microsoft.
+- **C#**
+
+Es un lenguaje de programación multiparadigma desarrollado por Microsoft, que evoluciona de la familia de lenguajes C, toma lo mejor de los lenguajes C y C++, los cuales se asemejan mucho a lenguajes de alto nivel de abstracción como Java y JavaScript. Forma parte de la plataforma .NET de Microsoft.
 <br>Se usará este lenguaje de programación para desarrollar un código general, el cual posteriormente será compilado por XAMARIN para Android e iOS.
 
-**XAML**
-<br>El lenguaje de marcado de aplicaciones extensible (XAML) es un lenguaje declarativo. En concreto, XAML puede inicializar objetos y establecer propiedades de objetos mediante una estructura de lenguaje que muestra relaciones jerárquicas entre varios objetos y una convención de tipo de respaldo que admite la extensión de tipos. Puedes crear elementos visibles de la interfaz de usuario en el marcado XAML declarativo. A continuación, puedes asociar un archivo de código subyacente distinto para cada archivo XAML que puede responder a eventos y manipular los objetos que originalmente declares en XAML.
+- **XAML**
+
+El lenguaje de marcado de aplicaciones extensible (XAML) es un lenguaje declarativo. En concreto, XAML puede inicializar objetos y establecer propiedades de objetos mediante una estructura de lenguaje que muestra relaciones jerárquicas entre varios objetos y una convención de tipo de respaldo que admite la extensión de tipos. Puedes crear elementos visibles de la interfaz de usuario en el marcado XAML declarativo. A continuación, puedes asociar un archivo de código subyacente distinto para cada archivo XAML que puede responder a eventos y manipular los objetos que originalmente declares en XAML.
 <br>Se empleará este lenguaje de marcado para diseñar las interfaces de la aplicación.
 
-**Git**
-<br>Es un sistema de control de versiones distribuido, cada desarrollador tiene una copia integral del mismo. A diferencia de los sistemas de control de versiones centralizados los DVCS necesitan una conexión constante a un repositorio central. Git es un sistema de control de versiones distribuido más popular y se utiliza el desarrollo de proyectos de código abierto.
+- **Git**
+
+Es un sistema de control de versiones distribuido, cada desarrollador tiene una copia integral del mismo. A diferencia de los sistemas de control de versiones centralizados los DVCS necesitan una conexión constante a un repositorio central. Git es un sistema de control de versiones distribuido más popular y se utiliza el desarrollo de proyectos de código abierto.
 <br>Se hará uso de esta herramienta para facilitar y agilizar un flujo colaborativo para el equipo, además de mejorar el versionado del proyecto y aumentar la eficiencia de correcciones, implementaciones y reducir tiempos de desarrollo.
 
-**StarUML**
-<br>Es un sofisticado modelador de software destinado a soportar un modelado ágil y conciso.
+- **StarUML**
+
+Es un sofisticado modelador de software destinado a soportar un modelado ágil y conciso.
 <br>Se utilizará este programa para modelar diagramas de casos de uso, de secuencia, actividades, entre otros, para sustentar el desarrollo del proyecto.
 
-**Testlink**
-<br>Es un sistema de gestión de pruebas basado en la web que facilita el control de calidad del software. Ofrece soporte para casos de prueba, conjuntos de pruebas, planes de pruebas, proyectos de prueba y gestión de usuarios, así como diversos informes y estadísticas.
+- **Testlink**
+
+Es un sistema de gestión de pruebas basado en la web que facilita el control de calidad del software. Ofrece soporte para casos de prueba, conjuntos de pruebas, planes de pruebas, proyectos de prueba y gestión de usuarios, así como diversos informes y estadísticas.
 <br>Se usará este programa en la fase de pruebas para así garantizar la calidad, funcionabilidad y consistencia de comportamiento del proyecto, para así hacer las respectivas correcciones o robustecer el proyecto o ciertas partes de este.
 
-**MantisBT**
-<br>Es un software que constituye una solución completa para gestionar tareas en un equipo de trabajo. Es una aplicación OpenSource que se utiliza para probar soluciones automatizadas, llevando un registro histórico de las alteraciones y gestionando equipos de trabajo de forma remota.
+- **MantisBT**
+
+Es un software que constituye una solución completa para gestionar tareas en un equipo de trabajo. Es una aplicación OpenSource que se utiliza para probar soluciones automatizadas, llevando un registro histórico de las alteraciones y gestionando equipos de trabajo de forma remota.
 <br>Se empleará este software para tener un control de las fallas que pueda presentar la aplicación y tener un registro de dichas fallas y como se podrían solucionar.
 
-**Figma**
-<br>Figma es un editor de gráficos vectoriales y una herramienta de generación de prototipos, principalmente basada en la web, con características offline adicionales habilitadas por aplicaciones de escritorio en macOS y Windows. Permite a los diseñadores colaborar en tiempo real, lo cual es ideal para equipos distribuidos geográficamente. Esta herramienta es conocida por su capacidad de mantener un flujo de trabajo eficiente gracias a sus funciones de coedición y comentarios en vivo. Además, Figma soporta la creación de componentes reutilizables, lo que facilita la consistencia en el diseño de la interfaz de usuario.
+- **Figma**
+
+Figma es un editor de gráficos vectoriales y una herramienta de generación de prototipos, principalmente basada en la web, con características offline adicionales habilitadas por aplicaciones de escritorio en macOS y Windows. Permite a los diseñadores colaborar en tiempo real, lo cual es ideal para equipos distribuidos geográficamente. Esta herramienta es conocida por su capacidad de mantener un flujo de trabajo eficiente gracias a sus funciones de coedición y comentarios en vivo. Además, Figma soporta la creación de componentes reutilizables, lo que facilita la consistencia en el diseño de la interfaz de usuario.
 <br>Se usará este programa para realizar el maquetado del diseño de interfaces.
 
 **`pendientes de confirmación`**<br>
-**JavaScript**
-<br>Es un lenguaje de programación ligero, interpretado, de dialecto del estándar ECMAScript con funciones de primera clase. Si bien es más conocido como un lenguaje de secuencias de comandos para páginas web, y es usado en muchos entornos fuera del navegador, es un lenguaje de programación basado en prototipos, multiparadigma, de un solo hilo, dinámico, con soporte para programación orientada a objetos, imperativo, declarativo, débilmente tipado y dinámico. 
+- **JavaScript**
+
+Es un lenguaje de programación ligero, interpretado, de dialecto del estándar ECMAScript con funciones de primera clase. Si bien es más conocido como un lenguaje de secuencias de comandos para páginas web, y es usado en muchos entornos fuera del navegador, es un lenguaje de programación basado en prototipos, multiparadigma, de un solo hilo, dinámico, con soporte para programación orientada a objetos, imperativo, declarativo, débilmente tipado y dinámico. 
 <br>Se utilizará este lenguaje del lado del cliente para aportar un mayor dinamismo a la aplicación además de reducir costos de procesamiento y energéticos a o los servidores que se vayan a emplear.
 
-**JSP**
-<br>La tecnología Java Server Pages permite generar contenido Web dinámico como, por ejemplo, archivos HTML, DHTML, XHTML y XML, para incluirlos en una aplicación Web. Los archivos JSP son una forma de implementar contenido de páginas dinámico del lado del servidor. Los archivos JSP permiten a un servidor Web como, por ejemplo, Apache Tomcat, añadir contenido dinámicamente a las páginas HTML antes de enviarlas al navegador que las solicita.
+- **JSP**
+
+La tecnología Java Server Pages permite generar contenido Web dinámico como, por ejemplo, archivos HTML, DHTML, XHTML y XML, para incluirlos en una aplicación Web. Los archivos JSP son una forma de implementar contenido de páginas dinámico del lado del servidor. Los archivos JSP permiten a un servidor Web como, por ejemplo, Apache Tomcat, añadir contenido dinámicamente a las páginas HTML antes de enviarlas al navegador que las solicita.
 <br>Cuando se despliega un archivo JSP en un servidor Web que proporciona un motor de servlets, se procesa previamente en un servlet que se ejecuta en el servidor. Esto contrasta con JavaScript™ en el lado del cliente (dentro de códigos <\SCRIPT>), que se ejecuta en un navegador. Una página JSP resulta ideal para tareas para tareas cuya ejecución es más adecuada en el servidor como, por ejemplo, acceder a bases de datos.
 
-**CSS3**
-<br>Hojas de Estilo en Cascada (del inglés Cascading Style Sheets) o CSS es el lenguaje de estilos utilizado para describir la presentación de documentos HTML o XML (incluyendo varios lenguajes basados en XML como SVG, MathML o XHTML). CSS describe cómo debe ser renderizado el elemento estructurado en la pantalla, en papel, en el habla o en otros medios. Es muy usado para establecer el diseño visual de los documentos web e interfaces de usuario escritas en HTML La última versión de este lenguaje, CSS3, incrementó significativamente el alcance de las especificaciones y el progreso de los diferentes módulos de CSS comenzó a mostrar varias diferencias, lo que hizo más efectivo desarrollar y publicar recomendaciones separadas por módulos.
+- **CSS3**
 
-**PHP**
-<br>Es un lenguaje de programación de código abierto, ampliamente utilizado por desarrolladores web y es el fundamento de muchas plataformas robustas. Proporciona una forma eficiente y eficaz de desarrollar sitios web dinámicos e interactivos.
+Hojas de Estilo en Cascada (del inglés Cascading Style Sheets) o CSS es el lenguaje de estilos utilizado para describir la presentación de documentos HTML o XML (incluyendo varios lenguajes basados en XML como SVG, MathML o XHTML). CSS describe cómo debe ser renderizado el elemento estructurado en la pantalla, en papel, en el habla o en otros medios. Es muy usado para establecer el diseño visual de los documentos web e interfaces de usuario escritas en HTML La última versión de este lenguaje, CSS3, incrementó significativamente el alcance de las especificaciones y el progreso de los diferentes módulos de CSS comenzó a mostrar varias diferencias, lo que hizo más efectivo desarrollar y publicar recomendaciones separadas por módulos.
+
+- **PHP**
+
+Es un lenguaje de programación de código abierto, ampliamente utilizado por desarrolladores web y es el fundamento de muchas plataformas robustas. Proporciona una forma eficiente y eficaz de desarrollar sitios web dinámicos e interactivos.
 <br>Se utilizará este lenguaje en el lado del back-end debido a su tipado dinámico y rápida implementación en el mismo.
 
-**Node.js**
-<br>Es un entorno de ejecución de JavaScript que se utiliza para desarrollar aplicaciones de servidor. Impulsado por el motor V8 de Google, Node.js utiliza un modelo de programación orientado a eventos y entradas/salidas (I/O) no bloqueantes, lo que lo hace ligero y eficiente, perfecto para aplicaciones en tiempo real con intercambio intenso de datos a través de dispositivos distribuidos.
+- **Node.js**
+
+Es un entorno de ejecución de JavaScript que se utiliza para desarrollar aplicaciones de servidor. Impulsado por el motor V8 de Google, Node.js utiliza un modelo de programación orientado a eventos y entradas/salidas (I/O) no bloqueantes, lo que lo hace ligero y eficiente, perfecto para aplicaciones en tiempo real con intercambio intenso de datos a través de dispositivos distribuidos.
 <br>Se utilizará este entorno de ejecución debido a que su sintaxis es idéntica a la de JavaScript por lo que su implementación en el lado del back-end o del servidor será rápida, eficiente y potente.
 
-**MongoBD**
-<br>Es una base de datos de documentos que ofrece una gran escalabilidad y flexibilidad y un modelo de consultas e indexación avanzada. 
+- **MongoBD**
+
+Es una base de datos de documentos que ofrece una gran escalabilidad y flexibilidad y un modelo de consultas e indexación avanzada. 
 <br>Se hará uso de este gestor de base de datos no relacional para poder almacenar grandes volúmenes de datos cuya información no sea sensible.
 
-**PostgreSQL**
-<br>Es potente sistema de base de datos relacional de objetos de código abierto con más de 35 datos de desarrollo activo que le ha ganado una sólida reputación por su confiabilidad solidez de funciones y rendimiento. 
+- **PostgreSQL**
+
+Es potente sistema de base de datos relacional de objetos de código abierto con más de 35 datos de desarrollo activo que le ha ganado una sólida reputación por su confiabilidad solidez de funciones y rendimiento. 
 <br>Se empleará este gestor de base de datos relacional para tener un control preciso de aquellos registros que requieran ser protegidos ya que estos pueden presentar información sensible.
 
 ## METODOLOGÍA
@@ -643,58 +705,26 @@ El acceso a ambas interfaces depende de un mismo login, sin embargo, para accede
 
 ### 1.2 Identificación y definición de roles de usuario
 Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales para el correcto funcionamiento de esta.
-1. Cliente: Este usuario se tendrá que registrar por medio de correo electrónico y contraseña, e iniciar sesión para poder rentar, comentar, puntuar o guardar una película en alguna lista. Sobre las listas, el usuario podrá crear diferentes dependiendo de sus necesidades. Para poder rentar una película, el cliente tendrá que vincular una forma de pago para poder adquirir la película.
-2. Administrador: El administrador será el responsable de la gestión de la aplicación "pendiente" de manera que pueda manipular la base de datos para la gestión de películas, usuarios y las rentas que el usuario realice.
+- Cliente: Este usuario se tendrá que registrar por medio de correo electrónico y contraseña, e iniciar sesión para poder rentar, comentar, puntuar o guardar una película en alguna lista. Sobre las listas, el usuario podrá crear diferentes dependiendo de sus necesidades. Para poder rentar una película, el cliente tendrá que vincular una forma de pago para poder adquirir la película.
+- Administrador: El administrador será el responsable de la gestión de la aplicación "pendiente" de manera que pueda manipular la base de datos para la gestión de películas, usuarios y las rentas que el usuario realice.
 
 ### 1.3 Requerimientos funcionales
-| Registro de clientes |
-| - |
-| El sistema deberá permitir el registro de clientes interesados con correo y contraseña como parte del registro. |
-
-| Inicio de sesión de clientes |
-| - |
-| El sistema deberá permitir el inicio de sesión de clientes con su correo y contraseña previamente registradas. |
-
-| Renta de películas |
-| - |
-| El sistema deberá permitir la renta de películas en estreno a usuarios registrados en la aplicación siempre y cuando vinculen un método de pago. |
-
-| Comentar y puntuar |
-| - |
-| El sistema deberá permitir a los usuarios con cuenta puntuar las películas, así como comentarlas. |
-
-| Gestionar listas |
-| - |
-| El sistema deberá permitir a los usuarios visualizar, crear, eliminar o actualizar listas personalizables en donde puedan guardar películas. |
-
-| Inicio de sesión de administradores |
-| - |
-| El sistema deberá permitir a los administradores iniciar sesión con un correo y contraseña previamente registrada en la base de datos. |
-
-| Gestionar películas |
-| - |
-| El sistema deberá permitir a los administradores agregar, actualizar y eliminar películas. |
+Los requerimientos funcionales son aquellas descripciones del sistema que tienen una funcionalidad para satisfacer al usuario.
+- Registro de clientes: El sistema deberá permitir el registro de clientes interesados con correo y contraseña como parte del registro.
+- Inicio de sesión de clientes: El sistema deberá permitir el inicio de sesión de clientes con su correo y contraseña previamente registradas.
+- Renta de películas: El sistema deberá permitir la renta de películas en estreno a usuarios registrados en la aplicación siempre y cuando vinculen un método de pago.
+- Comentar y puntuar: El sistema deberá permitir a los usuarios con cuenta puntuar las películas, así como comentarlas.
+- Gestionar listas: El sistema deberá permitir a los usuarios visualizar, crear, eliminar o actualizar listas personalizables en donde puedan guardar películas.
+- Inicio de sesión de administradores: El sistema deberá permitir a los administradores iniciar sesión con un correo y contraseña previamente registrada en la base de datos.
+- Gestionar películas: El sistema deberá permitir a los administradores agregar, actualizar y eliminar películas.
 
 ### 1.4 Requerimientos no funcionales
-| Encriptar datos |
-| - |
-| El sistema deberá encriptar datos sensibles tanto del administrador como el cliente, por ejemplo, contraseñas e información bancaria. |
-
-| Tiempo de respuesta |
-| - |
-| El sistema deberá tener un tiempo de respuesta entre cada actividad de máximo cinco segundos. |
-
-| Diferenciación administrador y cliente |
-| - |
-| El sistema deberá diferenciar el inicio de sesión entre un cliente y un administrador. |
-
-| Diseño |
-| - |
-| El sistema deberá tener un diseño responsivo, agradable a la vista del cliente en cuanto a color, tipografía y acorde a la aplicación. |
-
-| Usabilidad | 
-| - |
-| El sistema deberá ser de fácil navegación a los usuarios. |
+Los requerimientos no funcionales son aquellas descripciones que determinan como debe comportarse el sistema en cuestión de calidad y características.
+- Encriptar datos: El sistema deberá encriptar datos sensibles tanto del administrador como el cliente, por ejemplo, contraseñas e información bancaria.
+- Tiempo de respuesta: El sistema deberá tener un tiempo de respuesta entre cada actividad de máximo cinco segundos.
+- Diferenciación administrador y cliente: El sistema deberá diferenciar el inicio de sesión entre un cliente y un administrador.
+- Diseño: El sistema deberá tener un diseño responsivo, agradable a la vista del cliente en cuanto a color, tipografía y acorde a la aplicación.
+- Usabilidad: El sistema deberá ser de fácil navegación a los usuarios.
 
 ### 1.5 Requerimientos de hardware
 - Computadoras con mínimo de 16gb RAM y 1TB de almacenamiento. Con monitor de mínimo 22 pulgadas y procesador Intel Core i5 6ta Gen. Para uso general en el proyecto, programación, diseño y documentación.
@@ -710,9 +740,11 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 - MantisBT: Funcionará como gestor de reportes de errores o fallos de funcionalidad u ortográficos.
 
 ### 1.7 Diagrama general de casos de uso
+*La figura 1.7.1 representa el diagrama general de casos de uso que muestran las gestiones principales de la aplicación.*
 ![diagrama general](img_doc/cap1/_7/DGeneral.jpg)
 
 ### 1.8 Especificación de los casos de uso
+*La figura 1.8.1 muestra las secuencias del registro de un usuario.*
 <table>
     <tr>
         <td>CU-0001</td>
@@ -796,6 +828,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ---
 
+*La figura 1.8.2 muestra las secuencias del inicio de sesión de un usuario.*
 <table>
     <tr>
         <td>CU-0002</td>
@@ -874,6 +907,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ---
 
+*La figura 1.8.3 muestra las secuencias y gestión de rentar una película.*
 <table>
     <tr>
         <td>CU-0003</td>
@@ -977,6 +1011,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ---
 
+*La figura 1.8.4 muestra las secuencias y gestión de comentar una película.*
 <table>
     <tr>
         <td>CU-0004</td>
@@ -1106,6 +1141,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ---
 
+*La figura 1.8.5 muestra las secuencias y gestión de puntuar una película.*
 <table>
     <tr>
         <td>CU-0005</td>
@@ -1208,6 +1244,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ---
 
+*La figura 1.8.6 muestra las secuencias y gestión una lista.*
 <table>
     <tr>
         <td>CU-0006</td>
@@ -1341,6 +1378,7 @@ Dentro de la aplicación "ButterPop" existen dos roles de usuario fundamentales 
 
 ---
 
+*La figura 1.8.7 muestra las secuencias y gestión de una película.*
 <table>
     <tr>
         <td>CU-0007</td>
