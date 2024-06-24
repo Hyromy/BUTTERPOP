@@ -50,11 +50,11 @@ Gracias por tu atencion y paciencia, tqm
 -->
 
 ### Cambios pendientes por realizar
-#### Capítulos
-- [ ] Agregar introduccion a cada capítulo
-
 #### Figuras
 - [x] Agregar una introducción a cada figura
+- [ ] Agregar cuadro te texto de figura a los diccionarios de datos 
+- [ ] Agregar figuras a cada tabla del plan de pruebas
+- [ ] Reordenar las interfaces (maquetas) en doc
 
 #### Diagramas de secuencia
 - [ ] Agregar diagrama "Gestionar película" en README
@@ -694,6 +694,8 @@ Fase de pruebas: Una vez pasada una prueba general de la aplicación, se llega a
 
 ---
 ## CAPÍTULO 1 RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS
+El primer capítulo contiene la definición y especificación de los usuarios que usarán la aplicación, así como los requisitos funcionales y no funcionales del mismo, además del software y hardware necesario para desarrollar dicha aplicación. También se especifican los procesos generales de cada caso de uso con su respectivo diagrama de secuencia en cada caso.
+
 ### 1.1 Nececidades del cliente
 El departamento de ventas de Cinemas AJEM necesita una aplicación multiplataforma llamada "ButterPop" que abarque tanto la compra y renta de las películas más recientes de su cartelera, como la interacción con los usuarios, brindándoles una experiencia amigable. Por lo que proponen que la misma cuente con dos interfaces clave para lograr esto. 
 
@@ -1516,31 +1518,41 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ### 1.9 Diagramas de secuencia
 #### Inicio de sesión
+*La figura 1.9.1 muestra el diagrama de secuencia del caso de uso “Iniciar sesión”*
 ![DS inicio de sesión](img_doc/cap1/_9/DSSesion.jpg)
 
 #### Registrar usuarios
+*La figura 1.9.2 muestra el diagrama de secuencia del caso de uso "Registrar usuario"*
 ![DS registrar usuario](img_doc/cap1/_9/DSRegistrar.jpg)
 
 #### Rentar película
+*La figura 1.9.3 muestra el diagrama de secuencia del caso de uso "Rentar película"*
 ![DS rentar película](img_doc/cap1/_9/DSRentar.jpg)
 
 #### Gestionar lista
+*La figura 1.9.4 muestra el diagrama de secuencia del caso de uso "Gestionar listas"*
 ![DS gestionar lista](img_doc/cap1/_9/DSListas.jpg)
 
-#### Puntuar película
-![DS puntuar película](img_doc/cap1/_9/DSPuntuar.jpg)
-
 #### Comentar película
+*La figura 1.9.5 muestra el diagrama de secuencia del caso de uso "Gestionar comentarios"*
 ![DS comentar película](img_doc/cap1/_9/DSComentar.jpg)
 
+#### Puntuar película
+*La figura 1.9.6 muestra el diagrama de secuencia del caso de uso "Gestionar puntuación"*
+![DS puntuar película](img_doc/cap1/_9/DSPuntuar.jpg)
+
 ### 1.10 Diagrama de actividades
+*La figura 1.10.1 muestra el diagrama de actividades de la aplicación*
 ![diagrama de actividades](img_doc/cap1/_10/DActividades.jpg)
 
 ## CAPÍTULO 2 DISEÑO Y DESARROLLO DEL PROYECTO
+El segundo capítulo contiene la especificación de la base de datos, tales como sus tablas y su respectivo diccionario de datos para cada tabla, además se plantea un plan de pruebas con cada caso de prueba, por último, también se presenta el diseño de interfaces que contiene la aplicación. 
+
 ### 2.1 Diagrama de la base de datos (relacional)
 ![diagrama relacional de la base de datos]()
 
 ### 2.2 Diccionario de datos
+*La figura 2.2.1 muestra el diccionario de datos de la tabla "pelicula"*
 <table>
     <tr>
         <td colspan="5">TB PELICULA</td>
@@ -1619,6 +1631,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.2 muestra el diccionario de datos de la tabla "renta"*
 <table>
     <tr>
         <td colspan="5">TB RENTA</td>
@@ -1662,6 +1675,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.3 muestra el diccionario de datos de la tabla "comentar"*
 <table>
     <tr>
         <td colspan="5">TB COMENTAR</td>
@@ -1705,6 +1719,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.4 muestra el diccionario de datos de la tabla "contiene"*
 <table>
     <tr>
         <td colspan="5">TB CONTIENE</td>
@@ -1741,6 +1756,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.5 muestra el diccionario de datos de la tabla "cliente"*
 <table>
     <tr>
         <td colspan="5">TB CLIENTE</td>
@@ -1784,6 +1800,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.6 muestra el diccionario de datos de la tabla "lista"*
 <table>
     <tr>
         <td colspan="5">TB LISTA</td>
@@ -1834,6 +1851,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.7 muestra el diccionario de datos de la tabla "administrador"*
 <table>
     <tr>
         <td colspan="5">TB ADMINISTRADOR</td>
@@ -2122,70 +2140,98 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 ---
 
 ### 2.4 Diseño de las interfaces (maquetas)
+*La figura 2.4.1 muestra la interfaz de bienvenida a la aplicación*
+
 ![interfaz de bienvenida a la aplicacion](img_doc/cap2/_4/bienvenida.jpg)
 <br>Interfaz de bienvenida a la aplicación
 
 ---
+
+*La figura 2.4.2 muestra la interfaz de inicio de sesión*
 
 ![interfaz de inicio de sesion](img_doc/cap2/_4/inicioSesion.jpg)
 <br>Interfaz de inicio de sesión
 
 ---
 
+*La figura 2.4.3 muestra la interfaz de registrar cuenta*
+
 ![interfaz de resgitro de usuario](img_doc/cap2/_4/registrar.jpg)
 <br>Interfaz de resgitro de usuario
 
 ---
+
+*La figura 2.4.4 muestra la interfaz de principal (cartelera)*
 
 ![interfaz principal (cartelera)](img_doc/cap2/_4/cartelera.jpg)
 <br>Interfaz principal (cartelera)
 
 ---
 
+*La figura 2.4.5 muestra la interfaz de selección de película*
+
 ![interfaz seleccion de pelicula](img_doc/cap2/_4/seleccionPelicula.jpg)
 <br>Interfaz selección de película
 
 ---
+
+*La figura 2.4.6 muestra la interfaz de renta de película*
 
 ![interfaz renta de pelicula](img_doc/cap2/_4/renta.jpg)
 <br>Interfaz renta de película
 
 ---
 
+*La figura 2.4.7 muestra la interfaz de "mis películas"*
+
 ![interfaz del perfil (mis peliculas)](img_doc/cap2/_4/misPeliculas.jpg)
 <br>Interfaz del perfil (mis películas)
 
 ---
+
+*La figura 2.4.8 muestra la interfaz de película rentada*
 
 ![interfaz pelicula rentada](img_doc/cap2/_4/peliculaRentada.jpg)
 <br>Interfaz película rentada
 
 ---
 
+*La figura 2.4.9 muestra la interfaz de "mis listas"*
+
 ![interfaz mis listas](img_doc/cap2/_4/misListas.jpg)
 <br>Interfaz mis listas
 
 ---
+
+*La figura 2.4.10 muestra la interfaz de crear lista*
 
 ![interfaz crear lista](img_doc/cap2/_4/crearLista.jpg)
 <br>Interfaz crear lista
 
 ---
 
+*La figura 2.4.11 muestra la interfaz de lista creada*
+
 ![interfaz lista creada](img_doc/cap2/_4/listaCreada.jpg)
 <br>Interfaz lista creada
 
 ---
+
+*La figura 2.4.12 muestra la interfaz de editar lista*
 
 ![interfaz editar lista](img_doc/cap2/_4/editarLista.jpg)
 <br>Interfaz editar lista
 
 ---
 
+*La figura 2.4.13 muestra la interfaz de eliminar lista*
+
 ![interfaz eliminar lista](img_doc/cap2/_4/eliminarLista.jpg)
 <br>Interfaz eliminar lista
 
 ---
+
+*La figura 2.4.14 muestra la interfaz de "mi perfil"*
 
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
 <br>Interfaz de mi perfil
