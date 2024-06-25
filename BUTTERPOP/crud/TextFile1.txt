@@ -1,0 +1,1 @@
+﻿por cada tabla agregar una clase c# que gestione el crud depende las necesidades

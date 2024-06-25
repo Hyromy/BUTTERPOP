@@ -1,5 +1,30 @@
 *`documento sujeto a cambios`*
 
+```
+ESTRUCTURA DE CARPETAS
+
+BUTTERPOP
+│
+├───model
+│   │
+│   ├───caso_de_uso_1
+│   │   └───Model.cs
+│   │
+│   └───caso_de_uso_1
+│       └───Model.cs
+│
+├────crud
+│    ├───CRUD_tabla_1.cs
+│    └───CRUD_tabla_2.cs
+│
+└────vistas
+     ├───vista_1.xaml
+     │   └───vista_1.cs
+     │
+     └───vista_2.xaml
+        └───vista_1.cs
+```
+
 <!-- 
 si estas leyendo esto por favor instala la siguiente extencion:
 ve a la seccion extenciones y busca "GitHub Markdown Preview" v0.3.0 o posterior

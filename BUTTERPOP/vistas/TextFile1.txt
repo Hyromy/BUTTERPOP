@@ -1,0 +1,2 @@
+﻿agregar cada vista (no tiene mucho misterio)
+(es posible que se requieran carpetas adicionales para gestionar y facilitar la navegacion)
