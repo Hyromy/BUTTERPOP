@@ -10,7 +10,8 @@ namespace BUTTERPOP
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+            MainPage = new NavigationPage(new vistas.testRenta());
         }
 
         protected override void OnStart()
