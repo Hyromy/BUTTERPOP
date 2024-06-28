@@ -22,17 +22,16 @@ namespace BUTTERPOP.utils
                 throw new ArgumentOutOfRangeException(reason);
             }
 
-            int size = (int) Math.Floor(Math.Log(baseNumber, decNumber) + 1);
+            int size = (int) Math.Floor(Math.Log(decNumber) / Math.Log(baseNumber) + 1);
             long[] cells = new long[size];
-            int i = 0;
+            int i = size - 1;
             while (decNumber >= baseNumber)
             {
                 cells[i] = decNumber %  baseNumber;
                 decNumber = (int) (decNumber / baseNumber);
-                i++;
+                i--;
             }
-            cells[size - 1] = decNumber;
-            cells.Reverse();
+            cells[0] = decNumber;
 
             String value = "";
             for (int it = 0; it < cells.Length; it++)
@@ -66,6 +65,7 @@ namespace BUTTERPOP.utils
                 throw new ArgumentOutOfRangeException(reason);
             }
 
+            number = number.ToLower();
             int output = 0;
             int x = 0;
             int exp = number.Length - 1;
@@ -82,7 +82,7 @@ namespace BUTTERPOP.utils
 
                 if (x >= baseNumber)
                 {
-                    String reason = $"No es posible convertir {c} a base {baseNumber.ToString()}";
+                    String reason = $"No es posible convertir '{c}' a base {baseNumber.ToString()}";
                     throw new FormatException(reason);
                 }
 

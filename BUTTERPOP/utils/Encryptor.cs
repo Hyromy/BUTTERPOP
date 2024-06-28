@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 
 namespace BUTTERPOP.utils
@@ -16,9 +17,9 @@ namespace BUTTERPOP.utils
         /// <exception cref="ArgumentException"></exception>
         public int alphaToValue(String key)
         {
-            if (!key.StartsWith("-") && key.Length > 1)
+            if ((!key.StartsWith("-") && key.Length >= 2) || key.Equals("-") || key.Trim().Equals(""))
             {
-                String reason = $"El valor {key} no es válido, solo se permite un único caracter (se permiten caracteres negativos)";
+                String reason = $"El valor '{key}' no es válido, solo se permite un único caracter (se permiten caracteres negativos)";
                 throw new ArgumentException(reason);
             }
 
@@ -29,8 +30,8 @@ namespace BUTTERPOP.utils
             }
             catch
             {
-                String keyValue = key.Substring(1, key.Length);
-                value = (int) key[keyValue.Length - 1] - 87;
+                char[] c = key.ToCharArray();
+                value = (int) c[c.Length -1] - 87;
 
                 if (key.StartsWith("-"))
                 {
@@ -72,21 +73,31 @@ namespace BUTTERPOP.utils
         /// Convierte un texto de entrada en un hash hexadecimal
         /// </summary>
         /// <param name="input">Información de entrada</param>
-        /// <param name="time">Fecha y hora de encriptación</param>
-        /// <param name="extraData">Información adicional para el encriptado</param>
+        /// <param name="time">Fecha y hora de encriptación (puede ser null)</param>
+        /// <param name="extraData">Información adicional para el encriptado (puede ser null)</param>
         /// <param name="id">id de encriptación</param>
         /// <returns>Hash hexadecimal del input</returns>
+        /// <exception cref="ArgumentException"></exception>
         public String toHash(String input, DateTime time, String extraData, int id)
         {
-            long dirtyHash = 0;
+            if (id == 0 || input.Length == 0)
+            {
+                String reason = "El id de encriptación no puede ser 0 y el input no puede estar vacío";
+                throw new ArgumentException(reason);
+            }
+
+            int dirtyHash = 0;
             foreach (char c in input)
             {
                 dirtyHash += alphaToValue("" + c);
             }
 
-            foreach (char e in extraData)
+            if (extraData != null || extraData.Trim().Equals(""))
             {
-                dirtyHash += alphaToValue("" + e);
+                foreach (char e in extraData)
+                {
+                    dirtyHash += alphaToValue("" + e);
+                }
             }
 
             dirtyHash += time.Year;
@@ -95,20 +106,21 @@ namespace BUTTERPOP.utils
             dirtyHash += time.Hour;
             dirtyHash += time.Minute;
             dirtyHash += time.Second;
-            dirtyHash *= id * input.Length;
+            dirtyHash *= input.Length;
 
             Conversor conv = new Conversor();
 
-            String hashKey = conv.toBaseN(36, dirtyHash);
+            String hashKey = conv.toBaseN(16, dirtyHash);
             String hashValue = "";
             long x = 0;
             foreach (char dH in dirtyHash.ToString())
             {
-                x = ((long) dH) * alphaToValue("" + dH);
+                x = ((long) dH) + alphaToValue("" + dH) * id;
                 hashValue += x.ToString();
             }
 
-            return conv.toBaseN(16, long.Parse(hashValue));
+            String hash16 = conv.toBaseN(16, long.Parse(hashValue));
+            return hashKey + hashValue + dirtyHash + hash16;
         }
     }
 }
