@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BUTTERPOP.utils
 {
-    internal class Encryptor
+    public class Encryptor
     {
         /// <summary>
         /// Convierte un valor alfanumérico a una reprecentacion decimal similar a ASCII

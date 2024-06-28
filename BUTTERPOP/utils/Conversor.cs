@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BUTTERPOP.utils
 {
-    internal class Conversor
+    public class Conversor
     {
         /// <summary>
         /// Convierte un número decimal a su equivalente en una base 'n' entre 2 (0 - 1) y 36 (0 - z)
