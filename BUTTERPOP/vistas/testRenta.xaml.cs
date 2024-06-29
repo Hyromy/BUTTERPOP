@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using BUTTERPOP.crud;
+using SQLite;
+
 using BUTTERPOP.modelo.rentar;
+using BUTTERPOP.crud.renta;
+using BUTTERPOP.database;
 
 namespace BUTTERPOP.vistas
 {
@@ -71,6 +75,7 @@ namespace BUTTERPOP.vistas
             {
                 idPelicula = 0;
             }
+
             if (correo == "" ||
                 idPelicula <= 0)
             {
@@ -78,7 +83,12 @@ namespace BUTTERPOP.vistas
             }
             else
             {
-                output.Text = crud.create(correo, idPelicula);
+                String sql = crud.InsertRenta(correo, idPelicula);
+
+                var db = DatabaseConnection.GetConnection();
+                db.Execute(sql);
+                // aqui me quede 
+                output.Text = "registro exitoso";
             }
         }
 
@@ -92,14 +102,14 @@ namespace BUTTERPOP.vistas
             {
                 idRenta = 0;
             }
-            output.Text = crud.read(idRenta);
+            output.Text = crud.ReadRenta(idRenta);
         }
 
         private void ReadBy(object sender, EventArgs e)
         {
             try
             {
-                output.Text = crud.readBy("atributo", "valor");
+                output.Text = crud.ReadRentaBy("atributo", "valor");
             }
             catch (Exception err)
             {
@@ -109,12 +119,12 @@ namespace BUTTERPOP.vistas
 
         private void ReadAll(object sender, EventArgs e)
         {
-            output.Text = crud.readAll();
+            output.Text = crud.ReadAllRentas();
         }
 
         private void CountLogs(object sender, EventArgs e)
         {
-            output.Text = crud.countLogs();
+            output.Text = crud.CountRentas();
         }
 
         private void Update(object sender, EventArgs e)
@@ -123,7 +133,7 @@ namespace BUTTERPOP.vistas
             String[] valores = {"hyromy"};
             try
             {
-                output.Text = crud.update(1, atributos, valores);
+                output.Text = crud.UpdateRenta(1, atributos, valores);
             }
             catch (Exception err)
             {
@@ -141,7 +151,7 @@ namespace BUTTERPOP.vistas
             {
                 idRenta = 0;
             }
-            output.Text = crud.delete(idRenta);
+            output.Text = crud.DeleteRenta(idRenta);
         }
 
         private void IsActiveRent(object sender, EventArgs e)

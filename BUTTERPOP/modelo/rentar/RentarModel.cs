@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BUTTERPOP.modelo.rentar
 {
-    internal class RentarModel
+    public class RentarModel
     {
         /// <summary>
         /// Recibe un string con fecha y hora y verifica si hay menos de 30 días

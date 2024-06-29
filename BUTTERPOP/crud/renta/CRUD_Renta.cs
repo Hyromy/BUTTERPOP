@@ -4,65 +4,65 @@ using System.Text;
 using System.Xml.Linq;
 using Xamarin.Essentials;
 
-namespace BUTTERPOP.crud
+namespace BUTTERPOP.crud.renta
 {
     internal class CRUD_Renta
     {
-        private String tbName;
+        private string tbName;
 
-        private String idRent;
-        private String correo;
-        private String idPeli;
-        private String fRenta;
+        private string idRent;
+        private string correo;
+        private string idPeli;
+        private string fRenta;
 
         public CRUD_Renta()
         {
-            this.tbName = "renta";
+            tbName = "renta";
 
-            this.idRent = "id_renta";
-            this.idPeli = "id_pelicula";
-            this.correo = "correo";
-            this.fRenta = "fecha_renta";
+            idRent = "id_renta";
+            idPeli = "id_pelicula";
+            correo = "correo";
+            fRenta = "fecha_renta";
         }
 
         /// <returns>Nombre del la tabla 'renta'</returns>
-        public String getTBName() { return this.tbName; }
+        public string getTBName() { return tbName; }
 
         /// <returns>Clave primarial del registro</returns>
-        public String getIdRent() { return this.idRent; }
+        public string getIdRent() { return idRent; }
 
         /// <returns>Clave foránea de la tabla 'cliente'</returns>
-        public String getCorreo() { return this.correo; }
+        public string getCorreo() { return correo; }
 
         /// <returns>Clave foránea de la tabla 'pelicula'</returns>
-        public String getIdPeli() { return this.idPeli; }
+        public string getIdPeli() { return idPeli; }
 
         /// <returns>Campo de la fecha de renta</returns>
-        public String getFRenta() { return this.fRenta; }
+        public string getFRenta() { return fRenta; }
 
         /// <summary>
         /// Sentencia sql para insertar un nuevo registro
         /// </summary>
         /// <param name="correo">Clave foránea de la tabla 'cliente'</param>
         /// <param name="idPelicula">Clave foránea de la tabla 'pelicula'</param>
-        public String create(String correo, int idPelicula)
+        public string InsertRenta(string correo, int idPelicula)
         {
-            String fechaRenta, values, atributes;
+            string fechaRenta, values, atributes;
 
-            atributes = $"{this.correo}, {this.idPeli}, {this.fRenta}";
+            atributes = $"{this.correo}, {idPeli}, {fRenta}";
             fechaRenta = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             values = $"'{correo}', {idPelicula}, '{fechaRenta}'";
 
-            return $"insert into {this.tbName}({atributes}) values({values});";
+            return $"insert into {tbName}({atributes}) values({values});";
         }
 
         /// <summary>
         /// Sentencia sql para leer un registro con un id específico
         /// </summary>
         /// <param name="idRenta">Clave primaria del registro</param>
-        public String read(int idRenta)
+        public string ReadRenta(int idRenta)
         {
-            return $"select * from {this.tbName} where {this.idRent} = {idRenta};";
+            return $"select * from {tbName} where {idRent} = {idRenta};";
         }
 
         /// <summary>
@@ -71,33 +71,33 @@ namespace BUTTERPOP.crud
         /// <param name="atributo">Atributo de la tabla 'renta'</param>
         /// <param name="valor">Valor del campo respectivo</param>
         /// <exception cref="Exception"></exception>
-        public String readBy(String atributo, String valor)
+        public string ReadRentaBy(string atributo, string valor)
         {
-            if (atributo != this.idPeli ||
-                atributo != this.fRenta ||
-                atributo != this.correo)
+            if (atributo != idPeli ||
+                atributo != fRenta ||
+                atributo != correo)
             {
-                String validAtb = $"'{this.idPeli}', '{this.fRenta}', '{this.correo}'";
+                string validAtb = $"'{idPeli}', '{fRenta}', '{correo}'";
                 throw new Exception($"Atributo no válido, valores disponibles: ({validAtb})");
             }
 
-            return $"select * from {this.tbName} where {atributo} = {valor};";
+            return $"select * from {tbName} where {atributo} = {valor};";
         }
 
         /// <summary>
         /// Sentencia sql para leer todos los registros de la tabla
         /// </summary>
-        public String readAll()
+        public string ReadAllRentas()
         {
-            return $"select * from {this.tbName};";
+            return $"select * from {tbName};";
         }
 
         /// <summary>
         /// Sencencia sql para contar la cantidad de registros en la tabla
         /// </summary>
-        public String countLogs()
+        public string CountRentas()
         {
-            return $"select count({this.idRent}) from {this.tbName};"; 
+            return $"select count({idRent}) from {tbName};";
         }
 
         /// <summary>
@@ -107,25 +107,25 @@ namespace BUTTERPOP.crud
         /// <param name="atributos">Arreglo de Strings con el nombre de los campos a actualizar</param>
         /// <param name="valores">Arreglo de Strings con los valores a actualizar</param>
         /// <exception cref="Exception"></exception>
-        public String update(int idRenta, String[] atributos, String[] valores)
+        public string UpdateRenta(int idRenta, string[] atributos, string[] valores)
         {
             if (atributos.Length != valores.Length)
             {
                 throw new Exception("La cantidad de atributos y valores deben ser idénticos");
             }
 
-            String updateSentence = "";
+            string updateSentence = "";
             for (byte i = 0; i < atributos.Length; i++)
             {
-                if (atributos[i] != this.idPeli ||
-                    atributos[i] != this.fRenta ||
-                    atributos[i] != this.correo)
+                if (atributos[i] != idPeli ||
+                    atributos[i] != fRenta ||
+                    atributos[i] != correo)
                 {
-                    String validAtb = $"'{this.idPeli}', '{this.fRenta}', '{this.correo}'";
+                    string validAtb = $"'{idPeli}', '{fRenta}', '{correo}'";
                     throw new Exception($"Atributo no válido, valores disponibles: ({validAtb})");
                 }
 
-                if (i != atributos.Length -1)
+                if (i != atributos.Length - 1)
                 {
                     updateSentence += $"{atributos[i]} = '{valores[i]}', ";
                 }
@@ -135,16 +135,16 @@ namespace BUTTERPOP.crud
                 }
             }
 
-            return $"update {this.tbName} set {updateSentence} where {this.idRent} = {idRenta};";
+            return $"update {tbName} set {updateSentence} where {idRent} = {idRenta};";
         }
 
         /// <summary>
         /// Sentencia sql para eliminar un registro por su id
         /// </summary>
         /// <param name="idRenta">Clave primarial del registro</param>
-        public String delete(int idRenta)
+        public string DeleteRenta(int idRenta)
         {
-            return $"delete from {this.tbName} where {this.idRent} = {idRenta};";
+            return $"delete from {tbName} where {idRent} = {idRenta};";
         }
     }
 }
