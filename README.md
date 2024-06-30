@@ -60,13 +60,6 @@ Gracias por tu atencion y paciencia, tqm
 - [ ] Agregar diagrama "Gestionar película" en README
 - [ ] Agregar diagrama "Gestionar película" en DOC
 
-#### Diagrama de actividades
-- [ ] Corregir diagrama de actividades
-
-#### Diagrama de base de datos
-- [ ] Agregar modelo de base de datos en README
-- [ ] Agregar modelo de base de datos en DOC
-
 #### Diseño de pruebas
 - [ ] Realizar diseño de pruebas de "crear lista" en README
 - [ ] Realizar diseño de pruebas de "crear lista" en DOC
@@ -1549,7 +1542,8 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 El segundo capítulo contiene la especificación de la base de datos, tales como sus tablas y su respectivo diccionario de datos para cada tabla, además se plantea un plan de pruebas con cada caso de prueba, por último, también se presenta el diseño de interfaces que contiene la aplicación. 
 
 ### 2.1 Diagrama de la base de datos (relacional)
-![diagrama relacional de la base de datos]()
+*La figura 2.1.1 muestra el modelo relacional de la base de datos empleada para la aplicacicón "BUTTERPOP"*
+![diagrama relacional de la base de datos](img_doc/cap2/_1/DBDRelacional.jpg)
 
 ### 2.2 Diccionario de datos
 *La figura 2.2.1 muestra el diccionario de datos de la tabla "pelicula"*
