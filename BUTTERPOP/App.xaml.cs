@@ -9,8 +9,8 @@ namespace BUTTERPOP
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            Device.SetFlags(new[] { "MediaElement_Experimental", "Brush_Experimental" });
+            MainPage = new NavigationPage(new vistas.LoginPage());
         }
 
         protected override void OnStart()

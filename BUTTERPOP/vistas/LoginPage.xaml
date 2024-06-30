@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:me="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="BUTTERPOP.vistas.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Content>
+        <Grid>
+            <!--BACKGROUND VIDEO-->
+            <me:MediaElement Source="ms-appx:///video2.mp4" Aspect="AspectFill" ShowsPlaybackControls="False"
+                     IsLooping="True" AutoPlay="True"
+                     Volume="0"
+                     HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand"/>
+            <BoxView>
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0"  EndPoint="1,1">
+                        <GradientStop Color="Transparent" Offset="0" />
+                        <GradientStop Color="#0A0A0A" Offset="0.9" />
+                        <GradientStop Color="#0A0A0A" Offset="1" />
+                    </LinearGradientBrush>
+
+                </BoxView.Background>
+            </BoxView>
+            <!--END BACKGROUND VIDEO-->
+
+            <FlexLayout Direction="Column"
+    JustifyContent="Center"
+    AlignItems="Center"
+    Padding="30">
+
+                <!--LOGO-->
+                <Image Source="ButterPop.png" 
+               HorizontalOptions="Center" 
+               WidthRequest="300"
+               Margin="30"/>
+                <!--#END LOGO-->
+
+                <Frame BackgroundColor="White"
+               CornerRadius="40"
+               WidthRequest="250"
+               HeightRequest="400">
+
+                    <StackLayout Orientation="Vertical"
+             Padding="20"
+             Spacing="20">
+
+                        <!--TOGGLE BUTTON-->
+                        <Grid>
+                            <Frame Grid.Row="0" x:Name="backgroundFrame" BackgroundColor="#BEBDBB"
+                           Padding="0" Margin="0" HasShadow="False"
+                           VerticalOptions="Center" HeightRequest="40"
+                           WidthRequest="250" HorizontalOptions="Start">
+
+                                <Frame.CornerRadius>
+                                    <OnPlatform x:TypeArguments="x:Single">
+                                        <On Platform="iOS" Value="15"></On>
+                                        <On Platform="Android" Value="20"></On>
+                                    </OnPlatform>
+                                </Frame.CornerRadius>
+
+
+                            </Frame>
+
+                            <Frame x:Name="runningFrame" HeightRequest="40"
+                           WidthRequest="125" BackgroundColor="#C80000"
+                           HasShadow="False" Margin="0" Padding="0"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center">
+
+                                <Frame.CornerRadius>
+                                    <OnPlatform x:TypeArguments="x:Single">
+                                        <On Platform="iOS" Value="15"></On>
+                                        <On Platform="Android" Value="20"></On>
+                                    </OnPlatform>
+                                </Frame.CornerRadius>
+
+                            </Frame>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" 
+                                 HorizontalOptions="Start" WidthRequest="95" 
+                                 HeightRequest="40" BackgroundColor="Transparent">
+
+                                <StackLayout.GestureRecognizers>
+                                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
+                                    <TapGestureRecognizer Tapped="OnText1Tapped" />
+                                </StackLayout.GestureRecognizers>
+
+                                <Label x:Name="txt1" Text="Iniciar sesión" 
+                               TextColor="White" WidthRequest="125"
+                               HorizontalOptions="Center" HorizontalTextAlignment="Center" 
+                               VerticalOptions="Center" FontSize="12"
+                               MaxLines="1"/>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" 
+                                 HorizontalOptions="End" WidthRequest="95" 
+                                 HeightRequest="50" BackgroundColor="Transparent">
+
+                                <StackLayout.GestureRecognizers>
+                                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+                                    <TapGestureRecognizer Tapped="OnText2Tapped" />
+                                </StackLayout.GestureRecognizers>
+
+                                <Label x:Name="txt2" Text="Registrarse" 
+                               FontSize="12"
+                               TextColor="Black" WidthRequest="150"
+                               HorizontalOptions="Center" HorizontalTextAlignment="Center" 
+                               VerticalOptions="Center" />
+                            </StackLayout>
+                        </Grid>
+                        <!--END TOGGLE BUTTON-->
+
+                        <!--FORMULARIO INICIO-->
+                        <StackLayout x:Name="loginForm" IsVisible="True" Orientation="Vertical" Spacing="30">
+                            <Label Text="¡Hola de Nuevo! :D" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
+                            <Entry x:Name="txtEmail" Placeholder="Correo electrónico"/>
+                            <Entry x:Name="txtPass" Placeholder="Contraseña" IsPassword="True"/>
+                            <Button Text="Iniciar Sesión" BackgroundColor="#C80000" TextColor="White" CornerRadius="40"/>
+                            <Label Text="¿Olvidaste tú contraseña?" TextColor="#4B4A4A" FontSize="Small" HorizontalTextAlignment="Center"/>
+                        </StackLayout>
+
+
+                        <!--FORMULARIO REGISTRO-->
+                        <StackLayout x:Name="registerForm" IsVisible="False" Orientation="Vertical" Spacing="10">
+                            <Label Text="¡Bienvenido a ButterPop!" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
+                            <Entry Placeholder="Nombre"/>
+                            <Entry Placeholder="Correo electrónico"/>
+                            <Entry Placeholder="Contraseña" IsPassword="True"/>
+                            <Entry Placeholder="Confirmar contraseña" IsPassword="True"/>
+                            <Button Text="Registrarse" BackgroundColor="#C80000" TextColor="White" CornerRadius="40"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                </Frame>
+            </FlexLayout>
+
+        </Grid>
+
+
+    </ContentPage.Content>
+</ContentPage>
