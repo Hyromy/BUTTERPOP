@@ -75,22 +75,9 @@ Gracias por tu atencion y paciencia, tqm
 -->
 
 ### Cambios pendientes por realizar
-#### Capítulos
-- [ ] Agregar introduccion a cada capítulo
-
-#### Figuras
-- [x] Agregar una introducción a cada figura
-
 #### Diagramas de secuencia
 - [ ] Agregar diagrama "Gestionar película" en README
 - [ ] Agregar diagrama "Gestionar película" en DOC
-
-#### Diagrama de actividades
-- [ ] Corregir diagrama de actividades
-
-#### Diagrama de base de datos
-- [ ] Agregar modelo de base de datos en README
-- [ ] Agregar modelo de base de datos en DOC
 
 #### Diseño de pruebas
 - [ ] Realizar diseño de pruebas de "crear lista" en README
@@ -99,6 +86,9 @@ Gracias por tu atencion y paciencia, tqm
 - [ ] Realizar diseño de pruebas de "actualizar lista" en DOC
 - [ ] Realizar diseño de pruebas de "gestionar pelicula" en README
 - [ ] Realizar diseño de pruebas de "gestionar pelicula" en DOC
+
+#### Interfaces
+- [ ] Agregar interfaces de administrador
 
 ---
 
@@ -719,6 +709,8 @@ Fase de pruebas: Una vez pasada una prueba general de la aplicación, se llega a
 
 ---
 ## CAPÍTULO 1 RECOLECCIÓN Y REFINAMIENTO DE REQUISITOS
+El primer capítulo contiene la definición y especificación de los usuarios que usarán la aplicación, así como los requisitos funcionales y no funcionales del mismo, además del software y hardware necesario para desarrollar dicha aplicación. También se especifican los procesos generales de cada caso de uso con su respectivo diagrama de secuencia en cada caso.
+
 ### 1.1 Nececidades del cliente
 El departamento de ventas de Cinemas AJEM necesita una aplicación multiplataforma llamada "ButterPop" que abarque tanto la compra y renta de las películas más recientes de su cartelera, como la interacción con los usuarios, brindándoles una experiencia amigable. Por lo que proponen que la misma cuente con dos interfaces clave para lograr esto. 
 
@@ -1096,7 +1088,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
     </tr>
     <tr>
         <td>6</td>
-        <td>El caso de uso comienza cuando el usuario clickea en la opción “Editar” en su comentario.</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción "Editar" en su comentario.</td>
     </tr>
     <tr>
         <td>7</td>
@@ -1108,7 +1100,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
     </tr>
     <tr>
         <td>9</td>
-        <td>El usuario deberá darle clic en “Guardar”.</td>
+        <td>El usuario deberá darle clic en "Guardar".</td>
     </tr>
     <tr>
         <td>10</td>
@@ -1123,15 +1115,15 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
     </tr>
     <tr>
         <td>12</td>
-        <td>El caso de uso comienza cuando el usuario clickea en la opción “Borrar” en la sección “Editar” de su comentario.</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción "Borrar" en la sección "Editar" de su comentario.</td>
     </tr>
     <tr>
         <td>13</td>
-        <td>El sistema muestra la interfaz de eliminar comentario, donde se le preguntará “¿Está seguro de querer borrar su comentario?”.</td>
+        <td>El sistema muestra la interfaz de eliminar comentario, donde se le preguntará "¿Está seguro de querer borrar su comentario?".</td>
     </tr>
     <tr>
         <td>14</td>
-        <td>El usuario deberá seleccionar la opción “BORRAR”.</td>
+        <td>El usuario deberá seleccionar la opción "BORRAR".</td>
     </tr>
     <tr>
         <td>15</td>
@@ -1148,15 +1140,15 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
     </tr>
     <tr>
         <td>6.1</td>
-        <td>Si el usuario no ha visto la película, no podrá comentar respecto a ella, apareciéndose un mensaje de error “No es posible comentar si no has visto la película”.</td>
+        <td>Si el usuario no ha visto la película, no podrá comentar respecto a ella, apareciéndose un mensaje de error "No es posible comentar si no has visto la película".</td>
     </tr>
     <tr>
         <td>7.1</td>
-        <td>Si el usuario selecciona “Cancelar”, no se realizarán cambios en su comentario.</td>
+        <td>Si el usuario selecciona "Cancelar", no se realizarán cambios en su comentario.</td>
     </tr>
     <tr>
         <td>12.1</td>
-        <td>Si el usuario selecciona “Cancelar”, no se borrará su comentario.</td>
+        <td>Si el usuario selecciona "Cancelar", no se borrará su comentario.</td>
     </tr>
     <tr>
         <td>Postcondición</td>
@@ -1230,7 +1222,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
     </tr>
     <tr>
         <td>7</td>
-        <td>El caso de uso comienza cuando el usuario clickea en la opción “Editar” en su comentario.</td>
+        <td>El caso de uso comienza cuando el usuario clickea en la opción "Editar" en su comentario.</td>
     </tr>
     <tr>
         <td>8</td>
@@ -1242,7 +1234,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
     </tr>
     <tr>
         <td>10</td>
-        <td>El usuario deberá darle clic en “Guardar”.</td>
+        <td>El usuario deberá darle clic en "Guardar".</td>
     </tr>
     <tr>
         <td>11</td>
@@ -1259,7 +1251,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
     </tr>
     <tr>
         <td>7.1</td>
-        <td>Si el usuario no ha visto la película, no podrá dar su puntuación respecto a ella, apareciéndose un mensaje de error “No es posible puntuar si no has visto la película”.</td>
+        <td>Si el usuario no ha visto la película, no podrá dar su puntuación respecto a ella, apareciéndose un mensaje de error "No es posible puntuar si no has visto la película".</td>
     </tr>
     <tr>
         <td>Postcondición</td>
@@ -1541,31 +1533,42 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ### 1.9 Diagramas de secuencia
 #### Inicio de sesión
+*La figura 1.9.1 muestra el diagrama de secuencia del caso de uso "Iniciar sesión"*
 ![DS inicio de sesión](img_doc/cap1/_9/DSSesion.jpg)
 
 #### Registrar usuarios
+*La figura 1.9.2 muestra el diagrama de secuencia del caso de uso "Registrar usuario"*
 ![DS registrar usuario](img_doc/cap1/_9/DSRegistrar.jpg)
 
 #### Rentar película
+*La figura 1.9.3 muestra el diagrama de secuencia del caso de uso "Rentar película"*
 ![DS rentar película](img_doc/cap1/_9/DSRentar.jpg)
 
 #### Gestionar lista
+*La figura 1.9.4 muestra el diagrama de secuencia del caso de uso "Gestionar listas"*
 ![DS gestionar lista](img_doc/cap1/_9/DSListas.jpg)
 
-#### Puntuar película
-![DS puntuar película](img_doc/cap1/_9/DSPuntuar.jpg)
-
 #### Comentar película
+*La figura 1.9.5 muestra el diagrama de secuencia del caso de uso "Gestionar comentarios"*
 ![DS comentar película](img_doc/cap1/_9/DSComentar.jpg)
 
+#### Puntuar película
+*La figura 1.9.6 muestra el diagrama de secuencia del caso de uso "Gestionar puntuación"*
+![DS puntuar película](img_doc/cap1/_9/DSPuntuar.jpg)
+
 ### 1.10 Diagrama de actividades
+*La figura 1.10.1 muestra el diagrama de actividades de la aplicación*
 ![diagrama de actividades](img_doc/cap1/_10/DActividades.jpg)
 
 ## CAPÍTULO 2 DISEÑO Y DESARROLLO DEL PROYECTO
+El segundo capítulo contiene la especificación de la base de datos, tales como sus tablas y su respectivo diccionario de datos para cada tabla, además se plantea un plan de pruebas con cada caso de prueba, por último, también se presenta el diseño de interfaces que contiene la aplicación. 
+
 ### 2.1 Diagrama de la base de datos (relacional)
-![diagrama relacional de la base de datos]()
+*La figura 2.1.1 muestra el modelo relacional de la base de datos empleada para la aplicacicón "BUTTERPOP"*
+![diagrama relacional de la base de datos](img_doc/cap2/_1/DBDRelacional.jpg)
 
 ### 2.2 Diccionario de datos
+*La figura 2.2.1 muestra el diccionario de datos de la tabla "pelicula"*
 <table>
     <tr>
         <td colspan="5">TB PELICULA</td>
@@ -1644,6 +1647,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.2 muestra el diccionario de datos de la tabla "renta"*
 <table>
     <tr>
         <td colspan="5">TB RENTA</td>
@@ -1687,6 +1691,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.3 muestra el diccionario de datos de la tabla "comentar"*
 <table>
     <tr>
         <td colspan="5">TB COMENTAR</td>
@@ -1730,6 +1735,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.4 muestra el diccionario de datos de la tabla "contiene"*
 <table>
     <tr>
         <td colspan="5">TB CONTIENE</td>
@@ -1766,6 +1772,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.5 muestra el diccionario de datos de la tabla "cliente"*
 <table>
     <tr>
         <td colspan="5">TB CLIENTE</td>
@@ -1809,6 +1816,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.6 muestra el diccionario de datos de la tabla "lista"*
 <table>
     <tr>
         <td colspan="5">TB LISTA</td>
@@ -1859,6 +1867,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 
 ---
 
+*La figura 2.2.7 muestra el diccionario de datos de la tabla "administrador"*
 <table>
     <tr>
         <td colspan="5">TB ADMINISTRADOR</td>
@@ -1891,7 +1900,7 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 
 #### INICIAR SESIÓN / REGISTRARSE
 ##### TABLAS DE CONSIGNACIÓN
-
+*Figura 2.3.1.1 muestra la tabla de consignación para el plan de pruebas "iniciar sesion" y "registrarse"*
 <table>
     <tr>
         <td>CONDICIONES DE ENTRADA</td>
@@ -1941,11 +1950,13 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 </table>
 
 ##### CLASES VÁLIDAS
+*Figura 2.3.1.2 muestra la tabla de clases válidas para el plan de pruebas "iniciar sesión" y "registrarse"*
 | NO. CASO | CREDENCIALES DE INICIO | CLASES VÁLIDAS |
 | - | - | - |
 | 1 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** juLian@1 | 1, 4, 6, 8, 10, 12, 14, 16 |
 
 ##### CLASES NO VÁLIDAS
+*Figura 2.3.1.3 muestra la tabla de clases inválidas para el plan de pruebas "iniciar sesión" y "registrarse"*
 | NO. CASO | CREDENCIALES DE INICIO | CLASES INVÁLIDAS |
 | - | - | - |
 | 2 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** Juli@n789 | 2, 4, 6, 8, 10, 12, 14, 17 |
@@ -1960,6 +1971,7 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 | 11 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** Juli@n7 | 1, 4, 6, 8, 10, 14, 17 |
 
 ##### CASOS DE PRUEBA
+Figura 2.3.1.4 muestra la tabla de casos de prueba para el plan de pruebas "iniciar sesión" y "registrarse"
 | NO. CASO | CREDENCIALES DE INICIO | RESULTADOS ESPERADOS | RESULTADOS REALES |
 | - | - | - | - |
 | 1 | **Correo:** Jjulianmtz321@gmail.com **Contraseña:** juLian@1 | El sistema verifica las credenciales de inicio de sesión y manda al usuario a la interfaz principal | |
@@ -1978,7 +1990,7 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 
 #### RENTAR PELÍCULA
 ##### TABLAS DE CONSIGNACIÓN
-
+*Figura 2.3.2.1 muestra la tabla de consignación para el plan de pruebas "rentar película"*
 <table>
     <tr>
         <td>CONDICIONES DE ENTRADA</td>
@@ -2016,11 +2028,13 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 </table>
 
 ##### CLASES VÁLIDAS
+*Figura 2.3.2.2 muestra la tabla de clases válidas para el plan de pruebas "rentar película"*
 | No. Caso | Valores ingresados | Clases válidas |
 | - | - | - |
 | 1 | **Número de tarjeta:** 6754 6785 2345 9800 **Fecha de expiración:** 06/28 **Clave de seguridad:** 347 **Fondos de la tarjeta:** Suficientes | 1, 4, 6, 8 |
 
 ##### CLASES NO VÁLIDAS
+Figura 2.3.2.3 muestra la tabla de clases inválidas para el plan de pruebas "rentar película"
 | No. Caso | Valores ingresados | Clases no válidas |
 | - | - | - |
 | 2 | **Número de tarjeta:** 5630 4585 4762 5987 **Fecha de expiración:** 07/25 **Clave de seguridad:** 478 **Fondos de la tarjeta:** Insuficientes | 1, 4, 6, 9 |
@@ -2048,6 +2062,7 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 | 24 | **Número de tarjeta:** 3845 7247 38 **Fecha de expiración:** 07/00 **Clave de seguridad:** 123456 **Fondos de la tarjeta:** Insuficientes | 3, 5, 7, 9 |
 
 ##### CASOS DE PRUEBA
+Figura 2.3.2.4 muestra la tabla de casos de prueba para el plan de pruebas "rentar película"
 | No. Caso | Información de la tarjeta | Resultados esperados | Resultados reales |
 | - | - | - | - |
 | 1 | **Número de tarjeta:** 6754 6785 2345 9800 **Fecha de expiración:** 06/28 **Clave de seguridad:** 347 **Fondos de la tarjeta:** Suficientes | El sistema realiza el cobro y muestra un mensaje de operación exitosa |  |
@@ -2079,6 +2094,7 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 
 #### COMENTAR / PUNTUAR
 ##### TABLAS DE CONSIGNACIÓN
+Figura 2.3.3.1 muestra la tabla de consignación para el plan de pruebas "comentar" y "puntuar"
 <table>
     <tr>
         <td>CONDICIONES DE ENTRADA</td>
@@ -2104,41 +2120,48 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 </table>
 
 ##### CLASES VÁLIDAS
+Figura 2.3.3.2 muestra la tabla de clases válidas para el plan de pruebas "comentar" y "puntuar"
 | NO. CASO | COMENTAR / PUNTUAR | CLASES VÁLIDAS |
 | - | - | - |
-| 1 | **Comentario:** “¡Excelente película, muero de ganas de poder volver a verla!” **Puntuación:** 3 Estrellas. | 1, 3, 4 |
+| 1 | **Comentario:** "¡Excelente película, muero de ganas de poder volver a verla!" **Puntuación:** 3 Estrellas. | 1, 3, 4 |
 
 ##### CLASES NO VÁLIDAS
+Figura 2.3.3.3 muestra la tabla de clases inválidas para el plan de pruebas "comentar" y "puntuar"
 | NO. CASO | COMENTAR / PUNTUAR | CLASES INVÁLIDAS |
 | - | - | - |
 | 2 | **Comentario:** (Si supera los 100 caracteres) |2, 5|
 
 ##### CASOS DE PRUEBA
+Figura 2.3.3.4 muestra la tabla de casos de prueba para el plan de pruebas "comentar" y "puntuar"
 | NO. CASO | COMENTAR / PUNTUAR | RESULTADOS ESPERADOS | RESULTADOS REALES |
 | - | - | - | - |
 | 1 | **Comentario:** (De <= 100 caracteres) **Puntuación:** 1 estrella | El sistema verifica la cantidad de caracteres que no sobrepase los 100, verifica la puntuación ingresada y actualiza los comentarios una vez ingresado el comentario. | |
 | 2 | **Comentario:** (De = 100 caracteres) **Puntuación:** 2 estrellas | El sistema verifica la cantidad de caracteres que no sobrepase los 100, verifica la puntuación ingresada y actualiza los comentarios una vez ingresado el comentario. | |
-| 3 | **Comentario:** (De > 100 caracteres) **Puntuación:** 3 estrellas | El sistema muestra mensaje “Comentario excede la cantidad permitida  de carácteres” y lo regresa a la caja de comentarios. | |
+| 3 | **Comentario:** (De > 100 caracteres) **Puntuación:** 3 estrellas | El sistema muestra mensaje "Comentario excede la cantidad permitida  de carácteres" y lo regresa a la caja de comentarios. | |
 
 ---
 
 #### ELIMINAR LISTA
 ##### TABLAS DE CONSIGNACIÓN
+Figura 2.3.4.1 muestra la tabla de consignación para el plan de pruebas "eliminar lista"
 | Condiciones de entrada | Regla heurística | Clases válidas | Clases no válidas |
 | - | - | - | - |
 | Listas | Booleano | 1. Lista en la base de datos | 2. No está en la base de datos |
 
 ##### CLASES VÁLIDAS
+Figura 2.3.4.2 muestra la tabla de clases válidas para el plan de pruebas "eliminar lista"
 | No. Caso | Lista | Clases válidas |
 | - | - | - |
 | 1 | **Lista:** Está en la base de datos | 1 |
 
 ##### CLASES NO VÁLIDAS
+Figura 2.3.4.3 muestra la tabla de clases inválidas para el plan de pruebas "eliminar lista"
 | No. Caso | Lista | Clases inválidas |
 | - | - | - |
 | 2 | **Lista:** No está en la base de datos | 2 |
 
 ##### CASOS DE PRUEBA
+Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "eliminar lista"
 | No. Caso | Lista | Resultados esperados | Resultados reales |
 | - | - | - | - |
 | 1 | Lista "Mis favoritos" (Base de datos) | Se elimina la lista de la interfaz del usuario y de la base de datos | |
@@ -2147,70 +2170,84 @@ Diseño de pruebas por partición de equivalencia es una técnica utilizada en p
 ---
 
 ### 2.4 Diseño de las interfaces (maquetas)
+*La figura 2.4.1 muestra la interfaz de bienvenida a la aplicación*
+
 ![interfaz de bienvenida a la aplicacion](img_doc/cap2/_4/bienvenida.jpg)
-<br>Interfaz de bienvenida a la aplicación
 
 ---
+
+*La figura 2.4.2 muestra la interfaz de inicio de sesión*
 
 ![interfaz de inicio de sesion](img_doc/cap2/_4/inicioSesion.jpg)
-<br>Interfaz de inicio de sesión
 
 ---
+
+*La figura 2.4.3 muestra la interfaz de registrar cuenta*
 
 ![interfaz de resgitro de usuario](img_doc/cap2/_4/registrar.jpg)
-<br>Interfaz de resgitro de usuario
 
 ---
+
+*La figura 2.4.4 muestra la interfaz de principal (cartelera)*
 
 ![interfaz principal (cartelera)](img_doc/cap2/_4/cartelera.jpg)
-<br>Interfaz principal (cartelera)
 
 ---
+
+*La figura 2.4.5 muestra la interfaz de selección de película*
 
 ![interfaz seleccion de pelicula](img_doc/cap2/_4/seleccionPelicula.jpg)
-<br>Interfaz selección de película
 
 ---
+
+*La figura 2.4.6 muestra la interfaz de renta de película*
 
 ![interfaz renta de pelicula](img_doc/cap2/_4/renta.jpg)
-<br>Interfaz renta de película
 
 ---
+
+*La figura 2.4.7 muestra la interfaz de "mis películas"*
 
 ![interfaz del perfil (mis peliculas)](img_doc/cap2/_4/misPeliculas.jpg)
-<br>Interfaz del perfil (mis películas)
 
 ---
+
+*La figura 2.4.8 muestra la interfaz de película rentada*
 
 ![interfaz pelicula rentada](img_doc/cap2/_4/peliculaRentada.jpg)
-<br>Interfaz película rentada
 
 ---
+
+*La figura 2.4.9 muestra la interfaz de "mis listas"*
 
 ![interfaz mis listas](img_doc/cap2/_4/misListas.jpg)
-<br>Interfaz mis listas
 
 ---
+
+*La figura 2.4.10 muestra la interfaz de crear lista*
 
 ![interfaz crear lista](img_doc/cap2/_4/crearLista.jpg)
-<br>Interfaz crear lista
 
 ---
+
+*La figura 2.4.11 muestra la interfaz de lista creada*
 
 ![interfaz lista creada](img_doc/cap2/_4/listaCreada.jpg)
-<br>Interfaz lista creada
 
 ---
+
+*La figura 2.4.12 muestra la interfaz de editar lista*
 
 ![interfaz editar lista](img_doc/cap2/_4/editarLista.jpg)
-<br>Interfaz editar lista
 
 ---
+
+*La figura 2.4.13 muestra la interfaz de eliminar lista*
 
 ![interfaz eliminar lista](img_doc/cap2/_4/eliminarLista.jpg)
-<br>Interfaz eliminar lista
 
 ---
 
+*La figura 2.4.14 muestra la interfaz de "mi perfil"*
+
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
-<br>Interfaz de mi perfil
