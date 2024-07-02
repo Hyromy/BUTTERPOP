@@ -1,2 +1,0 @@
-﻿por cada caso de uso agregar una carpeta la cual contendra
-todos los modelos (clases C#) necesarias para su funcionamieto

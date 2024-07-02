@@ -84,7 +84,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\card_icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUTTERPOP\BUTTERPOP.csproj">
       <Project>{599F1E2F-C197-416C-BBC9-BEF2FAA8C692}</Project>
@@ -92,6 +94,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\shrek_portada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\nav_home_black.png" />
+    <AndroidResource Include="Resources\drawable\nav_home_white.png" />
+    <AndroidResource Include="Resources\drawable\nav_profile_black.png" />
+    <AndroidResource Include="Resources\drawable\nav_profile_white.png" />
+    <AndroidResource Include="Resources\drawable\nav_search_black.png" />
+    <AndroidResource Include="Resources\drawable\nav_search_white.png" />
+  </ItemGroup>
+   <ItemGroup>
     <AndroidResource Include="Resources\drawable\butterpop_main.png" />
     <Content Include="Resources\mipmap-anydpi-v26\butterpop_icon.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon.png" />

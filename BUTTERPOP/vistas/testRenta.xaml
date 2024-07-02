@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.vistas.testRenta">
+    
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Label Text="ID Renta"/>
+            <Entry x:Name="inputIdRent" 
+                   Keyboard="Numeric"/>
+
+            <Label Text="Correo"/>
+            <Entry x:Name="inputCorreo"
+                   Keyboard="Text"/>
+
+            <Label Text="ID Película"/>
+            <Entry x:Name="inputIdPeli"
+                   Keyboard="Numeric"/>
+
+            <Label Text="Fecha Renta"/>
+            <Entry x:Name="inputFRenta"
+                   Keyboard="Text"/>
+
+            <Label x:Name="output"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#0bf"
+                   FontSize="Large"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="getTBName"
+                        Text="Get Tabla"/>
+
+                <Button x:Name="getIdRent"
+                        Text="Get ID Renta"/>
+
+                <Button x:Name="getCorreo"
+                        Text="Get Correo"/>
+
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="getIdPeli"
+                        Text="Get ID Película"/>
+
+                <Button x:Name="getFRenta"
+                        Text="Get Fecha Renta"/>
+            </StackLayout>
+
+            <Button x:Name="create"
+                    Text="create(correo, idPelicula)"/>
+
+            <Button x:Name="read"
+                    Text="read(idRenta)"/>
+
+            <Button x:Name="readBy"
+                    Text="readBy(atributo, valor)"/>
+
+            <Button x:Name="readAll"
+                    Text="readAll()"/>
+
+            <Button x:Name="countLogs"
+                    Text="countLogs()"/>
+            
+            <Button x:Name="update"
+                    Text="update(idRenta, atributos[], valores[])"/>
+
+            <Button x:Name="delete"
+                    Text="delete(idRenta)"/>
+
+            <Button x:Name="isActiveRent"
+                    Text="Model.IsActiveRent(dateTime)"/>
+
+            <Button x:Name="preview"
+                    Text="Preview"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
