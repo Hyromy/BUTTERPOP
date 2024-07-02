@@ -44,6 +44,8 @@ namespace BUTTERPOP.vistas
             delete.Clicked += Delete;
 
             isActiveRent.Clicked += IsActiveRent;
+
+            preview.Clicked += Preview;
         }
 
         private void TBName(object sender, EventArgs e) { output.Text = crud.getTBName(); }
@@ -164,6 +166,11 @@ namespace BUTTERPOP.vistas
             {
                 output.Text = err.Message;
             }
+        }
+
+        private void Preview(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new vistas.renta.FormRenta());
         }
     }
 }

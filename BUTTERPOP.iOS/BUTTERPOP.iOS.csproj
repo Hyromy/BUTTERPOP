@@ -133,4 +133,18 @@
       <Name>BUTTERPOP</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\card_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\shrek_portada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nav_home_black.png" />
+    <BundleResource Include="Resources\nav_home_white.png" />
+    <BundleResource Include="Resources\nav_profile_black.png" />
+    <BundleResource Include="Resources\nav_profile_white.png" />
+    <BundleResource Include="Resources\nav_search_black.png" />
+    <BundleResource Include="Resources\nav_search_white.png" />
+  </ItemGroup>
 </Project>

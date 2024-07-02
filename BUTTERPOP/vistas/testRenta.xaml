@@ -70,6 +70,9 @@
 
             <Button x:Name="isActiveRent"
                     Text="Model.IsActiveRent(dateTime)"/>
+
+            <Button x:Name="preview"
+                    Text="Preview"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
