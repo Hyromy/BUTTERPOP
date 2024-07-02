@@ -21,7 +21,7 @@
     <EmbeddedResource Update="vistas\renta\FormRenta.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="vistas\testRenta.xaml">
+    <EmbeddedResource Update="vistas\renta\testRenta.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

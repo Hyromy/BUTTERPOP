@@ -41,8 +41,7 @@ namespace BUTTERPOP
 
         private void Joel(object sender, EventArgs e)
         {
-            // elimina esta linea y redirecciona esta pantalla a tu caso de uso o interfaz
-            DisplayAlert("Joel", "Caso de uso aún no disponible", "OK");
+            Navigation.PushAsync(new vistas.testRenta());
         }
 
         private void Julian(object sender, EventArgs e)
