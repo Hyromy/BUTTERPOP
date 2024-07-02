@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.vistas.Home"
+             
+             IconImageSource="home.png">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1C1C1C">
+
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="logo_palomitas.png" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="5,10"/>
+                <Image Source="butterpop_letras.png" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="1,25"/>
+            </StackLayout>
+
+            <Frame HeightRequest="200" Margin="0" CornerRadius="80" BackgroundColor="Transparent">
+
+                <Image Source="pelicula_poster.png" Aspect="AspectFill" />
+
+            </Frame>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
