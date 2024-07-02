@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -84,14 +84,36 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BUTTERPOP\BUTTERPOP.csproj">
       <Project>{599F1E2F-C197-416C-BBC9-BEF2FAA8C692}</Project>
       <Name>BUTTERPOP</Name>
     </ProjectReference>
   </ItemGroup>
- <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\butterpop_main.png" />
+    <Content Include="Resources\mipmap-anydpi-v26\butterpop_icon.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\butterpop_icon_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\butterpop_icon_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\butterpop_icon_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon_monochrome.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
