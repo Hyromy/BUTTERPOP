@@ -128,5 +128,28 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ojo_pass_ocultar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\butterpop_icon.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\butterpop_icon_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\butterpop_icon_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\butterpop_icon_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon_background.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon_monochrome.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

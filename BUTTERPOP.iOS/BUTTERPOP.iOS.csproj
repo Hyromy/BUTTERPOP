@@ -68,6 +68,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -170,5 +171,28 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ojo_pass_ocultar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AppIcon%402x.png" />
+    <BundleResource Include="Resources\AppIcon%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon%403x.png" />
+    <BundleResource Include="Resources\AppIcon-20%402x.png" />
+    <BundleResource Include="Resources\AppIcon-20%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-20%403x.png" />
+    <BundleResource Include="Resources\AppIcon-20~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-29%402x.png" />
+    <BundleResource Include="Resources\AppIcon-29%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-29%403x.png" />
+    <BundleResource Include="Resources\AppIcon-29.png" />
+    <BundleResource Include="Resources\AppIcon-29~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-40%402x.png" />
+    <BundleResource Include="Resources\AppIcon-40%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-40%403x.png" />
+    <BundleResource Include="Resources\AppIcon-40~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-60%402x~car.png" />
+    <BundleResource Include="Resources\AppIcon-60%403x~car.png" />
+    <BundleResource Include="Resources\AppIcon-83.5%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon~ios-marketing.png" />
+    <BundleResource Include="Resources\AppIcon~ipad.png" />
   </ItemGroup>
 </Project>

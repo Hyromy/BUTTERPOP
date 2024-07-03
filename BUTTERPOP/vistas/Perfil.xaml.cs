@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUTTERPOP.modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,20 @@ namespace BUTTERPOP.vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Perfil : ContentPage
     {
+        private Usuarios _currentUser;
         public Perfil()
         {
             InitializeComponent();
 
-            
-
         }
 
-       
+
+        public Perfil(string usuario, string correo, string password) : this()
+        {
+            InitializeComponent();
+            BindingContext = new PerfilViewModel(usuario, correo, password);
+        }
+
 
 
         private void btnPeliculas_Clicked(object sender, EventArgs e)
@@ -74,22 +80,71 @@ namespace BUTTERPOP.vistas
             btnListas.TextColor = Color.White;
         }
 
-   
-
-        private void btnEliminarCuenta_Clicked(object sender, EventArgs e)
+        private bool ValidarDatosActualizacion()
         {
-
+            return !string.IsNullOrEmpty(txtNombreUsuario.Text) &&
+                   !string.IsNullOrEmpty(txtContra.Text);
         }
 
-        private void btnCambiarUser_Clicked(object sender, EventArgs e)
+        private async void btnCambiarUser_Clicked(object sender, EventArgs e)
         {
+            if (ValidarDatosActualizacion())
+            {
+                _currentUser.usuario = txtNombreUsuario.Text;
 
+                await App.SQLiteDB.UpdateUsuarioAsync(_currentUser);
+
+                bool confirmacion = await DisplayAlert("Advertencia", "¿Estas seguro que deseas actualizar tu nombre de usuario?", "Confirmar", "Cancelar");
+
+                if (confirmacion)
+                {
+                    await DisplayAlert("Actualización Exitosa", "Tu usuario ha sido actualizado correctamente", "Aceptar");
+                } 
+            }
+            else
+            {
+                await DisplayAlert("Advertencia", "Ingresa todos los datos para continuar", "Aceptar");
+            }
         }
 
-        private void btnCambiarPass_Clicked(object sender, EventArgs e)
+        private async void btnCambiarPass_Clicked(object sender, EventArgs e)
         {
+            if (ValidarDatosActualizacion())
+            {
+                _currentUser.password = txtContra.Text;
 
+                await App.SQLiteDB.UpdateUsuarioAsync(_currentUser);
+
+                bool confirmacion = await DisplayAlert("Advertencia", "¿Estas seguro que deseas actualizar tu contraseña?", "Confirmar", "Cancelar");
+
+                if (confirmacion)
+                {
+                    await DisplayAlert("Actualización Exitosa", "Tu contraseña ha sido actualizada correctamente", "Aceptar");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Advertencia", "Ingresa todos los datos para continuar", "Aceptar");
+            }
         }
+
+        private async void btnEliminarCuenta_Clicked(object sender, EventArgs e)
+        {
+            bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas eliminar tu cuenta?", "Confirmar", "Cancelar");
+
+            if (confirmacion)
+            {
+                await App.SQLiteDB.DeleteUsuarioAsync(_currentUser);
+                await DisplayAlert("Cuenta Eliminada", "Tu cuenta ha sido eliminada correctamente", "Aceptar");
+
+                
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
+        }
+
+
+
+    
 
         private void btnVerPassword_Clicked(object sender, EventArgs e)
         {

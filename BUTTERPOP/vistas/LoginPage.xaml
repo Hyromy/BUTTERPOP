@@ -114,11 +114,11 @@
                         <!--FORMULARIO INICIO-->
                         <StackLayout x:Name="loginForm" IsVisible="True" Orientation="Vertical" Spacing="30">
                             <Label Text="¡Hola de Nuevo! :D" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
-                            <Entry x:Name="txtEmailI" Placeholder="Correo electrónico"/>
+                            <Entry x:Name="txtEmailI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Correo electrónico"/>
 
 
                             <StackLayout Orientation="Horizontal">
-                                <Entry x:Name="txtPassI" Placeholder="Contraseña" IsPassword="True" WidthRequest="180"/>
+                                <Entry x:Name="txtPassI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Contraseña" IsPassword="True" WidthRequest="180"/>
                                 <ImageButton x:Name="btnVerPassword" IsVisible="True" Clicked="btnVerPassword_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                                 <ImageButton x:Name="btnOcultarPassword" IsVisible="False" Clicked="btnOcultarPassword_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                             </StackLayout>
@@ -133,17 +133,17 @@
                         <!--FORMULARIO REGISTRO-->
                         <StackLayout x:Name="registerForm" IsVisible="False" Orientation="Vertical" Spacing="10">
                             <Label Text="¡Bienvenido a ButterPop!" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
-                            <Entry x:Name="txtUsername" Placeholder="Nombre"/>
-                            <Entry x:Name="txtEmailR" Placeholder="Correo electrónico"/>
+                            <Entry x:Name="txtUsername" Placeholder="Nombre" TextColor="Black" PlaceholderColor="#838383"/>
+                            <Entry x:Name="txtEmailR" Placeholder="Correo electrónico" TextColor="Black" PlaceholderColor="#838383"/>
                             <StackLayout Orientation="Horizontal">
 
-                                <Entry x:Name="txtPassR" Placeholder="Contraseña" WidthRequest="180" IsPassword="True"/>
+                                <Entry x:Name="txtPassR" Placeholder="Contraseña" WidthRequest="180" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
                                 <ImageButton x:Name="btnVerPassword2" IsVisible="True" Clicked="btnVerPassword2_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                                 <ImageButton x:Name="btnOcultarPassword2" IsVisible="False" Clicked="btnOcultarPassword2_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal">
-                                <Entry x:Name="txtPassRCheck" Placeholder="Confirmar contraseña" IsPassword="True"/>
+                                <Entry x:Name="txtPassRCheck" Placeholder="Confirmar contraseña" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
                                 <ImageButton x:Name="btnVerPassword3" IsVisible="True" Clicked="btnVerPassword3_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                                 <ImageButton x:Name="btnOcultarPassword3" IsVisible="False" Clicked="btnOcultarPassword3_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                             </StackLayout>

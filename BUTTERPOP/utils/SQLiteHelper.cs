@@ -49,7 +49,17 @@ namespace BUTTERPOP.utils
         {
             return db.Table<Usuarios>().Where(a => a.correo == correo).FirstOrDefaultAsync();   
         }
-        
+
+        public Task<int> UpdateUsuarioAsync(Usuarios usuario)
+        {
+            return db.UpdateAsync(usuario);
+        }
+
+        public Task<int> DeleteUsuarioAsync(Usuarios usuario)
+        {
+            return db.DeleteAsync(usuario);
+        }
+
 
 
 
