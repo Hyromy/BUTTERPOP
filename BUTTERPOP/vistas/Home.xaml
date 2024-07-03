@@ -12,7 +12,8 @@
                 <Image Source="butterpop_letras.png" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="1,25"/>
             </StackLayout>
 
-            <Frame HeightRequest="200" Margin="0" CornerRadius="80" BackgroundColor="Transparent">
+            <Frame HeightRequest="200" Margin="0" CornerRadius="80" BackgroundColor="Transparent"
+                   x:Name="film1">
 
                 <Image Source="pelicula_poster.png" Aspect="AspectFill" />
 

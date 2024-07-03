@@ -49,11 +49,11 @@
                             <RelativeLayout>
                                 <Image x:Name="banner"
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                                       Source="shrek_portada.jpg"
+                                       Source="pelicula_poster.png"
                                        Aspect="AspectFill"
                                        Opacity="0.5"/>
 
-                                <Label Text="SHREK"
+                                <Label Text="DEADPOOL &amp; WOLVERINE"
                                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToView, ElementName=banner, Property=Width, Factor=1}"
                                        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView, ElementName=banner, Property=Height, Factor=1}"
                                        HorizontalTextAlignment="Center"

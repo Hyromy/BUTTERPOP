@@ -12,7 +12,6 @@ using SQLite;
 
 using BUTTERPOP.modelo.rentar;
 using BUTTERPOP.crud.renta;
-using BUTTERPOP.database;
 
 namespace BUTTERPOP.vistas
 {
@@ -82,15 +81,6 @@ namespace BUTTERPOP.vistas
                 idPelicula <= 0)
             {
                 output.Text = "(!) correo y id_pelicula requerido";
-            }
-            else
-            {
-                String sql = crud.InsertRenta(correo, idPelicula);
-
-                var db = DatabaseConnection.GetConnection();
-                db.Execute(sql);
-                // aqui me quede 
-                output.Text = "registro exitoso";
             }
         }
 

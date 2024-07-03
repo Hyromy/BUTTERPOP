@@ -15,6 +15,20 @@ namespace BUTTERPOP.vistas
         public Home()
         {
             InitializeComponent();
+
+            // Crear un evento tipo click para el frame
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += (s, e) => {
+                Rent();
+            };
+
+            // Asignar el evento al frame
+            film1.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+
+        private void Rent()
+        {
+            Navigation.PushAsync(new vistas.renta.FormRenta());
         }
     }
 }
