@@ -68,7 +68,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Resources\Contents.json" />
+    <BundleResource Include="Resources\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -124,8 +124,16 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.9.172</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.CommunityToolkit">
+      <Version>2.0.6</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms">
+      <Version>5.0.0.2662</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -173,5 +181,58 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\butterpop_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\video2.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButterPop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\butterpop_letras.png" />
+    <BundleResource Include="Resources\logo_palomitas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pelicula_poster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\buscar.png" />
+    <BundleResource Include="Resources\perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\basura.png" />
+    <BundleResource Include="Resources\copa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ojo_pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ojo_pass_ocultar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AppIcon%402x.png" />
+    <BundleResource Include="Resources\AppIcon%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon%403x.png" />
+    <BundleResource Include="Resources\AppIcon-20%402x.png" />
+    <BundleResource Include="Resources\AppIcon-20%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-20%403x.png" />
+    <BundleResource Include="Resources\AppIcon-20~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-29%402x.png" />
+    <BundleResource Include="Resources\AppIcon-29%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-29%403x.png" />
+    <BundleResource Include="Resources\AppIcon-29.png" />
+    <BundleResource Include="Resources\AppIcon-29~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-40%402x.png" />
+    <BundleResource Include="Resources\AppIcon-40%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-40%403x.png" />
+    <BundleResource Include="Resources\AppIcon-40~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-60%402x~car.png" />
+    <BundleResource Include="Resources\AppIcon-60%403x~car.png" />
+    <BundleResource Include="Resources\AppIcon-83.5%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon~ios-marketing.png" />
+    <BundleResource Include="Resources\AppIcon~ipad.png" />
   </ItemGroup>
 </Project>

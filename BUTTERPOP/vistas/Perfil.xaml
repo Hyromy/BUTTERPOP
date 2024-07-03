@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.vistas.Perfil"
+             IconImageSource="perfil.png"
+             BackgroundColor="#1C1C1C">
+    <ContentPage.Content>
+        <StackLayout>
+            
+                <StackLayout Orientation="Vertical" Margin="20">
+
+                <Label TextColor="White" FontAttributes="Bold" FontSize="20">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="¡Hola, " />
+                            <Span Text="{Binding NombreUsuario}"  />
+                            <Span Text="! 👋" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <StackLayout Orientation="Horizontal" Margin="10" >
+                    <Button     
+                            x:Name="btnPeliculas"
+                             Text="Películas"
+                             CornerRadius="20"
+                             WidthRequest="100"
+                             HeightRequest="35"
+                             FontSize="12"
+                             BackgroundColor="#C80000"
+                             TextColor="White"
+                             HorizontalOptions="Start"
+                             VerticalOptions="Center"
+                             Clicked="btnPeliculas_Clicked"/>
+
+                    <Button     
+                            x:Name="btnListas"
+                             Text="Listas"
+                             CornerRadius="20"
+                             WidthRequest="100"
+                             HeightRequest="35"
+                             FontSize="12"
+                             BackgroundColor="#3A3A3A"
+                             TextColor="White"
+                             HorizontalOptions="Start"
+                             VerticalOptions="Center"
+                             Clicked="btnListas_Clicked"/>
+
+                    <Button     
+                            x:Name="btnDatos"
+                             Text="Datos"
+                             CornerRadius="20"
+                             WidthRequest="100"
+                             HeightRequest="35"
+                             FontSize="12"
+                             BackgroundColor="#3A3A3A"
+                             TextColor="White"
+                             HorizontalOptions="Start"
+                             VerticalOptions="Center"
+                             Clicked="btnDatos_Clicked"/>
+
+                </StackLayout>
+
+                <StackLayout x:Name="stckPeliculas" IsVisible="True" Margin="20">
+                    <Label x:Name="lblPeliculas" Text="¡Hola! Parece que aún no has rentado ninguna película. ¿Por qué no echas un vistazo a nuestro catálogo y encuentras algo genial para ver? 🤔 " 
+                       TextColor="White" FontSize="Medium"/>
+                </StackLayout>
+
+                <StackLayout x:Name="stckListas" IsVisible="False" Margin="20">
+                    <Label x:Name="lblListas" Text="Parece que aún no has creado ninguna lista. ¿Por qué no comienzas ahora? 🤩"
+                    TextColor="White" FontSize="Medium"/>
+                </StackLayout>
+                    
+                    
+                    
+                    
+                    
+
+                <StackLayout x:Name="stckDatos" IsVisible="False" Margin="20">
+
+
+                    
+
+                    <Label Text="Usuario" TextColor="White" FontSize="18" FontAttributes="Bold" />
+
+                    <Grid>
+                        <Button x:Name="btnCambiarUser" Clicked="btnCambiarUser_Clicked" Text=">" HorizontalOptions="End" Grid.Row="0" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
+                        <Entry x:Name="txtNombreUsuario" 
+                               Grid.Row="0"
+                               Text="{Binding NombreUsuario}" TextColor="#838383" WidthRequest="10" />
+
+                    </Grid>
+                    
+
+                    <Label Text="Correo eléctronico" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                    <Entry x:Name="txtCorreoElec" IsReadOnly="True" Text="{Binding CorreoUsuario}"  TextColor="#838383" WidthRequest="10" />
+
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Contraseña" TextColor="White" FontSize="18" FontAttributes="Bold" />
+
+                        <ImageButton x:Name="btnVerPassword" IsVisible="True" Clicked="btnVerPassword_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
+                        <ImageButton x:Name="btnOcultarPassword" IsVisible="False" Clicked="btnOcultarPassword_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
+
+                    </StackLayout>
+
+                    <Grid>
+
+                        <Button x:Name="btnCambiarPass" Clicked="btnCambiarPass_Clicked" Text=">" HorizontalOptions="End" Grid.Row="0" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
+
+                        <Entry x:Name="txtContra" Grid.Row="0" Text="{Binding PassUsuario}" IsPassword="True" PlaceholderColor="#838383" TextColor="#838383" WidthRequest="10" />
+                
+
+                    </Grid>
+
+
+
+
+
+
+
+
+
+                    <StackLayout Orientation="Horizontal" Margin="20">
+                        
+                        <Image Source="copa.png" />
+                        
+                        <Label Text="¡Explora tus premios por compras de películas aquí! Canjea tus puntos en cualquier cine de Cinemas AJEM y disfruta de grandes beneficios."
+                               TextColor="#838383" />
+
+
+
+
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="20">
+                        <Image Source="basura.png" />
+                        <Button x:Name="btnEliminarCuenta" Clicked="btnEliminarCuenta_Clicked" Text="Eliminar mí cuenta" BackgroundColor="Transparent" TextColor="#c80000" FontAttributes="Bold"  />
+                    </StackLayout>
+                    
+                    
+                    
+                    
+                    
+                    
+
+                </StackLayout>
+
+
+
+
+
+
+            </StackLayout>
+
+
+
+
+
+        </StackLayout>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </ContentPage.Content>
+</ContentPage>
