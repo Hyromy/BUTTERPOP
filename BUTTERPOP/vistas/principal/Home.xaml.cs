@@ -24,6 +24,7 @@ namespace BUTTERPOP.vistas
 
             // Asignar el evento al frame
             film1.GestureRecognizers.Add(tapGestureRecognizer);
+            film2.GestureRecognizers.Add(tapGestureRecognizer);
         }
 
         private void Rent()

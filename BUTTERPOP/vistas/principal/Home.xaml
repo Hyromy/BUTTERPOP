@@ -7,11 +7,13 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="#1C1C1C">
 
+            <!-- cabecera -->
             <StackLayout Orientation="Horizontal" >
                 <Image Source="logo_palomitas.png" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="5,10"/>
                 <Image Source="butterpop_letras.png" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="1,25"/>
             </StackLayout>
 
+            <!-- pelicula -->
             <Frame HeightRequest="200" Margin="0" CornerRadius="80" BackgroundColor="Transparent"
                    x:Name="film1">
 
@@ -19,7 +21,15 @@
 
             </Frame>
 
+            <Frame x:Name="film2"
+                   HeightRequest="200"
+                   Margin="0"
+                   CornerRadius="80"
+                   BackgroundColor="#00000000">
 
+                <Image Source="shrek_portada.jpg"
+                       Aspect="AspectFill"/>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

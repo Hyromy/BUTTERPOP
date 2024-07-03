@@ -199,11 +199,8 @@ namespace BUTTERPOP.vistas
                     {
                         if (usuario.password == txtPassI.Text)
                         {
-                            await DisplayAlert("Inicio de Sesión Exitoso", "Has iniciado sesión correctamente", "Aceptar");
-
-                        Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));
-                       
-                    }
+                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));
+                        }
                         else
                         {
                             await DisplayAlert("Error", "La contraseña es incorrecta", "Aceptar");
