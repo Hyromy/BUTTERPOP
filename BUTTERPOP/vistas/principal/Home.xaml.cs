@@ -29,7 +29,7 @@ namespace BUTTERPOP.vistas
 
         private void Rent()
         {
-            Navigation.PushAsync(new vistas.renta.FormRenta());
+            Navigation.PushAsync(new vistas.pelicula.InfoPelicula());
         }
     }
 }

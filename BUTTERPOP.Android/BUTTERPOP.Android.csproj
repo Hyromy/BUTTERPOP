@@ -96,7 +96,6 @@
     <AndroidResource Include="Resources\drawable\butterpop_letras.png" />
     <AndroidResource Include="Resources\drawable\logo_palomitas.png" />
     <AndroidResource Include="Resources\drawable\card_icon.png" />
-    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUTTERPOP\BUTTERPOP.csproj">
@@ -115,8 +114,10 @@
     <AndroidResource Include="Resources\drawable\nav_search_black.png" />
     <AndroidResource Include="Resources\drawable\nav_search_white.png" />
   </ItemGroup>
-   <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\butterpop_main.png" />
+    <AndroidResource Include="Resources\drawable\star.png" />
+    <AndroidResource Include="Resources\drawable\star_half.png" />
     <Content Include="Resources\mipmap-anydpi-v26\butterpop_icon.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon_background.png" />
@@ -139,7 +140,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\butterpop_icon_monochrome.png" />
   </ItemGroup>
-   <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\raw\video2.mp4" />
   </ItemGroup>
   <ItemGroup>

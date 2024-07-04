@@ -235,4 +235,8 @@
     <BundleResource Include="Resources\AppIcon~ios-marketing.png" />
     <BundleResource Include="Resources\AppIcon~ipad.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star.png" />
+    <BundleResource Include="Resources\star_half.png" />
+  </ItemGroup>
 </Project>
