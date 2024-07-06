@@ -95,6 +95,9 @@ namespace BUTTERPOP.utils
         public int id_pelicula { get; set; }
     }
 
+    /// <summary>
+    /// Registros de renta de peliculas, solo necesita correo y id_pelicula
+    /// </summary>
     public class Renta
     {
         [PrimaryKey, AutoIncrement]
@@ -106,6 +109,11 @@ namespace BUTTERPOP.utils
         public int id_pelicula { get; set; }
 
         public DateTime fecha_renta { get; set; }
+
+        public Renta()
+        {
+            this.fecha_renta = DateTime.Now;
+        }
     }
 
     public class Comenta

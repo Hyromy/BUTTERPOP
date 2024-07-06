@@ -4,8 +4,60 @@ using System.Text;
 using System.Xml.Linq;
 using Xamarin.Essentials;
 
+using SQLite;
+
+using BUTTERPOP.utils;
+using System.Threading.Tasks;
+
 namespace BUTTERPOP.crud.renta
 {
+    internal class CRUD_Renta
+    {
+        private SQLiteAsyncConnection _db;
+        private String tbName = "renta";
+
+        public CRUD_Renta(String dbPath)
+        {
+            this._db = new SQLiteAsyncConnection(dbPath);
+            this._db.CreateTableAsync<Renta>().Wait();
+        }
+
+        public Task<int> InsertRenta(Renta renta)
+        {
+            return this._db.InsertAsync(renta);
+        }
+
+        public Task<Renta> ReadRenta(int idRenta)
+        {
+            return this._db.Table<Renta>().Where(r => r.id_renta == idRenta).FirstOrDefaultAsync();
+        }
+
+        public Task<Renta> ReadRentaBy(string atributo, string valor)
+        {
+            return this._db.Table<Renta>().Where(r => atributo == valor).FirstOrDefaultAsync();
+        }
+
+        public Task<List<Renta>> ReadAllRentas()
+        {
+            return this._db.Table<Renta>().ToListAsync();
+        }
+
+        public Task<int> CountRentas()
+        {
+            return this._db.Table<Renta>().CountAsync();
+        }
+
+        public Task<int> UpdateRenta(Renta renta)
+        {
+            return this._db.UpdateAsync(renta);
+        }
+
+        public Task<int> DeleteRenta(Renta renta)
+        {
+            return this._db.DeleteAsync(renta);
+        }
+    }
+    /*
     internal class CRUD_Renta
     {
         private string tbName;
@@ -147,4 +199,5 @@ namespace BUTTERPOP.crud.renta
             return $"delete from {tbName} where {idRent} = {idRenta};";
         }
     }
+    */
 }
