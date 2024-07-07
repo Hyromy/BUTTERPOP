@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using System.Diagnostics;
 using BUTTERPOP.modelo;
 
@@ -26,15 +24,12 @@ namespace BUTTERPOP.vistas
         public LoginPage()
         {
             InitializeComponent();
-
             IsTurnX = false;
             IsTurnY = false;
             valueX = 0;
             valueY = 0;
             selection1Active = true;
             selection2Active = false;
-
-
             UpdateButtonColors();
         }
 
@@ -106,10 +101,6 @@ namespace BUTTERPOP.vistas
                                 UpdateButtonColors();
                             }
                         }
-
-
-
-
                     }
                     break;
                 case GestureStatus.Completed:
@@ -151,6 +142,11 @@ namespace BUTTERPOP.vistas
         {
             if (validarDatosRegistro())
             {
+                if (!IsValidEmail())
+                {
+                    await DisplayAlert("Advertencia", "Por favor ingresa un correo electrónico válido.", "Aceptar");
+                    return;
+                }
 
                 if (validarPassword())
                 {
@@ -182,15 +178,15 @@ namespace BUTTERPOP.vistas
             }
         }
 
-
         private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
         {
             if (validarDatosInicioSesion())
             {
-
-             
-
-                
+                if (!IsValidEmail())
+                {
+                    await DisplayAlert("Advertencia", "Por favor ingresa un correo electrónico válido.", "Aceptar");
+                    return;
+                }
 
                 var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtEmailI.Text);
 
@@ -199,7 +195,9 @@ namespace BUTTERPOP.vistas
                     {
                         if (usuario.password == txtPassI.Text)
                         {
-                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));
+                            // Paso de parametros recibidos al constructor de HomePage
+                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));   
+
                         }
                         else
                         {
@@ -258,7 +256,6 @@ namespace BUTTERPOP.vistas
 
         }
 
-
         public bool validarDatosInicioSesion()
         {
             bool respuesta;
@@ -269,7 +266,8 @@ namespace BUTTERPOP.vistas
             else if (string.IsNullOrEmpty(txtPassI.Text))
             {
                 respuesta = false;
-            }
+            } 
+
             else
             {
                 respuesta = true;
@@ -318,5 +316,26 @@ namespace BUTTERPOP.vistas
             btnOcultarPassword3.IsVisible = false;
             txtPassRCheck.IsPassword = true;
         }
+
+        public bool IsValidEmail()
+        {
+            if (string.IsNullOrWhiteSpace(txtEmailI.Text))
+                return false;
+
+            try
+            {
+                // Intentar crear un nuevo MailAddress con el correo proporcionado
+                var addr = new System.Net.Mail.MailAddress(txtEmailI.Text);
+
+                // Verificar si la dirección de correo electrónico es válida
+                return addr.Address == txtEmailI.Text;
+            }
+            catch
+            {
+                // Devolver falso si ocurre alguna excepción al intentar crear el MailAddress
+                return false;
+            }
+        }
+
     }
 }
