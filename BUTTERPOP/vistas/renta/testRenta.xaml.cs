@@ -81,7 +81,7 @@ namespace BUTTERPOP.vistas
             }
             else
             {
-                DisplayAlert("Error", "correo e id_pelicula requerido", "OK");
+                await DisplayAlert("Error", "correo e id_pelicula requerido", "OK");
             }
         }
 

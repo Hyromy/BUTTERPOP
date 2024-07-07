@@ -128,8 +128,9 @@
                                        BackgroundColor="#eee"
                                        CornerRadius="16">
 
-                                    <Entry x:Name="card"
+                                    <Entry x:Name="card_number"
                                            Keyboard="Numeric"
+                                           MaxLength="16"
                                            Placeholder="Número de tarjeta"
                                            PlaceholderColor="#888"
                                            TextColor="#f00"
@@ -153,6 +154,7 @@
 
                                     <Entry x:Name="month"
                                            Keyboard="Numeric"
+                                           MaxLength="2"
                                            Placeholder="MM"
                                            PlaceholderColor="#888"
                                            TextColor="#f00"
@@ -169,6 +171,7 @@
 
                                     <Entry x:Name="year"
                                            Keyboard="Numeric"
+                                           MaxLength="2"
                                            Placeholder="AA"
                                            PlaceholderColor="#888"
                                            TextColor="#f00"
@@ -185,6 +188,7 @@
 
                                     <Entry x:Name="cvv"
                                            Keyboard="Numeric"
+                                           MaxLength="3"
                                            Placeholder="CVV"
                                            PlaceholderColor="#888"
                                            TextColor="#f00"
@@ -219,7 +223,8 @@
                                        Margin="64, 0, 64, 0"
                                        CornerRadius="16">
                                     
-                                    <Button Text="Confirmar"
+                                    <Button x:Name="btnConfirmCard"
+                                            Text="Confirmar"
                                             Margin="0"
                                             Padding="10"
                                             BackgroundColor="#f00"/>
