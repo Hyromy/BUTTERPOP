@@ -1,8 +1,20 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Text;
 
-namespace BUTTERPOP.vistas
+namespace BUTTERPOP.modelo
 {
-    public class PerfilViewModel : INotifyPropertyChanged
+
+    /*
+        Esta clase sirve para facilitar el binding de los valores recibidos del LoginPage (usuario, correo y contraseña)
+        y poder mostrarlos en el diseño XML. Lo demás es establecerle parametros constructor (revisar el cnstructor del HomePage.xml)
+        y después hacerle el paso de parametros (revisar el metodo btnIniciarSesion_Clicked del LoginPage) ;)
+    
+     */
+
+
+    public class PerfilViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -11,6 +23,17 @@ namespace BUTTERPOP.vistas
         private string _correoUsuario;
 
         private string _passUsuario;
+
+
+        public PerfilViewModel(string nombreUsuario, string correoUsuario, string passUsuario)
+        {
+            NombreUsuario = nombreUsuario;
+            CorreoUsuario = correoUsuario;
+            PassUsuario = passUsuario;
+        }
+
+
+
 
         public string NombreUsuario
         {
@@ -49,14 +72,6 @@ namespace BUTTERPOP.vistas
 
 
 
-        public PerfilViewModel(string nombreUsuario, string correoUsuario, string passUsuario)
-        {
-            NombreUsuario = nombreUsuario;
-            CorreoUsuario= correoUsuario;
-            PassUsuario= passUsuario;
-        }
 
-
-     
     }
 }

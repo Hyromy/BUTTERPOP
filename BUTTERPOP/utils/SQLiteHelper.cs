@@ -52,7 +52,16 @@ namespace BUTTERPOP.utils
 
         public Task<int> UpdateUsuarioAsync(Usuarios usuario)
         {
-            return db.UpdateAsync(usuario);
+            if (usuario.correo != null)
+            {
+                return db.UpdateAsync(usuario);
+            }
+            else
+            {
+                return null;
+            }
+
+            
         }
 
         public Task<int> DeleteUsuarioAsync(Usuarios usuario)

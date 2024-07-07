@@ -114,7 +114,7 @@
                         <!--FORMULARIO INICIO-->
                         <StackLayout x:Name="loginForm" IsVisible="True" Orientation="Vertical" Spacing="30">
                             <Label Text="¡Hola de Nuevo! :D" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
-                            <Entry x:Name="txtEmailI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Correo electrónico"/>
+                            <Entry x:Name="txtEmailI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Correo electrónico" Keyboard="Email"/>
 
 
                             <StackLayout Orientation="Horizontal">
@@ -134,7 +134,7 @@
                         <StackLayout x:Name="registerForm" IsVisible="False" Orientation="Vertical" Spacing="10">
                             <Label Text="¡Bienvenido a ButterPop!" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
                             <Entry x:Name="txtUsername" Placeholder="Nombre" TextColor="Black" PlaceholderColor="#838383"/>
-                            <Entry x:Name="txtEmailR" Placeholder="Correo electrónico" TextColor="Black" PlaceholderColor="#838383"/>
+                            <Entry x:Name="txtEmailR" Placeholder="Correo electrónico" TextColor="Black" PlaceholderColor="#838383" Keyboard="Email"/>
                             <StackLayout Orientation="Horizontal">
 
                                 <Entry x:Name="txtPassR" Placeholder="Contraseña" WidthRequest="180" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>

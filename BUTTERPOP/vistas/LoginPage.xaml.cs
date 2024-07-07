@@ -151,6 +151,11 @@ namespace BUTTERPOP.vistas
         {
             if (validarDatosRegistro())
             {
+                if (!IsValidEmail())
+                {
+                    await DisplayAlert("Advertencia", "Por favor ingresa un correo electrónico válido.", "Aceptar");
+                    return;
+                }
 
                 if (validarPassword())
                 {
@@ -187,10 +192,13 @@ namespace BUTTERPOP.vistas
         {
             if (validarDatosInicioSesion())
             {
+                if (!IsValidEmail())
+                {
+                    await DisplayAlert("Advertencia", "Por favor ingresa un correo electrónico válido.", "Aceptar");
+                    return;
+                }
 
-             
 
-                
 
                 var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtEmailI.Text);
 
@@ -201,8 +209,12 @@ namespace BUTTERPOP.vistas
                         {
                             await DisplayAlert("Inicio de Sesión Exitoso", "Has iniciado sesión correctamente", "Aceptar");
 
-                        Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));
-                       
+                            
+                            // Paso de parametros recibidos al constructor de HomePage
+
+                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));
+                            
+
                     }
                         else
                         {
@@ -272,13 +284,17 @@ namespace BUTTERPOP.vistas
             else if (string.IsNullOrEmpty(txtPassI.Text))
             {
                 respuesta = false;
-            }
+            } 
+
             else
             {
                 respuesta = true;
             }
             return respuesta;
         }
+
+
+
 
         private void btnVerPassword_Clicked(object sender, EventArgs e)
         {
@@ -321,5 +337,34 @@ namespace BUTTERPOP.vistas
             btnOcultarPassword3.IsVisible = false;
             txtPassRCheck.IsPassword = true;
         }
+
+        public bool IsValidEmail()
+        {
+            if (string.IsNullOrWhiteSpace(txtEmailI.Text))
+                return false;
+
+            try
+            {
+                // Intentar crear un nuevo MailAddress con el correo proporcionado
+                var addr = new System.Net.Mail.MailAddress(txtEmailI.Text);
+
+                // Verificar si la dirección de correo electrónico es válida
+                return addr.Address == txtEmailI.Text;
+            }
+            catch
+            {
+                // Devolver falso si ocurre alguna excepción al intentar crear el MailAddress
+                return false;
+            }
+        }
+
+
+
+
+
+
+
+
+
     }
 }

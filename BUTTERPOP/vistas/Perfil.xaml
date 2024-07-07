@@ -13,7 +13,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="¡Hola, " />
-                            <Span Text="{Binding NombreUsuario}"  />
+                            <Span x:Name="welcomeUserName"  Text="{Binding NombreUsuario}"  />
                             <Span Text="! 👋" />
                         </FormattedString>
                     </Label.FormattedText>
@@ -83,10 +83,28 @@
                     <Label Text="Usuario" TextColor="White" FontSize="18" FontAttributes="Bold" />
 
                     <Grid>
-                        <Button x:Name="btnCambiarUser" Clicked="btnCambiarUser_Clicked" Text=">" HorizontalOptions="End" Grid.Row="0" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        
+                        <Button x:Name="btnCambiarUser" Clicked="btnCambiarUser_Clicked" Text=">" HorizontalOptions="End" Grid.Row="0" Grid.Column="7" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
                         <Entry x:Name="txtNombreUsuario" 
-                               Grid.Row="0"
-                               Text="{Binding NombreUsuario}" TextColor="#838383" WidthRequest="10" />
+                               
+                               Text="{Binding NombreUsuario}" TextColor="#838383" WidthRequest="100"
+                              
+                               Grid.Row="0" Grid.ColumnSpan="7" />
 
                     </Grid>
                     
@@ -105,9 +123,23 @@
 
                     <Grid>
 
-                        <Button x:Name="btnCambiarPass" Clicked="btnCambiarPass_Clicked" Text=">" HorizontalOptions="End" Grid.Row="0" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                        <Entry x:Name="txtContra" Grid.Row="0" Text="{Binding PassUsuario}" IsPassword="True" PlaceholderColor="#838383" TextColor="#838383" WidthRequest="10" />
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="btnCambiarPass" Clicked="btnCambiarPass_Clicked" Grid.Row="0" Grid.Column="7" Text=">" HorizontalOptions="End" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
+
+                        <Entry x:Name="txtContra" Grid.Row="0" Grid.ColumnSpan="7"  Text="{Binding PassUsuario}" IsPassword="True" PlaceholderColor="#838383" TextColor="#838383" WidthRequest="10" />
                 
 
                     </Grid>
