@@ -15,6 +15,13 @@ namespace BUTTERPOP.vistas.renta
         public FormRenta()
         {
             InitializeComponent();
+
+            toTest.Clicked += ToTest;
+        }
+
+        private void ToTest(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new testRenta());
         }
     }
 }
