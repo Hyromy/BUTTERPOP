@@ -239,4 +239,7 @@
     <BundleResource Include="Resources\star.png" />
     <BundleResource Include="Resources\star_half.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cerrar_sesion.png" />
+  </ItemGroup>
 </Project>

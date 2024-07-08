@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Diagnostics;
 using BUTTERPOP.modelo;
+using Xamarin.Essentials;
 
 namespace BUTTERPOP.vistas
 {
@@ -88,6 +89,8 @@ namespace BUTTERPOP.vistas
                                 selection1Active = true;
                                 selection2Active = false;
                                 UpdateButtonColors();
+                                var duration = TimeSpan.FromSeconds(0.2);
+                                Vibration.Vibrate(duration);
                             }
                         }
 
@@ -99,6 +102,8 @@ namespace BUTTERPOP.vistas
                                 selection1Active = false;
                                 selection2Active = true;
                                 UpdateButtonColors();
+                                var duration = TimeSpan.FromSeconds(0.2);
+                                Vibration.Vibrate(duration);
                             }
                         }
                     }
@@ -125,6 +130,8 @@ namespace BUTTERPOP.vistas
                 selection1Active = true;
                 selection2Active = false;
                 UpdateButtonColors();
+                var duration = TimeSpan.FromSeconds(0.2);
+                Vibration.Vibrate(duration);
             }
         }
 
@@ -135,6 +142,8 @@ namespace BUTTERPOP.vistas
                 selection1Active = false;
                 selection2Active = true;
                 UpdateButtonColors();
+                var duration = TimeSpan.FromSeconds(0.2);
+                Vibration.Vibrate(duration);
             }
         }
 
@@ -142,7 +151,23 @@ namespace BUTTERPOP.vistas
         {
             if (validarDatosRegistro())
             {
-                if (!IsValidEmail())
+
+                var usuarioExistente = await App.SQLiteDB.GetUsuariosByCorreo(txtEmailR.Text);
+
+                if (usuarioExistente != null && usuarioExistente.correo == txtEmailR.Text)
+                {
+                    await DisplayAlert("Advertencia", "El correo electrónico ya ha sido registrado. Porfavor, intenta con otro.", "Aceptar");
+                    return;
+                }
+
+                if (!ValidarCaracteresPassword(txtPassR.Text))
+                {
+                    await DisplayAlert("Advertencia", "La contraseña debe tener al menos 8 caracteres, incluir al menos una letra minúscula, una letra mayúscula, un número y un símbolo (@$!%*?&).", "Aceptar");
+                    return;
+                }
+
+
+                if (!IsValidEmailR())
                 {
                     await DisplayAlert("Advertencia", "Por favor ingresa un correo electrónico válido.", "Aceptar");
                     return;
@@ -158,6 +183,7 @@ namespace BUTTERPOP.vistas
                         password = txtPassR.Text,
 
                     };
+
                     await App.SQLiteDB.SaveUsuarioAsync(usuario);
                     txtEmailR.Text = "";
                     txtPassR.Text = "";
@@ -165,6 +191,13 @@ namespace BUTTERPOP.vistas
                     txtPassRCheck.Text = "";
 
                     await DisplayAlert("Registro Exitoso", "Te has registrado correctamente, por favor inicia sesión", "Aceptar");
+
+
+                    selection1Active = true;
+                    selection2Active = false;
+                    UpdateButtonColors();
+                    var duration = TimeSpan.FromSeconds(0.2);
+                    Vibration.Vibrate(duration);
 
                 } else
                 {
@@ -177,6 +210,7 @@ namespace BUTTERPOP.vistas
                 await DisplayAlert("Advertencia", "Ingresa todos los datos", "Aceptar");
             }
         }
+
 
         private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
         {
@@ -196,9 +230,11 @@ namespace BUTTERPOP.vistas
                         if (usuario.password == txtPassI.Text)
                         {
                             // Paso de parametros recibidos al constructor de HomePage
-                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));   
+                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));
+                            var duration = TimeSpan.FromSeconds(0.2);
+                            Vibration.Vibrate(duration);
 
-                        }
+                    }
                         else
                         {
                             await DisplayAlert("Error", "La contraseña es incorrecta", "Aceptar");
@@ -324,18 +360,53 @@ namespace BUTTERPOP.vistas
 
             try
             {
-                // Intentar crear un nuevo MailAddress con el correo proporcionado
+                
                 var addr = new System.Net.Mail.MailAddress(txtEmailI.Text);
 
-                // Verificar si la dirección de correo electrónico es válida
+                
                 return addr.Address == txtEmailI.Text;
             }
             catch
             {
-                // Devolver falso si ocurre alguna excepción al intentar crear el MailAddress
+                
                 return false;
             }
         }
+
+        public bool IsValidEmailR()
+        {
+            if (string.IsNullOrWhiteSpace(txtEmailR.Text))
+                return false;
+
+            try
+            {
+                
+                var addr = new System.Net.Mail.MailAddress(txtEmailR.Text);
+
+                
+                return addr.Address == txtEmailR.Text;
+            }
+            catch
+            {
+                
+                return false;
+            }
+        }
+
+
+        public bool ValidarCaracteresPassword(string password)
+        {
+            
+            var regex = new System.Text.RegularExpressions.Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$");
+            return regex.IsMatch(txtPassR.Text);
+        }
+
+
+
+
+
+
+
 
     }
 }

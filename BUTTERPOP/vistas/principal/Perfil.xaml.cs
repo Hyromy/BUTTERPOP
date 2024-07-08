@@ -23,10 +23,6 @@ namespace BUTTERPOP.vistas
         }
 
 
-
-      
-
-
         private void btnPeliculas_Clicked(object sender, EventArgs e)
         {
             btnPeliculas.BackgroundColor = Color.FromHex("#C80000");
@@ -174,6 +170,12 @@ namespace BUTTERPOP.vistas
                     if (usuario != null)
                     {
 
+                        if (!ValidarCaracteresPassword(txtContra.Text))
+                        {
+                            await DisplayAlert("Advertencia", "La contraseña debe tener al menos 8 caracteres, incluir al menos una letra minúscula, una letra mayúscula, un número y un símbolo (@$!%*?&).", "Aceptar");
+                            return;
+                        }
+
                         usuario.password = txtContra.Text;
 
                         await App.SQLiteDB.UpdateUsuarioAsync(usuario);
@@ -209,5 +211,16 @@ namespace BUTTERPOP.vistas
         }
 
 
+        public bool ValidarCaracteresPassword(string password)
+        {
+            // Definir la RegulaciónDeExpresiones
+            var regex = new System.Text.RegularExpressions.Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$");
+            return regex.IsMatch(txtContra.Text);
+        }
+
+        private void btnCerrarSesion_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
+        }
     }
 }

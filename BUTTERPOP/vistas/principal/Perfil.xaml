@@ -14,7 +14,7 @@
                         <FormattedString>
                             <Span Text="¡Hola, " />
                             <Span x:Name="welcomeUserName"  Text="{Binding NombreUsuario}"  />
-                            <Span Text="! 👋" />
+                            <Span Text="! 🍿" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -164,16 +164,25 @@
 
                     </StackLayout>
 
+
+                    <StackLayout Orientation="Horizontal" Margin="20">
+                        <Image Source="cerrar_sesion.png" />
+                        <Button x:Name="btnCerrarSesion" Clicked="btnCerrarSesion_Clicked" Text="cerrar sesión" BackgroundColor="Transparent" TextColor="#c80000" FontAttributes="Bold"  />
+                    </StackLayout>
+
+
                     <StackLayout Orientation="Horizontal" Margin="20">
                         <Image Source="basura.png" />
                         <Button x:Name="btnEliminarCuenta" Clicked="btnEliminarCuenta_Clicked" Text="Eliminar mí cuenta" BackgroundColor="Transparent" TextColor="#c80000" FontAttributes="Bold"  />
                     </StackLayout>
+
                     
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
+
 
                 </StackLayout>
 
