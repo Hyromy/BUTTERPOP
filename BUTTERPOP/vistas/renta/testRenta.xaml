@@ -27,52 +27,37 @@
                    TextColor="#0bf"
                    FontSize="Large"/>
 
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="getTBName"
-                        Text="Get Tabla"/>
+            <Button x:Name="clear"
+                    Text="Limpiar"
+                    HorizontalOptions="End"/>
 
-                <Button x:Name="getIdRent"
-                        Text="Get ID Renta"/>
-
-                <Button x:Name="getCorreo"
-                        Text="Get Correo"/>
-
-            </StackLayout>
-            
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="getIdPeli"
-                        Text="Get ID Película"/>
-
-                <Button x:Name="getFRenta"
-                        Text="Get Fecha Renta"/>
-            </StackLayout>
-
-            <Button x:Name="create"
-                    Text="create(correo, idPelicula)"/>
+            <Button x:Name="insert"
+                    Text="inserRenta(Renta)"/>
 
             <Button x:Name="read"
-                    Text="read(idRenta)"/>
+                    Text="readRenta(id)"/>
 
             <Button x:Name="readBy"
-                    Text="readBy(atributo, valor)"/>
-
+                    Text="readRentaBy(atributo, valor)"/>
+            
             <Button x:Name="readAll"
-                    Text="readAll()"/>
+                    Text="readAllRentas()"/>
 
             <Button x:Name="countLogs"
-                    Text="countLogs()"/>
-            
+                    Text="countRentas()"/>
+                
             <Button x:Name="update"
-                    Text="update(idRenta, atributos[], valores[])"/>
-
+                    Text="updateRenta(idRenta, atributos[], valores[])"/>
+                    
             <Button x:Name="delete"
-                    Text="delete(idRenta)"/>
+                    Text="deleteRenta(renta)"/>
 
             <Button x:Name="isActiveRent"
                     Text="Model.IsActiveRent(dateTime)"/>
 
-            <Button x:Name="preview"
-                    Text="Preview"/>
+            <Button x:Name="exit"
+                    Text="Salir"
+                    HorizontalOptions="End"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

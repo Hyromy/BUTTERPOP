@@ -4,147 +4,129 @@ using System.Text;
 using System.Xml.Linq;
 using Xamarin.Essentials;
 
+using SQLite;
+
+using BUTTERPOP.utils;
+using System.Threading.Tasks;
+
+using System.IO;
+
 namespace BUTTERPOP.crud.renta
 {
     internal class CRUD_Renta
     {
-        private string tbName;
-
-        private string idRent;
-        private string correo;
-        private string idPeli;
-        private string fRenta;
+        private SQLiteAsyncConnection db;
 
         public CRUD_Renta()
         {
-            tbName = "renta";
-
-            idRent = "id_renta";
-            idPeli = "id_pelicula";
-            correo = "correo";
-            fRenta = "fecha_renta";
-        }
-
-        /// <returns>Nombre del la tabla 'renta'</returns>
-        public string getTBName() { return tbName; }
-
-        /// <returns>Clave primarial del registro</returns>
-        public string getIdRent() { return idRent; }
-
-        /// <returns>Clave foránea de la tabla 'cliente'</returns>
-        public string getCorreo() { return correo; }
-
-        /// <returns>Clave foránea de la tabla 'pelicula'</returns>
-        public string getIdPeli() { return idPeli; }
-
-        /// <returns>Campo de la fecha de renta</returns>
-        public string getFRenta() { return fRenta; }
-
-        /// <summary>
-        /// Sentencia sql para insertar un nuevo registro
-        /// </summary>
-        /// <param name="correo">Clave foránea de la tabla 'cliente'</param>
-        /// <param name="idPelicula">Clave foránea de la tabla 'pelicula'</param>
-        public string InsertRenta(string correo, int idPelicula)
-        {
-            string fechaRenta, values, atributes;
-
-            atributes = $"{this.correo}, {idPeli}, {fRenta}";
-            fechaRenta = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            values = $"'{correo}', {idPelicula}, '{fechaRenta}'";
-
-            return $"insert into {tbName}({atributes}) values({values});";
+            this.db = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ButterPop.db3"));
+            this.db.CreateTableAsync<Renta>().Wait();
         }
 
         /// <summary>
-        /// Sentencia sql para leer un registro con un id específico
+        /// Inserta en la tabla 'renta' un nuevo registro
         /// </summary>
-        /// <param name="idRenta">Clave primaria del registro</param>
-        public string ReadRenta(int idRenta)
+        /// <param name="renta">objeto renta</param>
+        /// <returns>Número de registros insertados</returns>
+        public async Task<int> InsertRenta(Renta renta)
         {
-            return $"select * from {tbName} where {idRent} = {idRenta};";
+            return await this.db.InsertAsync(renta);
         }
 
         /// <summary>
-        /// Sentencia sql para leer un registro por campo y valor especificado  
+        /// Lee un registro de la tabla 'renta' por su id
         /// </summary>
-        /// <param name="atributo">Atributo de la tabla 'renta'</param>
-        /// <param name="valor">Valor del campo respectivo</param>
-        /// <exception cref="Exception"></exception>
-        public string ReadRentaBy(string atributo, string valor)
+        /// <param name="idRenta">id de la renta</param>
+        /// <returns>Objeto de la clase Renta</returns>
+        public async Task<Renta> ReadRenta(int idRenta)
         {
-            if (atributo != idPeli ||
-                atributo != fRenta ||
-                atributo != correo)
+            return await this.db.Table<Renta>().Where(r => r.id_renta == idRenta).FirstOrDefaultAsync();
+        }
+
+        /// <summary>
+        /// Lee un registro de la tabla 'renta' por un atributo especificado con su respectivo valor
+        /// </summary>
+        /// <param name="atributo">Criterio de busqueda (id_pelucula, correo, fecha_renta)</param>
+        /// <param name="valor">Valor de busqueda</param>
+        /// <returns>Objeto de la clase Renta</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public async Task<Renta> ReadRentaBy(string atributo, string valor)
+        {
+            if (atributo != "id_pelicula" &&
+                atributo != "correo" &&
+                atributo != "fecha_renta")
             {
-                string validAtb = $"'{idPeli}', '{fRenta}', '{correo}'";
-                throw new Exception($"Atributo no válido, valores disponibles: ({validAtb})");
+                String validAtb = "'id_pelicula', 'correo', 'fecha_renta'";
+                throw new ArgumentException($"Atributo no válido, valores disponibles: ({validAtb})");
             }
 
-            return $"select * from {tbName} where {atributo} = {valor};";
-        }
-
-        /// <summary>
-        /// Sentencia sql para leer todos los registros de la tabla
-        /// </summary>
-        public string ReadAllRentas()
-        {
-            return $"select * from {tbName};";
-        }
-
-        /// <summary>
-        /// Sencencia sql para contar la cantidad de registros en la tabla
-        /// </summary>
-        public string CountRentas()
-        {
-            return $"select count({idRent}) from {tbName};";
-        }
-
-        /// <summary>
-        /// Sentencia sql para actualizar los campos de un registro por su id
-        /// </summary>
-        /// <param name="idRenta">Clave primaria del registro</param>
-        /// <param name="atributos">Arreglo de Strings con el nombre de los campos a actualizar</param>
-        /// <param name="valores">Arreglo de Strings con los valores a actualizar</param>
-        /// <exception cref="Exception"></exception>
-        public string UpdateRenta(int idRenta, string[] atributos, string[] valores)
-        {
-            if (atributos.Length != valores.Length)
+            if (atributo == "id_pelicula")
             {
-                throw new Exception("La cantidad de atributos y valores deben ser idénticos");
+                return await this.db.Table<Renta>().Where(r => r.id_pelicula == int.Parse(valor)).FirstOrDefaultAsync();
+            } 
+            else if (atributo == "fecha_renta")
+            {
+                return await this.db.Table<Renta>().Where(r => r.fecha_renta.ToString() == valor).FirstOrDefaultAsync();
+            }
+            else if (atributo == "correo")
+            {
+                return await this.db.Table<Renta>().Where(r => r.correo == valor).FirstOrDefaultAsync();
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Lee todos los registros de la tabla 'renta'
+        /// </summary>
+        /// <returns>Lista de objetos de la clase Renta</returns>
+        public async Task<List<Renta>> ReadAllRentas()
+        {
+            return await this.db.Table<Renta>().ToListAsync();
+        }
+
+        /// <summary>
+        /// Cuenta la cantidad de registros en la tabla 'renta'
+        /// </summary>
+        /// <returns>Cantidad de registros en 'renta'</returns>
+        public async Task<int> CountRentas()
+        {
+            return await this.db.Table<Renta>().CountAsync();
+        }
+
+        /// <summary>
+        /// Actualiza los campos de un registro por su id
+        /// </summary>
+        /// <param name="renta">Objeto renta a actualizar</param>
+        /// <returns>Cantidad de actualizaciones realizadas en la tabla renta</returns>
+        /// <exception cref="ArgumentException"></exception>
+        public async Task<int> UpdateRenta(Renta renta)
+        {
+            if (String.IsNullOrEmpty(renta.correo))
+            {
+                throw new ArgumentException("Correo no puede ser nulo o vacío");
             }
 
-            string updateSentence = "";
-            for (byte i = 0; i < atributos.Length; i++)
+            if (renta.id_pelicula <= 0)
             {
-                if (atributos[i] != idPeli ||
-                    atributos[i] != fRenta ||
-                    atributos[i] != correo)
-                {
-                    string validAtb = $"'{idPeli}', '{fRenta}', '{correo}'";
-                    throw new Exception($"Atributo no válido, valores disponibles: ({validAtb})");
-                }
-
-                if (i != atributos.Length - 1)
-                {
-                    updateSentence += $"{atributos[i]} = '{valores[i]}', ";
-                }
-                else
-                {
-                    updateSentence += $"{atributos[i]} = '{valores[i]}'";
-                }
+                throw new ArgumentException("Id de película inválido");
             }
 
-            return $"update {tbName} set {updateSentence} where {idRent} = {idRenta};";
+            if (renta.fecha_renta == null)
+            {
+                throw new ArgumentException("Fecha de renta no puede ser nula");
+            }
+
+            return await this.db.UpdateAsync(renta);
         }
 
         /// <summary>
-        /// Sentencia sql para eliminar un registro por su id
+        /// Elimina un registro de la tabla 'renta'
         /// </summary>
-        /// <param name="idRenta">Clave primarial del registro</param>
-        public string DeleteRenta(int idRenta)
+        /// <param name="renta">Objeto renta</param>
+        /// <returns>Cantidad de registros eliminados</returns>
+        public async Task<int> DeleteRenta(Renta renta)
         {
-            return $"delete from {tbName} where {idRent} = {idRenta};";
+            return await this.db.DeleteAsync(renta);
         }
     }
 }
