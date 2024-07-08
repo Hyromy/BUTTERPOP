@@ -9,11 +9,14 @@ using System.Diagnostics;
 using BUTTERPOP.modelo;
 using Xamarin.Essentials;
 
+using BUTTERPOP.crud.usuario;
+
 namespace BUTTERPOP.vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        private CRUD_Usuario crud = new CRUD_Usuario();
 
         private bool IsTurnX;
         private bool IsTurnY;
@@ -152,7 +155,7 @@ namespace BUTTERPOP.vistas
             if (validarDatosRegistro())
             {
 
-                var usuarioExistente = await App.SQLiteDB.GetUsuariosByCorreo(txtEmailR.Text);
+                var usuarioExistente = await crud.GetUsuariosByCorreo(txtEmailR.Text);
 
                 if (usuarioExistente != null && usuarioExistente.correo == txtEmailR.Text)
                 {
@@ -184,7 +187,7 @@ namespace BUTTERPOP.vistas
 
                     };
 
-                    await App.SQLiteDB.SaveUsuarioAsync(usuario);
+                    await crud.SaveUsuarioAsync(usuario);
                     txtEmailR.Text = "";
                     txtPassR.Text = "";
                     txtUsername.Text = "";
@@ -222,8 +225,7 @@ namespace BUTTERPOP.vistas
                     return;
                 }
 
-                var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtEmailI.Text);
-
+                var usuario = await crud.GetUsuariosByCorreo(txtEmailI.Text);
 
                     if(usuario != null)
                     {

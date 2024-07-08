@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using BUTTERPOP.crud.usuario;
+
 namespace BUTTERPOP.vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Perfil : ContentPage
     {
-        
+        private CRUD_Usuario crud = new CRUD_Usuario();
 
         public Perfil()
         {
@@ -96,13 +98,13 @@ namespace BUTTERPOP.vistas
             {
                 bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas eliminar tu cuenta?", "Confirmar", "Cancelar");
 
-                var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+                var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
 
                 if (confirmacion)
                 {
                     if (usuario != null)
                     {
-                        await App.SQLiteDB.DeleteUsuarioAsync(usuario);
+                        await crud.DeleteUsuarioAsync(usuario);
                         await DisplayAlert("Cuenta Eliminada", "Tu cuenta ha sido eliminada correctamente", "Aceptar");
 
 
@@ -129,7 +131,7 @@ namespace BUTTERPOP.vistas
             {
                 bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu nombre a "+txtNombreUsuario.Text+"?", "Confirmar", "Cancelar");
 
-                var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+                var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
 
                 if (confirmacion)
                 {
@@ -138,7 +140,7 @@ namespace BUTTERPOP.vistas
 
                         usuario.usuario = txtNombreUsuario.Text;
 
-                        await App.SQLiteDB.UpdateUsuarioAsync(usuario);
+                        await crud.UpdateUsuarioAsync(usuario);
                         await DisplayAlert("Actualización Exitosa", "Tu nombre se ha actualizado correctamente", "Aceptar");
                         LlenarDatos();
                     }
@@ -163,7 +165,7 @@ namespace BUTTERPOP.vistas
             {
                 bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu contraseña?", "Confirmar", "Cancelar");
 
-                var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+                var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
 
                 if (confirmacion)
                 {
@@ -178,7 +180,7 @@ namespace BUTTERPOP.vistas
 
                         usuario.password = txtContra.Text;
 
-                        await App.SQLiteDB.UpdateUsuarioAsync(usuario);
+                        await crud.UpdateUsuarioAsync(usuario);
                         await DisplayAlert("Actualización Exitosa", "Tu contraseña se ha actualizado correctamente", "Aceptar");
                         LlenarDatos();
                     }
@@ -200,7 +202,7 @@ namespace BUTTERPOP.vistas
         public async void LlenarDatos()
         {
             //Metodo que permite llenar los datos al realizar un update o select
-            var usuarioEncontrado = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+            var usuarioEncontrado = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
             //Si la lista no está vacia, entonces mostrarla
             if (usuarioEncontrado != null)
             {
