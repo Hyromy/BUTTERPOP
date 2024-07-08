@@ -5,11 +5,8 @@ using System.Xml.Linq;
 using Xamarin.Essentials;
 
 using SQLite;
-
-using BUTTERPOP.utils;
 using System.Threading.Tasks;
 using BUTTERPOP.db;
-using System.IO;
 
 namespace BUTTERPOP.crud.renta
 {
@@ -19,8 +16,7 @@ namespace BUTTERPOP.crud.renta
 
         public CRUD_Renta()
         {
-            this.db = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ButterPop.db3"));
-            this.db.CreateTableAsync<Table.Renta>().Wait();
+            this.db = new SQLiteHelper().getConnection();
         }
 
         /// <summary>

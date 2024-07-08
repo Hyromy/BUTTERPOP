@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SQLite;
-using BUTTERPOP.utils;
 using BUTTERPOP.db;
-using System.IO;
 
 namespace BUTTERPOP.crud.usuario
 {
@@ -16,8 +14,7 @@ namespace BUTTERPOP.crud.usuario
         private SQLiteAsyncConnection db;
         public CRUD_Usuario()
         {
-            this.db = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ButterPop.db3"));
-            this.db.CreateTableAsync<Table.Cliente>().Wait();
+            this.db = new SQLiteHelper().getConnection();
         }
 
         public Task<int> SaveUsuarioAsync(Table.Cliente usuario)
