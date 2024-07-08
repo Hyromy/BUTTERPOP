@@ -8,7 +8,7 @@ using SQLite;
 
 using BUTTERPOP.utils;
 using System.Threading.Tasks;
-
+using BUTTERPOP.db;
 using System.IO;
 
 namespace BUTTERPOP.crud.renta
@@ -20,7 +20,7 @@ namespace BUTTERPOP.crud.renta
         public CRUD_Renta()
         {
             this.db = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ButterPop.db3"));
-            this.db.CreateTableAsync<Renta>().Wait();
+            this.db.CreateTableAsync<Table.Renta>().Wait();
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace BUTTERPOP.crud.renta
         /// </summary>
         /// <param name="renta">objeto renta</param>
         /// <returns>Número de registros insertados</returns>
-        public async Task<int> InsertRenta(Renta renta)
+        public async Task<int> InsertRenta(Table.Renta renta)
         {
             return await this.db.InsertAsync(renta);
         }
@@ -38,9 +38,9 @@ namespace BUTTERPOP.crud.renta
         /// </summary>
         /// <param name="idRenta">id de la renta</param>
         /// <returns>Objeto de la clase Renta</returns>
-        public async Task<Renta> ReadRenta(int idRenta)
+        public async Task<Table.Renta> ReadRenta(int idRenta)
         {
-            return await this.db.Table<Renta>().Where(r => r.id_renta == idRenta).FirstOrDefaultAsync();
+            return await this.db.Table<Table.Renta>().Where(r => r.id_renta == idRenta).FirstOrDefaultAsync();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace BUTTERPOP.crud.renta
         /// <param name="valor">Valor de busqueda</param>
         /// <returns>Objeto de la clase Renta</returns>
         /// <exception cref="ArgumentException"></exception>
-        public async Task<Renta> ReadRentaBy(string atributo, string valor)
+        public async Task<Table.Renta> ReadRentaBy(string atributo, string valor)
         {
             if (atributo != "id_pelicula" &&
                 atributo != "correo" &&
@@ -62,15 +62,15 @@ namespace BUTTERPOP.crud.renta
 
             if (atributo == "id_pelicula")
             {
-                return await this.db.Table<Renta>().Where(r => r.id_pelicula == int.Parse(valor)).FirstOrDefaultAsync();
+                return await this.db.Table<Table.Renta>().Where(r => r.id_pelicula == int.Parse(valor)).FirstOrDefaultAsync();
             } 
             else if (atributo == "fecha_renta")
             {
-                return await this.db.Table<Renta>().Where(r => r.fecha_renta.ToString() == valor).FirstOrDefaultAsync();
+                return await this.db.Table<Table.Renta>().Where(r => r.fecha_renta.ToString() == valor).FirstOrDefaultAsync();
             }
             else if (atributo == "correo")
             {
-                return await this.db.Table<Renta>().Where(r => r.correo == valor).FirstOrDefaultAsync();
+                return await this.db.Table<Table.Renta>().Where(r => r.correo == valor).FirstOrDefaultAsync();
             }
             return null;
         }
@@ -79,9 +79,9 @@ namespace BUTTERPOP.crud.renta
         /// Lee todos los registros de la tabla 'renta'
         /// </summary>
         /// <returns>Lista de objetos de la clase Renta</returns>
-        public async Task<List<Renta>> ReadAllRentas()
+        public async Task<List<Table.Renta>> ReadAllRentas()
         {
-            return await this.db.Table<Renta>().ToListAsync();
+            return await this.db.Table<Table.Renta>().ToListAsync();
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace BUTTERPOP.crud.renta
         /// <returns>Cantidad de registros en 'renta'</returns>
         public async Task<int> CountRentas()
         {
-            return await this.db.Table<Renta>().CountAsync();
+            return await this.db.Table<Table.Renta>().CountAsync();
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace BUTTERPOP.crud.renta
         /// <param name="renta">Objeto renta a actualizar</param>
         /// <returns>Cantidad de actualizaciones realizadas en la tabla renta</returns>
         /// <exception cref="ArgumentException"></exception>
-        public async Task<int> UpdateRenta(Renta renta)
+        public async Task<int> UpdateRenta(Table.Renta renta)
         {
             if (String.IsNullOrEmpty(renta.correo))
             {
@@ -124,7 +124,7 @@ namespace BUTTERPOP.crud.renta
         /// </summary>
         /// <param name="renta">Objeto renta</param>
         /// <returns>Cantidad de registros eliminados</returns>
-        public async Task<int> DeleteRenta(Renta renta)
+        public async Task<int> DeleteRenta(Table.Renta renta)
         {
             return await this.db.DeleteAsync(renta);
         }

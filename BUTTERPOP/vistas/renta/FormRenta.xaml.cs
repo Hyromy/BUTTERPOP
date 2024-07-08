@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using BUTTERPOP.modelo.rentar;
 using BUTTERPOP.utils;
 using BUTTERPOP.crud.renta;
+using BUTTERPOP.db;
 
 namespace BUTTERPOP.vistas.renta
 {
@@ -57,7 +58,7 @@ namespace BUTTERPOP.vistas.renta
             else
             {
                 // extraer la información de el cliente en uso
-                Cliente cliente = new Cliente
+                Table.Cliente cliente = new Table.Cliente
                 {
                     correo = "ejemplo@email.com",
                     usuario = "userName",
@@ -65,7 +66,7 @@ namespace BUTTERPOP.vistas.renta
                 };
 
                 // extraer la información de la pelicula a rentar
-                Pelicula pelicula = new Pelicula
+                Table.Pelicula pelicula = new Table.Pelicula
                 {
                     id_pelicula = 1
                 };
@@ -78,7 +79,7 @@ namespace BUTTERPOP.vistas.renta
                 bool isPayed = (await DisplayAlert("Pagar", question, "Sí", "No")); // error
                 if (isPayed)
                 {
-                    Renta renta = new Renta
+                    Table.Renta renta = new Table.Renta
                     {
                         id_pelicula = pelicula.id_pelicula,
                         correo = cliente.correo,

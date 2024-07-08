@@ -11,6 +11,7 @@ using Xamarin.Forms.Xaml;
 using BUTTERPOP.utils;
 using BUTTERPOP.crud.renta;
 using BUTTERPOP.modelo.rentar;
+using BUTTERPOP.db;
 
 namespace BUTTERPOP.vistas
 {
@@ -66,7 +67,7 @@ namespace BUTTERPOP.vistas
             if ((correo != null || correo != "") &&
                 idPelicula > 0)
             {
-                Renta renta = new Renta
+                Table.Renta renta = new Table.Renta
                 {
                     correo = correo,
                     id_pelicula = idPelicula
@@ -98,7 +99,7 @@ namespace BUTTERPOP.vistas
 
             if (idRenta > 0)
             {
-                Renta renta = await crudRenta.ReadRenta(idRenta);
+                Table.Renta renta = await crudRenta.ReadRenta(idRenta);
 
                 if (renta != null)
                 {
@@ -151,7 +152,7 @@ namespace BUTTERPOP.vistas
                 (idPelicula > 0) ||
                 !(String.IsNullOrEmpty(fechaRenta)))
             {
-                Renta renta = null;
+                Table.Renta renta = null;
                 if (!String.IsNullOrEmpty(correo))
                 {
                     renta = await crudRenta.ReadRentaBy("correo", correo);
@@ -185,13 +186,13 @@ namespace BUTTERPOP.vistas
         
         private async void ReadAll(object sender, EventArgs e)
         {
-            List<Renta> rentas = await crudRenta.ReadAllRentas();
+            List<Table.Renta> rentas = await crudRenta.ReadAllRentas();
             if (rentas.Count > 0)
             {
                 await DisplayAlert("Rentas", "Se encontraron " + rentas.Count + " registros.\nRevise la consola para consultar los registros", "OK");
                 
                 Console.WriteLine("\n---- Registros encontrados ----\n");
-                foreach (Renta renta in rentas)
+                foreach (Table.Renta renta in rentas)
                 {
                     Console.WriteLine("id: " + renta.id_renta);
                     Console.WriteLine("correo: " + renta.correo);
@@ -224,7 +225,7 @@ namespace BUTTERPOP.vistas
                 idRenta = 0;
             }
 
-            Renta renta = await crudRenta.ReadRenta(idRenta);
+            Table.Renta renta = await crudRenta.ReadRenta(idRenta);
             if (renta != null)
             {
                 try
@@ -302,7 +303,7 @@ namespace BUTTERPOP.vistas
 
             if (idRenta > 0)
             {
-                Renta renta = await crudRenta.ReadRenta(idRenta);
+                Table.Renta renta = await crudRenta.ReadRenta(idRenta);
                 if (renta != null)
                 {
                     if (await DisplayAlert("Confirmación", "¿Desea eliminar el registro?", "Sí", "No"))

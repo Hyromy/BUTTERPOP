@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using SQLite;
 using BUTTERPOP.utils;
+using BUTTERPOP.db;
 using System.IO;
 
 namespace BUTTERPOP.crud.usuario
@@ -16,10 +17,10 @@ namespace BUTTERPOP.crud.usuario
         public CRUD_Usuario()
         {
             this.db = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ButterPop.db3"));
-            this.db.CreateTableAsync<Renta>().Wait();
+            this.db.CreateTableAsync<Table.Cliente>().Wait();
         }
 
-        public Task<int> SaveUsuarioAsync(Usuarios usuario)
+        public Task<int> SaveUsuarioAsync(Table.Cliente usuario)
         {
             if (usuario.correo != null)
             {
@@ -35,9 +36,9 @@ namespace BUTTERPOP.crud.usuario
         /// Recuperar todos los usuarios
         /// </summary>
         /// <returns></returns>
-        public Task<List<Usuarios>> GetUsuariosAsync()
+        public Task<List<Table.Cliente>> GetUsuariosAsync()
         {
-            return db.Table<Usuarios>().ToListAsync();
+            return db.Table<Table.Cliente>().ToListAsync();
         }
 
         /// <summary>
@@ -45,12 +46,12 @@ namespace BUTTERPOP.crud.usuario
         /// </summary>
         /// <param name="correo">correo del alumno que se requiere</param>
         /// <returns></returns>
-        public Task<Usuarios> GetUsuariosByCorreo(string correo)
+        public Task<Table.Cliente> GetUsuariosByCorreo(string correo)
         {
-            return db.Table<Usuarios>().Where(a => a.correo == correo).FirstOrDefaultAsync();
+            return db.Table<Table.Cliente>().Where(a => a.correo == correo).FirstOrDefaultAsync();
         }
 
-        public Task<int> UpdateUsuarioAsync(Usuarios usuario)
+        public Task<int> UpdateUsuarioAsync(Table.Cliente usuario)
         {
             if (usuario.correo != null)
             {
@@ -62,7 +63,7 @@ namespace BUTTERPOP.crud.usuario
             }
         }
 
-        public Task<int> DeleteUsuarioAsync(Usuarios usuario)
+        public Task<int> DeleteUsuarioAsync(Table.Cliente usuario)
         {
             return db.DeleteAsync(usuario);
         }

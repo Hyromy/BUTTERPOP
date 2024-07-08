@@ -10,6 +10,7 @@ using BUTTERPOP.modelo;
 using Xamarin.Essentials;
 
 using BUTTERPOP.crud.usuario;
+using BUTTERPOP.db;
 
 namespace BUTTERPOP.vistas
 {
@@ -178,7 +179,7 @@ namespace BUTTERPOP.vistas
 
                 if (validarPassword())
                 {
-                    Usuarios usuario = new Usuarios
+                    Table.Cliente usuario = new Table.Cliente
 
                     {
                         correo = txtEmailR.Text,
