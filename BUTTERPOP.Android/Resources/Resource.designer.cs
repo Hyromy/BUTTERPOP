@@ -22176,9 +22176,6 @@ namespace BUTTERPOP.Droid
 			// aapt resource value: 0x7F0700A9
 			public const int tooltip_frame_light = 2131165353;
 			
-			// aapt resource value: 0x7F0700AA
-			public const int view = 2131165354;
-			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

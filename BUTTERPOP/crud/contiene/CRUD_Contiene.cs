@@ -18,7 +18,7 @@ namespace BUTTERPOP.crud.contiene
 
         public Task<int> SaveContieneAsync(Table.Contiene cont)
         {
-            if (cont.Id_contiene == 0)
+            if (cont.id_contiene == 0)
             {
                 return db.InsertAsync(cont);
             }
@@ -38,7 +38,7 @@ namespace BUTTERPOP.crud.contiene
 
         public Task<Table.Contiene> GetContieneByIdAsync(int idContiene)
         {
-            return db.Table<Contiene>().Where(b => b.Id_contiene == idContiene).FirstOrDefaultAsync();
+            return db.Table<Contiene>().Where(b => b.id_contiene == idContiene).FirstOrDefaultAsync();
         }
     }
 }

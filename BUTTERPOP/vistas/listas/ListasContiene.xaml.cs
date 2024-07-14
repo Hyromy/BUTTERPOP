@@ -64,8 +64,8 @@ namespace BUTTERPOP.Vistas.listas
         {
              db.Table.Contiene contiene = new db.Table. Contiene
             {
-                Id_lista = 20,
-                Id_pelicula = 20,
+                id_lista = 20,
+                id_pelicula = 20,
             };
             await crud.SaveContieneAsync(contiene);
             await DisplayAlert("Registro", "Lista guardada en tu interfaz", "OK");
@@ -77,9 +77,9 @@ namespace BUTTERPOP.Vistas.listas
         {
             var obj = (db.Table.Contiene)e.SelectedItem;
 
-            if (!string.IsNullOrEmpty(obj.Id_contiene.ToString()))
+            if (!string.IsNullOrEmpty(obj.id_contiene.ToString()))
             {
-                var lista = await crud.GetContieneByIdAsync(obj.Id_contiene);
+                var lista = await crud.GetContieneByIdAsync(obj.id_contiene);
 
             }
             

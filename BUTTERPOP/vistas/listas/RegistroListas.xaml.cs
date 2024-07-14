@@ -23,11 +23,13 @@ namespace BUTTERPOP.Vistas.listas
     {
         private CRUD_Lista crud = new CRUD_Lista();
         private CRUD_Usuario crud2 = new CRUD_Usuario();
+        Perfil si = new Perfil();
+
         public RegistroListas()
         {
             InitializeComponent();
             llenarDatosListas();
-            LlenarDatos();
+            si.LlenarDatos();
         }
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
         {
@@ -39,14 +41,16 @@ namespace BUTTERPOP.Vistas.listas
                     nombre = txtNombre.Text,
                     descripcion = txtDesc.Text,
                     imagen = imagebytes,
-                    
+                   
                 };
+                si.LlenarDatos();
                 await crud.SaveListaAsync(lista);
                 txtNombre.Text = "";
                 txtDesc.Text = "";
                 ImagenLista.Source = "";
                 await DisplayAlert("Registro", "Lista guardada en tu interfaz", "OK");
                 await Navigation.PushAsync(new Perfil());
+                
                 
             }
             else
@@ -64,7 +68,10 @@ namespace BUTTERPOP.Vistas.listas
                 {
                     mensajeError += "- Imagen\n";
                 }
+                var duration = TimeSpan.FromSeconds(0.2);
+                Vibration.Vibrate(duration);
                 await DisplayAlert("Error", mensajeError, "OK");
+                
             }
         }
 
@@ -134,11 +141,7 @@ namespace BUTTERPOP.Vistas.listas
         {
             var listaList = await crud.GetListasAsync();
         }
-        public async void LlenarDatos()
-        {
-            //Metodo que permite llenar los datos al realizar un update o select
-            var usuarioEncontrado = await crud2.GetUsuariosAsync();
-        }
+        
     }
 
 }

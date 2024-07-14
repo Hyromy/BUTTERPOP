@@ -60,7 +60,7 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                    <Label Text="{Binding Id_contiene}"
+                                    <Label Text="{Binding id_contiene}"
                                            x:Name="txtId"
                                            Grid.RowSpan="2"
                                            VerticalOptions="Center"
@@ -68,13 +68,13 @@
                                            TextColor="White"
                                            Padding="5"/>
 
-                                    <Label Text="{Binding Id_pelicula}"
+                                    <Label Text="{Binding id_pelicula}"
                                            Grid.Row="0"
                                            Grid.Column="1"
                                            TextColor="white"
                                            FontSize="20"/>
 
-                                    <Label Text="{Binding Id_lista}"
+                                    <Label Text="{Binding id_lista}"
                                            Grid.Row="1"
                                            Grid.Column="1"
                                            TextColor="#787878"/>

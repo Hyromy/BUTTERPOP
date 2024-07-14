@@ -29,7 +29,6 @@ namespace BUTTERPOP.vistas
         {
             InitializeComponent();
             LlenarDatos();
-            LlenarDato2();
             llenarDatosListas();
         }
 
@@ -225,11 +224,7 @@ namespace BUTTERPOP.vistas
                 txtContra.Text = usuarioEncontrado.password;
             }
         }
-        public async void LlenarDato2()
-        {
-            //Metodo que permite llenar los datos al realizar un update o select
-            var usuarioEncontrado = await crud.GetUsuariosAsync();
-        }
+        
 
 
         public bool ValidarCaracteresPassword(string password)
@@ -255,7 +250,7 @@ namespace BUTTERPOP.vistas
             {
                 Lista lista = new Lista()
                 {
-                    id_Lista = Convert.ToInt32(actId.Text),
+                    id_lista = Convert.ToInt32(actId.Text),
                     nombre = actNombre.Text,
                     descripcion = actDesc.Text,
                     imagen = ImageHelper.ConvertImageToByteArray(imgEditar.Source),
@@ -273,13 +268,13 @@ namespace BUTTERPOP.vistas
         private async void lstListas_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var obj = (Lista)e.SelectedItem;
-            if (!string.IsNullOrEmpty(obj.id_Lista.ToString()))
+            if (!string.IsNullOrEmpty(obj.id_lista.ToString()))
             {
 
-                var lista = await crud2.GetListaByIdAsync(obj.id_Lista);
+                var lista = await crud2.GetListaByIdAsync(obj.id_lista);
                 if (lista != null)
                 {
-                    actId.Text = lista.id_Lista.ToString();
+                    actId.Text = lista.id_lista.ToString();
                     actNombre.Text = lista.nombre;
                     actDesc.Text = lista.descripcion;
                     imgEditar.Source = ImageHelper.ConvertByteArrayToImage(lista.imagen);

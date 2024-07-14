@@ -18,7 +18,7 @@ namespace BUTTERPOP.crud.lista
         }
         public Task<int> SaveListaAsync(Table.Lista lis)
         {
-            if (lis.id_Lista != 0)
+            if (lis.id_lista != 0)
             {
 
                 return db.UpdateAsync(lis);
@@ -39,7 +39,7 @@ namespace BUTTERPOP.crud.lista
 
         public Task<Table.Lista> GetListaByIdAsync(int idLista)
         {
-            return db.Table<Table.Lista>().Where(a => a.id_Lista == idLista).FirstOrDefaultAsync();
+            return db.Table<Table.Lista>().Where(a => a.id_lista == idLista).FirstOrDefaultAsync();
         }
 
 

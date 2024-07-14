@@ -19,15 +19,13 @@ namespace BUTTERPOP.db
 
             [MaxLength(50)]
             public string password { get; set; }
-            /*********************************/
-            [OneToMany(CascadeOperations = CascadeOperation.All)]
-            public List<Lista> Listas { get; set; }
+            
         }
 
         public class Lista
         {
             [PrimaryKey, AutoIncrement]
-            public int id_Lista { get; set; }
+            public int id_lista { get; set; }
             [MaxLength(20)]
             public String nombre { get; set; }
             [MaxLength(50)]
@@ -37,10 +35,7 @@ namespace BUTTERPOP.db
 
             /*******************/
             [ForeignKey(typeof(Cliente))]
-            public string correoUser { get; set; }
-
-            [ManyToOne]
-            public Cliente Cliente { get; set; }
+            public string correo { get; set; }
 
         }
 
@@ -87,13 +82,13 @@ namespace BUTTERPOP.db
         public class Contiene
         {
             [PrimaryKey, AutoIncrement]
-            public int Id_contiene { get; set; }
+            public int id_contiene { get; set; }
 
             [MaxLength(20)]
-            public int Id_pelicula { get; set; }
+            public int id_pelicula { get; set; }
 
             [MaxLength(20)]
-            public int Id_lista { get; set; }
+            public int id_lista { get; set; }
         }
 
     }
