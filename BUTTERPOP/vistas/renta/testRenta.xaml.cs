@@ -8,7 +8,6 @@ using System.Security.Cryptography;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using BUTTERPOP.utils;
 using BUTTERPOP.crud.renta;
 using BUTTERPOP.modelo.rentar;
 using BUTTERPOP.db;
@@ -26,6 +25,8 @@ namespace BUTTERPOP.vistas
         public testRenta()
         {
             InitializeComponent();
+
+            addNavBack();
 
             clear.Clicked += (sender, e) =>
             {
@@ -45,10 +46,17 @@ namespace BUTTERPOP.vistas
 
             isActiveRent.Clicked += Active;
 
-            exit.Clicked += (sender, e) =>
+            
+        }
+        private void addNavBack()
+        {
+            TapGestureRecognizer navBack = new TapGestureRecognizer();
+            navBack.Tapped += (s, e) =>
             {
                 Navigation.PopAsync();
             };
+
+            nav_back.GestureRecognizers.Add(navBack);
         }
 
         private async void Insert(object sender, EventArgs e)

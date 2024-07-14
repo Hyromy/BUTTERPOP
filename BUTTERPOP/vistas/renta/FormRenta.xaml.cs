@@ -8,7 +8,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using BUTTERPOP.modelo.rentar;
-using BUTTERPOP.utils;
 using BUTTERPOP.crud.renta;
 using BUTTERPOP.db;
 
@@ -17,12 +16,62 @@ namespace BUTTERPOP.vistas.renta
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FormRenta : ContentPage
     {
+        private bool isRotate = false;
+        private double frameHeight;
+
         public FormRenta()
         {
             InitializeComponent();
 
+            addNavBack();
+
+            frameHeight = abs_frame.Height;
+            abs_frame.SizeChanged += resizeLayout;
+
             toTest.Clicked += ToTest;
             btnConfirmCard.Clicked += Pay;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            adjustFrame();
+        }
+
+        private void resizeLayout(object sender, EventArgs e)
+        {
+            bool currentRotation = Width > Height;
+            if (isRotate != currentRotation)
+            {
+                isRotate = currentRotation;
+                adjustFrame();
+            }
+        }
+
+        private void adjustFrame()
+        {
+            // puede llegar a romperse si el ancho de la pantalla es menor a 512
+            if (abs_frame.Width > 512)
+            {
+                AbsoluteLayout.SetLayoutBounds(abs_frame, new Rectangle(0.5, 0.5, 512, frameHeight));
+                AbsoluteLayout.SetLayoutFlags(abs_frame, AbsoluteLayoutFlags.PositionProportional);
+            }
+            else
+            {
+                AbsoluteLayout.SetLayoutBounds(abs_frame, new Rectangle(0.5, 0.5, 1, frameHeight));
+                AbsoluteLayout.SetLayoutFlags(abs_frame, AbsoluteLayoutFlags.PositionProportional | AbsoluteLayoutFlags.WidthProportional);
+            }
+        }
+
+        private void addNavBack()
+        {
+            TapGestureRecognizer navBack = new TapGestureRecognizer();
+            navBack.Tapped += (s, e) =>
+            {
+                Navigation.PopAsync();
+            };
+
+            nav_back.GestureRecognizers.Add(navBack);
         }
 
         private void ToTest(object sender, EventArgs e)

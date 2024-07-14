@@ -1,64 +1,120 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BUTTERPOP.vistas.testRenta">
+             x:Class="BUTTERPOP.vistas.testRenta"
+             NavigationPage.HasNavigationBar="False">
     
     <ContentPage.Content>
-        <ScrollView>
-        <StackLayout>
-            <Label Text="ID Renta"/>
-            <Entry x:Name="inputIdRent" 
-                   Keyboard="Numeric"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <Label Text="Correo"/>
-            <Entry x:Name="inputCorreo"
-                   Keyboard="Text"/>
+            <!-- cabecera -->
+            <AbsoluteLayout Grid.Row="0"
+                            HeightRequest="64"
+                            BackgroundColor="#580000">
 
-            <Label Text="ID Película"/>
-            <Entry x:Name="inputIdPeli"
-                   Keyboard="Numeric"/>
+                <!-- volver -->
+                <Frame x:Name="nav_back"
+                       AbsoluteLayout.LayoutBounds="0, 0, 64, 1"
+                       AbsoluteLayout.LayoutFlags="PositionProportional, HeightProportional"
+                       Padding="12"
+                       Margin="8"
+                       CornerRadius="0"
+                       BackgroundColor="#00000000">
 
-            <Label Text="Fecha Renta"/>
-            <Entry x:Name="inputFRenta"
-                   Keyboard="Text"/>
+                    <Image Source="header_back.png"
+                           Aspect="Fill"/>
+                </Frame>
 
-            <Label x:Name="output"
-                   HorizontalTextAlignment="Center"
-                   TextColor="#0bf"
-                   FontSize="Large"/>
+                <!-- titulo -->
+                <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                             AbsoluteLayout.LayoutFlags="All"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Padding="0"
+                             Spacing="0">
 
-            <Button x:Name="clear"
-                    Text="Limpiar"
-                    HorizontalOptions="End"/>
+                    <Image Source="butterpop_main"
+                           AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                           AbsoluteLayout.LayoutFlags="All"
+                           HeightRequest="40"
+                           Margin="0, 0, 8, 0"/>
 
-            <Button x:Name="insert"
-                    Text="inserRenta(Renta)"/>
+                    <Label Text="BUTTER"
+                           FontSize="40"
+                           VerticalTextAlignment="Center"
+                           TextColor="#fff"
+                           FontAttributes="Bold"/>
 
-            <Button x:Name="read"
-                    Text="readRenta(id)"/>
+                    <Label Text="POP"
+                           FontSize="40"
+                           VerticalTextAlignment="Center"
+                           TextColor="#c80000"
+                           FontAttributes="Bold"/>
+                </StackLayout>
 
-            <Button x:Name="readBy"
-                    Text="readRentaBy(atributo, valor)"/>
-            
-            <Button x:Name="readAll"
-                    Text="readAllRentas()"/>
+                <!-- borde separador -->
+                <BoxView AbsoluteLayout.LayoutBounds="0, 1.1, 1, 6"
+                         AbsoluteLayout.LayoutFlags="YProportional, WidthProportional"
+                         BackgroundColor="#c80000"/>
+            </AbsoluteLayout>
 
-            <Button x:Name="countLogs"
-                    Text="countRentas()"/>
-                
-            <Button x:Name="update"
-                    Text="updateRenta(idRenta, atributos[], valores[])"/>
-                    
-            <Button x:Name="delete"
-                    Text="deleteRenta(renta)"/>
+            <!-- cuerpo -->
+            <ScrollView Grid.Row="1">
+                <StackLayout>
+                    <Label Text="ID Renta"/>
+                    <Entry x:Name="inputIdRent" 
+                           Keyboard="Numeric"/>
 
-            <Button x:Name="isActiveRent"
-                    Text="Model.IsActiveRent(dateTime)"/>
+                    <Label Text="Correo"/>
+                    <Entry x:Name="inputCorreo"
+                           Keyboard="Text"/>
 
-            <Button x:Name="exit"
-                    Text="Salir"
-                    HorizontalOptions="End"/>
-            </StackLayout>
-        </ScrollView>
+                    <Label Text="ID Película"/>
+                    <Entry x:Name="inputIdPeli"
+                           Keyboard="Numeric"/>
+
+                    <Label Text="Fecha Renta"/>
+                    <Entry x:Name="inputFRenta"
+                           Keyboard="Text"/>
+
+                    <Label x:Name="output"
+                           HorizontalTextAlignment="Center"
+                           TextColor="#0bf"
+                           FontSize="Large"/>
+
+                    <Button x:Name="clear"
+                            Text="Limpiar"
+                            HorizontalOptions="End"/>
+
+                    <Button x:Name="insert"
+                            Text="inserRenta(Renta)"/>
+
+                    <Button x:Name="read"
+                            Text="readRenta(id)"/>
+
+                    <Button x:Name="readBy"
+                            Text="readRentaBy(atributo, valor)"/>
+
+                    <Button x:Name="readAll"
+                            Text="readAllRentas()"/>
+
+                    <Button x:Name="countLogs"
+                            Text="countRentas()"/>
+
+                    <Button x:Name="update"
+                            Text="updateRenta(idRenta, atributos[], valores[])"/>
+
+                    <Button x:Name="delete"
+                            Text="deleteRenta(renta)"/>
+
+                    <Button x:Name="isActiveRent"
+                            Text="Model.IsActiveRent(dateTime)"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
