@@ -119,6 +119,8 @@
     <AndroidResource Include="Resources\drawable\star.png" />
     <AndroidResource Include="Resources\drawable\star_half.png" />
     <AndroidResource Include="Resources\drawable\cerrar_sesion.png" />
+    <AndroidResource Include="Resources\drawable\delete.png" />
+    <AndroidResource Include="Resources\drawable\editar_lista.png" />
     <AndroidResource Include="Resources\drawable\header_back.png" />
     <Content Include="Resources\mipmap-anydpi-v26\butterpop_icon.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon.png" />

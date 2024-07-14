@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace BUTTERPOP.db
 {
@@ -18,13 +19,26 @@ namespace BUTTERPOP.db
 
             [MaxLength(50)]
             public string password { get; set; }
+            
         }
 
         public class Lista
         {
             [PrimaryKey, AutoIncrement]
             public int id_lista { get; set; }
+            [MaxLength(20)]
+            public String nombre { get; set; }
+            [MaxLength(50)]
+            public String descripcion { get; set; }
+
+            public byte[] imagen { get; set; }
+
+            /*******************/
+            [ForeignKey(typeof(Cliente))]
+            public string correo { get; set; }
+
         }
+
 
         public class Administrador
         {
@@ -69,6 +83,13 @@ namespace BUTTERPOP.db
         {
             [PrimaryKey, AutoIncrement]
             public int id_contiene { get; set; }
+
+            [MaxLength(20)]
+            public int id_pelicula { get; set; }
+
+            [MaxLength(20)]
+            public int id_lista { get; set; }
         }
+
     }
 }

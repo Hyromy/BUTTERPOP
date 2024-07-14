@@ -9,6 +9,13 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using BUTTERPOP.crud.usuario;
+using BUTTERPOP.crud.lista;
+using BUTTERPOP.Modelo;
+using static BUTTERPOP.utils.ImageResourceExtension;
+using BUTTERPOP.Vistas.listas;
+using static BUTTERPOP.db.Table;
+using System.IO;
+using Xamarin.Essentials;
 
 namespace BUTTERPOP.vistas
 {
@@ -16,14 +23,20 @@ namespace BUTTERPOP.vistas
     public partial class Perfil : ContentPage
     {
         private CRUD_Usuario crud = new CRUD_Usuario();
+        private CRUD_Lista crud2 = new CRUD_Lista();
 
         public Perfil()
         {
             InitializeComponent();
             LlenarDatos();
-
+            llenarDatosListas();
         }
 
+        public Perfil(string Nombre, string Descipcion, byte[] Imagen)
+        {
+            BindingContext = new ListaViewModel(Nombre, Descipcion, Imagen);
+            var si = ImageHelper.ConvertByteArrayToImage(Imagen);
+        }
 
         private void btnPeliculas_Clicked(object sender, EventArgs e)
         {
@@ -211,6 +224,7 @@ namespace BUTTERPOP.vistas
                 txtContra.Text = usuarioEncontrado.password;
             }
         }
+        
 
 
         public bool ValidarCaracteresPassword(string password)
@@ -224,5 +238,135 @@ namespace BUTTERPOP.vistas
         {
             Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
+
+        private void btnCancelar_Clicked(object sender, EventArgs e)
+        {
+            frameEditar.IsVisible = false;
+        }
+
+        private async void confirmarEdicion_Clicked(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(actId.Text))
+            {
+                Lista lista = new Lista()
+                {
+                    id_lista = Convert.ToInt32(actId.Text),
+                    nombre = actNombre.Text,
+                    descripcion = actDesc.Text,
+                    imagen = ImageHelper.ConvertImageToByteArray(imgEditar.Source),
+
+                };
+                await crud2.SaveListaAsync(lista);
+                frameEditar.IsVisible = false;
+                await DisplayAlert("Actualización", "Lista actualizada", "OK");
+                llenarDatosListas();
+
+            }
+
+        }
+
+        private async void lstListas_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var obj = (Lista)e.SelectedItem;
+            if (!string.IsNullOrEmpty(obj.id_lista.ToString()))
+            {
+
+                var lista = await crud2.GetListaByIdAsync(obj.id_lista);
+                if (lista != null)
+                {
+                    actId.Text = lista.id_lista.ToString();
+                    actNombre.Text = lista.nombre;
+                    actDesc.Text = lista.descripcion;
+                    imgEditar.Source = ImageHelper.ConvertByteArrayToImage(lista.imagen);
+
+                }
+
+
+            }
+
+        }
+
+        private async void btnEliminar_Clicked(object sender, EventArgs e)
+        {
+            var lista = await crud2.GetListaByIdAsync(Convert.ToInt32(actId.Text));
+            if (lista != null)
+            {
+                await crud2.DeleteListaAsync(lista);
+                await DisplayAlert("Aviso", "Se elimino la lista", "OK");
+                llenarDatosListas();
+            }
+
+        }
+
+        private async void btnVer_Clicked(object sender, EventArgs e)
+        {
+            //await Navigation.PushAsync(new ListaContiene());
+            var lista = await crud2.GetListaByIdAsync(Convert.ToInt32(actId.Text));
+            Navigation.PushAsync(new ListasContiene(lista.nombre, lista.descripcion, lista.imagen));
+
+        }
+
+        private void btnNueva_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegistroListas());
+
+        }
+        public async void llenarDatosListas()
+        {
+            var listaList = await crud2.GetListasAsync();
+            if (listaList != null)
+            {
+                lstListas.ItemsSource = listaList;
+                lblListas.IsVisible = false;
+            }
+            else if(listaList==null)
+            {
+                lblListas.IsVisible = true;
+                lstListas.IsVisible = false;
+            }
+        }
+
+        private void btnEditar_Clicked(object sender, EventArgs e)
+        {
+            frameEditar.IsVisible = true;
+        }
+
+        private async void btnImagen_Clicked(object sender, EventArgs e)
+        {
+            await SolicitarPermisos();
+
+            try
+            {
+                var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+                {
+                    Title = "Selecciona una imagen"
+                });
+
+                if (result != null)
+                {
+                    var stream = await result.OpenReadAsync();
+                    var memoryStream = new MemoryStream();
+                    await stream.CopyToAsync(memoryStream);
+
+                    imgEditar.Source = ImageSource.FromStream(() => new MemoryStream(memoryStream.ToArray()));
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", "No se pudo cargar la imagen: " + ex.Message, "OK");
+            }
+
+        }
+
+        private async Task SolicitarPermisos()
+        {
+            var status = await Permissions.CheckStatusAsync<Permissions.StorageRead>();
+
+            if (status != PermissionStatus.Granted)
+            {
+                status = await Permissions.RequestAsync<Permissions.StorageRead>();
+            }
+        }
+
     }
 }
