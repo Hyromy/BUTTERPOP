@@ -52,7 +52,6 @@ Gracias por tu atencion y paciencia, tqm
 ### Cambios pendientes por realizar
 #### Diagramas de secuencia
 - [ ] Agregar diagrama "Gestionar película" en README
-- [ ] Agregar diagrama "Gestionar película" en DOC
 
 #### Diseño de pruebas
 - [ ] Realizar diseño de pruebas de "crear lista" en README
@@ -60,7 +59,7 @@ Gracias por tu atencion y paciencia, tqm
 - [ ] Realizar diseño de pruebas de "actualizar lista" en README
 - [ ] Realizar diseño de pruebas de "actualizar lista" en DOC
 - [ ] Realizar diseño de pruebas de "gestionar pelicula" en README
-- [ ] Realizar diseño de pruebas de "gestionar pelicula" en DOC
+
 
 #### Interfaces
 - [ ] Agregar interfaces de administrador
