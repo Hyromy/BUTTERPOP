@@ -50,8 +50,26 @@ Gracias por tu atencion y paciencia, tqm
 -->
 
 ### Cambios pendientes por realizar
+#### Marco teorico
+- [ ] Comprobar el marco teorico
+
+#### Roles de usuario
+- [ ] Comprobar la especificacion del rol "Administrador"
+
+#### Diagrama general
+- [ ] Comprobar el diagrama general
+
 #### Diagramas de secuencia
 - [ ] Agregar diagrama "Gestionar película" en README
+
+#### Diagrama Relacional BD
+- [ ] Reestructurar el diagrama relacional de la base de datos
+
+#### Diccionario de datos
+- [ ] Expandir los campos de la tabla "cliente"
+- [ ] Expandir los campos de la tabla "renta"
+- [ ] Verificar la estructura de la tabla "pelicula"
+- [ ] Comprobar el uso de la tabla "administrador"
 
 #### Diseño de pruebas
 - [ ] Realizar diseño de pruebas de "crear lista" en README
@@ -60,9 +78,8 @@ Gracias por tu atencion y paciencia, tqm
 - [ ] Realizar diseño de pruebas de "actualizar lista" en DOC
 - [ ] Realizar diseño de pruebas de "gestionar pelicula" en README
 
-
 #### Interfaces
-- [ ] Agregar interfaces de administrador
+- [ ] Autorizar interfaces de administrador
 
 ---
 
