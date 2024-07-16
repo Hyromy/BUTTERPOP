@@ -7,14 +7,22 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using BUTTERPOP.db;
+
 namespace BUTTERPOP.vistas.pelicula
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InfoPelicula : ContentPage
     {
-        public InfoPelicula()
+        private Table.Cliente cliente;
+        private Table.Pelicula pelicula;
+
+        public InfoPelicula(Table.Cliente cliente, Table.Pelicula pelicula)
         {
             InitializeComponent();
+
+            this.cliente = cliente;
+            this.pelicula = pelicula;
 
             addNavBack();
             addTapList();
@@ -47,7 +55,8 @@ namespace BUTTERPOP.vistas.pelicula
 
         private void ToRent(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new vistas.renta.FormRenta());
+            // enviar el usuario y la pelicula rescatados de la vista previa
+            Navigation.PushAsync(new vistas.renta.FormRenta(cliente, pelicula));
         }
     }
 }

@@ -19,9 +19,16 @@ namespace BUTTERPOP.vistas.renta
         private bool isRotate = false;
         private double frameHeight;
 
-        public FormRenta()
+        private Table.Cliente cliente;
+        private Table.Pelicula pelicula;
+        private Table.Renta renta;
+
+        public FormRenta(Table.Cliente cliente, Table.Pelicula pelicula)
         {
             InitializeComponent();
+
+            this.cliente = cliente;
+            this.pelicula = pelicula;
 
             addNavBack();
 
@@ -106,43 +113,34 @@ namespace BUTTERPOP.vistas.renta
             }
             else
             {
-                // extraer la información de el cliente en uso
-                Table.Cliente cliente = new Table.Cliente
-                {
-                    correo = "ejemplo@email.com",
-                    usuario = "userName",
-                    password = "password"
-                };
-
-                // extraer la información de la pelicula a rentar
-                Table.Pelicula pelicula = new Table.Pelicula
-                {
-                    id_pelicula = 1
-                };
-
                 RentarModel rentarM = new RentarModel();
+                
+                // cambiar por un slide o similar que permita agregar mas o menos semanas de renta
                 DateTime time = DateTime.Now.AddMonths(1);
 
                 // apurate chino
-                String question = $"Deseas Rentar {pelicula.ToString()} a la cuenta '{cliente.correo}' por ${pelicula.ToString()}\nTu renta finalizará el {time.ToString()}";
+                // cambiar pelicula.toString() por pelicula.nombre
+                // cambiar pelicula.toString() por pelicula.precio
+                String question = $"Deseas Rentar {this.pelicula.ToString()} a la cuenta '{this.cliente.correo}' por ${this.pelicula.ToString()}\nTu renta finalizará el {time.ToString()}";
                 bool isPayed = (await DisplayAlert("Pagar", question, "Sí", "No")); // error
                 if (isPayed)
                 {
-                    Table.Renta renta = new Table.Renta
+                    this.renta = new Table.Renta
                     {
-                        id_pelicula = pelicula.id_pelicula,
-                        correo = cliente.correo,
+                        id_pelicula = this.pelicula.id_pelicula,
+                        correo = this.cliente.correo
                     };
 
                     CRUD_Renta crud = new CRUD_Renta();
-                    await crud.InsertRenta(renta);
-                    await DisplayAlert("DEBUG", $"Se agregó un registro con el id {renta.id_renta}", "OK");
+                    await crud.InsertRenta(this.renta);
+                    await DisplayAlert("DEBUG", $"Se agregó un registro con el id {this.renta.id_renta} para la pelicula con id {this.pelicula.id_pelicula} en la cuenta de correo {this.cliente.correo}", "OK");
 
                     String sucess = "Transacción realizada exitosamente, revisa tu lista privada 'Mis películas rentadas' o haz click aquí para ver la película que acabas de rentar";
                     bool toFilms = (await DisplayAlert("Pago exitoso", sucess, "Mis películas", "Cancelar"));
                     if (toFilms)
                     {
                         NavigationPage.SetHasNavigationBar(this, false);
+
                         // tiene que conservar la información del cliente
                         Application.Current.MainPage = new NavigationPage(new HomePage(cliente.usuario, cliente.correo, cliente.password));
                     }

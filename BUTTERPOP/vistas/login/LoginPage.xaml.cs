@@ -189,6 +189,7 @@ namespace BUTTERPOP.vistas
                     };
 
                     await crud.SaveUsuarioAsync(usuario);
+
                     txtEmailR.Text = "";
                     txtPassR.Text = "";
                     txtUsername.Text = "";
@@ -226,6 +227,7 @@ namespace BUTTERPOP.vistas
                     return;
                 }
 
+                // usuario recuperado de la db
                 var usuario = await crud.GetUsuariosByCorreo(txtEmailI.Text);
 
                     if(usuario != null)
