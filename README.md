@@ -130,6 +130,8 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
     - [Diccionario de datos](#22-diccionario-de-datos)
     - [Diseño de pruebas](#23-diseño-de-pruebas)
     - [Diseño de las interfaces (maquetas)](#24-diseño-de-las-interfaces-maquetas)
+- [CAPÍTULO 3 ...]()
+- [DESARROLLAORES](#desarolladores)
 
 ## RESUMEN
 
@@ -2242,3 +2244,13 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 *La figura 2.4.14 muestra la interfaz de "mi perfil"*
 
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
+
+
+
+
+
+## DESAROLLADORES
+
+<!-- no eliminar las etiquetas stats ya que son parte de dev_stats.py y github accions -->
+<!-- stats -->
+<!-- /stats -->
