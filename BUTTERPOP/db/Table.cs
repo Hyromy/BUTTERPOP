@@ -124,7 +124,7 @@ namespace BUTTERPOP.db
             /// basados en la fecha de inicio de renta, las semanas de renta y 
             /// el precio de la película 
             /// <para>La cantidad de semanas de renta debe ser de 1 a 4 semanas</para>
-            /// <para>El precio de cobro de renta se calcula como la sumatoria del precio de la película sobre la iteración, la cual va de 1 hasta la cantidad de semanas de renta</para>
+            /// <para>El precio de cobro de renta se calcula como la sumatoria del precio de la película sobre, 2 elevado a la iteración menos 1, dicha iteración va de 1 hasta la cantidad de semanas de renta</para>
             /// </summary>
             /// <exception cref="ArgumentNullException"></exception>
             /// <exception cref="ArgumentOutOfRangeException"></exception>
@@ -152,7 +152,7 @@ namespace BUTTERPOP.db
                 float cobro = 0;
                 for (int i = 1; i <= this.semanas_renta; i++)
                 {
-                    cobro += this.precio / i;
+                    cobro += this.precio / (int) Math.Pow(2, i - 1);
                 }
 
                 this.cobro_renta = cobro;

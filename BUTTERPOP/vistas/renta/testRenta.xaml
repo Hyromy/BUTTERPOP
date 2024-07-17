@@ -82,9 +82,12 @@
                            Keyboard="Numeric"/>
 
                     <Label Text="Semanas renta (obligatorio)"/>
-                    <Entry x:Name="inputSRent"
-                           Keyboard="Numeric"/>
-
+                    <Slider x:Name="inputSRent"
+                            Minimum="0"
+                            Maximum="3"/>
+                    <Label x:Name="outputSRent"
+                           Text="1"/>
+                    
                     <Label Text="Fecha Inicio Renta"/>
                     <Label x:Name="outputFIRenta"
                            Text=""/>

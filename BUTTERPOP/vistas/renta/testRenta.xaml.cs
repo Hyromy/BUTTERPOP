@@ -18,6 +18,7 @@ namespace BUTTERPOP.vistas
     {
         private String correo;
         private int idRent, idPeli, semanas;
+        private int slideValue = 0;
         private float precio;
 
         private CRUD_Renta crudRenta = new CRUD_Renta();
@@ -27,6 +28,8 @@ namespace BUTTERPOP.vistas
             InitializeComponent();
 
             addNavBack();
+
+            inputSRent.ValueChanged += Slide;
 
             btnclear.Clicked += Clear;
             btninsert.Clicked += Insert;
@@ -42,10 +45,8 @@ namespace BUTTERPOP.vistas
             try
             {
                 correo = inputCorreo.Text;
-
                 idPeli = int.Parse(inputIdPeli.Text);
-                semanas = int.Parse(inputSRent.Text);
-
+                semanas = slideValue + 1;
                 precio = float.Parse(inputPPeli.Text);
 
                 Table.Renta renta = new Table.Renta
@@ -119,10 +120,21 @@ namespace BUTTERPOP.vistas
                 idRent = int.Parse(inputIdRent.Text);
                 Table.Renta renta = await crudRenta.ReadRenta(idRent);
 
+                correo = inputCorreo.Text;
+                idPeli = int.Parse(inputIdPeli.Text);
+                semanas = slideValue + 1;
+                precio = float.Parse(inputPPeli.Text);
+
+                renta.correo = correo;
+                renta.id_pelicula = idPeli;
+                renta.semanas_renta = semanas;
+                renta.precio = precio;
+
                 renta.validateInputAtributes();
                 renta.calculateRent();
 
                 await crudRenta.UpdateRenta(renta);
+                drawData(renta);
 
                 String message = $"Se ha actualizado la renta con id {idRent} exitosamente";
                 await DisplayAlert("Actualización exítosa", message, "OK");
@@ -176,7 +188,9 @@ namespace BUTTERPOP.vistas
             inputCorreo.Text = "";
             inputIdPeli.Text = "";
             inputPPeli.Text = "";
-            inputSRent.Text = "";
+
+            inputSRent.Value = 0;
+            outputSRent.Text = "1";
 
             outputFIRenta.Text = "";
             outputFFRenta.Text = "";
@@ -189,7 +203,9 @@ namespace BUTTERPOP.vistas
             inputCorreo.Text = renta.correo;
             inputIdPeli.Text = renta.id_pelicula.ToString();
             inputPPeli.Text = renta.precio.ToString();
-            inputSRent.Text = renta.semanas_renta.ToString();
+
+            inputSRent.Value = renta.semanas_renta - 1;
+            outputSRent.Text = renta.semanas_renta.ToString();
 
             outputFIRenta.Text = renta.fecha_renta.ToString();
             outputFFRenta.Text = renta.fin_fecha_renta.ToString();
@@ -208,5 +224,14 @@ namespace BUTTERPOP.vistas
             Console.WriteLine("fin_fecha_renta" + renta.fin_fecha_renta.ToString());
             Console.WriteLine("cobro_renta" + renta.cobro_renta.ToString());
         }
+
+        private void Slide(object sender, ValueChangedEventArgs e)
+        {
+            int value = (int)Math.Round(e.NewValue);
+            slideValue = value;
+            inputSRent.Value = value;
+            outputSRent.Text = (1 + value).ToString();
+        }
+
     }
 }
