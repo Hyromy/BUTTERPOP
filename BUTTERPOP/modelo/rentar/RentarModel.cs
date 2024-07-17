@@ -52,5 +52,10 @@ namespace BUTTERPOP.modelo.rentar
 
             return 0 <= days && days < 30;
         }
+
+        public void validateInput()
+        {
+
+        }
     }
 }

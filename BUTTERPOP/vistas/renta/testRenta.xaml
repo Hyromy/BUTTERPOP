@@ -69,50 +69,55 @@
                     <Entry x:Name="inputIdRent" 
                            Keyboard="Numeric"/>
 
-                    <Label Text="Correo"/>
+                    <Label Text="Correo (obligatorio)"/>
                     <Entry x:Name="inputCorreo"
                            Keyboard="Text"/>
 
-                    <Label Text="ID Película"/>
+                    <Label Text="ID Película (obligatorio)"/>
                     <Entry x:Name="inputIdPeli"
                            Keyboard="Numeric"/>
 
-                    <Label Text="Fecha Renta"/>
-                    <Entry x:Name="inputFRenta"
-                           Keyboard="Text"/>
+                    <Label Text="Precio Pelicula (obligatorio)"/>
+                    <Entry x:Name="inputPPeli"
+                           Keyboard="Numeric"/>
 
-                    <Label x:Name="output"
-                           HorizontalTextAlignment="Center"
-                           TextColor="#0bf"
-                           FontSize="Large"/>
+                    <Label Text="Semanas renta (obligatorio)"/>
+                    <Entry x:Name="inputSRent"
+                           Keyboard="Numeric"/>
 
-                    <Button x:Name="clear"
+                    <Label Text="Fecha Inicio Renta"/>
+                    <Label x:Name="outputFIRenta"
+                           Text=""/>
+
+                    <Label Text="Fecha Fin Renta"/>
+                    <Label x:Name="outputFFRenta"
+                           Text=""/>
+
+                    <Label Text="Cobro Renta"/>
+                    <Label x:Name="outputCobro"
+                           Text=""/>
+
+                    <Button x:Name="btnclear"
                             Text="Limpiar"
                             HorizontalOptions="End"/>
 
-                    <Button x:Name="insert"
+                    <Button x:Name="btninsert"
                             Text="inserRenta(Renta)"/>
 
-                    <Button x:Name="read"
+                    <Button x:Name="btnread"
                             Text="readRenta(id)"/>
 
-                    <Button x:Name="readBy"
-                            Text="readRentaBy(atributo, valor)"/>
-
-                    <Button x:Name="readAll"
+                    <Button x:Name="btnreadAll"
                             Text="readAllRentas()"/>
 
-                    <Button x:Name="countLogs"
+                    <Button x:Name="btncountLogs"
                             Text="countRentas()"/>
 
-                    <Button x:Name="update"
-                            Text="updateRenta(idRenta, atributos[], valores[])"/>
+                    <Button x:Name="btnupdate"
+                            Text="updateRenta(Renta)"/>
 
-                    <Button x:Name="delete"
-                            Text="deleteRenta(renta)"/>
-
-                    <Button x:Name="isActiveRent"
-                            Text="Model.IsActiveRent(dateTime)"/>
+                    <Button x:Name="btndelete"
+                            Text="deleteRenta(Renta)"/>
                 </StackLayout>
             </ScrollView>
         </Grid>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 using SQLite;
@@ -55,40 +56,73 @@ namespace BUTTERPOP.db
         /// <summary>
         /// Registros de renta de peliculas
         /// <para>Es necesario declarar correo, id_pelicula, semanas_renta y precio</para>
-        /// <para>Para declarar el resto de propiedades es necesario ejecutar el método calculateRent()</para>
+        /// <para>Es necesario validar los datos previos con el método validateInputAtributes()</para>
+        /// <para>El resto de propiedades se calculan en el método calculateRent()</para>
         /// </summary>
         public class Renta
         {
+            // autogenerado
             [PrimaryKey, AutoIncrement]
             public int id_renta { get; set; }
 
+            // obligatorio
             [ForeignKey(typeof(Table.Cliente)), MaxLength(50)]
             public string correo { get; set; }
 
+            // obligatorio
             [ForeignKey(typeof(Table.Pelicula))]
             public int id_pelicula { get; set; }
 
+            // obligatorio
             [ForeignKey(typeof(Table.Pelicula))]
             public float precio { get; set; }
 
-            public DateTime fecha_renta { get; set; }
+            // obligatorio
+            public int semanas_renta { get; set; }
 
+            // autogenerado
+            public DateTime fecha_renta { get; set; }
+            
+            // autogenerado
             public DateTime fin_fecha_renta { get; set; }
 
-            public int semanas_renta { get; set; }
-            
+            // autogenerado
             public float cobro_renta { get; set; }
 
-            public Renta()
+            /// <summary>
+            /// Valida que todos los campos obligatorios(correo, id_pelicula, precio, semanas_renta) sean adecuados
+            /// </summary>
+            /// <exception cref="ArgumentException"></exception>
+            public void validateInputAtributes()
             {
-                this.fecha_renta = DateTime.Now;
+                String reason = "No re puede crear una instancia de la tabla renta si";
+                
+                if (String.IsNullOrEmpty(this.correo))
+                {
+                    reason += " el correo esta vacio";
+                    throw new ArgumentException(reason);
+                }
+                else if (this.id_pelicula < 0)
+                {
+                    reason += " el id_pelicula es menor o igual a 0";
+                    throw new ArgumentException(reason);
+                }
+                else if (this.precio < 0)
+                {
+                    reason += " el precio es menor o igual a 0";
+                    throw new ArgumentException(reason);
+                }
+                else if (this.semanas_renta < 0)
+                {
+                    reason += " las semanas son menores o iguales a 0";
+                    throw new ArgumentException(reason);
+                }
             }
 
             /// <summary>
             /// Calcula la fecha de fin de renta y el precio de la renta 
             /// basados en la fecha de inicio de renta, las semanas de renta y 
             /// el precio de la película 
-            /// (para su ejecución es necesario declarar this.precio y this.semanas_renta)
             /// <para>La cantidad de semanas de renta debe ser de 1 a 4 semanas</para>
             /// <para>El precio de cobro de renta se calcula como la sumatoria del precio de la película sobre la iteración, la cual va de 1 hasta la cantidad de semanas de renta</para>
             /// </summary>
@@ -112,6 +146,7 @@ namespace BUTTERPOP.db
                     throw new ArgumentOutOfRangeException(reason);
                 }
 
+                this.fecha_renta = DateTime.Now;
                 this.fin_fecha_renta = this.fecha_renta.AddDays(semanas_renta * 7);
 
                 float cobro = 0;

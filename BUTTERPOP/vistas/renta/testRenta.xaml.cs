@@ -9,7 +9,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using BUTTERPOP.crud.renta;
-using BUTTERPOP.modelo.rentar;
 using BUTTERPOP.db;
 
 namespace BUTTERPOP.vistas
@@ -17,10 +16,11 @@ namespace BUTTERPOP.vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class testRenta : ContentPage
     {
-        CRUD_Renta crudRenta = new CRUD_Renta();
+        private String correo;
+        private int idRent, idPeli, semanas;
+        private float precio;
 
-        int idRenta, idPelicula;
-        String correo, fechaRenta;
+        private CRUD_Renta crudRenta = new CRUD_Renta();
 
         public testRenta()
         {
@@ -28,69 +28,43 @@ namespace BUTTERPOP.vistas
 
             addNavBack();
 
-            clear.Clicked += (sender, e) =>
-            {
-                inputIdRent.Text = "";
-                inputCorreo.Text = "";
-                inputIdPeli.Text = "";
-                inputFRenta.Text = "";
-            };
-
-            insert.Clicked += Insert;
-            read.Clicked += Read;
-            readBy.Clicked += ReadBy;
-            readAll.Clicked += ReadAll;
-            countLogs.Clicked += CountLogs;
-            update.Clicked += Update;
-            delete.Clicked += Delete;
-
-            isActiveRent.Clicked += Active;
-
-            
-        }
-        private void addNavBack()
-        {
-            TapGestureRecognizer navBack = new TapGestureRecognizer();
-            navBack.Tapped += (s, e) =>
-            {
-                Navigation.PopAsync();
-            };
-
-            nav_back.GestureRecognizers.Add(navBack);
+            btnclear.Clicked += Clear;
+            btninsert.Clicked += Insert;
+            btnread.Clicked += Read;
+            btnreadAll.Clicked += ReadAll;
+            btncountLogs.Clicked += CountLogs;
+            btnupdate.Clicked += Update;
+            btndelete.Clicked += Delete;
         }
 
         private async void Insert(object sender, EventArgs e)
         {
             try
             {
-                correo = inputCorreo.Text.Trim();
-                idPelicula = int.Parse(inputIdPeli.Text);
-            }
-            catch
-            {
-                correo = null;
-                idPelicula = 0;
-            }
+                correo = inputCorreo.Text;
 
-            if ((correo != null || correo != "") &&
-                idPelicula > 0)
-            {
+                idPeli = int.Parse(inputIdPeli.Text);
+                semanas = int.Parse(inputSRent.Text);
+
+                precio = float.Parse(inputPPeli.Text);
+
                 Table.Renta renta = new Table.Renta
                 {
                     correo = correo,
-                    id_pelicula = idPelicula
+                    id_pelicula = idPeli,
+                    semanas_renta = semanas,
+                    precio = precio,
                 };
 
-                await crudRenta.InsertRenta(renta);
+                renta.validateInputAtributes();
+                renta.calculateRent();
 
-                inputIdRent.Text = renta.id_renta.ToString();
-                inputCorreo.Text = renta.correo;
-                inputIdPeli.Text = renta.id_pelicula.ToString();
-                inputFRenta.Text = renta.fecha_renta.ToString();
+                await crudRenta.InsertRenta(renta);
+                drawData(renta);
             }
-            else
+            catch (Exception err)
             {
-                await DisplayAlert("Error", "correo e id_pelicula requerido", "OK");
+                await DisplayAlert(err.GetType().ToString(), err.Message, "OK");
             }
         }
 
@@ -98,116 +72,33 @@ namespace BUTTERPOP.vistas
         {
             try
             {
-                idRenta = int.Parse(inputIdRent.Text);
-            }
-            catch
-            {
-                idRenta = 0;
-            }
+                idRent = int.Parse(inputIdRent.Text);
 
-            if (idRenta > 0)
-            {
-                Table.Renta renta = await crudRenta.ReadRenta(idRenta);
-
-                if (renta != null)
-                {
-                    inputIdRent.Text = renta.id_renta.ToString();
-                    inputCorreo.Text = renta.correo;
-                    inputIdPeli.Text = renta.id_pelicula.ToString();
-                    inputFRenta.Text = renta.fecha_renta.ToString();
-                }
-                else
-                {
-                    await DisplayAlert("Registro inexistente", "No se encontró registro", "OK");
-                }
+                Table.Renta renta = await crudRenta.ReadRenta(idRent);
+                drawData(renta);
             }
-            else
+            catch (Exception err)
             {
-                await DisplayAlert("Error", "id_renta requerido", "OK");
+                await DisplayAlert(err.GetType().ToString(), err.Message, "OK");
             }
         }
 
-        private async void ReadBy(object sender, EventArgs e)
-        {
-            try
-            {
-                correo = inputCorreo.Text.Trim();
-            }
-            catch
-            {
-                correo = "";
-            }
-
-            try
-            {
-                idPelicula = int.Parse(inputIdPeli.Text);
-            }
-            catch
-            {
-                idPelicula = 0;
-            }
-
-            try
-            {
-                fechaRenta = inputFRenta.Text.Trim();
-            }
-            catch
-            {
-                fechaRenta = "";
-            }
-
-            if (!(String.IsNullOrEmpty(correo)) ||
-                (idPelicula > 0) ||
-                !(String.IsNullOrEmpty(fechaRenta)))
-            {
-                Table.Renta renta = null;
-                if (!String.IsNullOrEmpty(correo))
-                {
-                    renta = await crudRenta.ReadRentaBy("correo", correo);
-                }
-                else if (idPelicula > 0)
-                {
-                    renta = await crudRenta.ReadRentaBy("id_pelicula", idPelicula.ToString());
-                }
-                else if (!String.IsNullOrEmpty(fechaRenta))
-                {
-                    renta = await crudRenta.ReadRentaBy("fecha_renta", fechaRenta);
-                }
-
-                if (renta != null)
-                {
-                    inputIdRent.Text = renta.id_renta.ToString();
-                    inputCorreo.Text = renta.correo;
-                    inputIdPeli.Text = renta.id_pelicula.ToString();
-                    inputFRenta.Text = renta.fecha_renta.ToString();
-                }
-                else
-                {
-                    await DisplayAlert("Registro inexistente", "No se encontró registro", "OK");
-                }
-            }
-            else
-            {
-                await DisplayAlert("Error", "correo, id_pelicula o fecha_renta requerido", "OK");
-            }
-        }
-        
         private async void ReadAll(object sender, EventArgs e)
         {
             List<Table.Renta> rentas = await crudRenta.ReadAllRentas();
-            if (rentas.Count > 0)
+            int count = rentas.Count;
+            
+            if (count > 0)
             {
-                await DisplayAlert("Rentas", "Se encontraron " + rentas.Count + " registros.\nRevise la consola para consultar los registros", "OK");
-                
                 Console.WriteLine("\n---- Registros encontrados ----\n");
                 foreach (Table.Renta renta in rentas)
                 {
-                    Console.WriteLine("id: " + renta.id_renta);
-                    Console.WriteLine("correo: " + renta.correo);
-                    Console.WriteLine("id_pelicula: " + renta.id_pelicula);
-                    Console.WriteLine("fecha_renta: " + renta.fecha_renta);
-                    Console.WriteLine("\n");
+                    consoleData(renta);
+                    Console.WriteLine("----\n");
                 }
+
+                String message = $"Se encontraron {count} registros. Revise la consola para consultar los registros";
+                await DisplayAlert("Rentas", message, "OK");
             }
             else
             {
@@ -225,76 +116,20 @@ namespace BUTTERPOP.vistas
         {
             try
             {
-                idRenta = int.Parse(inputIdRent.Text);
+                idRent = int.Parse(inputIdRent.Text);
+                Table.Renta renta = await crudRenta.ReadRenta(idRent);
 
+                renta.validateInputAtributes();
+                renta.calculateRent();
+
+                await crudRenta.UpdateRenta(renta);
+
+                String message = $"Se ha actualizado la renta con id {idRent} exitosamente";
+                await DisplayAlert("Actualización exítosa", message, "OK");
             }
-            catch
+            catch (Exception err)
             {
-                idRenta = 0;
-            }
-
-            Table.Renta renta = await crudRenta.ReadRenta(idRenta);
-            if (renta != null)
-            {
-                try
-                {
-                    correo = inputCorreo.Text.Trim();
-                }
-                catch
-                {
-                    correo = null;
-                }
-
-                try
-                {
-                    idPelicula = int.Parse(inputIdPeli.Text);
-                }
-                catch
-                {
-                    idPelicula = 0;
-                }
-
-                try
-                {
-                    fechaRenta = inputFRenta.Text.Trim();
-                }
-                catch
-                {
-                    fechaRenta = null;
-                }
-
-                if (!String.IsNullOrEmpty(correo))
-                {
-                    renta.correo = correo;
-                }
-
-                if (idPelicula > 0)
-                {
-                    renta.id_pelicula = idPelicula;
-                }
-
-                if (!String.IsNullOrEmpty(fechaRenta))
-                {
-                    try
-                    {
-                        renta.fecha_renta = DateTime.Parse(fechaRenta);
-                    }
-                    catch
-                    { }
-                }
-
-                if (await crudRenta.UpdateRenta(renta) > 0)
-                {
-                    await DisplayAlert("Actualización", "Registro actualizado", "OK");
-                }
-                else
-                {
-                    await DisplayAlert("Error", "No se pudo actualizar el registro", "OK");
-                }
-            }
-            else
-            {
-                await DisplayAlert("Error", "id_renta requerido", "OK");
+                await DisplayAlert(err.GetType().ToString(), err.Message, "OK");
             }
         }
 
@@ -302,65 +137,76 @@ namespace BUTTERPOP.vistas
         {
             try
             {
-                idRenta = int.Parse(inputIdRent.Text);
-            }
-            catch
-            {
-                idRenta = 0;
-            }
+                idRent = int.Parse(inputIdRent.Text);
+                Table.Renta renta = await crudRenta.ReadRenta(idRent);
 
-            if (idRenta > 0)
-            {
-                Table.Renta renta = await crudRenta.ReadRenta(idRenta);
-                if (renta != null)
+                int delete = await crudRenta.DeleteRenta(renta);
+                if (delete > 0)
                 {
-                    if (await DisplayAlert("Confirmación", "¿Desea eliminar el registro?", "Sí", "No"))
-                    {
-                        if (await crudRenta.DeleteRenta(renta) > 0)
-                        {
-                            await DisplayAlert("Eliminación", "Registro eliminado", "OK");
-
-                            inputIdRent.Text = "";
-                            inputCorreo.Text = "";
-                            inputIdPeli.Text = "";
-                            inputFRenta.Text = "";
-                        }
-                        else
-                        {
-                            await DisplayAlert("Elimicación", "No se eliminó el registro", "OK");
-                        }
-                    }
+                    Clear(sender, e);
+                    String message = $"Se ha eliminado la renta con id {idRent} exitosamente";
+                    await DisplayAlert("Eliminacion exítosa", message, "OK");
                 }
                 else
                 {
-                    await DisplayAlert("Error", "Registro inexistente", "OK");
+                    String message = "No se ha podido completar la eliminación";
+                    await DisplayAlert("No se puede eliminar", message, "OK");
                 }
             }
-            else
+            catch (Exception err)
             {
-                await DisplayAlert("Error", "id_renta requerido", "OK");
+                await DisplayAlert(err.GetType().ToString(), err.Message, "OK");
             }
         }
 
-        private async void Active(object sender, EventArgs e)
+        private void addNavBack()
         {
-            try
+            TapGestureRecognizer navBack = new TapGestureRecognizer();
+            navBack.Tapped += (s, e) =>
             {
-                DateTime time = DateTime.Parse(inputFRenta.Text.Trim());
-                RentarModel rentar = new RentarModel();
-                if (rentar.isActiveRent(time))
-                {
-                    await DisplayAlert("Rentar", "Renta vigente", "OK");
-                }
-                else
-                {
-                    await DisplayAlert("Rentar", "Renta vencida", "OK");
-                }
-            }
-            catch
-            {
-                await DisplayAlert("Error", "Fecha de renta no válida", "OK");
-            }
+                Navigation.PopAsync();
+            };
+
+            nav_back.GestureRecognizers.Add(navBack);
+        }
+
+        private void Clear(object sender, EventArgs e)
+        {
+            inputIdRent.Text = "";
+            inputCorreo.Text = "";
+            inputIdPeli.Text = "";
+            inputPPeli.Text = "";
+            inputSRent.Text = "";
+
+            outputFIRenta.Text = "";
+            outputFFRenta.Text = "";
+            outputCobro.Text = "";
+        }
+
+        private void drawData(Table.Renta renta)
+        {
+            inputIdRent.Text = renta.id_renta.ToString();
+            inputCorreo.Text = renta.correo;
+            inputIdPeli.Text = renta.id_pelicula.ToString();
+            inputPPeli.Text = renta.precio.ToString();
+            inputSRent.Text = renta.semanas_renta.ToString();
+
+            outputFIRenta.Text = renta.fecha_renta.ToString();
+            outputFFRenta.Text = renta.fin_fecha_renta.ToString();
+            outputCobro.Text = renta.cobro_renta.ToString();
+        }
+
+        private void consoleData(Table.Renta renta)
+        {
+            Console.WriteLine("id_renta: " + renta.id_renta.ToString());
+            Console.WriteLine("correo: " + renta.correo);
+            Console.WriteLine("id_pelicula" + renta.id_pelicula.ToString());
+            Console.WriteLine("precio: " + renta.precio.ToString());
+            Console.WriteLine("semanas_renta: " + renta.semanas_renta.ToString());
+
+            Console.WriteLine("fecha_renta: " + renta.fecha_renta.ToString());
+            Console.WriteLine("fin_fecha_renta" + renta.fin_fecha_renta.ToString());
+            Console.WriteLine("cobro_renta" + renta.cobro_renta.ToString());
         }
     }
 }

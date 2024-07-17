@@ -40,38 +40,6 @@ namespace BUTTERPOP.crud.renta
         }
 
         /// <summary>
-        /// Lee un registro de la tabla 'renta' por un atributo especificado con su respectivo valor
-        /// </summary>
-        /// <param name="atributo">Criterio de busqueda (id_pelucula, correo, fecha_renta)</param>
-        /// <param name="valor">Valor de busqueda</param>
-        /// <returns>Objeto de la clase Renta</returns>
-        /// <exception cref="ArgumentException"></exception>
-        public async Task<Table.Renta> ReadRentaBy(string atributo, string valor)
-        {
-            if (atributo != "id_pelicula" &&
-                atributo != "correo" &&
-                atributo != "fecha_renta")
-            {
-                String validAtb = "'id_pelicula', 'correo', 'fecha_renta'";
-                throw new ArgumentException($"Atributo no válido, valores disponibles: ({validAtb})");
-            }
-
-            if (atributo == "id_pelicula")
-            {
-                return await this.db.Table<Table.Renta>().Where(r => r.id_pelicula == int.Parse(valor)).FirstOrDefaultAsync();
-            } 
-            else if (atributo == "fecha_renta")
-            {
-                return await this.db.Table<Table.Renta>().Where(r => r.fecha_renta.ToString() == valor).FirstOrDefaultAsync();
-            }
-            else if (atributo == "correo")
-            {
-                return await this.db.Table<Table.Renta>().Where(r => r.correo == valor).FirstOrDefaultAsync();
-            }
-            return null;
-        }
-
-        /// <summary>
         /// Lee todos los registros de la tabla 'renta'
         /// </summary>
         /// <returns>Lista de objetos de la clase Renta</returns>
@@ -90,7 +58,7 @@ namespace BUTTERPOP.crud.renta
         }
 
         /// <summary>
-        /// Actualiza los campos de un registro por su id
+        /// Actualiza los campos de un registro de la tabla 'renta'
         /// </summary>
         /// <param name="renta">Objeto renta a actualizar</param>
         /// <returns>Cantidad de actualizaciones realizadas en la tabla renta</returns>
@@ -99,17 +67,22 @@ namespace BUTTERPOP.crud.renta
         {
             if (String.IsNullOrEmpty(renta.correo))
             {
-                throw new ArgumentException("Correo no puede ser nulo o vacío");
+                throw new ArgumentNullException("Correo no puede ser nulo o vacío");
             }
 
             if (renta.id_pelicula <= 0)
             {
-                throw new ArgumentException("Id de película inválido");
+                throw new ArgumentException("Id de película debe ser mayor a 0");
             }
 
-            if (renta.fecha_renta == null)
+            if (renta.precio <= 0)
             {
-                throw new ArgumentException("Fecha de renta no puede ser nula");
+                throw new ArgumentException("Precio debe ser mayor a 0");
+            }
+
+            if (renta.semanas_renta <= 0)
+            {
+                throw new ArgumentException("Semanas de renta deben ser mayores a 0");
             }
 
             return await this.db.UpdateAsync(renta);
