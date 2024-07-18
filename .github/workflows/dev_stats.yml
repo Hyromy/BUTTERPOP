@@ -20,6 +20,12 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: actualizar pip
+        run: python -m pip install --upgrade pip
+
+      - name: instalar dependencias
+        run: pip install requests
+
       - name: run dev_stats.py
         run: python ./dev_stats.py
 
