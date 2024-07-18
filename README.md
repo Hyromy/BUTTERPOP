@@ -2260,7 +2260,7 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 	</a>
 </h3>
 
-**Confirmaciones: 59**
+**Confirmaciones: 65**
 
 Inserciones: 0
 
@@ -2307,9 +2307,9 @@ Eliminaciones: 0
 
 **Confirmaciones: 2**
 
-Inserciones: 1
+Inserciones: 0
 
-Eliminaciones: 2
+Eliminaciones: 0
 
 ---
 
@@ -2322,9 +2322,9 @@ Eliminaciones: 2
 
 **Confirmaciones: 1**
 
-Inserciones: 170
+Inserciones: 0
 
-Eliminaciones: 25
+Eliminaciones: 0
 
 ---
 
