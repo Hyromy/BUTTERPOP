@@ -10,8 +10,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 
-                <!-- eliminar -->
-                <RowDefinition Height="Auto"/>
+                <!-- for debug -->
+                <!-- <RowDefinition Height="Auto"/> -->
             </Grid.RowDefinitions>
 
             <!-- cabecera -->
@@ -74,7 +74,7 @@
 
                     <!-- contenedor -->
                     <Frame x:Name="abs_frame"
-                           AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 448"
+                           AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 516"
                            AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional"
                            BackgroundColor="#fff"
                            CornerRadius="32"
@@ -149,6 +149,8 @@
                                 <!-- inputs -->
                                 <Grid Margin="16, 8, 16, 8">
                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
@@ -259,8 +261,35 @@
                                            TextColor="#3a3a3a"
                                            HorizontalTextAlignment="Center"/>
 
+                                    <!-- semanas de renta -->
+                                    <StackLayout Grid.Row="4"
+                                                 Grid.Column="0"
+                                                 Grid.ColumnSpan="4"
+                                                 Orientation="Horizontal"
+                                                 HorizontalOptions="Center">
+
+                                        <Label Text="Semanas de renta:"
+                                               TextColor="#1c1c1c"/>
+
+                                        <Label x:Name="output_semanas"
+                                               Text="1"
+                                               TextColor="#c80000"
+                                               FontAttributes="Bold"/>
+                                    </StackLayout>
+
+                                    <!-- slider -->
+                                    <Slider x:Name="input_slide_semanas"
+                                            Grid.Row="5"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="4"
+                                            Minimum="0"
+                                            Maximum="3"
+                                            Margin="48, 0, 48, 16"
+                                            MinimumTrackColor="#c80000"
+                                            MaximumTrackColor="#1c1c1c"/>
+
                                     <!-- confirmar -->
-                                    <Frame Grid.Row="4"
+                                    <Frame Grid.Row="6"
                                            Grid.Column="0"
                                            Grid.ColumnSpan="4"
                                            Padding="0"
@@ -280,54 +309,10 @@
                 </AbsoluteLayout>
             </ScrollView>
 
-            <!-- eliminar -->
-            <Button Grid.Row="2"
+            <!-- for debug -->
+            <!-- <Button Grid.Row="2"
                     x:Name="toTest"
-                    Text="CRUD"/>
-
-            <!-- barra de navegación -->
-            <!-- <Frame x:Name="navNar"
-                   Grid.Row="2"
-                   BackgroundColor="#f00"
-                   Padding="8">
-
-                <StackLayout Orientation="Horizontal"
-                             HeightRequest="64"
-                             HorizontalOptions="Center"
-                             Spacing="64"> -->
-
-                    <!-- home -->
-                    <!-- active -->
-                    <!-- <Frame x:Name="navHome"
-                           WidthRequest="64"
-                           Padding="8"
-                           BackgroundColor="#fff"
-                           CornerRadius="64">
-
-                        <Image Source="nav_home_black.png"/>
-                    </Frame> -->
-                    
-                    <!-- búsqueda -->
-                    <!-- <Frame x:Name="navScreach"
-                           WidthRequest="64"
-                           Padding="8"
-                           BackgroundColor="#00000000"
-                           CornerRadius="64">
-
-                        <Image Source="nav_search_white.png"/>
-                    </Frame> -->
-
-                    <!-- perfil -->
-                    <!-- <Frame x:Name="navProfile"
-                           WidthRequest="64"
-                           Padding="8"
-                           BackgroundColor="#00000000"
-                           CornerRadius="64">
-
-                        <Image Source="nav_profile_white.png"/>
-                    </Frame>
-                </StackLayout>
-            </Frame> -->
+                    Text="CRUD"/> -->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -19,9 +19,19 @@ namespace BUTTERPOP.vistas.renta
         private bool isRotate = false;
         private double frameHeight;
 
+        private int slideValue = 0;
+
+        private String number = "";
+        private String mm = "";
+        private String aa = "";
+        private String key = "";
+
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
         private Table.Renta renta;
+
+        private RentarModel model = new RentarModel();
+        private CRUD_Renta crud = new CRUD_Renta();
 
         public FormRenta(Table.Cliente cliente, Table.Pelicula pelicula)
         {
@@ -35,14 +45,78 @@ namespace BUTTERPOP.vistas.renta
             frameHeight = abs_frame.Height;
             abs_frame.SizeChanged += resizeLayout;
 
-            toTest.Clicked += ToTest;
-            btnConfirmCard.Clicked += Pay;
+            input_slide_semanas.ValueChanged += Slide;
+
+            btnConfirmCard.Clicked += ToPay;
+
+            //toTest.Clicked += ToTest;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             adjustFrame();
+        }
+
+        private async void ToPay(object sender, EventArgs e)
+        {
+            try
+            {
+                CleanInputData(sender, e);
+
+                this.model.validateInputsCard(this.number, this.mm, this.aa, this.key);
+                DateTime cardDate = model.monthYearToDate(mm, aa);
+                slideValue = 1 + (int) input_slide_semanas.Value;
+                String timeEnd = DateTime.Now.AddDays(7 * slideValue).ToString("dd/MM/yyyy HH:mm");
+
+                // reemplazar por datos adecuados
+                String question = "";
+                question += $"¿Deseas rentar {this.pelicula.ToString()}";
+                question += $" a la cuenta '{this.cliente.correo}'";
+                question += $" por ${this.pelicula.ToString()}?";
+                question += $"\n\nTu renta finalizará el {timeEnd}hrs";
+
+                bool isPayed = (await DisplayAlert("Pagar", question, "Sí", "No"));
+                if (isPayed)
+                {
+                    Pay();
+
+                    String sucess = "Transacción realizada exitosamente, revisa tu lista privada 'Mis películas rentadas' o haz click en 'Ir' para ver la película que acabas de rentar";
+                    bool toFilms = (await DisplayAlert("Pago exitoso", sucess, "Ir", "OK"));
+                    if (toFilms)
+                    {
+                        // modificar constructor
+                        Application.Current.MainPage = new NavigationPage(new HomePage(this.cliente.usuario, this.cliente.correo, this.cliente.password));
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Cobro cancelado", "Se ha cancelado la operación", "OK");
+                }
+            }
+            catch (Exception err)
+            {
+                String reason;
+                if (err.Message.StartsWith("Value cannot be null."))
+                {
+                    reason = err.Message.Substring(38);
+                }
+                else
+                {
+                    reason = err.Message;
+                }
+
+                Console.WriteLine(err.GetType() + " => " + reason);
+                await DisplayAlert("Error", reason, "OK");
+            }   
+        }
+
+        private void Slide(object sender, ValueChangedEventArgs e)
+        {
+            int value = (int)Math.Round(e.NewValue);
+            slideValue = value;
+            input_slide_semanas.Value = value;
+            output_semanas.Text = (1 + value).ToString();
         }
 
         private void resizeLayout(object sender, EventArgs e)
@@ -81,75 +155,67 @@ namespace BUTTERPOP.vistas.renta
             nav_back.GestureRecognizers.Add(navBack);
         }
 
+        private void CleanInputData(object sender, EventArgs e)
+        {
+            try
+            {
+                this.number = card_number.Text;
+            }
+            catch
+            {
+                this.number = null;
+            }
+
+            try
+            {
+                this.mm = month.Text;
+            }
+            catch
+            {
+                this.mm = null;
+            }
+
+            try
+            {
+                this.aa = year.Text;
+            }
+            catch
+            {
+                this.aa = null;
+            }
+
+            try
+            {
+                this.key = cvv.Text;
+            }
+            catch
+            {
+                this.key = null;
+            }
+        }
+
+        private async void Pay()
+        {
+            this.renta = new Table.Renta
+            {
+                correo = this.cliente.correo,
+                id_pelicula = this.pelicula.id_pelicula,
+                precio = 50, // reemplazar con pelicula.precio
+                semanas_renta = slideValue
+            };
+
+            renta.validateInputAtributes();
+            renta.calculateRent();
+
+            await this.crud.InsertRenta(renta);
+            Console.WriteLine($"Nuevo registro de renta con id: {this.renta.id_renta}");
+        }
+
+        /*
         private void ToTest(object sender, EventArgs e)
         {
             Navigation.PushAsync(new testRenta());
         }
-
-        private async void Pay(object sender, EventArgs e)
-        {
-            String nCuenta, mm, aa, c;
-            try
-            {
-                nCuenta = card_number.Text.ToString();
-                mm = month.Text.ToString();
-                aa = year.Text.ToString();
-                c = cvv.Text.ToString();
-            }
-            catch
-            {
-                nCuenta = null;
-                mm = null;
-                aa = null;
-                c = null;
-            }
-
-            if (String.IsNullOrEmpty(nCuenta) || nCuenta.Length < 16 ||
-                String.IsNullOrEmpty(mm) || mm.Length < 2 ||
-                String.IsNullOrEmpty(aa) || aa.Length < 2 ||
-                String.IsNullOrEmpty(c) || c.Length < 3)
-            {
-                await DisplayAlert("Error", "Todos los campos son requeridos", "OK");
-            }
-            else
-            {
-                RentarModel rentarM = new RentarModel();
-                
-                // cambiar por un slide o similar que permita agregar mas o menos semanas de renta
-                DateTime time = DateTime.Now.AddMonths(1);
-
-                // apurate chino
-                // cambiar pelicula.toString() por pelicula.nombre
-                // cambiar pelicula.toString() por pelicula.precio
-                String question = $"Deseas Rentar {this.pelicula.ToString()} a la cuenta '{this.cliente.correo}' por ${this.pelicula.ToString()}\nTu renta finalizará el {time.ToString()}";
-                bool isPayed = (await DisplayAlert("Pagar", question, "Sí", "No")); // error
-                if (isPayed)
-                {
-                    this.renta = new Table.Renta
-                    {
-                        id_pelicula = this.pelicula.id_pelicula,
-                        correo = this.cliente.correo
-                    };
-
-                    CRUD_Renta crud = new CRUD_Renta();
-                    await crud.InsertRenta(this.renta);
-                    await DisplayAlert("DEBUG", $"Se agregó un registro con el id {this.renta.id_renta} para la pelicula con id {this.pelicula.id_pelicula} en la cuenta de correo {this.cliente.correo}", "OK");
-
-                    String sucess = "Transacción realizada exitosamente, revisa tu lista privada 'Mis películas rentadas' o haz click aquí para ver la película que acabas de rentar";
-                    bool toFilms = (await DisplayAlert("Pago exitoso", sucess, "Mis películas", "Cancelar"));
-                    if (toFilms)
-                    {
-                        NavigationPage.SetHasNavigationBar(this, false);
-
-                        // tiene que conservar la información del cliente
-                        Application.Current.MainPage = new NavigationPage(new HomePage(cliente.usuario, cliente.correo, cliente.password));
-                    }
-                }
-                else
-                {
-                    await DisplayAlert("Pago cancelado", "El pago ha sido cancelado", "OK");
-                }
-            }
-        }
+        */
     }
 }
