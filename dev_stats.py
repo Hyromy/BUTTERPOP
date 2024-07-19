@@ -1,4 +1,4 @@
-import requests
+import requests, time
 
 class Dev:
     def __init__(self, name, avatar_url, profile_url, commits):
@@ -17,11 +17,9 @@ dev_list = []
 
 owner = "Hyromy"
 repo = "BUTTERPOP"
-token = "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"
 
 url = f"https://api.github.com/repos/{owner}/{repo}/contributors"
-headers = {"Authorization": f"token {token}"}
-response = requests.get(url, headers = headers)
+response = requests.get(url)
 if response.status_code == 200:
     devs = response.json()
 
@@ -34,23 +32,25 @@ if response.status_code == 200:
         dev_obj = Dev(name, avatar_url, profile_url, commits)
         dev_list.append(dev_obj)
 
+def get_stats_with_retry(url, retries = 30, wait = 1):
+    for _ in range(retries):
+        response = requests.get(url)
+        if response.status_code == 200 and response.json():
+            return response.json()
+        time.sleep(wait)
+
+    print(f"Error al obtener las estadísticas de {url}")
+    return None
+
 for dev in dev_list:
     stats_url = f"https://api.github.com/repos/{owner}/{repo}/stats/contributors"
-    stats_response = requests.get(stats_url, headers = headers)
+    stats = get_stats_with_retry(stats_url)
 
-    if stats_response.status_code == 200:
-        stats = stats_response.json()
-
+    if stats:
         for dev_stats in stats:
-
             if dev_stats["author"]["login"] == dev.name:
-                insertions = 0
-                deletions = 0
-
-                for week in dev_stats["weeks"]:
-                    insertions += week["a"]
-                    deletions += week["d"]
-
+                insertions = sum(week["a"] for week in dev_stats["weeks"])
+                deletions = sum(week["d"] for week in dev_stats["weeks"])
                 dev.update_stats(insertions, deletions)
 
 with open("README.md", "r", encoding = "utf-8") as f:
