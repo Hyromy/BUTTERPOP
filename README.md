@@ -1562,13 +1562,6 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>Llave primaria de película</td>
     </tr>
     <tr>
-        <td>correo_admin</td>
-        <td>varchar</td>
-        <td>30</td>
-        <td>FK</td>
-        <td>Llave foránea del administrador que gestiona la película de la tabla administrador</td>
-    </tr>
-    <tr>
         <td>titulo</td>
         <td>varchar</td>
         <td>50</td>
@@ -1641,7 +1634,7 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>Llave primaria de renta</td>
     </tr>
     <tr>
-        <td>correo_cliente</td>
+        <td>correo</td>
         <td>varchar</td>
         <td>50</td>
         <td>FK</td>
@@ -1654,12 +1647,40 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>FK</td>
         <td>Llave foránea de la película de la tabla pelicula</td>
     </tr>
+        <tr>
+        <td>Semanas_renta </td>
+        <td>Int</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Semanas de renta de las peliculas</td>
+    </tr>
+    <tr>
+        <td>Precio</td>
+        <td>Float</td>
+        <td>N/A</td>
+        <td>FK</td>
+        <td>Llave foranea de pelicula</td>
+    </tr>
+    <tr>
+        <td>fin_fecha_renta</td>
+        <td>TIMESTAP</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Fin de pecha renta</td>
+    </tr>
+    <tr>
+        <td>cobro_renta</td>
+        <td>Float</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Cobro de renta de pelicula</td>
+    </tr>
     <tr>
         <td>fecha_renta</td>
-        <td>timestamp</td>
+        <td>TIMESTAP</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>Fecha y hora en la que se registra la renta</td>
+        <td>Fecha de renta</td>
     </tr>
 </table>
 
@@ -1684,8 +1705,15 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>PK</td>
         <td>Llave primaria de comentar</td>
     </tr>
+        <tr>
+        <td>id_pelicula</td>
+        <td>varchar</td>
+        <td>30</td>
+        <td>FK</td>
+        <td>Llave forànea de pelìcula</td>
+    </tr>
     <tr>
-        <td>correo_cliente</td>
+        <td>correo</td>
         <td>varchar</td>
         <td>50</td>
         <td>FK</td>
@@ -1703,7 +1731,7 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>float</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>Puntuación de la película (0.0 - 5.0)</td>
+        <td>Puntuación de la película (0 - 3)</td>
     </tr>
 </table>
 
@@ -1759,7 +1787,7 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>Observaciones</td>
     </tr>
     <tr>
-        <td>correo_cliente</td>
+        <td>correo</td>
         <td>varchar</td>
         <td>50</td>
         <td>PK</td>
@@ -1773,18 +1801,53 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>Hash de la contraseña del cliente</td>
     </tr>
     <tr>
-        <td>usuario</td>
+        <td>a_paterno</td>
         <td>varchar</td>
         <td>30</td>
         <td>N/A</td>
-        <td>Nombre de usuario del cliente</td>
+        <td>Apellido paterno del cliente</td>
     </tr>
     <tr>
-        <td>no_cuenta</td>
+        <td>a_materno</td>
+        <td>varchar</td>
+        <td>30</td>
+        <td>N/A</td>
+        <td>Apellido materno del cliente</td>
+    </tr>
+        <tr>
+        <td>numero_Tarjeta</td>
         <td>varchar</td>
         <td>16</td>
         <td>N/A</td>
-        <td>Número de cuenta bancario del cliente</td>
+        <td>Numero de tarjeta del cliente</td>
+    </tr>
+        <tr>
+        <td>tipo_Tarjeta</td>
+        <td>varchar</td>
+        <td>100</td>
+        <td>N/A</td>
+        <td>Tipo de tarjeta del cliente</td>
+    </tr>
+        <tr>
+        <td>mes</td>
+        <td>int</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Mes de vencimiento de la tarjeta del cliente</td>
+    </tr>
+        <tr>
+        <td>año</td>
+        <td>int</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Año de vencimiento de la tarjeta del cliente</td>
+    </tr>
+        <tr>
+        <td>cvv</td>
+        <td>int</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Clave de seguridad de la tarjeta del cliente</td>
     </tr>
 </table>
 
@@ -1841,33 +1904,8 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
 
 ---
 
-*La figura 2.2.7 muestra el diccionario de datos de la tabla "administrador"*
-<table>
-    <tr>
-        <td colspan="5">TB ADMINISTRADOR</td>
-    </tr>
-    <tr>
-        <td>Campo</td>
-        <td>Tipo</td>
-        <td>Extención</td>
-        <td>Restricción</td>
-        <td>Observaciones</td>
-    </tr>
-    <tr>
-        <td>correo_admin</td>
-        <td>serial</td>
-        <td>N/A</td>
-        <td>PK</td>
-        <td>Llave primaria del administrador</td>
-    </tr>
-    <tr>
-        <td>contrasena</td>
-        <td>varchar</td>
-        <td>20</td>
-        <td>N/A</td>
-        <td>Hash de la contraseña del administrador</td>
-    </tr>
-</table>
+
+
 
 ### 2.3 Diseño de pruebas
 Diseño de pruebas por partición de equivalencia es una técnica utilizada en pruebas de software para dividir el dominio de entrada de un programa en clases de equivalencia. Cada clase representa un conjunto de valores de entrada que se espera que el software trate de manera similar. Las pruebas se realizan seleccionando al menos un valor de cada clase, con el objetivo de reducir el número de casos de prueba necesarios mientras se mantiene una cobertura efectiva del comportamiento del sistema.
