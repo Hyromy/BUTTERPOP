@@ -23,7 +23,7 @@ namespace BUTTERPOP.vistas.tarjeta
         public BillingPage (Table.Cliente cliente) 
 		{
 			InitializeComponent ();
-
+            
             this.cliente = cliente;
 		}
 
@@ -50,8 +50,15 @@ namespace BUTTERPOP.vistas.tarjeta
                                 if (!validarTarjetaExpirada(int.Parse(txtMes.Text), int.Parse(txtAnio.Text)))
                                 {
 
+                                    this.cliente.numeroTarjeta = txtNumeroTarjeta.Text;
+                                    this.cliente.tipoTarjeta = pickerTipoTarjeta.SelectedItem.ToString();
+                                    this.cliente.mes = int.Parse(txtMes.Text);
+                                    this.cliente.anio = int.Parse(txtAnio.Text);
+                                    this.cliente.cvv = int.Parse(txtCVV.Text);
 
-                                    var cuentaExistente = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
+                                    await crud.UpdateUsuarioAsync(this.cliente);
+
+                                    /*var cuentaExistente = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
 
                                     if (cuentaExistente != null && cuentaExistente.numeroTarjeta == txtNumeroTarjeta.Text && cuentaExistente.cvv == int.Parse(txtCVV.Text) && cuentaExistente.tipoTarjeta == pickerTipoTarjeta.SelectedItem.ToString())
                                     {
@@ -73,15 +80,15 @@ namespace BUTTERPOP.vistas.tarjeta
                                         usuario.anio = int.Parse(txtAnio.Text);
                                         usuario.cvv = int.Parse(txtCVV.Text);
 
-                                        await crud.UpdateUsuarioAsync(usuario);
+                                        await crud.UpdateUsuarioAsync(usuario);*/
 
-                                        await DisplayAlert("Guardado Exitoso", "Se ha registrado correctamente el nuevo método de pago", "Aceptar");
+                                    await DisplayAlert("Guardado Exitoso", "Se ha registrado correctamente el nuevo método de pago", "Aceptar");
                                         limpiarDatos();
-                                    }
+                                    /*}
                                     catch (FormatException)
                                     {
                                         await DisplayAlert("Error", "Uno o más campos contienen datos no válidos. Por favor, verifica los datos ingresados.", "Aceptar");
-                                    }
+                                    }*/
                                 }
                                 else
                                 {
@@ -176,10 +183,9 @@ namespace BUTTERPOP.vistas.tarjeta
 
         private async void btnVerTarjetas_Clicked(object sender, EventArgs e)
         {
-            var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
-            await Navigation.PushAsync(new DetalleBillingPage(usuario.correo, usuario.tipoTarjeta, usuario.numeroTarjeta, usuario.anio, usuario.mes, usuario.cvv));
-
-
+            
+            //var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
+            await Navigation.PushAsync(new DetalleBillingPage(this.cliente));
 
         }
     }

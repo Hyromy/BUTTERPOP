@@ -276,7 +276,7 @@
                             HorizontalOptions="Center"
                             />
                         <Label x:Name="lblCorreo"
-                            Text="{Binding CorreoUsuario}"
+                            
                             TextColor="white"
                             HorizontalOptions="Center"/>
 

@@ -6,11 +6,13 @@
             BackgroundColor="#1C1C1C">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Label x:Name="txtCorreoElec" Text="{Binding NumeroTarjetaUsuario}" TextColor="White" />
-            <Label  Text="{Binding TipoTarjetaUsuario}" TextColor="White" />
-            <Label Text="{Binding MesUsuario}" Grid.Row="0" Grid.Column="4" TextColor="White" />
-            <Label Text="{Binding AnioUsuario}" Grid.Row="0" Grid.Column="5" TextColor="White" />
-            <Label Text="{Binding CvvUsuario}" Grid.Row="0" Grid.Column="6" TextColor="White" />
+            <Label x:Name="txtCorreoElec"  TextColor="White" />
+            
+            <Label x:Name="txtTarjeta"   TextColor="White" />
+            <Label x:Name="txtTipo"   TextColor="White" />
+            <Label x:Name="txtMes"  Grid.Row="0" Grid.Column="4" TextColor="White" />
+            <Label x:Name="txtAnio"  Grid.Row="0" Grid.Column="5" TextColor="White" />
+            <Label x:Name="txtCVV"  Grid.Row="0" Grid.Column="6" TextColor="White" />
             
         </StackLayout>
      

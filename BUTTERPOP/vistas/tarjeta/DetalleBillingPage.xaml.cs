@@ -7,25 +7,30 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using BUTTERPOP.db;
 
 namespace BUTTERPOP.vistas.tarjeta
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetalleBillingPage : ContentPage
     {
-        public DetalleBillingPage()
+        private Table.Cliente cliente;
+        public DetalleBillingPage(Table.Cliente cliente)
         {
             InitializeComponent();
-            
+            this.cliente = cliente;
+
+            txtCorreoElec.Text = this.cliente.correo;
+            txtTarjeta.Text = this.cliente.numeroTarjeta;
+            txtTipo.Text = this.cliente.tipoTarjeta;
+            txtMes.Text = this.cliente.mes.ToString();
+            txtAnio.Text = this.cliente.anio.ToString();
+            txtCVV.Text = this.cliente.cvv.ToString();
+
+
         }
 
-        public DetalleBillingPage(string correoUsuario, string tipoTarjetaUsuario, string numeroTarjetaUsuario, int mesUsuario, int anioUsuario , int cvvUsuario) : this()
-        {
-            // Establecer el contexto de datos con el nombre de usuario recibido
-            BindingContext = new BillingViewModel(correoUsuario, tipoTarjetaUsuario, numeroTarjetaUsuario, mesUsuario, anioUsuario, cvvUsuario);
-
-
-        }
+       
 
         
 

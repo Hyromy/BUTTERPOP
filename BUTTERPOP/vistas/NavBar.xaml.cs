@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using BUTTERPOP.db;
+using BUTTERPOP.vistas.tarjeta;
 
 
 namespace BUTTERPOP.vistas
@@ -22,6 +23,7 @@ namespace BUTTERPOP.vistas
             InitializeComponent();
 
             this.Children.Add(new Perfil(cliente));
+            new BillingPage(cliente);
             //this.Children.Add(new Home(cliente));
         }   
         

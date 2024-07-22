@@ -15,15 +15,19 @@ using static BUTTERPOP.db.Table;
 using static BUTTERPOP.utils.ImageResourceExtension;
 using static BUTTERPOP.modelo.PerfilViewModel;
 using BUTTERPOP.modelo;
+using BUTTERPOP.db;
 
 namespace BUTTERPOP.Vistas.listas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistroListas : ContentPage
     {
+
         private CRUD_Lista crud = new CRUD_Lista();
         private CRUD_Usuario crud2 = new CRUD_Usuario();
         Perfil si = new Perfil();
+
+        
 
         public RegistroListas()
         {

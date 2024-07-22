@@ -32,12 +32,12 @@ namespace BUTTERPOP.vistas
         public Perfil(Table.Cliente cliente)
         {
             InitializeComponent();
-            LlenarDatos();
+            DatosRecuperados(cliente);
             llenarDatosListas();
 
             this.cliente = cliente;
 
-            welcomeUserName.Text = cliente.correo;
+           
 
         }
 
@@ -227,6 +227,19 @@ namespace BUTTERPOP.vistas
             }
         }
 
+
+        public async void DatosRecuperados(Table.Cliente cliente)
+        {
+           
+
+            lblCorreo.Text = cliente.correo;
+            welcomeUserName.Text = cliente.nombre;
+            txtNombreUsuario.Text = cliente.nombre;
+            txtCorreoElec.Text = cliente.correo;
+            txtApaternoUsuario.Text = cliente.apaterno;
+            txtAmaternoUsuario.Text = cliente.amaterno;
+            txtContra.Text = cliente.password;
+        }
 
 
         public async void LlenarDatos()
