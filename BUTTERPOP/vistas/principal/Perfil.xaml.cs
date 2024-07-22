@@ -5,18 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using BUTTERPOP.crud.usuario;
 using BUTTERPOP.crud.lista;
 using BUTTERPOP.Modelo;
 using static BUTTERPOP.utils.ImageResourceExtension;
 using BUTTERPOP.Vistas.listas;
 using static BUTTERPOP.db.Table;
+using BUTTERPOP.db;
 using System.IO;
 using Xamarin.Essentials;
+
+
 
 namespace BUTTERPOP.vistas
 {
@@ -253,7 +254,7 @@ namespace BUTTERPOP.vistas
             {
                 bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu apellido paterno a " + txtApaternoUsuario.Text + "?", "Confirmar", "Cancelar");
 
-                var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+                var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
 
                 if (confirmacion)
                 {
@@ -262,7 +263,7 @@ namespace BUTTERPOP.vistas
 
                         usuario.apaterno = txtApaternoUsuario.Text;
 
-                        await App.SQLiteDB.UpdateUsuarioAsync(usuario);
+                        await crud.UpdateUsuarioAsync(usuario);
                         await DisplayAlert("Actualización Exitosa", "Tu apellido paterno se ha actualizado correctamente", "Aceptar");
                         LlenarDatos();
                     }
@@ -285,7 +286,7 @@ namespace BUTTERPOP.vistas
             {
                 bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu apellido materno a " + txtAmaternoUsuario.Text + "?", "Confirmar", "Cancelar");
 
-                var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+                var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
 
                 if (confirmacion)
                 {
@@ -294,7 +295,7 @@ namespace BUTTERPOP.vistas
 
                         usuario.amaterno = txtAmaternoUsuario.Text;
 
-                        await App.SQLiteDB.UpdateUsuarioAsync(usuario);
+                        await crud.UpdateUsuarioAsync(usuario);
                         await DisplayAlert("Actualización Exitosa", "Tu apellido materno se ha actualizado correctamente", "Aceptar");
                         LlenarDatos();
                     }
@@ -313,7 +314,7 @@ namespace BUTTERPOP.vistas
 
         private async void btnAgregarMetodoPago_Clicked(object sender, EventArgs e)
         {
-            var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+            var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
             await Navigation.PushAsync(new vistas.tarjeta.BillingPage(usuario.nombre, usuario.apaterno, usuario.amaterno, usuario.correo, usuario.password));
             
 

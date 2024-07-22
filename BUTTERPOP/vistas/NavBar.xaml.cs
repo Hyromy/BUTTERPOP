@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 
 using BUTTERPOP.db;
 
+
 namespace BUTTERPOP.vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

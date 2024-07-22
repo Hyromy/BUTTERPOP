@@ -8,13 +8,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using BUTTERPOP.db;
+using BUTTERPOP.crud.usuario;
+
 
 namespace BUTTERPOP.vistas.tarjeta
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BillingPage : ContentPage
 	{
-        
+        private CRUD_Usuario crud = new CRUD_Usuario();
+
         public BillingPage () 
 		{
 			InitializeComponent ();
@@ -43,7 +47,7 @@ namespace BUTTERPOP.vistas.tarjeta
                                 {
 
 
-                                    var cuentaExistente = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+                                    var cuentaExistente = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
 
                                     if (cuentaExistente != null && cuentaExistente.numeroTarjeta == txtNumeroTarjeta.Text && cuentaExistente.cvv == int.Parse(txtCVV.Text) && cuentaExistente.tipoTarjeta == pickerTipoTarjeta.SelectedItem.ToString())
                                     {
@@ -54,7 +58,7 @@ namespace BUTTERPOP.vistas.tarjeta
 
 
 
-                                    var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+                                    var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
 
                                     usuario.numeroTarjeta = txtNumeroTarjeta.Text;
                                     usuario.tipoTarjeta = pickerTipoTarjeta.SelectedItem.ToString();
@@ -65,7 +69,7 @@ namespace BUTTERPOP.vistas.tarjeta
                                         usuario.anio = int.Parse(txtAnio.Text);
                                         usuario.cvv = int.Parse(txtCVV.Text);
 
-                                        await App.SQLiteDB.UpdateUsuarioAsync(usuario);
+                                        await crud.UpdateUsuarioAsync(usuario);
 
                                         await DisplayAlert("Guardado Exitoso", "Se ha registrado correctamente el nuevo método de pago", "Aceptar");
                                         limpiarDatos();
@@ -168,7 +172,7 @@ namespace BUTTERPOP.vistas.tarjeta
 
         private async void btnVerTarjetas_Clicked(object sender, EventArgs e)
         {
-            var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+            var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
             await Navigation.PushAsync(new DetalleBillingPage(usuario.correo, usuario.tipoTarjeta, usuario.numeroTarjeta, usuario.anio, usuario.mes, usuario.cvv));
 
 

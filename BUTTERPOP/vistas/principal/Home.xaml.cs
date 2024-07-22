@@ -35,7 +35,7 @@ namespace BUTTERPOP.vistas
             Table.Cliente cliente = new Table.Cliente
             {
                 correo = "ejemplo@ejemplo.com",
-                usuario = "Ejemplo",
+                nombre = "Ejemplo",
                 password = "12345$Hf"
             };
 
