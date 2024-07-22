@@ -420,7 +420,7 @@ namespace BUTTERPOP.vistas
 
         private void btnNueva_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegistroListas());
+            Navigation.PushAsync(new RegistroListas(this.cliente));
 
         }
         public async void llenarDatosListas()

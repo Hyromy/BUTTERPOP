@@ -25,15 +25,15 @@ namespace BUTTERPOP.Vistas.listas
 
         private CRUD_Lista crud = new CRUD_Lista();
         private CRUD_Usuario crud2 = new CRUD_Usuario();
-        Perfil si = new Perfil();
+        //Perfil si = new Perfil();
 
-        
+        Table.Cliente cliente;
 
-        public RegistroListas()
+        public RegistroListas(Table.Cliente cliente)
         {
             InitializeComponent();
             llenarDatosListas();
-            si.LlenarDatos();
+            this.cliente = cliente;
         }
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
         {
@@ -45,9 +45,9 @@ namespace BUTTERPOP.Vistas.listas
                     nombre = txtNombre.Text,
                     descripcion = txtDesc.Text,
                     imagen = imagebytes,
+                    correo = this.cliente.correo,
                    
                 };
-                si.LlenarDatos();
                 await crud.SaveListaAsync(lista);
                 txtNombre.Text = "";
                 txtDesc.Text = "";
