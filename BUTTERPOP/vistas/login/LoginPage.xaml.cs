@@ -244,16 +244,18 @@ namespace BUTTERPOP.vistas
                     }
 
                     // usuario recuperado de la db
-                    var usuario = await crud.GetUsuariosByCorreo(txtEmailI.Text);
+                    Table.Cliente usuario = await crud.GetUsuariosByCorreo(txtEmailI.Text);
 
                     if (usuario != null)
                     {
                         if (usuario.password == txtPassI.Text)
                         {
                             // Paso de parametros recibidos al constructor de HomePage
-                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.nombre, usuario.apaterno, usuario.amaterno, usuario.correo, usuario.password));
 
-                            var bilingpage = new BillingPage(usuario.nombre, usuario.apaterno, usuario.amaterno, usuario.correo, usuario.password);
+                            // joel estuvo aqui
+                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario));
+
+                            var bilingpage = new BillingPage(usuario);
 
                             var duration = TimeSpan.FromSeconds(0.2);
                             Vibration.Vibrate(duration);

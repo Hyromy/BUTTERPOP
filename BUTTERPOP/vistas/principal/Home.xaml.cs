@@ -14,9 +14,13 @@ namespace BUTTERPOP.vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : ContentPage
     {
-        public Home()
+        private Table.Cliente cliente;
+
+        public Home(/*Table.Cliente cliente*/)
         {
             InitializeComponent();
+
+            //this.cliente = cliente;
 
             // Crear un evento tipo click para el frame
             var tapGestureRecognizer = new TapGestureRecognizer();

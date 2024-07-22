@@ -18,17 +18,21 @@ namespace BUTTERPOP.vistas.tarjeta
 	public partial class BillingPage : ContentPage
 	{
         private CRUD_Usuario crud = new CRUD_Usuario();
+        private Table.Cliente cliente;
 
-        public BillingPage () 
+        public BillingPage (Table.Cliente cliente) 
 		{
 			InitializeComponent ();
+
+            this.cliente = cliente;
 		}
 
-        public BillingPage(string nombreUsuario, string apaternoUsuario, string amaternoUsuario, string correoUsuario, string passUsuario) : this()
+        
+        /*public BillingPage(string nombreUsuario, string apaternoUsuario, string amaternoUsuario, string correoUsuario, string passUsuario) : this()
         {
             // Establecer el contexto de datos con el nombre de usuario recibido
             BindingContext = new PerfilViewModel(nombreUsuario, apaternoUsuario, amaternoUsuario, correoUsuario, passUsuario);
-        }
+        }*/
 
 
         private async void btnGuardarTarjeta_Clicked(object sender, EventArgs e)

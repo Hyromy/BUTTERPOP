@@ -37,8 +37,6 @@ namespace BUTTERPOP.modelo
         }
 
 
-
-
         public string NombreUsuario
         {
             get { return _nombreUsuario; }
@@ -89,12 +87,6 @@ namespace BUTTERPOP.modelo
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PassUsuario)));
             }
         }
-
-
-
-
-
-
 
 
     }

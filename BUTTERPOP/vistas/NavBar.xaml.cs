@@ -16,17 +16,22 @@ namespace BUTTERPOP.vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : TabbedPage
     {
-        public HomePage()
+
+        public HomePage(Table.Cliente cliente)
         {
             InitializeComponent();
 
-        }
+            this.Children.Add(new Perfil(cliente));
+            //this.Children.Add(new Home(cliente));
+        }   
         
-        public HomePage(string nombreUsuario, string apaternoUsuario, string amaternoUsuario,  string correoUsuario, string passUsuario) : this()
+
+
+        /*public HomePage(string nombreUsuario, string apaternoUsuario, string amaternoUsuario,  string correoUsuario, string passUsuario) : this()
         {
             // Establecer el contexto de datos con el nombre de usuario recibido
             BindingContext = new PerfilViewModel(nombreUsuario, apaternoUsuario, amaternoUsuario, correoUsuario, passUsuario);
-        } 
+        } */
 
     }
 }

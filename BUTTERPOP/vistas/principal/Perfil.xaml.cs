@@ -27,11 +27,26 @@ namespace BUTTERPOP.vistas
         private CRUD_Usuario crud = new CRUD_Usuario();
         private CRUD_Lista crud2 = new CRUD_Lista();
 
+        private Table.Cliente cliente;
+
+        public Perfil(Table.Cliente cliente)
+        {
+            InitializeComponent();
+            LlenarDatos();
+            llenarDatosListas();
+
+            this.cliente = cliente;
+
+            welcomeUserName.Text = cliente.correo;
+
+        }
+
         public Perfil()
         {
             InitializeComponent();
             LlenarDatos();
             llenarDatosListas();
+            
         }
 
         public Perfil(string Nombre, string Descipcion, byte[] Imagen)
@@ -315,7 +330,7 @@ namespace BUTTERPOP.vistas
         private async void btnAgregarMetodoPago_Clicked(object sender, EventArgs e)
         {
             var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
-            await Navigation.PushAsync(new vistas.tarjeta.BillingPage(usuario.nombre, usuario.apaterno, usuario.amaterno, usuario.correo, usuario.password));
+            await Navigation.PushAsync(new vistas.tarjeta.BillingPage(usuario));
             
 
      

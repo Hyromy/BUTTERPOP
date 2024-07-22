@@ -88,7 +88,7 @@ namespace BUTTERPOP.vistas.renta
                     if (toFilms)
                     {
                         // modificar constructor
-                        Application.Current.MainPage = new NavigationPage(new HomePage(this.cliente.nombre, this.cliente.apaterno, this.cliente.amaterno, this.cliente.correo, this.cliente.password));
+                        Application.Current.MainPage = new NavigationPage(new HomePage(this.cliente));
                     }
                 }
                 else
