@@ -22,10 +22,11 @@ namespace BUTTERPOP.vistas
         {
             InitializeComponent();
 
+            this.Children.Add(new Home(cliente));
+            this.Children.Add(new Buscar());
             this.Children.Add(new Perfil(cliente));
             new BillingPage(cliente);
-            //this.Children.Add(new Home(cliente));
-        }   
+            
         
 
 
@@ -34,6 +35,6 @@ namespace BUTTERPOP.vistas
             // Establecer el contexto de datos con el nombre de usuario recibido
             BindingContext = new PerfilViewModel(nombreUsuario, apaternoUsuario, amaternoUsuario, correoUsuario, passUsuario);
         } */
-
+        }
     }
 }

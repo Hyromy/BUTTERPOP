@@ -14,8 +14,6 @@
             UnselectedTabColor="Black">
     
   <!--Pages can be added as references or inline-->
-  <vistas:Home />
-  <vistas:Buscar />
   
 </TabbedPage>
     
