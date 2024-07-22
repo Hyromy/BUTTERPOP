@@ -1,4 +1,5 @@
 ﻿using BUTTERPOP.modelo;
+using BUTTERPOP.vistas.tarjeta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -136,7 +137,7 @@ namespace BUTTERPOP.vistas
                     if (usuario != null)
                     {
 
-                        usuario.usuario = txtNombreUsuario.Text;
+                        usuario.nombre = txtNombreUsuario.Text;
 
                         await App.SQLiteDB.UpdateUsuarioAsync(usuario);
                         await DisplayAlert("Actualización Exitosa", "Tu nombre se ha actualizado correctamente", "Aceptar");
@@ -144,7 +145,7 @@ namespace BUTTERPOP.vistas
                     }
                     else
                     {
-                        await DisplayAlert("Error", "No se ha podido eliminar la cuenta. Usuario no encontrado.", "Aceptar");
+                        await DisplayAlert("Error", "No se ha podido realizar los cambios en tu cuenta. Usuario no encontrado.", "Aceptar");
                     }
                 }
             
@@ -204,8 +205,8 @@ namespace BUTTERPOP.vistas
             //Si la lista no está vacia, entonces mostrarla
             if (usuarioEncontrado != null)
             {
-                welcomeUserName.Text = usuarioEncontrado.usuario;
-                txtNombreUsuario.Text = usuarioEncontrado.usuario;
+                welcomeUserName.Text = usuarioEncontrado.nombre;
+                txtNombreUsuario.Text = usuarioEncontrado.nombre;
                 txtContra.Text = usuarioEncontrado.password;
             }
         }
@@ -218,9 +219,91 @@ namespace BUTTERPOP.vistas
             return regex.IsMatch(txtContra.Text);
         }
 
-        private void btnCerrarSesion_Clicked(object sender, EventArgs e)
+        private async void btnCerrarSesion_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new LoginPage());
+            bool confirmacion = await DisplayAlert("Confirmación", "¿Estás seguro de que deseas cerrar sesión?", "Confirmar", "Cancelar");
+
+            if (confirmacion)
+            {
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
+
+            
+        }
+
+        private async void btnCambiarApaterno_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu apellido paterno a " + txtApaternoUsuario.Text + "?", "Confirmar", "Cancelar");
+
+                var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+
+                if (confirmacion)
+                {
+                    if (usuario != null)
+                    {
+
+                        usuario.apaterno = txtApaternoUsuario.Text;
+
+                        await App.SQLiteDB.UpdateUsuarioAsync(usuario);
+                        await DisplayAlert("Actualización Exitosa", "Tu apellido paterno se ha actualizado correctamente", "Aceptar");
+                        LlenarDatos();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "No se ha podido realizar los cambios en tu cuenta. Usuario no encontrado.", "Aceptar");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Ocurrió un error al actualizar la cuenta: {ex.Message}", "Aceptar");
+            }
+        }
+
+        private async void btnCambiarAmaterno_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu apellido materno a " + txtAmaternoUsuario.Text + "?", "Confirmar", "Cancelar");
+
+                var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+
+                if (confirmacion)
+                {
+                    if (usuario != null)
+                    {
+
+                        usuario.amaterno = txtAmaternoUsuario.Text;
+
+                        await App.SQLiteDB.UpdateUsuarioAsync(usuario);
+                        await DisplayAlert("Actualización Exitosa", "Tu apellido materno se ha actualizado correctamente", "Aceptar");
+                        LlenarDatos();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "No se ha podido realizar los cambios en tu cuenta. Usuario no encontrado.", "Aceptar");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Ocurrió un error al actualizar la cuenta: {ex.Message}", "Aceptar");
+            }
+        }
+
+        private async void btnAgregarMetodoPago_Clicked(object sender, EventArgs e)
+        {
+            var usuario = await App.SQLiteDB.GetUsuariosByCorreo(txtCorreoElec.Text);
+            await Navigation.PushAsync(new vistas.tarjeta.BillingPage(usuario.nombre, usuario.apaterno, usuario.amaterno, usuario.correo, usuario.password));
+            
+
+     
+
+
         }
     }
 }

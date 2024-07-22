@@ -9,15 +9,39 @@
             
                 <StackLayout Orientation="Vertical" Margin="20">
 
-                <Label TextColor="White" FontAttributes="Bold" FontSize="20">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="¡Hola, " />
-                            <Span x:Name="welcomeUserName"  Text="{Binding NombreUsuario}"  />
-                            <Span Text="! 🍿" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <Grid>
+                    <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+
+
+
+
+                    <Label TextColor="White" FontAttributes="Bold" FontSize="20" Grid.Row="0" Grid.Column="0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="¡Hola, " />
+                                <Span x:Name="welcomeUserName"  Text="{Binding NombreUsuario}"  />
+                                <Span Text="! 🍿" />
+                            </FormattedString>
+                        </Label.FormattedText>
+
+                    </Label>
+
+
+                    <ImageButton Source="cerrar_sesion.png" Grid.Row="0" Grid.Column="1" Clicked="btnCerrarSesion_Clicked"  BackgroundColor="Transparent" />
+
+                </Grid>
+                    
+         
+
+
+
                 <StackLayout Orientation="Horizontal" Margin="10" >
                     <Button     
                             x:Name="btnPeliculas"
@@ -47,7 +71,7 @@
 
                     <Button     
                             x:Name="btnDatos"
-                             Text="Datos"
+                             Text="Cuenta"
                              CornerRadius="20"
                              WidthRequest="100"
                              HeightRequest="35"
@@ -105,9 +129,68 @@
                                Text="{Binding NombreUsuario}" TextColor="#838383" WidthRequest="100"
                               
                                Grid.Row="0" Grid.ColumnSpan="7" />
+                        
+                        
 
                     </Grid>
-                    
+
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <Button x:Name="btnCambiarApaterno" Clicked="btnCambiarApaterno_Clicked" Text=">" HorizontalOptions="End" Grid.Row="0" Grid.Column="7" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
+                        <Entry x:Name="txtApaternoUsuario" 
+                               
+                               Text="{Binding ApaternoUsuario}" TextColor="#838383" WidthRequest="100"
+                              
+                               Grid.Row="0" Grid.ColumnSpan="7" />
+                    </Grid>
+
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <Button x:Name="btnCambiarAmaterno" Clicked="btnCambiarAmaterno_Clicked"  Text=">" HorizontalOptions="End" Grid.Row="0" Grid.Column="7" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
+                        <Entry x:Name="txtAmaternoUsuario" 
+                               
+                               Text="{Binding AmaternoUsuario}" TextColor="#838383" WidthRequest="100"
+                              
+                               Grid.Row="0" Grid.ColumnSpan="7" />
+
+
+
+                    </Grid>
+
+
+
 
                     <Label Text="Correo eléctronico" TextColor="White" FontSize="18" FontAttributes="Bold" />
                     <Entry x:Name="txtCorreoElec" IsReadOnly="True" Text="{Binding CorreoUsuario}"  TextColor="#838383" WidthRequest="10" />
@@ -135,6 +218,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
+                            
                         </Grid.ColumnDefinitions>
 
                         <Button x:Name="btnCambiarPass" Clicked="btnCambiarPass_Clicked" Grid.Row="0" Grid.Column="7" Text=">" HorizontalOptions="End" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
@@ -143,42 +227,51 @@
                 
 
                     </Grid>
+                    
+                    
 
 
 
 
 
-
-
-
-
-                    <StackLayout Orientation="Horizontal" Margin="20">
-                        
-                        <Image Source="copa.png" />
-                        
-                        <Label Text="¡Explora tus premios por compras de películas aquí! Canjea tus puntos en cualquier cine de Cinemas AJEM y disfruta de grandes beneficios."
-                               TextColor="#838383" />
-
-
-
-
+                    <StackLayout Orientation="Horizontal" Margin="10">
+                        <Image Source="tarjeta.png" WidthRequest="30"/>
+                        <Button x:Name="btnAgregarMetodoPago"  Clicked="btnAgregarMetodoPago_Clicked" Text="Agregar método de pago" BackgroundColor="Transparent" TextColor="#838383" FontAttributes="Bold"  />
                     </StackLayout>
 
 
-                    <StackLayout Orientation="Horizontal" Margin="20">
-                        <Image Source="cerrar_sesion.png" />
-                        <Button x:Name="btnCerrarSesion" Clicked="btnCerrarSesion_Clicked" Text="cerrar sesión" BackgroundColor="Transparent" TextColor="#c80000" FontAttributes="Bold"  />
-                    </StackLayout>
 
 
-                    <StackLayout Orientation="Horizontal" Margin="20">
-                        <Image Source="basura.png" />
-                        <Button x:Name="btnEliminarCuenta" Clicked="btnEliminarCuenta_Clicked" Text="Eliminar mí cuenta" BackgroundColor="Transparent" TextColor="#c80000" FontAttributes="Bold"  />
-                    </StackLayout>
 
                     
 
 
+                   <!-- <StackLayout Orientation="Horizontal" Margin="20">
+                        <Image Source="cerrar_sesion.png" WidthRequest="25" />
+                        <Button x:Name="btnCerrarSesion"  FontAttributes="Bold"  />
+                        
+                    </StackLayout> -->
+                    
+
+
+
+
+                    <StackLayout Orientation="Horizontal" Margin="10">
+
+                        <Image Source="copa.png" />
+
+                        <Button x:Name="btnPremios" Text="Mis premios" BackgroundColor="Transparent" TextColor="#838383" FontAttributes="Bold"  />
+
+
+
+
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Horizontal" Margin="10">
+                        <Image Source="basura.png" />
+                        <Button x:Name="btnEliminarCuenta" Clicked="btnEliminarCuenta_Clicked" Text="Eliminar mí cuenta" BackgroundColor="Transparent" TextColor="#c80000" FontAttributes="Bold"  />
+                    </StackLayout>
 
 
 

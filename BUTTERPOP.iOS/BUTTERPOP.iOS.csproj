@@ -242,4 +242,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\cerrar_sesion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bgWelcome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\metodo_pago.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tarjeta.png" />
+  </ItemGroup>
 </Project>

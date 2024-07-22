@@ -21,10 +21,10 @@ namespace BUTTERPOP.vistas
 
 
         
-        public HomePage(string nombreUsuario, string correoUsuario, string passUsuario) : this()
+        public HomePage(string nombreUsuario, string apaternoUsuario, string amaternoUsuario,  string correoUsuario, string passUsuario) : this()
         {
             // Establecer el contexto de datos con el nombre de usuario recibido
-            BindingContext = new PerfilViewModel(nombreUsuario, correoUsuario, passUsuario);
+            BindingContext = new PerfilViewModel(nombreUsuario, apaternoUsuario, amaternoUsuario, correoUsuario, passUsuario);
         } 
 
     }

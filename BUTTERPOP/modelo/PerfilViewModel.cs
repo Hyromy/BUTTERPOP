@@ -19,15 +19,19 @@ namespace BUTTERPOP.modelo
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string _nombreUsuario;
-
+        private string _apaternoUsuario;
+        private string _amaternoUsuario;
+       
         private string _correoUsuario;
 
         private string _passUsuario;
 
 
-        public PerfilViewModel(string nombreUsuario, string correoUsuario, string passUsuario)
+        public PerfilViewModel(string nombreUsuario, string apaternoUsuario, string amaternoUsuario, string correoUsuario, string passUsuario)
         {
             NombreUsuario = nombreUsuario;
+            ApaternoUsuario = apaternoUsuario;
+            AmaternoUsuario = amaternoUsuario;
             CorreoUsuario = correoUsuario;
             PassUsuario = passUsuario;
         }
@@ -42,6 +46,26 @@ namespace BUTTERPOP.modelo
             {
                 _nombreUsuario = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NombreUsuario)));
+            }
+        }
+
+        public string ApaternoUsuario
+        {
+            get { return _apaternoUsuario; }
+            set
+            {
+                _apaternoUsuario = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ApaternoUsuario)));
+            }
+        }
+
+        public string AmaternoUsuario
+        {
+            get { return _amaternoUsuario; }
+            set
+            {
+                _amaternoUsuario = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AmaternoUsuario)));
             }
         }
 

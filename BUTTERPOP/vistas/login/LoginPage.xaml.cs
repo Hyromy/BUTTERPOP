@@ -8,6 +8,7 @@ using Xamarin.Forms.Xaml;
 using System.Diagnostics;
 using BUTTERPOP.modelo;
 using Xamarin.Essentials;
+using BUTTERPOP.vistas.tarjeta;
 
 namespace BUTTERPOP.vistas
 {
@@ -173,13 +174,14 @@ namespace BUTTERPOP.vistas
                     return;
                 }
 
-                if (validarPassword())
-                {
+               
                     Usuarios usuario = new Usuarios
 
                     {
                         correo = txtEmailR.Text,
-                        usuario = txtUsername.Text,
+                        nombre = txtNombre.Text,
+                        apaterno = txtApaterno.Text,
+                        amaterno = txtAmaterno.Text,
                         password = txtPassR.Text,
 
                     };
@@ -187,8 +189,10 @@ namespace BUTTERPOP.vistas
                     await App.SQLiteDB.SaveUsuarioAsync(usuario);
                     txtEmailR.Text = "";
                     txtPassR.Text = "";
-                    txtUsername.Text = "";
-                    txtPassRCheck.Text = "";
+                    txtNombre.Text = "";
+                    txtApaterno.Text = "";
+                    txtAmaterno.Text = "";
+                    
 
                     await DisplayAlert("Registro Exitoso", "Te has registrado correctamente, por favor inicia sesión", "Aceptar");
 
@@ -199,10 +203,7 @@ namespace BUTTERPOP.vistas
                     var duration = TimeSpan.FromSeconds(0.2);
                     Vibration.Vibrate(duration);
 
-                } else
-                {
-                    await DisplayAlert("Advertencia", "Las contraseñas no coinciden", "Aceptar");
-                }
+               
 
             }
             else
@@ -230,8 +231,11 @@ namespace BUTTERPOP.vistas
                         if (usuario.password == txtPassI.Text)
                         {
                             // Paso de parametros recibidos al constructor de HomePage
-                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));
-                            var duration = TimeSpan.FromSeconds(0.2);
+                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.nombre, usuario.apaterno, usuario.amaterno, usuario.correo, usuario.password));
+
+                            var bilingpage = new BillingPage(usuario.nombre, usuario.apaterno, usuario.amaterno, usuario.correo, usuario.password);
+                            
+                        var duration = TimeSpan.FromSeconds(0.2);
                             Vibration.Vibrate(duration);
 
                     }
@@ -263,21 +267,27 @@ namespace BUTTERPOP.vistas
             {
                 respuesta = false;
             }
-            else if (string.IsNullOrEmpty(txtUsername.Text))
+            else if (string.IsNullOrEmpty(txtNombre.Text))
             {
                 respuesta = false;
             }
-            else if (string.IsNullOrEmpty(txtPassRCheck.Text))
+            else if (string.IsNullOrEmpty(txtApaterno.Text))
             {
                 respuesta = false;
-            } else
+            }
+            else if (string.IsNullOrEmpty(txtAmaterno.Text))
+            {
+                respuesta = false;
+
+            }
+            else
             {
                 respuesta = true;
             }
             return respuesta;
         }
 
-        public bool validarPassword()
+        /*public bool validarPassword()
         {
             bool respuesta;
 
@@ -290,7 +300,7 @@ namespace BUTTERPOP.vistas
             }
             return respuesta;
 
-        }
+        }*/
 
         public bool validarDatosInicioSesion()
         {
@@ -339,7 +349,7 @@ namespace BUTTERPOP.vistas
             txtPassR.IsPassword = true;
         }
 
-        private void btnVerPassword3_Clicked(object sender, EventArgs e)
+        /*private void btnVerPassword3_Clicked(object sender, EventArgs e)
         {
             btnVerPassword3.IsVisible = false;
             btnOcultarPassword3.IsVisible = true;
@@ -351,7 +361,7 @@ namespace BUTTERPOP.vistas
             btnVerPassword3.IsVisible = true;
             btnOcultarPassword3.IsVisible = false;
             txtPassRCheck.IsPassword = true;
-        }
+        }*/
 
         public bool IsValidEmail()
         {
