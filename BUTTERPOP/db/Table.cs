@@ -159,10 +159,23 @@ namespace BUTTERPOP.db
             }
         }
 
+
         public class Comenta
         {
             [PrimaryKey, AutoIncrement]
             public int id_comentario { get; set; }
+
+            [ForeignKey(typeof(Table.Cliente)), MaxLength(50)]
+            public string correo { get; set; }
+
+            [ForeignKey (typeof(Table.Pelicula))]
+            public int id_pelicula { get; set; }
+            [MaxLength(255)]
+            public string Comentario { get; set; }
+            [MaxLength(255)]
+            public string Puntuacion { get; set; }
+
+
         }
 
         public class Contiene
