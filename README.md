@@ -1,30 +1,5 @@
 *`documento sujeto a cambios`*
 
-```
-ESTRUCTURA DE CARPETAS
-
-BUTTERPOP
-│
-├───model
-│   │
-│   ├───caso_de_uso_1
-│   │   └───Model.cs
-│   │
-│   └───caso_de_uso_1
-│       └───Model.cs
-│
-├────crud
-│    ├───CRUD_tabla_1.cs
-│    └───CRUD_tabla_2.cs
-│
-└────vistas
-     ├───vista_1.xaml
-     │   └───vista_1.cs
-     │
-     └───vista_2.xaml
-        └───vista_1.cs
-```
-
 <!-- 
 si estas leyendo esto por favor instala la siguiente extencion:
 ve a la seccion extenciones y busca "GitHub Markdown Preview" v0.3.0 o posterior
@@ -75,9 +50,26 @@ Gracias por tu atencion y paciencia, tqm
 -->
 
 ### Cambios pendientes por realizar
+#### Marco teorico
+- [ ] Comprobar el marco teorico
+
+#### Roles de usuario
+- [ ] Comprobar la especificacion del rol "Administrador"
+
+#### Diagrama general
+- [ ] Comprobar el diagrama general
+
 #### Diagramas de secuencia
 - [ ] Agregar diagrama "Gestionar película" en README
-- [ ] Agregar diagrama "Gestionar película" en DOC
+
+#### Diagrama Relacional BD
+- [ ] Reestructurar el diagrama relacional de la base de datos
+
+#### Diccionario de datos
+- [ ] Expandir los campos de la tabla "cliente"
+- [ ] Expandir los campos de la tabla "renta"
+- [ ] Verificar la estructura de la tabla "pelicula"
+- [ ] Comprobar el uso de la tabla "administrador"
 
 #### Diseño de pruebas
 - [ ] Realizar diseño de pruebas de "crear lista" en README
@@ -85,10 +77,9 @@ Gracias por tu atencion y paciencia, tqm
 - [ ] Realizar diseño de pruebas de "actualizar lista" en README
 - [ ] Realizar diseño de pruebas de "actualizar lista" en DOC
 - [ ] Realizar diseño de pruebas de "gestionar pelicula" en README
-- [ ] Realizar diseño de pruebas de "gestionar pelicula" en DOC
 
 #### Interfaces
-- [ ] Agregar interfaces de administrador
+- [ ] Autorizar interfaces de administrador
 
 ---
 
@@ -139,6 +130,8 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
     - [Diccionario de datos](#22-diccionario-de-datos)
     - [Diseño de pruebas](#23-diseño-de-pruebas)
     - [Diseño de las interfaces (maquetas)](#24-diseño-de-las-interfaces-maquetas)
+- [CAPÍTULO 3 ...]()
+- [DESARROLLADORES](#desarolladores)
 
 ## RESUMEN
 
@@ -2251,3 +2244,13 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 *La figura 2.4.14 muestra la interfaz de "mi perfil"*
 
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
+
+
+
+
+
+## DESAROLLADORES
+
+<!-- no eliminar las etiquetas stats ya que son parte de dev_stats.py y github accions -->
+<!-- stats -->
+<!-- /stats -->

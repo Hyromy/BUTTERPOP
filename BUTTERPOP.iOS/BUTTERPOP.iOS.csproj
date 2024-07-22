@@ -243,6 +243,9 @@
     <BundleResource Include="Resources\cerrar_sesion.png" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\header_back.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\bgWelcome.jpg" />
   </ItemGroup>
   <ItemGroup>

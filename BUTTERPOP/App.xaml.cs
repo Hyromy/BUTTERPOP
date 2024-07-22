@@ -1,13 +1,12 @@
-﻿using BUTTERPOP.utils;
-using System;
+﻿using System;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using BUTTERPOP.db;
+
 namespace BUTTERPOP
 {
-
-    
     public partial class App : Application
     {
         static SQLiteHelper db;
@@ -25,8 +24,7 @@ namespace BUTTERPOP
             {
                 if (db==null)
                 {
-                    db = new SQLiteHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ButterPop.db3"));
-
+                    db = new SQLiteHelper();
                 }
                 return db;
             }

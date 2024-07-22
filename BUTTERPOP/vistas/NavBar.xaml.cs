@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using BUTTERPOP.db;
+
 namespace BUTTERPOP.vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -18,8 +20,6 @@ namespace BUTTERPOP.vistas
             InitializeComponent();
 
         }
-
-
         
         public HomePage(string nombreUsuario, string apaternoUsuario, string amaternoUsuario,  string correoUsuario, string passUsuario) : this()
         {

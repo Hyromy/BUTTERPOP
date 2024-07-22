@@ -1,0 +1,38 @@
+name: DevStats
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-lastest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: configurando python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: actualizar pip
+        run: python -m pip install --upgrade pip
+
+      - name: instalar dependencias
+        run: pip install requests
+
+      - name: run dev_stats.py
+        run: python ./dev_stats.py
+
+      - name: commit y push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: update dev stats
+          commit_user_name: Hyromy [GitHub Actions]
+          commit_user_email: formulajoel9@gmail.com
+          commit_author: Hyromy

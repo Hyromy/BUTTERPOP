@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.Vistas.listas.RegistroListas">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1E1E1E">
+
+            <Frame VerticalOptions="CenterAndExpand" 
+                   Margin="10" 
+                   HeightRequest="500" 
+                   CornerRadius="20">
+
+                <StackLayout x:Name="registerForm" 
+                             IsVisible="True" 
+                             Orientation="Vertical" 
+                             Spacing="10">
+
+
+                    <Label Text="¡Crea tu lista!" 
+                           HorizontalTextAlignment="Start" 
+                           FontAttributes="Bold" 
+                           FontSize="Medium" 
+                           TextColor="Black"/>
+
+                    <Button Text="Selecciona imagen"
+                            x:Name="btnImagen"
+                            Clicked="btnImagen_Clicked"
+                            BackgroundColor="#C80000" 
+                            TextColor="White" 
+                            CornerRadius="40" 
+                            />
+
+                    <Image Source=""
+                           x:Name="ImagenLista"
+                           WidthRequest="150"
+                           HeightRequest="150"/>
+
+                    <Frame Padding="5" 
+                           Margin="5" 
+                           BackgroundColor="#D6D6D6" 
+                           CornerRadius="10">
+
+                        <Entry Placeholder="Nombre" 
+                               x:Name="txtNombre"
+                               PlaceholderColor="#787878"
+                               TextColor="#787878" />
+
+                    </Frame>
+
+                    <Frame Padding="5" 
+                           Margin="5" 
+                           BackgroundColor="#D6D6D6" 
+                           CornerRadius="10" >
+
+                        <Entry Placeholder="Descripción" 
+                               x:Name="txtDesc" 
+                               Keyboard="Text" 
+                               HeightRequest="100" 
+                               TextColor="#787878" 
+                               PlaceholderColor="#787878"/>
+
+                    </Frame>
+
+                    <Button Text="Agregar" 
+                            BackgroundColor="#C80000" 
+                            TextColor="White" 
+                            CornerRadius="40" 
+                            x:Name="btnRegistrar" 
+                            Clicked="btnRegistrar_Clicked" 
+                            HorizontalOptions="End"/>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

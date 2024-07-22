@@ -1,65 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BUTTERPOP.vistas.pelicula.InfoPelicula">
+             x:Class="BUTTERPOP.vistas.pelicula.InfoPelicula"
+             NavigationPage.HasNavigationBar="False">
 
-    <StackLayout>
+    <Grid BackgroundColor="#1c1c1c">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
         <!-- cabecera -->
-        <StackLayout Orientation="Horizontal"
-                     HeightRequest="64"
-                     HorizontalOptions="Center"
-                     Spacing="0">
+        <AbsoluteLayout Grid.Row="0"
+                            HeightRequest="64"
+                            BackgroundColor="#580000">
 
-            <Image Source="butterpop_main.png"
-                   Margin="0, 0, 8, 0"/>
+            <!-- volver -->
+            <Frame x:Name="nav_back"
+                       AbsoluteLayout.LayoutBounds="0, 0, 64, 1"
+                       AbsoluteLayout.LayoutFlags="PositionProportional, HeightProportional"
+                       Padding="12"
+                       Margin="8"
+                       CornerRadius="0"
+                       BackgroundColor="#00000000">
 
-            <Label Text="BUTTER"
-                   FontSize="48"
-                   FontAttributes="Bold"
-                   TextColor="#fff"/>
+                <Image Source="header_back.png"
+                           Aspect="Fill"/>
+            </Frame>
 
-            <Label Text="POP"
-                   FontSize="48"
-                   FontAttributes="Bold"
-                   TextColor="#f00"/>
-        </StackLayout>
+            <!-- titulo -->
+            <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                             AbsoluteLayout.LayoutFlags="All"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Padding="0"
+                             Spacing="0">
 
-        <!-- cuerpo -->
-        <ScrollView>
-            <StackLayout>
-                
-                <!-- pelicula -->
-                <Grid Padding="12">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+                <Image Source="butterpop_main"
+                           AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                           AbsoluteLayout.LayoutFlags="All"
+                           HeightRequest="40"
+                           Margin="0, 0, 8, 0"/>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                <Label Text="BUTTER"
+                           FontSize="40"
+                           VerticalTextAlignment="Center"
+                           TextColor="#fff"
+                           FontAttributes="Bold"/>
 
-                    <!-- poster -->
-                    <Frame Grid.Row="0"
+                <Label Text="POP"
+                           FontSize="40"
+                           VerticalTextAlignment="Center"
+                           TextColor="#c80000"
+                           FontAttributes="Bold"/>
+            </StackLayout>
+
+            <!-- borde separador -->
+            <BoxView AbsoluteLayout.LayoutBounds="0, 1.1, 1, 6"
+                         AbsoluteLayout.LayoutFlags="YProportional, WidthProportional"
+                         BackgroundColor="#c80000"/>
+        </AbsoluteLayout>
+
+        <StackLayout Grid.Row="1">
+
+            <!-- cuerpo -->
+            <ScrollView>
+                <StackLayout>
+
+                    <!-- pelicula -->
+                    <Grid Padding="12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- poster -->
+                        <Frame Grid.Row="0"
                            Grid.Column="0"
                            Grid.RowSpan="5"
                            CornerRadius="16"
                            Padding="0"
                            Margin="0">
 
-                        <Image x:Name="film_poster"
+                            <Image x:Name="film_poster"
                                Source="shrek_portada.jpg"
                                Aspect="AspectFill"/>
-                    </Frame>
-                    
-                    <!-- titulo -->
-                    <Label x:Name="film_name"
+                        </Frame>
+
+                        <!-- titulo -->
+                        <Label x:Name="film_name"
                            Grid.Row="0"
                            Grid.Column="1"
                            Text="SHREK"
@@ -68,100 +107,104 @@
                            FontSize="32"
                            FontAttributes="Bold"/>
 
-                    <!-- descripcion -->
-                    <Label x:Name="film_description"
+                        <!-- descripcion -->
+                        <Label x:Name="film_description"
                            Grid.Row="1"
                            Grid.Column="1"
                            Text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint odit quae soluta possimus quod alias maiores, aliquam quia non et laboriosam doloremque aut? Sit qui laborum quisquam porro similique minima."
                            TextColor="#fff"
                            Margin="8, 0, 0, 16"/>
 
-                    <!-- precio -->
-                    <StackLayout Grid.Row="2"
+                        <!-- precio -->
+                        <StackLayout Grid.Row="2"
                                  Grid.Column="1"
                                  Orientation="Horizontal"
                                  HorizontalOptions="Center">
 
-                        <Label Text="Renta"
+                            <Label Text="Renta"
                                FontSize="Large"
                                TextColor="#fff"/>
 
-                        <Label x:Name="film_price"
+                            <Label x:Name="film_price"
                                Text="$50"
                                FontSize="Large"
                                TextColor="#f00"/>
-                    </StackLayout>
+                        </StackLayout>
 
-                    <!-- boton renta -->
-                    <Frame Grid.Row="3"
+                        <!-- boton renta -->
+                        <Frame Grid.Row="3"
                            Grid.Column="1"
                            CornerRadius="32"
                            Padding="16, 0, 16, 0"
                            BackgroundColor="#f00"
                            HorizontalOptions="Center">
 
-                        <Button x:Name="btn_rent"
+                            <Button x:Name="btn_rent"
                                 Text="rentar"
                                 BackgroundColor="#00000000"/>
-                    </Frame>
-                    
-                    <!-- boton lista -->
-                    <StackLayout x:Name="add_list"
+                        </Frame>
+
+                        <!-- boton lista -->
+                        <StackLayout x:Name="add_list"
                                  Grid.Row="4"
                                  Grid.Column="1"
                                  Orientation="Horizontal"
                                  HorizontalOptions="Center"
+                                 VerticalOptions="Start"
                                  Margin="0, 16, 0, 0"
                                  Padding="16, 0, 16, 0">
 
-                        <Frame BackgroundColor="#f00"
+                            <Frame BackgroundColor="#f00"
                                Padding="10, 0, 10, 0"
                                CornerRadius="16">
-                            
-                            <Label Text="+"
-                                   FontSize="24"
-                                   TextColor="#fff"/>
-                        </Frame>
 
-                        <Label Text="Añadir a lista"
+                                <Label Text="+"
+                                   FontSize="24"
+                                   TextColor="#fff"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"/>
+                            </Frame>
+
+                            <Label Text="Añadir a lista"
                                TextColor="#fff"
                                VerticalTextAlignment="Center"/>
-                    </StackLayout>
+                        </StackLayout>
 
-                    <!-- puntuacion -->
-                    <StackLayout x:Name="film_score"
+                        <!-- puntuacion -->
+                        <StackLayout x:Name="film_score"
                                  Grid.Row="5"
                                  Grid.Column="0"
                                  Orientation="Horizontal"
                                  HorizontalOptions="Center"
                                  HeightRequest="24">
 
-                        <Image Source="star.png"/>
-                        <Image Source="star.png"/>
-                        <Image Source="star_half.png"/>
-                    </StackLayout>
-                    
-                    <!-- separador -->
-                    <BoxView Grid.Row="6"
+                            <Image Source="star.png"/>
+                            <Image Source="star.png"/>
+                            <Image Source="star_half.png"/>
+                        </StackLayout>
+
+                        <!-- separador -->
+                        <BoxView Grid.Row="6"
                              Grid.Column="0"
                              Grid.ColumnSpan="2"
                              HeightRequest="4"
                              BackgroundColor="#f00"
                              Margin="0, 8, 0, 8"/>
-                </Grid>
+                    </Grid>
 
-                <!-- comentarios -->
-                <StackLayout BackgroundColor="#ff0"
+                    <!-- comentarios -->
+                    <StackLayout BackgroundColor="#ff0"
                              Margin="16">
-                    
-                    <Label Text="Trabajo pendiente&#x0a;(Responsable chucho)"
+
+                        <Label Text="Trabajo pendiente&#x0a;(Responsable chucho)"
                            HorizontalTextAlignment="Center"
                            VerticalTextAlignment="Center"
                            FontSize="Large"
                            FontAttributes="Bold"
                            TextColor="#f00"/>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
-    </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </Grid>
 </ContentPage>
