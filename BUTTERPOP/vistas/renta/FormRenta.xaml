@@ -5,13 +5,15 @@
              NavigationPage.HasNavigationBar="False">
     
     <ContentPage.Content>
-        <Grid BackgroundColor="#1c1c1c">
+        <Grid x:Name="main"
+              BackgroundColor="#1c1c1c">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 
                 <!-- for debug -->
-                <!-- <RowDefinition Height="Auto"/> -->
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- cabecera -->
@@ -310,9 +312,10 @@
             </ScrollView>
 
             <!-- for debug -->
-            <!-- <Button Grid.Row="2"
+            <Button Grid.Row="2"
                     x:Name="toTest"
-                    Text="CRUD"/> -->
+                    Text="CRUD"
+                    IsVisible="False"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

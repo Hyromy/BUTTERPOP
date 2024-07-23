@@ -12,10 +12,4 @@
             BarBackgroundColor="#c80000"
             SelectedTabColor="White"   
             UnselectedTabColor="Black">
-    
-  <!--Pages can be added as references or inline-->
-  
 </TabbedPage>
-    
-    
-    
