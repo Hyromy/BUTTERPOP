@@ -2227,4 +2227,79 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 
 <!-- no eliminar las etiquetas stats ya que son parte de dev_stats.py y github accions -->
 <!-- stats -->
+<h3>
+	<a href='https://github.com/Hyromy' target='_blanck'>
+		<img src='https://avatars.githubusercontent.com/u/70178779?v=4' height='16'>
+		Hyromy
+	</a>
+</h3>
+
+**Confirmaciones: 68**
+
+Inserciones: 76522
+
+Eliminaciones: 30019
+
+---
+
+<h3>
+	<a href='https://github.com/josejulianmtnez' target='_blanck'>
+		<img src='https://avatars.githubusercontent.com/u/160277395?v=4' height='16'>
+		josejulianmtnez
+	</a>
+</h3>
+
+**Confirmaciones: 16**
+
+Inserciones: 36739
+
+Eliminaciones: 5706
+
+---
+
+<h3>
+	<a href='https://github.com/And-Y21' target='_blanck'>
+		<img src='https://avatars.githubusercontent.com/u/157259544?v=4' height='16'>
+		And-Y21
+	</a>
+</h3>
+
+**Confirmaciones: 5**
+
+Inserciones: 1139
+
+Eliminaciones: 164
+
+---
+
+<h3>
+	<a href='https://github.com/EmanuelGarciaCapote' target='_blanck'>
+		<img src='https://avatars.githubusercontent.com/u/157267129?v=4' height='16'>
+		EmanuelGarciaCapote
+	</a>
+</h3>
+
+**Confirmaciones: 3**
+
+Inserciones: 83
+
+Eliminaciones: 46
+
+---
+
+<h3>
+	<a href='https://github.com/Heisenburg3' target='_blanck'>
+		<img src='https://avatars.githubusercontent.com/u/169628671?v=4' height='16'>
+		Heisenburg3
+	</a>
+</h3>
+
+**Confirmaciones: 1**
+
+Inserciones: 170
+
+Eliminaciones: 25
+
+---
+
 <!-- /stats -->
