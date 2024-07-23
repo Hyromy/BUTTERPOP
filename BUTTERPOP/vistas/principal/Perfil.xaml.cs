@@ -16,6 +16,7 @@ using static BUTTERPOP.db.Table;
 using BUTTERPOP.db;
 using System.IO;
 using Xamarin.Essentials;
+using BUTTERPOP.crud.renta;
 
 
 
@@ -28,12 +29,12 @@ namespace BUTTERPOP.vistas
         private CRUD_Lista crud2 = new CRUD_Lista();
 
         private Table.Cliente cliente;
-
+        
         public Perfil(Table.Cliente cliente)
         {
             InitializeComponent();
             DatosRecuperados(cliente);
-            llenarDatosListas();
+            
 
             this.cliente = cliente;
 
@@ -45,7 +46,7 @@ namespace BUTTERPOP.vistas
         {
             InitializeComponent();
             LlenarDatos();
-            llenarDatosListas();
+            
             
         }
 
@@ -87,6 +88,9 @@ namespace BUTTERPOP.vistas
             btnPeliculas.TextColor = Color.White;
             btnDatos.BackgroundColor = Color.FromHex("#3A3A3A");
             btnDatos.TextColor = Color.White;
+
+            llenarDatosListas();
+
         }
 
         private void btnDatos_Clicked(object sender, EventArgs e)
@@ -425,7 +429,12 @@ namespace BUTTERPOP.vistas
         }
         public async void llenarDatosListas()
         {
-            var listaList = await crud2.GetListasAsync();
+           
+
+
+            List<Table.Lista> listaList = await crud2.GetListasByCorreoAsync(cliente.correo);
+            
+
             if (listaList != null)
             {
                 lstListas.ItemsSource = listaList;
@@ -436,6 +445,8 @@ namespace BUTTERPOP.vistas
                 lblListas.IsVisible = true;
                 lstListas.IsVisible = false;
             }
+
+           
         }
 
         private void btnEditar_Clicked(object sender, EventArgs e)

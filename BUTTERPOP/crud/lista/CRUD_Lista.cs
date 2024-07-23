@@ -42,8 +42,13 @@ namespace BUTTERPOP.crud.lista
             return db.Table<Table.Lista>().Where(a => a.id_lista == idLista).FirstOrDefaultAsync();
         }
 
+        public Task<List<Table.Lista>> GetListasByCorreoAsync(string correo)
+        {
+            return this.db.Table<Table.Lista>().Where(a => a.correo == correo).ToListAsync();
+        }
 
         
+
     }
     
     

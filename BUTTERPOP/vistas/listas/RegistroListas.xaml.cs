@@ -53,7 +53,7 @@ namespace BUTTERPOP.Vistas.listas
                 txtDesc.Text = "";
                 ImagenLista.Source = "";
                 await DisplayAlert("Registro", "Lista guardada en tu interfaz", "OK");
-                await Navigation.PushAsync(new Perfil());
+                await Navigation.PushAsync(new Perfil(cliente));
                 
                 
             }
