@@ -2225,79 +2225,187 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 
 ## DESAROLLADORES
 <!-- stats -->
-<h3>
-	<a href='https://github.com/Hyromy' target='_blanck'>
-		<img src='https://avatars.githubusercontent.com/u/70178779?v=4' height='16'>
-		Hyromy
-	</a>
-</h3>
-
-**Confirmaciones: 68**
-
-Inserciones: 76522
-
-Eliminaciones: 30019
-
----
-
-<h3>
-	<a href='https://github.com/josejulianmtnez' target='_blanck'>
-		<img src='https://avatars.githubusercontent.com/u/160277395?v=4' height='16'>
-		josejulianmtnez
-	</a>
-</h3>
-
-**Confirmaciones: 16**
-
-Inserciones: 36739
-
-Eliminaciones: 5706
-
----
-
-<h3>
-	<a href='https://github.com/And-Y21' target='_blanck'>
-		<img src='https://avatars.githubusercontent.com/u/157259544?v=4' height='16'>
-		And-Y21
-	</a>
-</h3>
-
-**Confirmaciones: 5**
-
-Inserciones: 1139
-
-Eliminaciones: 164
-
----
-
-<h3>
-	<a href='https://github.com/EmanuelGarciaCapote' target='_blanck'>
-		<img src='https://avatars.githubusercontent.com/u/157267129?v=4' height='16'>
-		EmanuelGarciaCapote
-	</a>
-</h3>
-
-**Confirmaciones: 3**
-
-Inserciones: 83
-
-Eliminaciones: 46
-
----
-
-<h3>
-	<a href='https://github.com/Heisenburg3' target='_blanck'>
-		<img src='https://avatars.githubusercontent.com/u/169628671?v=4' height='16'>
-		Heisenburg3
-	</a>
-</h3>
-
-**Confirmaciones: 1**
-
-Inserciones: 170
-
-Eliminaciones: 25
-
----
-
+<table>
+	<tr>
+		<td>Desarrollador</td>
+		<td>Commits</td>
+		<td>Inserciones</td>
+		<td>Eliminaciones</td>
+		<td>Inserciones efectivas</td>
+		<td>Líneas por commit</td>
+		<td>Porcentaje de código</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/And-Y21' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/157259544?v=4' height='128'>
+				<br>And-Y21
+			</a>
+		</td>
+		<td>5</td>
+		<td>1139</td>
+		<td>164</td>
+		<td>975</td>
+		<td>195</td>
+		<td>1.24%</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/EmanuelGarciaCapote' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/157267129?v=4' height='128'>
+				<br>EmanuelGarciaCapote
+			</a>
+		</td>
+		<td>3</td>
+		<td>83</td>
+		<td>46</td>
+		<td>37</td>
+		<td>12</td>
+		<td>0.05%</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/Heisenburg3' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/169628671?v=4' height='128'>
+				<br>Heisenburg3
+			</a>
+		</td>
+		<td>1</td>
+		<td>170</td>
+		<td>25</td>
+		<td>145</td>
+		<td>145</td>
+		<td>0.19%</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/Hyromy' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/70178779?v=4' height='128'>
+				<br>Hyromy
+			</a>
+		</td>
+		<td>74</td>
+		<td>76645</td>
+		<td>30490</td>
+		<td>46155</td>
+		<td>623</td>
+		<td>58.91%</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/josejulianmtnez' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/160277395?v=4' height='128'>
+				<br>josejulianmtnez
+			</a>
+		</td>
+		<td>16</td>
+		<td>36739</td>
+		<td>5706</td>
+		<td>31033</td>
+		<td>1939</td>
+		<td>39.61%</td>
+	</tr>
+</table>
 <!-- /stats -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+![easter egg](img_doc/general/furinaDance.gif)
