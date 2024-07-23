@@ -2224,8 +2224,6 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 
 
 ## DESAROLLADORES
-
-<!-- no eliminar las etiquetas stats ya que son parte de dev_stats.py y github accions -->
 <!-- stats -->
 <h3>
 	<a href='https://github.com/Hyromy' target='_blanck'>

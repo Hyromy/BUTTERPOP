@@ -8,12 +8,22 @@ class Dev:
         self.commits = commits
         self.insertions = 0
         self.deletions = 0
+        self.effective = 0
+        self.lines_per_commit = 0
 
     def update_stats(self, insertions, deletions):
         self.insertions += insertions
         self.deletions += deletions
 
+    def calculate_effective(self) -> int:
+        self.effective = self.insertions - self.deletions
+        return self.effective
+
+    def calculate_lines_per_commit(self):
+        self.lines_per_commit = self.effective // self.commits
+
 dev_list = []
+total_efective_lines = 0
 
 owner = "Hyromy"
 repo = "BUTTERPOP"
@@ -53,6 +63,11 @@ for dev in dev_list:
                 deletions = sum(week["d"] for week in dev_stats["weeks"])
                 dev.update_stats(insertions, deletions)
 
+        total_efective_lines += dev.calculate_effective()
+        dev.calculate_lines_per_commit()
+
+dev_list.sort(key = lambda dev: dev.name)
+
 with open("README.md", "r", encoding = "utf-8") as f:
     readme = f.read()
 
@@ -61,21 +76,38 @@ _, _, part3 = rest.partition("<!-- /stats -->")
 
 content = "\n".join([
     "\n".join([
-        f"<h3>",
-        f"\t<a href='{dev.profile_url}' target='_blanck'>",
-        f"\t\t<img src='{dev.avatar_url}' height='16'>",
-        f"\t\t{dev.name}",
-        f"\t</a>",
-        f"</h3>",
-        f"\n**Confirmaciones: {dev.commits}**",
-        f"\nInserciones: {dev.insertions}",
-        f"\nEliminaciones: {dev.deletions}",
-        "\n---\n"
+        f"\t<tr>",
+        f"\t\t<td>",
+        f"\t\t\t<a href='{dev.profile_url}' target='_blanck'>",
+        f"\t\t\t\t<img src='{dev.avatar_url}' height='128'>",
+        f"\t\t\t\t<br>{dev.name}",
+        f"\t\t\t</a>",
+        f"\t\t</td>",
+        f"\t\t<td>{dev.commits}</td>",
+        f"\t\t<td>{dev.insertions}</td>",
+        f"\t\t<td>{dev.deletions}</td>",
+        f"\t\t<td>{dev.effective}</td>",
+        f"\t\t<td>{dev.lines_per_commit}</td>",
+        f"\t\t<td>{dev.effective / total_efective_lines:.2%}</td>",
+        f"\t</tr>"
     ]) for dev in dev_list
 ])
 
-insert = f"<!-- stats -->\n{content}\n<!-- /stats -->"
-update = f"{part1}{insert}{part3}"
+table = "<table>\n"
+table += "\t<tr>\n"
+table += "\t\t<td>Desarrollador</td>\n"
+table += "\t\t<td>Commits</td>\n"
+table += "\t\t<td>Inserciones</td>\n"
+table += "\t\t<td>Eliminaciones</td>\n"
+table += "\t\t<td>Inserciones efectivas</td>\n"
+table += "\t\t<td>Líneas por commit</td>\n"
+table += "\t\t<td>Porcentaje de código</td>\n"
+table += "\t</tr>\n"
+
+data_stats = f"<!-- stats -->\n{table}{content}\n</table>\n<!-- /stats -->"
+data = f"{part1}{data_stats}{part3}\n"
+data += "<br>\n" * 100
+data += "\n![easter egg](img_doc/general/furinaDance.gif)"
 
 with open("README.md", "w", encoding = "utf-8") as f:
-    f.write(update)
+    f.write(data)
