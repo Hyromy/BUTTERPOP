@@ -26,6 +26,8 @@ namespace BUTTERPOP.vistas.renta
         private String aa = "";
         private String key = "";
 
+
+
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
         private Table.Renta renta;
@@ -86,7 +88,7 @@ namespace BUTTERPOP.vistas.renta
                     if (toFilms)
                     {
                         // modificar constructor
-                        Application.Current.MainPage = new NavigationPage(new HomePage(this.cliente.usuario, this.cliente.correo, this.cliente.password));
+                        Application.Current.MainPage = new NavigationPage(new HomePage(this.cliente));
                     }
                 }
                 else

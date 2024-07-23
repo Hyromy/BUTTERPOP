@@ -15,21 +15,25 @@ using static BUTTERPOP.db.Table;
 using static BUTTERPOP.utils.ImageResourceExtension;
 using static BUTTERPOP.modelo.PerfilViewModel;
 using BUTTERPOP.modelo;
+using BUTTERPOP.db;
 
 namespace BUTTERPOP.Vistas.listas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistroListas : ContentPage
     {
+
         private CRUD_Lista crud = new CRUD_Lista();
         private CRUD_Usuario crud2 = new CRUD_Usuario();
-        Perfil si = new Perfil();
+        //Perfil si = new Perfil();
 
-        public RegistroListas()
+        Table.Cliente cliente;
+
+        public RegistroListas(Table.Cliente cliente)
         {
             InitializeComponent();
             llenarDatosListas();
-            si.LlenarDatos();
+            this.cliente = cliente;
         }
         private async void btnRegistrar_Clicked(object sender, EventArgs e)
         {
@@ -41,15 +45,15 @@ namespace BUTTERPOP.Vistas.listas
                     nombre = txtNombre.Text,
                     descripcion = txtDesc.Text,
                     imagen = imagebytes,
+                    correo = this.cliente.correo,
                    
                 };
-                si.LlenarDatos();
                 await crud.SaveListaAsync(lista);
                 txtNombre.Text = "";
                 txtDesc.Text = "";
                 ImagenLista.Source = "";
                 await DisplayAlert("Registro", "Lista guardada en tu interfaz", "OK");
-                await Navigation.PushAsync(new Perfil());
+                await Navigation.PushAsync(new Perfil(cliente));
                 
                 
             }

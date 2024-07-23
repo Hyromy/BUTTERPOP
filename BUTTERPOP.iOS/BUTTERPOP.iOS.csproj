@@ -130,7 +130,7 @@
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>2.0.6</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
     <PackageReference Include="Xamarin.Forms">
       <Version>5.0.0.2662</Version>
     </PackageReference>
@@ -244,5 +244,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\header_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bgWelcome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\metodo_pago.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tarjeta.png" />
   </ItemGroup>
 </Project>

@@ -1,21 +1,24 @@
 ﻿using BUTTERPOP.modelo;
+using BUTTERPOP.vistas.tarjeta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using BUTTERPOP.crud.usuario;
 using BUTTERPOP.crud.lista;
 using BUTTERPOP.Modelo;
 using static BUTTERPOP.utils.ImageResourceExtension;
 using BUTTERPOP.Vistas.listas;
 using static BUTTERPOP.db.Table;
+using BUTTERPOP.db;
 using System.IO;
 using Xamarin.Essentials;
+using BUTTERPOP.crud.renta;
+
+
 
 namespace BUTTERPOP.vistas
 {
@@ -25,11 +28,26 @@ namespace BUTTERPOP.vistas
         private CRUD_Usuario crud = new CRUD_Usuario();
         private CRUD_Lista crud2 = new CRUD_Lista();
 
+        private Table.Cliente cliente;
+        
+        public Perfil(Table.Cliente cliente)
+        {
+            InitializeComponent();
+            DatosRecuperados(cliente);
+            
+
+            this.cliente = cliente;
+
+           
+
+        }
+
         public Perfil()
         {
             InitializeComponent();
             LlenarDatos();
-            llenarDatosListas();
+            
+            
         }
 
         public Perfil(string Nombre, string Descipcion, byte[] Imagen)
@@ -70,6 +88,9 @@ namespace BUTTERPOP.vistas
             btnPeliculas.TextColor = Color.White;
             btnDatos.BackgroundColor = Color.FromHex("#3A3A3A");
             btnDatos.TextColor = Color.White;
+
+            llenarDatosListas();
+
         }
 
         private void btnDatos_Clicked(object sender, EventArgs e)
@@ -151,7 +172,7 @@ namespace BUTTERPOP.vistas
                     if (usuario != null)
                     {
 
-                        usuario.usuario = txtNombreUsuario.Text;
+                        usuario.nombre = txtNombreUsuario.Text;
 
                         await crud.UpdateUsuarioAsync(usuario);
                         await DisplayAlert("Actualización Exitosa", "Tu nombre se ha actualizado correctamente", "Aceptar");
@@ -159,7 +180,7 @@ namespace BUTTERPOP.vistas
                     }
                     else
                     {
-                        await DisplayAlert("Error", "No se ha podido eliminar la cuenta. Usuario no encontrado.", "Aceptar");
+                        await DisplayAlert("Error", "No se ha podido realizar los cambios en tu cuenta. Usuario no encontrado.", "Aceptar");
                     }
                 }
             
@@ -211,6 +232,19 @@ namespace BUTTERPOP.vistas
         }
 
 
+        public async void DatosRecuperados(Table.Cliente cliente)
+        {
+           
+
+            lblCorreo.Text = cliente.correo;
+            welcomeUserName.Text = cliente.nombre;
+            txtNombreUsuario.Text = cliente.nombre;
+            txtCorreoElec.Text = cliente.correo;
+            txtApaternoUsuario.Text = cliente.apaterno;
+            txtAmaternoUsuario.Text = cliente.amaterno;
+            txtContra.Text = cliente.password;
+        }
+
 
         public async void LlenarDatos()
         {
@@ -219,8 +253,8 @@ namespace BUTTERPOP.vistas
             //Si la lista no está vacia, entonces mostrarla
             if (usuarioEncontrado != null)
             {
-                welcomeUserName.Text = usuarioEncontrado.usuario;
-                txtNombreUsuario.Text = usuarioEncontrado.usuario;
+                welcomeUserName.Text = usuarioEncontrado.nombre;
+                txtNombreUsuario.Text = usuarioEncontrado.nombre;
                 txtContra.Text = usuarioEncontrado.password;
             }
         }
@@ -234,9 +268,91 @@ namespace BUTTERPOP.vistas
             return regex.IsMatch(txtContra.Text);
         }
 
-        private void btnCerrarSesion_Clicked(object sender, EventArgs e)
+        private async void btnCerrarSesion_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new LoginPage());
+            bool confirmacion = await DisplayAlert("Confirmación", "¿Estás seguro de que deseas cerrar sesión?", "Confirmar", "Cancelar");
+
+            if (confirmacion)
+            {
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
+
+            
+        }
+
+        private async void btnCambiarApaterno_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu apellido paterno a " + txtApaternoUsuario.Text + "?", "Confirmar", "Cancelar");
+
+                var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
+
+                if (confirmacion)
+                {
+                    if (usuario != null)
+                    {
+
+                        usuario.apaterno = txtApaternoUsuario.Text;
+
+                        await crud.UpdateUsuarioAsync(usuario);
+                        await DisplayAlert("Actualización Exitosa", "Tu apellido paterno se ha actualizado correctamente", "Aceptar");
+                        LlenarDatos();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "No se ha podido realizar los cambios en tu cuenta. Usuario no encontrado.", "Aceptar");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Ocurrió un error al actualizar la cuenta: {ex.Message}", "Aceptar");
+            }
+        }
+
+        private async void btnCambiarAmaterno_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu apellido materno a " + txtAmaternoUsuario.Text + "?", "Confirmar", "Cancelar");
+
+                var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
+
+                if (confirmacion)
+                {
+                    if (usuario != null)
+                    {
+
+                        usuario.amaterno = txtAmaternoUsuario.Text;
+
+                        await crud.UpdateUsuarioAsync(usuario);
+                        await DisplayAlert("Actualización Exitosa", "Tu apellido materno se ha actualizado correctamente", "Aceptar");
+                        LlenarDatos();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "No se ha podido realizar los cambios en tu cuenta. Usuario no encontrado.", "Aceptar");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Ocurrió un error al actualizar la cuenta: {ex.Message}", "Aceptar");
+            }
+        }
+
+        private async void btnAgregarMetodoPago_Clicked(object sender, EventArgs e)
+        {
+            var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
+            await Navigation.PushAsync(new vistas.tarjeta.BillingPage(usuario));
+            
+
+     
+
+
         }
 
         private void btnCancelar_Clicked(object sender, EventArgs e)
@@ -308,12 +424,17 @@ namespace BUTTERPOP.vistas
 
         private void btnNueva_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegistroListas());
+            Navigation.PushAsync(new RegistroListas(this.cliente));
 
         }
         public async void llenarDatosListas()
         {
-            var listaList = await crud2.GetListasAsync();
+           
+
+
+            List<Table.Lista> listaList = await crud2.GetListasByCorreoAsync(cliente.correo);
+            
+
             if (listaList != null)
             {
                 lstListas.ItemsSource = listaList;
@@ -324,6 +445,8 @@ namespace BUTTERPOP.vistas
                 lblListas.IsVisible = true;
                 lstListas.IsVisible = false;
             }
+
+           
         }
 
         private void btnEditar_Clicked(object sender, EventArgs e)

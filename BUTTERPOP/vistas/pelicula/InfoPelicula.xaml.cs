@@ -14,6 +14,8 @@ namespace BUTTERPOP.vistas.pelicula
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InfoPelicula : ContentPage
     {
+       
+        //Propiedades de la clase Tablas
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
 
@@ -21,6 +23,7 @@ namespace BUTTERPOP.vistas.pelicula
         {
             InitializeComponent();
 
+            //Referenciar propiedad con parametros
             this.cliente = cliente;
             this.pelicula = pelicula;
 

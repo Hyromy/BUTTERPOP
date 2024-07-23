@@ -14,9 +14,14 @@ namespace BUTTERPOP.vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : ContentPage
     {
-        public Home()
+        private Table.Cliente cliente;
+        private Table.Pelicula pelicula;
+
+        public Home(Table.Cliente cliente)
         {
             InitializeComponent();
+
+            this.cliente = cliente;
 
             // Crear un evento tipo click para el frame
             var tapGestureRecognizer = new TapGestureRecognizer();
@@ -31,21 +36,13 @@ namespace BUTTERPOP.vistas
 
         private void Rent()
         {
-            // extraer la informacion de cliente activo
-            Table.Cliente cliente = new Table.Cliente
-            {
-                correo = "ejemplo@ejemplo.com",
-                usuario = "Ejemplo",
-                password = "12345$Hf"
-            };
-
             // extraer la informacion de la pelicula seleccionada
-            Table.Pelicula pelicula = new Table.Pelicula
+            this.pelicula = new Table.Pelicula
             {
                 id_pelicula = 1
             };
 
-            Navigation.PushAsync(new vistas.pelicula.InfoPelicula(cliente, pelicula));
+            Navigation.PushAsync(new vistas.pelicula.InfoPelicula(this.cliente, this.pelicula));
         }
     }
 }

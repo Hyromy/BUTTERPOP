@@ -12,15 +12,33 @@ namespace BUTTERPOP.db
     {
         public class Cliente
         {
-            [PrimaryKey, MaxLength(50)]
+            [PrimaryKey, MaxLength(100)]
             public string correo { get; set; }
 
             [MaxLength(50)]
-            public string usuario { get; set; }
+            public string nombre { get; set; }
+            [MaxLength(50)]
+            public string apaterno { get; set; }
+            [MaxLength(50)]
+            public string amaterno { get; set; }
 
             [MaxLength(50)]
             public string password { get; set; }
-            
+
+            // Datos del número de cuenta
+
+            [MaxLength(16)]
+
+            public string numeroTarjeta { get; set; }
+
+
+            [MaxLength(50)]
+            public string tipoTarjeta { get; set; }
+            public int cvv { get; set; }
+            public int mes { get; set; }
+            public int anio { get; set; }
+
+
         }
 
         public class Lista

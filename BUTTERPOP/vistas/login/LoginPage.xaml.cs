@@ -11,6 +11,7 @@ using Xamarin.Essentials;
 
 using BUTTERPOP.crud.usuario;
 using BUTTERPOP.db;
+using BUTTERPOP.vistas.tarjeta;
 
 namespace BUTTERPOP.vistas
 {
@@ -42,6 +43,8 @@ namespace BUTTERPOP.vistas
         {
             if (selection1Active)
             {
+                FrameLogin.HeightRequest = 400;
+                FrameStack.Spacing = 35;
                 txt1.TextColor = Color.White;
                 txt2.TextColor = Color.Black;
                 runningFrame.TranslateTo(runningFrame.X, 0, 120);
@@ -51,11 +54,15 @@ namespace BUTTERPOP.vistas
             }
             else if (selection2Active)
             {
+                FrameLogin.HeightRequest = 475;
+                FrameStack.Spacing = 20;
                 txt1.TextColor = Color.Black;
                 txt2.TextColor = Color.White;
                 runningFrame.TranslateTo(runningFrame.X + 86, 0, 120);
                 loginForm.IsVisible = false;
                 registerForm.IsVisible = true;
+                
+
             }
         }
 
@@ -131,6 +138,8 @@ namespace BUTTERPOP.vistas
         {
             if (!selection1Active)
             {
+                FrameLogin.HeightRequest = 400;
+                FrameStack.Spacing = 35;
                 selection1Active = true;
                 selection2Active = false;
                 UpdateButtonColors();
@@ -143,11 +152,14 @@ namespace BUTTERPOP.vistas
         {
             if (!selection2Active)
             {
+                FrameLogin.HeightRequest = 475;
+                FrameStack.Spacing = 20;
                 selection1Active = false;
                 selection2Active = true;
                 UpdateButtonColors();
                 var duration = TimeSpan.FromSeconds(0.2);
                 Vibration.Vibrate(duration);
+                
             }
         }
 
@@ -177,13 +189,17 @@ namespace BUTTERPOP.vistas
                     return;
                 }
 
-                if (validarPassword())
+
+
+               if (validarPassword())
                 {
                     Table.Cliente usuario = new Table.Cliente
 
                     {
                         correo = txtEmailR.Text,
-                        usuario = txtUsername.Text,
+                        nombre = txtNombre.Text,
+                        apaterno = txtApaterno.Text,
+                        amaterno = txtAmaterno.Text,
                         password = txtPassR.Text,
 
                     };
@@ -192,8 +208,11 @@ namespace BUTTERPOP.vistas
 
                     txtEmailR.Text = "";
                     txtPassR.Text = "";
-                    txtUsername.Text = "";
+                    txtNombre.Text = "";
+                    txtApaterno.Text = "";
+                    txtAmaterno.Text = "";
                     txtPassRCheck.Text = "";
+
 
                     await DisplayAlert("Registro Exitoso", "Te has registrado correctamente, por favor inicia sesión", "Aceptar");
 
@@ -204,42 +223,44 @@ namespace BUTTERPOP.vistas
                     var duration = TimeSpan.FromSeconds(0.2);
                     Vibration.Vibrate(duration);
 
-                } else
-                {
-                    await DisplayAlert("Advertencia", "Las contraseñas no coinciden", "Aceptar");
-                }
 
-            }
-            else
-            {
-                await DisplayAlert("Advertencia", "Ingresa todos los datos", "Aceptar");
+
+                }
+                else
+                {
+                    await DisplayAlert("Advertencia", "Ingresa todos los datos", "Aceptar");
+                }
             }
         }
 
-
-        private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
-        {
-            if (validarDatosInicioSesion())
+            private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
             {
-                if (!IsValidEmail())
+                if (validarDatosInicioSesion())
                 {
-                    await DisplayAlert("Advertencia", "Por favor ingresa un correo electrónico válido.", "Aceptar");
-                    return;
-                }
+                    if (!IsValidEmail())
+                    {
+                        await DisplayAlert("Advertencia", "Por favor ingresa un correo electrónico válido.", "Aceptar");
+                        return;
+                    }
 
-                // usuario recuperado de la db
-                var usuario = await crud.GetUsuariosByCorreo(txtEmailI.Text);
+                    // usuario recuperado de la db
+                    Table.Cliente usuario = await crud.GetUsuariosByCorreo(txtEmailI.Text);
 
-                    if(usuario != null)
+                    if (usuario != null)
                     {
                         if (usuario.password == txtPassI.Text)
                         {
                             // Paso de parametros recibidos al constructor de HomePage
-                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario.usuario, usuario.correo, usuario.password));
+
+                            // joel estuvo aqui
+                            Application.Current.MainPage = new NavigationPage(new HomePage(usuario));
+
+                            var bilingpage = new BillingPage(usuario);
+
                             var duration = TimeSpan.FromSeconds(0.2);
                             Vibration.Vibrate(duration);
 
-                    }
+                        }
                         else
                         {
                             await DisplayAlert("Error", "La contraseña es incorrecta", "Aceptar");
@@ -250,168 +271,169 @@ namespace BUTTERPOP.vistas
                         await DisplayAlert("Error", "No se encontró un usuario con ese correo", "Aceptar");
                     }
 
+                }
+                else
+                {
+                    await DisplayAlert("Advertencia", "Ingresa todos los datos para continuar", "Aceptar");
+                }
             }
-            else
+
+
+            public bool validarDatosRegistro()
             {
-                await DisplayAlert("Advertencia", "Ingresa todos los datos para continuar", "Aceptar");
+                bool respuesta;
+                if (string.IsNullOrEmpty(txtEmailR.Text))
+                {
+                    respuesta = false;
+                }
+                else if (string.IsNullOrEmpty(txtPassR.Text))
+                {
+                    respuesta = false;
+                }
+                else if (string.IsNullOrEmpty(txtNombre.Text))
+                {
+                    respuesta = false;
+                }
+                else if (string.IsNullOrEmpty(txtApaterno.Text))
+                {
+                    respuesta = false;
+                }
+                else if (string.IsNullOrEmpty(txtAmaterno.Text))
+                {
+                    respuesta = false;
+
+                }
+                else
+                {
+                    respuesta = true;
+                }
+                return respuesta;
             }
-        }
 
-        public bool validarDatosRegistro()
-        {
-            bool respuesta;
-            if (string.IsNullOrEmpty(txtEmailR.Text))
+            public bool validarPassword()
             {
-                respuesta = false;
+                bool respuesta;
+
+                if(txtPassR.Text == txtPassRCheck.Text)
+                {
+                    respuesta=true;
+                } else
+                {
+                    respuesta = false;
+                }
+                return respuesta;
+
             }
-            else if (string.IsNullOrEmpty(txtPassR.Text))
+
+            public bool validarDatosInicioSesion()
             {
-                respuesta = false;
+                bool respuesta;
+                if (string.IsNullOrEmpty(txtEmailI.Text))
+                {
+                    respuesta = false;
+                }
+                else if (string.IsNullOrEmpty(txtPassI.Text))
+                {
+                    respuesta = false;
+                }
+
+                else
+                {
+                    respuesta = true;
+                }
+                return respuesta;
             }
-            else if (string.IsNullOrEmpty(txtUsername.Text))
+
+            private void btnVerPassword_Clicked(object sender, EventArgs e)
             {
-                respuesta = false;
+                btnVerPassword.IsVisible = false;
+                btnOcultarPassword.IsVisible = true;
+                txtPassI.IsPassword = false;
             }
-            else if (string.IsNullOrEmpty(txtPassRCheck.Text))
+
+            private void btnOcultarPassword_Clicked(object sender, EventArgs e)
             {
-                respuesta = false;
-            } else
-            {
-                respuesta = true;
+                btnVerPassword.IsVisible = true;
+                btnOcultarPassword.IsVisible = false;
+                txtPassI.IsPassword = true;
             }
-            return respuesta;
-        }
 
-        public bool validarPassword()
-        {
-            bool respuesta;
-
-            if(txtPassR.Text == txtPassRCheck.Text)
+            private void btnVerPassword2_Clicked(object sender, EventArgs e)
             {
-                respuesta=true;
-            } else
-            {
-                respuesta = false;
+                btnVerPassword2.IsVisible = false;
+                btnOcultarPassword2.IsVisible = true;
+                txtPassR.IsPassword = false;
             }
-            return respuesta;
 
-        }
-
-        public bool validarDatosInicioSesion()
-        {
-            bool respuesta;
-            if (string.IsNullOrEmpty(txtEmailI.Text))
+            private void btnOcultarPassword2_Clicked(object sender, EventArgs e)
             {
-                respuesta = false;
+                btnVerPassword2.IsVisible = true;
+                btnOcultarPassword2.IsVisible = false;
+                txtPassR.IsPassword = true;
             }
-            else if (string.IsNullOrEmpty(txtPassI.Text))
-            {
-                respuesta = false;
-            } 
 
-            else
+            private void btnVerPassword3_Clicked(object sender, EventArgs e)
             {
-                respuesta = true;
+                btnVerPassword3.IsVisible = false;
+                btnOcultarPassword3.IsVisible = true;
+                txtPassRCheck.IsPassword = false;
             }
-            return respuesta;
-        }
 
-        private void btnVerPassword_Clicked(object sender, EventArgs e)
-        {
-            btnVerPassword.IsVisible = false;
-            btnOcultarPassword.IsVisible = true;
-            txtPassI.IsPassword = false;
-        }
-
-        private void btnOcultarPassword_Clicked(object sender, EventArgs e)
-        {
-            btnVerPassword.IsVisible = true;
-            btnOcultarPassword.IsVisible = false;
-            txtPassI.IsPassword = true;
-        }
-
-        private void btnVerPassword2_Clicked(object sender, EventArgs e)
-        {
-            btnVerPassword2.IsVisible = false;
-            btnOcultarPassword2.IsVisible = true;
-            txtPassR.IsPassword = false;
-        }
-
-        private void btnOcultarPassword2_Clicked(object sender, EventArgs e)
-        {
-            btnVerPassword2.IsVisible = true;
-            btnOcultarPassword2.IsVisible = false;
-            txtPassR.IsPassword = true;
-        }
-
-        private void btnVerPassword3_Clicked(object sender, EventArgs e)
-        {
-            btnVerPassword3.IsVisible = false;
-            btnOcultarPassword3.IsVisible = true;
-            txtPassRCheck.IsPassword = false;
-        }
-
-        private void btnOcultarPassword3_Clicked(object sender, EventArgs e)
-        {
-            btnVerPassword3.IsVisible = true;
-            btnOcultarPassword3.IsVisible = false;
-            txtPassRCheck.IsPassword = true;
-        }
-
-        public bool IsValidEmail()
-        {
-            if (string.IsNullOrWhiteSpace(txtEmailI.Text))
-                return false;
-
-            try
+            private void btnOcultarPassword3_Clicked(object sender, EventArgs e)
             {
-                
-                var addr = new System.Net.Mail.MailAddress(txtEmailI.Text);
-
-                
-                return addr.Address == txtEmailI.Text;
+                btnVerPassword3.IsVisible = true;
+                btnOcultarPassword3.IsVisible = false;
+                txtPassRCheck.IsPassword = true;
             }
-            catch
+
+            public bool IsValidEmail()
             {
-                
-                return false;
+                if (string.IsNullOrWhiteSpace(txtEmailI.Text))
+                    return false;
+
+                try
+                {
+
+                    var addr = new System.Net.Mail.MailAddress(txtEmailI.Text);
+
+
+                    return addr.Address == txtEmailI.Text;
+                }
+                catch
+                {
+
+                    return false;
+                }
             }
-        }
 
-        public bool IsValidEmailR()
-        {
-            if (string.IsNullOrWhiteSpace(txtEmailR.Text))
-                return false;
-
-            try
+            public bool IsValidEmailR()
             {
-                
-                var addr = new System.Net.Mail.MailAddress(txtEmailR.Text);
+                if (string.IsNullOrWhiteSpace(txtEmailR.Text))
+                    return false;
 
-                
-                return addr.Address == txtEmailR.Text;
+                try
+                {
+
+                    var addr = new System.Net.Mail.MailAddress(txtEmailR.Text);
+
+
+                    return addr.Address == txtEmailR.Text;
+                }
+                catch
+                {
+
+                    return false;
+                }
             }
-            catch
+
+
+            public bool ValidarCaracteresPassword(string password)
             {
-                
-                return false;
+
+                var regex = new System.Text.RegularExpressions.Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$");
+                return regex.IsMatch(txtPassR.Text);
             }
-        }
 
 
-        public bool ValidarCaracteresPassword(string password)
-        {
-            
-            var regex = new System.Text.RegularExpressions.Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$");
-            return regex.IsMatch(txtPassR.Text);
-        }
-
-
-
-
-
-
-
-
-    }
+    }     
 }
