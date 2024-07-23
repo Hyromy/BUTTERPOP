@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.vistas.admin.AdminGestion"
+             Title="Panel de Administrador">
+    <ContentPage.Content>
+
+
+        <StackLayout BackgroundColor="#1C1C1C">
+
+            <!-- cabecera -->
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="logo_palomitas.png" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="5,10"/>
+                <Image Source="butterpop_letras.png" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="1,25"/>
+               
+            </StackLayout>
+
+            
+            <StackLayout Orientation="Vertical" Spacing="15" Margin="20" >
+                <Button Text="Peliculas" TextColor="White" BackgroundColor="#c80000" x:Name="btnPeliculas" Clicked="btnPeliculas_Clicked"/>
+                <Button Text="Usuarios" TextColor="White" BackgroundColor="#c80000" x:Name="btnUsuarios" Clicked="btnUsuarios_Clicked"/>
+                <Button Text="Salir" TextColor="White" BackgroundColor="#c80000" x:Name="btnSalir" Clicked="btnSalir_Clicked"/>
+            </StackLayout>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

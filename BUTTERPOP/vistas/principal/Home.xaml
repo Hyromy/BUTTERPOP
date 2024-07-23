@@ -21,7 +21,45 @@
 
             </Frame>
 
-            <Frame x:Name="film2"
+            <ScrollView>
+                <Grid x:Name="moviesGrid" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+             
+    
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </ScrollView>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            <!--<Frame x:Name="film2"
                    HeightRequest="200"
                    Margin="0"
                    CornerRadius="80"
@@ -29,7 +67,7 @@
 
                 <Image Source="shrek_portada.jpg"
                        Aspect="AspectFill"/>
-            </Frame>
+            </Frame>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

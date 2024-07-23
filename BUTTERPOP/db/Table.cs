@@ -69,6 +69,25 @@ namespace BUTTERPOP.db
         {
             [PrimaryKey, AutoIncrement]
             public int id_pelicula { get; set; }
+
+            [MaxLength(100)]
+            public string titulo { get; set; }
+
+            [MaxLength(50)]
+
+            public string genero { get; set; }
+
+            [MaxLength(500)]
+            public string descripcion { get; set; }
+
+            [MaxLength(10)]
+            public string clasificacion { get; set; }
+
+            public int duracion { get; set; } // Duración en minutos
+
+            public decimal precio { get; set; } 
+
+            public byte[] imagen { get; set; } // Imagen en formato byte array para almacenar en la base de datos
         }
 
         /// <summary>
@@ -194,6 +213,11 @@ namespace BUTTERPOP.db
             [MaxLength(20)]
             public int id_lista { get; set; }
         }
+
+
+
+
+
 
     }
 }

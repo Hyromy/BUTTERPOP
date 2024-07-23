@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using BUTTERPOP.db;
+using BUTTERPOP.crud.pelicula;
+using System.IO;
 
 namespace BUTTERPOP.vistas
 {
@@ -17,9 +19,13 @@ namespace BUTTERPOP.vistas
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
 
+        private CRUD_Pelicula crud_pelicula = new CRUD_Pelicula();
+
+
         public Home(Table.Cliente cliente)
         {
             InitializeComponent();
+            CargarPeliculas();
 
             this.cliente = cliente;
 
@@ -31,7 +37,7 @@ namespace BUTTERPOP.vistas
 
             // Asignar el evento al frame
             film1.GestureRecognizers.Add(tapGestureRecognizer);
-            film2.GestureRecognizers.Add(tapGestureRecognizer);
+            //film2.GestureRecognizers.Add(tapGestureRecognizer);
         }
 
         private void Rent()
@@ -44,5 +50,61 @@ namespace BUTTERPOP.vistas
 
             Navigation.PushAsync(new vistas.pelicula.InfoPelicula(this.cliente, this.pelicula));
         }
-    }
+
+
+        private async void CargarPeliculas()
+        {
+            List<Table.Pelicula> peliculasList = await crud_pelicula.GetPeliculasAsync();
+
+            if (peliculasList != null)
+            {
+                int row = 0, column = 0;
+
+                foreach (var pelicula in peliculasList)
+                {
+                    var frame = new Frame
+                    {
+                        HeightRequest = 200,
+                        CornerRadius = 20,
+                        Margin = new Thickness(2),
+                        BackgroundColor = Color.Transparent,
+                        Content = new StackLayout
+                        {
+                            Padding = 0,
+                            Margin = 0,
+                            Children =
+                            {
+                                new Image
+                                {
+                                    Source = ImageSource.FromStream(() => new MemoryStream(pelicula.imagen)),
+                                    Aspect = Aspect.AspectFill,
+                                    HeightRequest = 150,
+                                    WidthRequest = 100
+                                },
+                                new Label
+                                {
+                                    Text = pelicula.titulo,
+                                    TextColor = Color.White,
+                                    HorizontalOptions = LayoutOptions.Center,
+                                    VerticalOptions = LayoutOptions.Center,
+                                    Margin = new Thickness(0, 5, 0, 0)
+                                }
+                            }
+                        }
+                    };
+
+                    moviesGrid.Children.Add(frame, column, row);
+
+                    column++;
+                    if (column > 2) // Limitar a 4 columnas
+                    {
+                        column = 0;
+                        row++;
+                    }
+                }
+            }
+        }
+
+
+        }
 }
