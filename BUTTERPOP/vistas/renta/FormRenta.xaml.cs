@@ -58,12 +58,36 @@ namespace BUTTERPOP.vistas.renta
             base.OnAppearing();
             adjustFrame();
             LoadFilm();
+            LoadCard();
         }
 
         private void LoadFilm()
         {
             film_name.Text = this.pelicula.titulo;
             banner.Source = ImageResourceExtension.ImageHelper.ConvertByteArrayToImage(this.pelicula.imagen);
+        }
+
+        private void LoadCard()
+        {
+            if (!String.IsNullOrEmpty(this.cliente.numeroTarjeta))
+            {
+                card_number.Text = this.cliente.numeroTarjeta;
+
+                String mes = "";
+                if (this.cliente.mes.ToString().Length != 2)
+                {
+                    mes = "0" + this.cliente.mes.ToString();
+                }
+                else
+                {
+                    mes = this.cliente.mes.ToString();
+                }
+                month.Text = mes;
+
+                year.Text = this.cliente.anio.ToString().Substring(2);
+
+                cvv.Text = this.cliente.cvv.ToString();
+            }
         }
 
         private async void ToPay(object sender, EventArgs e)
