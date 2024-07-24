@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using BUTTERPOP.db;
 using BUTTERPOP.crud.pelicula;
 using System.IO;
+using BUTTERPOP.vistas.pelicula;
 
 namespace BUTTERPOP.vistas
 {
@@ -62,6 +63,16 @@ namespace BUTTERPOP.vistas
 
                 foreach (var pelicula in peliculasList)
                 {
+                    var imageButton = new ImageButton
+                    {
+                        Source = ImageSource.FromStream(() => new MemoryStream(pelicula.imagen)),
+                        Aspect = Aspect.AspectFill,
+                        HeightRequest = 150,
+                        WidthRequest = 100,
+                        BindingContext = pelicula
+                    };
+                    imageButton.Clicked += OnImageButtonClicked;
+
                     var frame = new Frame
                     {
                         HeightRequest = 200,
@@ -73,30 +84,24 @@ namespace BUTTERPOP.vistas
                             Padding = 0,
                             Margin = 0,
                             Children =
-                            {
-                                new Image
-                                {
-                                    Source = ImageSource.FromStream(() => new MemoryStream(pelicula.imagen)),
-                                    Aspect = Aspect.AspectFill,
-                                    HeightRequest = 150,
-                                    WidthRequest = 100
-                                },
-                                new Label
-                                {
-                                    Text = pelicula.titulo,
-                                    TextColor = Color.White,
-                                    HorizontalOptions = LayoutOptions.Center,
-                                    VerticalOptions = LayoutOptions.Center,
-                                    Margin = new Thickness(0, 5, 0, 0)
-                                }
-                            }
+                    {
+                        imageButton,
+                        new Label
+                        {
+                            Text = pelicula.titulo,
+                            TextColor = Color.White,
+                            HorizontalOptions = LayoutOptions.Center,
+                            VerticalOptions = LayoutOptions.Center,
+                            Margin = new Thickness(0, 5, 0, 0)
+                        }
+                    }
                         }
                     };
 
                     moviesGrid.Children.Add(frame, column, row);
 
                     column++;
-                    if (column > 2) // Limitar a 4 columnas
+                    if (column > 2) // Limitar a 3 columnas
                     {
                         column = 0;
                         row++;
@@ -105,6 +110,20 @@ namespace BUTTERPOP.vistas
             }
         }
 
+        private async void OnImageButtonClicked(object sender, EventArgs e)
+        {
 
+
+
+
+            var imageButton = (ImageButton)sender;
+            var pelicula = (Table.Pelicula)imageButton.BindingContext;
+
+            // Lógica que deseas implementar al hacer clic en el ImageButton
+            //DisplayAlert("Película seleccionada", $"Título: {pelicula.titulo}", "OK");
+            await Navigation.PushAsync(new InfoPelicula(null,pelicula));
         }
+
+
+    }
 }

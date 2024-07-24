@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using BUTTERPOP.db;
+using static BUTTERPOP.utils.ImageResourceExtension;
 
 namespace BUTTERPOP.vistas.pelicula
 {
@@ -18,6 +19,7 @@ namespace BUTTERPOP.vistas.pelicula
         //Propiedades de la clase Tablas
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
+   
 
         public InfoPelicula(Table.Cliente cliente, Table.Pelicula pelicula)
         {
@@ -27,22 +29,21 @@ namespace BUTTERPOP.vistas.pelicula
             this.cliente = cliente;
             this.pelicula = pelicula;
 
-            addNavBack();
+           
             addTapList();
 
             btn_rent.Clicked += ToRent;
+
+            BindingContext = pelicula;
+
+
+            film_poster.Source = ImageHelper.ConvertByteArrayToImage(pelicula.imagen);
         }
 
-        private void addNavBack()
-        {
-            TapGestureRecognizer navBack = new TapGestureRecognizer();
-            navBack.Tapped += (s, e) =>
-            {
-                Navigation.PopAsync();
-            };
+       
+        
 
-            nav_back.GestureRecognizers.Add(navBack);
-        }
+        
 
         private void addTapList()
         {
