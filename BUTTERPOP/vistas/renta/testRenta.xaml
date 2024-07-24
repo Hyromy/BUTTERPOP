@@ -14,7 +14,7 @@
             <!-- cabecera -->
             <AbsoluteLayout Grid.Row="0"
                             HeightRequest="64"
-                            BackgroundColor="#580000">
+                            BackgroundColor="#1c1c1c">
 
                 <!-- volver -->
                 <Frame x:Name="nav_back"
