@@ -35,9 +35,11 @@ namespace BUTTERPOP.vistas.pelicula
             this.cliente = cliente;
             this.pelicula = pelicula;
 
-           //addNavBack();
-           //addTapList();
-           LlenarPickerAsync();
+            addNavBack();
+            //addTapList();
+
+            // el metodo nunca usa await
+            LlenarPickerAsync();
 
             btn_rent.Clicked += ToRent;
             film_poster.Source = ImageHelper.ConvertByteArrayToImage(pelicula.imagen);
@@ -46,7 +48,7 @@ namespace BUTTERPOP.vistas.pelicula
 
         }
 
-        /*private void addNavBack()
+        private void addNavBack()
         {
             TapGestureRecognizer navBack = new TapGestureRecognizer();
             navBack.Tapped += (s, e) =>
@@ -55,10 +57,10 @@ namespace BUTTERPOP.vistas.pelicula
             };
 
             nav_back.GestureRecognizers.Add(navBack);
-        }*/
+        }
 
         // Llenar los elementos del picker
-        async Task LlenarPickerAsync()
+        public async Task LlenarPickerAsync()
         {
             var nombresListas = await crudLista.GetNombresListasPorCorreoAsync(cliente.correo);
             pickerLista.ItemsSource = nombresListas;
