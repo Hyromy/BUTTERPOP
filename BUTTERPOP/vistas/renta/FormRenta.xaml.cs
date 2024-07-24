@@ -56,6 +56,12 @@ namespace BUTTERPOP.vistas.renta
         {
             base.OnAppearing();
             adjustFrame();
+            LoadFilm();
+        }
+
+        private void LoadFilm()
+        {
+            film_name.Text = this.pelicula.titulo;
         }
 
         private async void ToPay(object sender, EventArgs e)
