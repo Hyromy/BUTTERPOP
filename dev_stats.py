@@ -104,10 +104,11 @@ table += "\t\t<td>Líneas por commit</td>\n"
 table += "\t\t<td>Porcentaje de código</td>\n"
 table += "\t</tr>\n"
 
-data_stats = f"<!-- stats -->\n{table}{content}\n</table>\n<!-- /stats -->"
+egg = "<br>\n" * 100
+egg += "\n![easter egg](img_doc/general/furinaDance.gif)"
+
+data_stats = f"<!-- stats -->\n{table}{content}\n</table>\n{egg}\n<!-- /stats -->"
 data = f"{part1}{data_stats}{part3}\n"
-data += "<br>\n" * 100
-data += "\n![easter egg](img_doc/general/furinaDance.gif)"
 
 with open("README.md", "w", encoding = "utf-8") as f:
     f.write(data)
