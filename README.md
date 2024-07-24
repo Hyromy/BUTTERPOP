@@ -2247,7 +2247,7 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 		<td>729</td>
 		<td>1094</td>
 		<td>136</td>
-		<td>1.38%</td>
+		<td>3.31%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2261,7 +2261,7 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 		<td>46</td>
 		<td>37</td>
 		<td>12</td>
-		<td>0.05%</td>
+		<td>0.11%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2275,7 +2275,7 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 		<td>25</td>
 		<td>145</td>
 		<td>145</td>
-		<td>0.18%</td>
+		<td>0.44%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2284,12 +2284,12 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 				<br>Hyromy
 			</a>
 		</td>
-		<td>76</td>
-		<td>76946</td>
-		<td>30581</td>
-		<td>46365</td>
-		<td>610</td>
-		<td>58.39%</td>
+		<td>80</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0.00%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2303,10 +2303,112 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 		<td>5856</td>
 		<td>31763</td>
 		<td>1588</td>
-		<td>40.00%</td>
+		<td>96.14%</td>
 	</tr>
 </table>
 <!-- /stats -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+![easter egg](img_doc/general/furinaDance.gif)
 <br>
 <br>
 <br>
