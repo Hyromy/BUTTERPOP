@@ -6,12 +6,12 @@
              BackgroundColor="#1C1C1C">
     <ContentPage.Content>
         <StackLayout>
-            
-                <StackLayout Orientation="Vertical" Margin="20">
+
+            <StackLayout Orientation="Vertical" Margin="20">
 
                 <Grid>
                     <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
@@ -37,8 +37,8 @@
                     <ImageButton Source="cerrar_sesion.png" Grid.Row="0" Grid.Column="1" Clicked="btnCerrarSesion_Clicked"  BackgroundColor="Transparent" />
 
                 </Grid>
-                    
-         
+
+
 
 
 
@@ -90,22 +90,22 @@
                 </StackLayout>
 
                 <StackLayout x:Name="stckListas" IsVisible="False" Margin="20">
-                    
+
                     <Label x:Name="lblListas" 
                            Text="Parece que aún no has creado ninguna lista. ¿Por qué no comienzas ahora? 🤩"
                            TextColor="White" 
                            FontSize="Medium"/>
-                    
-                        <StackLayout BackgroundColor="#1E1E1E">
+
+                    <StackLayout BackgroundColor="#1E1E1E">
 
 
-                            <Frame IsVisible="false" 
+                        <Frame IsVisible="false" 
                                    x:Name="frameEditar" 
                                    CornerRadius="20" 
                                    Margin="10">
-                                <StackLayout BackgroundColor="white"
+                            <StackLayout BackgroundColor="white"
                                              HeightRequest="450">
-                                    <Label Text="Editar lista" 
+                                <Label Text="Editar lista" 
                                            HorizontalTextAlignment="Start" 
                                            FontAttributes="Bold" 
                                            FontSize="Medium" 
@@ -118,40 +118,40 @@
                                         TextColor="White" 
                                         CornerRadius="40" 
                                         />
-                                
 
-                                    <Image x:Name="imgEditar"
+
+                                <Image x:Name="imgEditar"
                                            WidthRequest="100"
                                            HeightRequest="100"
                                            Source=""
                                            BackgroundColor="Transparent"
                                             />
-                                    <Frame Padding="5" 
+                                <Frame Padding="5" 
                                            Margin="5" 
                                            BackgroundColor="#D6D6D6" 
                                            CornerRadius="10" >
 
-                                        <Entry x:Name="actId" 
+                                    <Entry x:Name="actId" 
                                                IsReadOnly="True"/>
-                                    </Frame>
-                                    <Frame Padding="5" 
+                                </Frame>
+                                <Frame Padding="5" 
                                            Margin="5" 
                                            BackgroundColor="#D6D6D6" 
                                            CornerRadius="10" >
-                                        <Entry x:Name="actNombre"
+                                    <Entry x:Name="actNombre"
                                                Placeholder="Nombre de la lista"/>
-                                    </Frame>
-                                    <Frame Padding="5" 
+                                </Frame>
+                                <Frame Padding="5" 
                                            Margin="5" 
                                            BackgroundColor="#D6D6D6" 
                                            CornerRadius="10" >
-                                        <Entry x:Name="actDesc"
+                                    <Entry x:Name="actDesc"
                                                Placeholder="Descripcion de la lista"/>
-                                    </Frame>
+                                </Frame>
 
-                                    <StackLayout Orientation="Horizontal"
+                                <StackLayout Orientation="Horizontal"
                                                  HorizontalOptions="Center">
-                                        <Button Text="Cancelar" 
+                                    <Button Text="Cancelar" 
                                                 FontAttributes="Bold" 
                                                 HorizontalOptions="End"
                                                 TextColor="white"
@@ -160,7 +160,7 @@
                                                 x:Name="btnCancelar"
                                                 Clicked="btnCancelar_Clicked"/>
 
-                                        <Button Text="Editar" 
+                                    <Button Text="Editar" 
                                                 FontAttributes="Bold" 
                                                 HorizontalOptions="End"
                                                 TextColor="white"
@@ -168,13 +168,13 @@
                                                 Clicked="confirmarEdicion_Clicked"
                                                 BackgroundColor="#C80000"
                                                 CornerRadius="20"/>
-                                    </StackLayout>
-
                                 </StackLayout>
-                            </Frame>
 
-                            <ScrollView HeightRequest="300">
-                                <ListView x:Name="lstListas" 
+                            </StackLayout>
+                        </Frame>
+
+                        <ScrollView HeightRequest="300">
+                            <ListView x:Name="lstListas" 
                                           ItemSelected="lstListas_ItemSelected" 
                                           HasUnevenRows="False" 
                                           IsVisible="true"
@@ -183,23 +183,24 @@
                                           SeparatorColor="black"
                                           SeparatorVisibility="Default"
                                           >
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <ViewCell>
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="Auto"/>
-                                                        <RowDefinition Height="Auto"/>
-                                                    </Grid.RowDefinitions>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="30"/>
-                                                        <ColumnDefinition Width="160"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                    </Grid.ColumnDefinitions>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="30"/>
+                                                    <ColumnDefinition Width="160"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
 
-                                                    <Label Text="{Binding id_lista}"
+                                                <Label Text="{Binding id_lista}"
+                                                       IsVisible="false"
                                                            x:Name="txtId"
                                                            Grid.RowSpan="2"
                                                            Grid.Column="0"
@@ -207,20 +208,20 @@
                                                            VerticalTextAlignment="Center"
                                                            Padding="5"/>
 
-                                                    <Label Text="{Binding nombre}"
+                                                <Label Text="{Binding nombre}"
                                                            FontSize="15"
                                                            x:Name="txtnom"
                                                            Grid.Row="0"
                                                            Grid.Column="1"
                                                            TextColor="white"/>
 
-                                                    <Label Text="{Binding descripcion}"
+                                                <Label Text="{Binding descripcion}"
                                                            x:Name="txtdesc"
                                                            Grid.Row="1"
                                                            Grid.Column="1"
                                                            TextColor="#787878"/>
 
-                                                    <ImageButton x:Name="btnEditar"
+                                                <ImageButton x:Name="btnEditar"
                                                                  VerticalOptions="Center"
                                                                  BackgroundColor="Transparent"
                                                                  IsVisible="true"
@@ -230,7 +231,7 @@
                                                                  Clicked="btnEditar_Clicked"
                                                                  Margin="3"/>
 
-                                                    <ImageButton x:Name="btnEliminar"
+                                                <ImageButton x:Name="btnEliminar"
                                                                  VerticalOptions="Center"
                                                                  IsVisible="true"
                                                                  Source="basura.png"
@@ -240,7 +241,7 @@
                                                                  Clicked="btnEliminar_Clicked"
                                                                  Margin="3"/>
 
-                                                    <ImageButton x:Name="btnVer"
+                                                <ImageButton x:Name="btnVer"
                                                                  VerticalOptions="Center"
                                                                  IsVisible="true"
                                                                  BackgroundColor="Transparent"
@@ -250,18 +251,18 @@
                                                                  Clicked="btnVer_Clicked"
                                                                  Margin="3"/>
 
-                                                </Grid>
-                                            </ViewCell>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
 
-                            </ScrollView>
-                            
+                        </ScrollView>
 
 
-                        </StackLayout>
-                        <Button x:Name="btnNueva" 
+
+                    </StackLayout>
+                    <Button x:Name="btnNueva" 
                              TextColor="White"
                              BackgroundColor="#C80000"
                              CornerRadius="20"
@@ -271,26 +272,26 @@
                              Clicked="btnNueva_Clicked"
                              Text="+"/>
 
-                        <Label Text="Las listas se guardaran en tu cuenta con el correo:"
+                    <Label Text="Las listas se guardaran en tu cuenta con el correo:"
                             TextColor="#787878"
                             HorizontalOptions="Center"
                             />
-                        <Label x:Name="lblCorreo"
+                    <Label x:Name="lblCorreo"
                             
                             TextColor="white"
                             HorizontalOptions="Center"/>
 
                 </StackLayout>
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
 
                 <StackLayout x:Name="stckDatos" IsVisible="False" Margin="20">
 
 
-                    
+
 
                     <Label Text="Usuario" TextColor="White" FontSize="18" FontAttributes="Bold" />
 
@@ -309,16 +310,16 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        
-                        
+
+
                         <Button x:Name="btnCambiarUser" Clicked="btnCambiarUser_Clicked" Text=">" HorizontalOptions="End" Grid.Row="0" Grid.Column="7" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
                         <Entry x:Name="txtNombreUsuario" 
                                
                                Text="{Binding NombreUsuario}" TextColor="#838383" WidthRequest="100"
                               
                                Grid.Row="0" Grid.ColumnSpan="7" />
-                        
-                        
+
+
 
                     </Grid>
 
@@ -406,17 +407,17 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
-                            
+
                         </Grid.ColumnDefinitions>
 
                         <Button x:Name="btnCambiarPass" Clicked="btnCambiarPass_Clicked" Grid.Row="0" Grid.Column="7" Text=">" HorizontalOptions="End" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
 
                         <Entry x:Name="txtContra" Grid.Row="0" Grid.ColumnSpan="7"  Text="{Binding PassUsuario}" IsPassword="True" PlaceholderColor="#838383" TextColor="#838383" WidthRequest="10" />
-                
+
 
                     </Grid>
-                    
-                    
+
+
 
 
 
@@ -431,15 +432,15 @@
 
 
 
-                    
 
 
-                   <!-- <StackLayout Orientation="Horizontal" Margin="20">
+
+                    <!-- <StackLayout Orientation="Horizontal" Margin="20">
                         <Image Source="cerrar_sesion.png" WidthRequest="25" />
                         <Button x:Name="btnCerrarSesion"  FontAttributes="Bold"  />
                         
                     </StackLayout> -->
-                    
+
 
 
 
@@ -469,25 +470,11 @@
 
 
 
-
-
-
             </StackLayout>
 
 
-
-
-
         </StackLayout>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
     </ContentPage.Content>
 </ContentPage>

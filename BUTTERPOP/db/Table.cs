@@ -188,10 +188,10 @@ namespace BUTTERPOP.db
             [PrimaryKey, AutoIncrement]
             public int id_contiene { get; set; }
 
-            [MaxLength(20)]
+            [ForeignKey(typeof(Pelicula))]
             public int id_pelicula { get; set; }
 
-            [MaxLength(20)]
+            [ForeignKey(typeof(Lista))]
             public int id_lista { get; set; }
         }
 
