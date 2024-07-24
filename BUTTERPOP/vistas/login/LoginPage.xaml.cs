@@ -237,6 +237,29 @@ namespace BUTTERPOP.vistas
             {
                 if (validarDatosInicioSesion())
                 {
+
+                string emailAdmin, passwordAdmin;
+
+                AdminAcces acceso1 = new AdminAcces();
+
+                emailAdmin = (txtEmailI.Text);
+                passwordAdmin = (txtPassI.Text);
+
+                acceso1.setEmailAdmin(emailAdmin);
+                acceso1.setPassAdmin(passwordAdmin);
+                acceso1.verificarAccesoAdmin();
+                acceso1.getRespuesta();
+
+                if (acceso1.getRespuesta() == true)
+                {
+                    await DisplayAlert("Aviso", "Datos de administrador correctos", "Ok");
+                    Application.Current.MainPage = new NavigationPage(new vistas.admin.AdminGestion());
+                    var duration = TimeSpan.FromSeconds(0.2);
+                    Vibration.Vibrate(duration);
+                    
+
+                } 
+                    
                     if (!IsValidEmail())
                     {
                         await DisplayAlert("Advertencia", "Por favor ingresa un correo electrónico válido.", "Aceptar");

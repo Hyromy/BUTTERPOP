@@ -115,7 +115,7 @@
 
                         <!--FORMULARIO INICIO-->
                         <StackLayout x:Name="loginForm" IsVisible="True" Orientation="Vertical" Spacing="20">
-                            <Label Text="¡Hola de Nuevo!" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
+                            <Label Text="¡Hola de Nuevo! :D" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
                             <Entry x:Name="txtEmailI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Correo electrónico" Keyboard="Email"/>
 
 

@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BUTTERPOP.vistas.pelicula.InfoPelicula"
-             NavigationPage.HasNavigationBar="False">
+             Title="{Binding titulo}">
 
     <Grid BackgroundColor="#1c1c1c">
         <Grid.RowDefinitions>
@@ -11,55 +11,11 @@
         </Grid.RowDefinitions>
 
         <!-- cabecera -->
-        <AbsoluteLayout Grid.Row="0"
-                            HeightRequest="64"
-                            BackgroundColor="#580000">
+        <StackLayout Orientation="Horizontal" >
+            <Image Source="logo_palomitas.png" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="5,10"/>
+            <Image Source="butterpop_letras.png" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="1,25"/>
+        </StackLayout>
 
-            <!-- volver -->
-            <Frame x:Name="nav_back"
-                       AbsoluteLayout.LayoutBounds="0, 0, 64, 1"
-                       AbsoluteLayout.LayoutFlags="PositionProportional, HeightProportional"
-                       Padding="12"
-                       Margin="8"
-                       CornerRadius="0"
-                       BackgroundColor="#00000000">
-
-                <Image Source="header_back.png"
-                           Aspect="Fill"/>
-            </Frame>
-
-            <!-- titulo -->
-            <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
-                             AbsoluteLayout.LayoutFlags="All"
-                             Orientation="Horizontal"
-                             HorizontalOptions="Center"
-                             Padding="0"
-                             Spacing="0">
-
-                <Image Source="butterpop_main"
-                           AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
-                           AbsoluteLayout.LayoutFlags="All"
-                           HeightRequest="40"
-                           Margin="0, 0, 8, 0"/>
-
-                <Label Text="BUTTER"
-                           FontSize="40"
-                           VerticalTextAlignment="Center"
-                           TextColor="#fff"
-                           FontAttributes="Bold"/>
-
-                <Label Text="POP"
-                           FontSize="40"
-                           VerticalTextAlignment="Center"
-                           TextColor="#c80000"
-                           FontAttributes="Bold"/>
-            </StackLayout>
-
-            <!-- borde separador -->
-            <BoxView AbsoluteLayout.LayoutBounds="0, 1.1, 1, 6"
-                         AbsoluteLayout.LayoutFlags="YProportional, WidthProportional"
-                         BackgroundColor="#c80000"/>
-        </AbsoluteLayout>
 
         <StackLayout Grid.Row="1">
 
@@ -86,75 +42,90 @@
 
                         <!-- poster -->
                         <Frame Grid.Row="0"
-                           Grid.Column="0"
-                           Grid.RowSpan="5"
-                           CornerRadius="16"
-                           Padding="0"
-                           Margin="0">
+                       Grid.Column="0"
+                       Grid.RowSpan="5"
+                       CornerRadius="16"
+                       Padding="0"
+                       Margin="0">
 
                             <Image x:Name="film_poster"
-                               Source="shrek_portada.jpg"
-                               Aspect="AspectFill"/>
+                            
+                            Aspect="AspectFill"
+                               
+                            />
                         </Frame>
 
                         <!-- titulo -->
                         <Label x:Name="film_name"
                            Grid.Row="0"
                            Grid.Column="1"
-                           Text="SHREK"
+                           Text="{Binding titulo}"
                            HorizontalTextAlignment="Center"
                            TextColor="#fff"
-                           FontSize="32"
+                           FontSize="20"
+                           TextTransform="Uppercase"
                            FontAttributes="Bold"/>
 
                         <!-- descripcion -->
-                        <Label x:Name="film_description"
-                           Grid.Row="1"
-                           Grid.Column="1"
-                           Text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint odit quae soluta possimus quod alias maiores, aliquam quia non et laboriosam doloremque aut? Sit qui laborum quisquam porro similique minima."
-                           TextColor="#fff"
-                           Margin="8, 0, 0, 16"/>
+                        <ScrollView HeightRequest="150" Grid.Row="1" Grid.Column="1">
+                            <Label x:Name="film_description"
+                               Text="{Binding descripcion}"
+                               TextColor="#fff"
+                               
+                               Margin="8, 0, 0, 16"/>
+                        </ScrollView>
+
+
+
 
                         <!-- precio -->
                         <StackLayout Grid.Row="2"
-                                 Grid.Column="1"
-                                 Orientation="Horizontal"
-                                 HorizontalOptions="Center">
+                     Grid.Column="1"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center">
 
-                            <Label Text="Renta"
-                               FontSize="Large"
-                               TextColor="#fff"/>
+                            <Label TextColor="#C80000" FontAttributes="Bold" FontSize="20" Grid.Row="0" Grid.Column="0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="$" />
+                                        <Span Text="{Binding precio}" x:Name="film_price"/>
 
-                            <Label x:Name="film_price"
-                               Text="$50"
-                               FontSize="Large"
-                               TextColor="#f00"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+
+                            </Label>
+
                         </StackLayout>
 
                         <!-- boton renta -->
+
                         <Frame Grid.Row="3"
                            Grid.Column="1"
                            CornerRadius="32"
                            Padding="16, 0, 16, 0"
-                           BackgroundColor="#f00"
+                           BackgroundColor="#C80000"
                            HorizontalOptions="Center">
+
 
                             <Button x:Name="btn_rent"
                                 Text="rentar"
-                                BackgroundColor="#00000000"/>
+                                BackgroundColor="#00000000"
+                                TextColor="White"/>
                         </Frame>
 
                         <!-- boton lista -->
-                        <StackLayout x:Name="add_list"
-                                 Grid.Row="4"
-                                 Grid.Column="1"
-                                 Orientation="Horizontal"
-                                 HorizontalOptions="Center"
-                                 VerticalOptions="Start"
-                                 Margin="0, 16, 0, 0"
-                                 Padding="16, 0, 16, 0">
 
-                            <Frame BackgroundColor="#f00"
+
+                        <StackLayout x:Name="add_list"
+                     Grid.Row="4"
+                     Grid.Column="1"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Start"
+                     Margin="0, 16, 0, 0"
+                     Padding="16, 0, 16, 0">
+
+                            <Frame BackgroundColor="#c80000"
                                Padding="10, 0, 10, 0"
                                CornerRadius="16">
 
@@ -165,6 +136,11 @@
                                    VerticalTextAlignment="Center"/>
                             </Frame>
 
+
+                            <Label Text="Añadir"
+                               TextColor="#fff"
+                               VerticalTextAlignment="Center"/>
+
                             <Picker Title="Aañadir a" 
                                     SelectedIndexChanged="Picker_SelectedIndexChanged"
                                     
@@ -174,41 +150,87 @@
                                     WidthRequest="100"/>
                         </StackLayout>
 
+
                         <!-- puntuacion -->
                         <StackLayout x:Name="film_score"
-                                 Grid.Row="5"
-                                 Grid.Column="0"
-                                 Orientation="Horizontal"
+                     Grid.Row="5"
+                     Grid.Column="0"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     HeightRequest="35">
+
+                            <Label TextColor="#fff" >
+                                <Label.FormattedText>
+                                    <FormattedString>
+
+                                        <Span Text="{Binding duracion}" x:Name="film_duracion"/>
+                                        <Span Text=" min"/>
+
+                                    </FormattedString>
+                                </Label.FormattedText>
+
+                            </Label>
+
+                            <Label x:Name="film_genero"
+                                 Text="{Binding genero}"
+                                 TextColor="#fff"
+                                 FontSize="Small"
+                                 Margin="8, 0, 0, 16"/>
+
+
+                            <Label x:Name="film_clasificacion"
+                                Text="{Binding clasificacion}"
+                                TextColor="#fff"
+                                FontSize="Small"
+                                Margin="8, 0, 0, 16"/>
+
+
+
+
+
+
+
+
+
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="6" Orientation="Horizontal"  Grid.Column="0"
                                  HorizontalOptions="Center"
-                                 HeightRequest="24">
+                                 HeightRequest="20">
 
                             <Image Source="star.png"/>
                             <Image Source="star.png"/>
                             <Image Source="star_half.png"/>
+
                         </StackLayout>
 
+
                         <!-- separador -->
-                        <BoxView Grid.Row="6"
-                             Grid.Column="0"
-                             Grid.ColumnSpan="2"
-                             HeightRequest="4"
-                             BackgroundColor="#f00"
-                             Margin="0, 8, 0, 8"/>
+                        <BoxView Grid.Row="7"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 HeightRequest="2"
+                 BackgroundColor="#f00"
+                 Margin="0, 8, 0, 8"/>
                     </Grid>
 
                     <!-- comentarios -->
                     <StackLayout BackgroundColor="#ff0"
-                             Margin="16">
+                 Margin="16">
 
                         <Label Text="Trabajo pendiente&#x0a;(Responsable chucho)"
-                           HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="Center"
-                           FontSize="Large"
-                           FontAttributes="Bold"
-                           TextColor="#f00"/>
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               FontSize="Large"
+               FontAttributes="Bold"
+               TextColor="#f00"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
     </Grid>
+
+
+
+
 </ContentPage>

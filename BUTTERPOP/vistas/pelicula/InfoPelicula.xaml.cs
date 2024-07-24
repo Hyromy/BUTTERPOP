@@ -11,6 +11,7 @@ using BUTTERPOP.db;
 using BUTTERPOP.crud.lista;
 using BUTTERPOP.crud.contiene;
 using BUTTERPOP.Vistas.listas;
+using static BUTTERPOP.utils.ImageResourceExtension;
 
 namespace BUTTERPOP.vistas.pelicula
 {
@@ -24,6 +25,7 @@ namespace BUTTERPOP.vistas.pelicula
         private Table.Lista lista;
         private CRUD_Lista crudLista = new CRUD_Lista();
         private CRUD_Contiene crudContiene = new CRUD_Contiene();
+   
 
         public InfoPelicula(Table.Cliente cliente, Table.Pelicula pelicula)
         {
@@ -33,15 +35,16 @@ namespace BUTTERPOP.vistas.pelicula
             this.cliente = cliente;
             this.pelicula = pelicula;
 
-            addNavBack();
+           addNavBack();
+           addTapList();
+           LlenarPickerAsync();
 
             btn_rent.Clicked += ToRent;
+            film_poster.Source = ImageHelper.ConvertByteArrayToImage(pelicula.imagen);
+            BindingContext = pelicula;
+            
 
-            //datos para llenar el picker
-            LlenarPickerAsync();
         }
-
-
 
         private void addNavBack()
         {
