@@ -58,13 +58,6 @@ namespace BUTTERPOP.db
 
         }
 
-
-        public class Administrador
-        {
-            [PrimaryKey]
-            public string correo_admin { get; set; }
-        }
-
         public class Pelicula
         {
             [PrimaryKey, AutoIncrement]
@@ -98,32 +91,25 @@ namespace BUTTERPOP.db
         /// </summary>
         public class Renta
         {
-            // autogenerado
             [PrimaryKey, AutoIncrement]
             public int id_renta { get; set; }
 
-            // obligatorio
             [ForeignKey(typeof(Table.Cliente)), MaxLength(50)]
             public string correo { get; set; }
 
-            // obligatorio
             [ForeignKey(typeof(Table.Pelicula))]
             public int id_pelicula { get; set; }
 
-            // obligatorio
-            [ForeignKey(typeof(Table.Pelicula))]
+            [NotNull]
             public float precio { get; set; }
 
-            // obligatorio
+            [NotNull]
             public int semanas_renta { get; set; }
 
-            // autogenerado
             public DateTime fecha_renta { get; set; }
             
-            // autogenerado
             public DateTime fin_fecha_renta { get; set; }
 
-            // autogenerado
             public float cobro_renta { get; set; }
 
             /// <summary>

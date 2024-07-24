@@ -2,26 +2,69 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BUTTERPOP.vistas.Home"
-             
              IconImageSource="home.png">
+
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#1C1C1C">
+        <Grid BackgroundColor="#1c1c1c">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
             <!-- cabecera -->
-            <StackLayout Orientation="Horizontal" >
-                <Image Source="logo_palomitas.png" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="5,10"/>
-                <Image Source="butterpop_letras.png" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="StartAndExpand" Margin="1,25"/>
-            </StackLayout>
+            <AbsoluteLayout Grid.Row="0"
+                            HeightRequest="64"
+                            BackgroundColor="#1c1c1c">
 
-            <!-- pelicula -->
-            <Frame HeightRequest="200" Margin="0" CornerRadius="80" BackgroundColor="Transparent"
-                   x:Name="film1">
+                <!-- titulo -->
+                <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                             AbsoluteLayout.LayoutFlags="All"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Padding="0"
+                             Spacing="0">
 
-                <Image Source="pelicula_poster.png" Aspect="AspectFill" />
+                    <Image Source="butterpop_main"
+                           AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                           AbsoluteLayout.LayoutFlags="All"
+                           HeightRequest="40"
+                           Margin="0, 0, 8, 0"/>
 
-            </Frame>
+                    <Label Text="BUTTER"
+                           FontSize="40"
+                           VerticalTextAlignment="Center"
+                           TextColor="#fff"
+                           FontAttributes="Bold"/>
 
-            <ScrollView>
+                    <Label Text="POP"
+                           FontSize="40"
+                           VerticalTextAlignment="Center"
+                           TextColor="#c80000"
+                           FontAttributes="Bold"/>
+                </StackLayout>
+
+                <!-- borde separador -->
+                <BoxView AbsoluteLayout.LayoutBounds="0, 1.1, 1, 6"
+                         AbsoluteLayout.LayoutFlags="YProportional, WidthProportional"
+                         BackgroundColor="#c80000"/>
+            </AbsoluteLayout>
+
+            <!-- cuerpo -->
+            <ScrollView Grid.Row="1">
+                <StackLayout>
+
+                    <!-- pelicula -->
+                    <Frame HeightRequest="200"
+                           Margin="0"
+                           CornerRadius="80"
+                           BackgroundColor="Transparent"
+                           x:Name="film1">
+
+                        <Image Source="pelicula_poster.png"
+                               Aspect="AspectFill" />
+                    </Frame>
+
+                    <ScrollView>
                 <Grid x:Name="moviesGrid" Padding="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -60,14 +103,16 @@
             
 
             <!--<Frame x:Name="film2"
-                   HeightRequest="200"
-                   Margin="0"
-                   CornerRadius="80"
-                   BackgroundColor="#00000000">
+                           HeightRequest="200"
+                           Margin="0"
+                           CornerRadius="80"
+                           BackgroundColor="#00000000">
 
-                <Image Source="shrek_portada.jpg"
-                       Aspect="AspectFill"/>
-            </Frame>-->
-        </StackLayout>
+                        <Image Source="shrek_portada.jpg"
+                               Aspect="AspectFill"/>
+                    </Frame>-->
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

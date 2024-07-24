@@ -26,8 +26,6 @@ namespace BUTTERPOP.vistas.renta
         private String aa = "";
         private String key = "";
 
-
-
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
         private Table.Renta renta;
@@ -81,6 +79,7 @@ namespace BUTTERPOP.vistas.renta
                 bool isPayed = (await DisplayAlert("Pagar", question, "Sí", "No"));
                 if (isPayed)
                 {
+                    await ProcesingPay();
                     Pay();
 
                     String sucess = "Transacción realizada exitosamente, revisa tu lista privada 'Mis películas rentadas' o haz click en 'Ir' para ver la película que acabas de rentar";
@@ -213,11 +212,45 @@ namespace BUTTERPOP.vistas.renta
             Console.WriteLine($"Nuevo registro de renta con id: {this.renta.id_renta}");
         }
 
-        /*
+        private async Task ProcesingPay()
+        {
+            ActivityIndicator load = new ActivityIndicator
+            {
+                IsRunning = true,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Color = Color.FromHex("#c80000")
+            };
+
+            Frame frame = new Frame
+            {
+                CornerRadius = 32,
+                Margin = 0,
+                Padding = 32,
+                BackgroundColor = Color.FromHex("#1c1c1c"),
+                Content = load
+            };
+
+            AbsoluteLayout absolute = new AbsoluteLayout
+            {
+                BackgroundColor = Color.FromRgba(0, 0, 0, 128),
+                Children = { frame }
+            };
+
+            AbsoluteLayout.SetLayoutBounds(frame, new Rectangle(0.5, 0.5, 192, 192));
+            AbsoluteLayout.SetLayoutFlags(frame, AbsoluteLayoutFlags.PositionProportional);
+            absolute.Children.Add(frame);
+            Grid.SetRow(absolute, 0);
+            Grid.SetRowSpan(absolute, 3);
+
+            main.Children.Add(absolute);
+            await Task.Delay(new Random().Next(3000, 5001));
+            main.Children.Remove(absolute);
+        }
+
         private void ToTest(object sender, EventArgs e)
         {
             Navigation.PushAsync(new testRenta());
         }
-        */
     }
 }
