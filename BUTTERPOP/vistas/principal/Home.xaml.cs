@@ -22,7 +22,6 @@ namespace BUTTERPOP.vistas
 
         private CRUD_Pelicula crud_pelicula = new CRUD_Pelicula();
 
-
         public Home(Table.Cliente cliente)
         {
             InitializeComponent();
@@ -30,6 +29,7 @@ namespace BUTTERPOP.vistas
 
             this.cliente = cliente;
 
+            /*
             // Crear un evento tipo click para el frame
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += (s, e) => {
@@ -39,8 +39,10 @@ namespace BUTTERPOP.vistas
             // Asignar el evento al frame
             film1.GestureRecognizers.Add(tapGestureRecognizer);
             //film2.GestureRecognizers.Add(tapGestureRecognizer);
+            */
         }
 
+        /*
         private void Rent()
         {
             // extraer la informacion de la pelicula seleccionada
@@ -51,7 +53,7 @@ namespace BUTTERPOP.vistas
 
             Navigation.PushAsync(new vistas.pelicula.InfoPelicula(this.cliente, this.pelicula));
         }
-
+        */
 
         private async void CargarPeliculas()
         {
@@ -71,7 +73,24 @@ namespace BUTTERPOP.vistas
                         WidthRequest = 100,
                         BindingContext = pelicula
                     };
+                    
                     imageButton.Clicked += OnImageButtonClicked;
+
+                    Label label = new Label
+                    {
+                        Text = pelicula.titulo,
+                        TextColor = Color.White,
+                        HorizontalOptions = LayoutOptions.Center,
+                        VerticalOptions = LayoutOptions.Center,
+                        Margin = new Thickness(0, 5, 0, 0)
+                    };
+
+                    StackLayout stack = new StackLayout
+                    {
+                        Padding = 0,
+                        Margin = 0,
+                        Children = { imageButton, label }
+                    };
 
                     var frame = new Frame
                     {
@@ -79,23 +98,7 @@ namespace BUTTERPOP.vistas
                         CornerRadius = 20,
                         Margin = new Thickness(2),
                         BackgroundColor = Color.Transparent,
-                        Content = new StackLayout
-                        {
-                            Padding = 0,
-                            Margin = 0,
-                            Children =
-                    {
-                        imageButton,
-                        new Label
-                        {
-                            Text = pelicula.titulo,
-                            TextColor = Color.White,
-                            HorizontalOptions = LayoutOptions.Center,
-                            VerticalOptions = LayoutOptions.Center,
-                            Margin = new Thickness(0, 5, 0, 0)
-                        }
-                    }
-                        }
+                        Content = stack
                     };
 
                     moviesGrid.Children.Add(frame, column, row);
@@ -112,18 +115,12 @@ namespace BUTTERPOP.vistas
 
         private async void OnImageButtonClicked(object sender, EventArgs e)
         {
-
-
-
-
             var imageButton = (ImageButton)sender;
             var pelicula = (Table.Pelicula)imageButton.BindingContext;
 
             // Lógica que deseas implementar al hacer clic en el ImageButton
             //DisplayAlert("Película seleccionada", $"Título: {pelicula.titulo}", "OK");
-            await Navigation.PushAsync(new InfoPelicula(this.cliente,pelicula));
+            await Navigation.PushAsync(new InfoPelicula(this.cliente, pelicula));
         }
-
-
     }
 }

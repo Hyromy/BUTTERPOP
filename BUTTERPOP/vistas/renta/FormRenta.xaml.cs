@@ -49,7 +49,7 @@ namespace BUTTERPOP.vistas.renta
 
             btnConfirmCard.Clicked += ToPay;
 
-            //toTest.Clicked += ToTest;
+            toTest.Clicked += ToTest;
         }
 
         protected override void OnAppearing()
@@ -69,11 +69,10 @@ namespace BUTTERPOP.vistas.renta
                 slideValue = 1 + (int) input_slide_semanas.Value;
                 String timeEnd = DateTime.Now.AddDays(7 * slideValue).ToString("dd/MM/yyyy HH:mm");
 
-                // reemplazar por datos adecuados
                 String question = "";
-                question += $"¿Deseas rentar {this.pelicula.ToString()}";
+                question += $"¿Deseas rentar '{this.pelicula.titulo}'";
                 question += $" a la cuenta '{this.cliente.correo}'";
-                question += $" por ${this.pelicula.ToString()}?";
+                question += $" por ${model.CalculatePrice((float) this.pelicula.precio, slideValue)}?";
                 question += $"\n\nTu renta finalizará el {timeEnd}hrs";
 
                 bool isPayed = (await DisplayAlert("Pagar", question, "Sí", "No"));
@@ -86,7 +85,6 @@ namespace BUTTERPOP.vistas.renta
                     bool toFilms = (await DisplayAlert("Pago exitoso", sucess, "Ir", "OK"));
                     if (toFilms)
                     {
-                        // modificar constructor
                         Application.Current.MainPage = new NavigationPage(new HomePage(this.cliente));
                     }
                 }
@@ -201,7 +199,7 @@ namespace BUTTERPOP.vistas.renta
             {
                 correo = this.cliente.correo,
                 id_pelicula = this.pelicula.id_pelicula,
-                precio = 50, // reemplazar con pelicula.precio
+                precio = (float) this.pelicula.precio,
                 semanas_renta = slideValue
             };
 

@@ -81,26 +81,10 @@ namespace BUTTERPOP.vistas.pelicula
             await crudContiene.SaveContieneAsync(contiene);
             await DisplayAlert("Registro", "Lista guardada en tu interfaz", "OK");
         }
-        /*
-        private void addTapList()
-        {
-            TapGestureRecognizer tapList = new TapGestureRecognizer();
-            tapList.Tapped += (s, e) =>
-            {
-                // acciones para agregar a lista
-                DisplayAlert("Listas", "Función aun no disponible", "OK");
-            };
-
-            add_list.GestureRecognizers.Add(tapList);
-        }
-        */
 
         private void ToRent(object sender, EventArgs e)
         {
-            // enviar el usuario y la pelicula rescatados de la vista previa
             Navigation.PushAsync(new vistas.renta.FormRenta(cliente, pelicula));
         }
-
-        
     }
 }

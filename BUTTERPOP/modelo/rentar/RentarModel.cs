@@ -99,5 +99,16 @@ namespace BUTTERPOP.modelo.rentar
                 return new DateTime(y, m, 1);
             }
         }
+
+        public float CalculatePrice(float price, int weeks)
+        {
+            float cobro = 0;
+            for (int i = 1; i <= weeks; i++)
+            {
+                cobro += price / (int) Math.Pow(2, i - 1);
+            }
+
+            return cobro;
+        }
     }
 }
