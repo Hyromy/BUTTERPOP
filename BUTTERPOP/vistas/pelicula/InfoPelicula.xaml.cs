@@ -8,6 +8,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using BUTTERPOP.db;
+using BUTTERPOP.crud.lista;
+using BUTTERPOP.crud.contiene;
+using BUTTERPOP.Vistas.listas;
 
 namespace BUTTERPOP.vistas.pelicula
 {
@@ -18,6 +21,9 @@ namespace BUTTERPOP.vistas.pelicula
         //Propiedades de la clase Tablas
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
+        private Table.Lista lista;
+        private CRUD_Lista crudLista = new CRUD_Lista();
+        private CRUD_Contiene crudContiene = new CRUD_Contiene();
 
         public InfoPelicula(Table.Cliente cliente, Table.Pelicula pelicula)
         {
@@ -28,10 +34,14 @@ namespace BUTTERPOP.vistas.pelicula
             this.pelicula = pelicula;
 
             addNavBack();
-            addTapList();
 
             btn_rent.Clicked += ToRent;
+
+            //datos para llenar el picker
+            LlenarPickerAsync();
         }
+
+
 
         private void addNavBack()
         {
@@ -44,6 +54,29 @@ namespace BUTTERPOP.vistas.pelicula
             nav_back.GestureRecognizers.Add(navBack);
         }
 
+        // Llenar los elementos del picker
+        async Task LlenarPickerAsync()
+        {
+            var nombresListas = await crudLista.GetNombresListasPorCorreoAsync(cliente.correo);
+            pickerLista.ItemsSource = nombresListas;
+        }
+
+        //picker para añadir a una lista
+        private async void Picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string nombreListaSeleccionada = pickerLista.SelectedItem.ToString();
+            int idLista = await crudContiene.GetIdListaByNombreAsync(nombreListaSeleccionada);
+
+            db.Table.Contiene contiene = new db.Table.Contiene
+            {
+                id_lista = idLista,
+                id_pelicula = 20,
+            };
+
+            await crudContiene.SaveContieneAsync(contiene);
+            await DisplayAlert("Registro", "Lista guardada en tu interfaz", "OK");
+        }
+        /*
         private void addTapList()
         {
             TapGestureRecognizer tapList = new TapGestureRecognizer();
@@ -55,11 +88,14 @@ namespace BUTTERPOP.vistas.pelicula
 
             add_list.GestureRecognizers.Add(tapList);
         }
+        */
 
         private void ToRent(object sender, EventArgs e)
         {
             // enviar el usuario y la pelicula rescatados de la vista previa
             Navigation.PushAsync(new vistas.renta.FormRenta(cliente, pelicula));
         }
+
+        
     }
 }

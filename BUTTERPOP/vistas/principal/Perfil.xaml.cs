@@ -30,6 +30,8 @@ namespace BUTTERPOP.vistas
 
         private Table.Cliente cliente;
         
+
+        
         public Perfil(Table.Cliente cliente)
         {
             InitializeComponent();
@@ -50,9 +52,9 @@ namespace BUTTERPOP.vistas
             
         }
 
-        public Perfil(string Nombre, string Descipcion, byte[] Imagen)
+        public Perfil(int Id_lista, string Nombre, string Descipcion, byte[] Imagen)
         {
-            BindingContext = new ListaViewModel(Nombre, Descipcion, Imagen);
+            BindingContext = new ListaViewModel(Id_lista, Nombre, Descipcion, Imagen);
             var si = ImageHelper.ConvertByteArrayToImage(Imagen);
         }
 
@@ -324,7 +326,6 @@ namespace BUTTERPOP.vistas
                 {
                     if (usuario != null)
                     {
-
                         usuario.amaterno = txtAmaternoUsuario.Text;
 
                         await crud.UpdateUsuarioAsync(usuario);
@@ -348,11 +349,6 @@ namespace BUTTERPOP.vistas
         {
             var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
             await Navigation.PushAsync(new vistas.tarjeta.BillingPage(usuario));
-            
-
-     
-
-
         }
 
         private void btnCancelar_Clicked(object sender, EventArgs e)
@@ -362,7 +358,9 @@ namespace BUTTERPOP.vistas
 
         private async void confirmarEdicion_Clicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(actId.Text))
+            if (!string.IsNullOrEmpty(actId.Text) &&
+        !string.IsNullOrEmpty(actNombre.Text) &&
+        !string.IsNullOrEmpty(actDesc.Text))
             {
                 Lista lista = new Lista()
                 {
@@ -370,13 +368,17 @@ namespace BUTTERPOP.vistas
                     nombre = actNombre.Text,
                     descripcion = actDesc.Text,
                     imagen = ImageHelper.ConvertImageToByteArray(imgEditar.Source),
-
+                    correo = cliente.correo
                 };
+
                 await crud2.SaveListaAsync(lista);
                 frameEditar.IsVisible = false;
                 await DisplayAlert("Actualización", "Lista actualizada", "OK");
                 llenarDatosListas();
-
+            }
+            else
+            {
+                await DisplayAlert("Error", "Por favor, completa todos los campos.", "OK");
             }
 
         }
@@ -386,7 +388,6 @@ namespace BUTTERPOP.vistas
             var obj = (Lista)e.SelectedItem;
             if (!string.IsNullOrEmpty(obj.id_lista.ToString()))
             {
-
                 var lista = await crud2.GetListaByIdAsync(obj.id_lista);
                 if (lista != null)
                 {
@@ -398,6 +399,7 @@ namespace BUTTERPOP.vistas
                 }
 
 
+
             }
 
         }
@@ -407,9 +409,17 @@ namespace BUTTERPOP.vistas
             var lista = await crud2.GetListaByIdAsync(Convert.ToInt32(actId.Text));
             if (lista != null)
             {
-                await crud2.DeleteListaAsync(lista);
-                await DisplayAlert("Aviso", "Se elimino la lista", "OK");
-                llenarDatosListas();
+                var result = await DisplayAlert("Confirmación", "¿Estás segur@ la lista?", "Sí", "No");
+                if (result)
+                {
+                    await crud2.DeleteListaAsync(lista);
+                    await DisplayAlert("Aviso", "Se elimino la lista", "OK");
+                    llenarDatosListas();
+                }
+                else
+                {
+                    // El usuario hizo clic en "No"
+                }
             }
 
         }
@@ -418,8 +428,7 @@ namespace BUTTERPOP.vistas
         {
             //await Navigation.PushAsync(new ListaContiene());
             var lista = await crud2.GetListaByIdAsync(Convert.ToInt32(actId.Text));
-            Navigation.PushAsync(new ListasContiene(lista.nombre, lista.descripcion, lista.imagen));
-
+            await Navigation.PushAsync(new ListasContiene(lista.id_lista, lista.nombre, lista.descripcion, lista.imagen, this.cliente));
         }
 
         private void btnNueva_Clicked(object sender, EventArgs e)
@@ -429,9 +438,6 @@ namespace BUTTERPOP.vistas
         }
         public async void llenarDatosListas()
         {
-           
-
-
             List<Table.Lista> listaList = await crud2.GetListasByCorreoAsync(cliente.correo);
             
 

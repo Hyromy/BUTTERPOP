@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using BUTTERPOP.crud;
+using System.Collections;
+using System.Buffers;
+using System.Linq;
 
 
 namespace BUTTERPOP.crud.lista
@@ -47,7 +50,26 @@ namespace BUTTERPOP.crud.lista
             return this.db.Table<Table.Lista>().Where(a => a.correo == correo).ToListAsync();
         }
 
-        
+        public async Task<List<string>> GetNombresListasPorCorreoAsync(string correo)
+        {
+            try
+            {
+                var listas = await this.db.Table<Table.Lista>()
+                    .Where(a => a.correo == correo)
+                    .ToListAsync();
+
+                var nombresListas = listas.Select(a => a.nombre).ToList();
+
+                return nombresListas;
+            }
+            catch (Exception ex)
+            {
+                // Maneja la excepción aquí (por ejemplo, registra o notifica el error)
+                Console.WriteLine($"Error al obtener nombres de listas: {ex.Message}");
+                return null; // Otra acción apropiada en caso de error
+            }
+        }
+
 
     }
     

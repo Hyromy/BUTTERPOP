@@ -32,9 +32,16 @@
                        Aspect="AspectFit"/>
             </Grid>
 
-            <Button x:Name="btnSimula" 
-                    Clicked="btnSimula_Clicked"
-                    Text="+"/>
+            <!-- Datos para recuperar despues -->
+            <!-- recupera id de la lista -->
+            <Label x:Name="lblIdLista"
+                   TextColor="white"
+                   IsVisible="false"/>
+            <!-- recupera id de contiene en la lista -->
+            <Label x:Name="lblIdContiene"
+                   TextColor="white"
+                   IsVisible="false"/>
+
 
             <ListView x:Name="lstContiene" 
                       HasUnevenRows="True" 
@@ -44,8 +51,9 @@
                       RefreshControlColor="Black" 
                       SeparatorColor="black"
                       SeparatorVisibility="Default">
+                
 
-                <ListView.ItemTemplate>
+                    <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
