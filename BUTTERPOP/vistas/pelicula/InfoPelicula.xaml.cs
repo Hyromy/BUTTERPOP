@@ -35,8 +35,8 @@ namespace BUTTERPOP.vistas.pelicula
             this.cliente = cliente;
             this.pelicula = pelicula;
 
-           addNavBack();
-           addTapList();
+           //addNavBack();
+           //addTapList();
            LlenarPickerAsync();
 
             btn_rent.Clicked += ToRent;
@@ -46,7 +46,7 @@ namespace BUTTERPOP.vistas.pelicula
 
         }
 
-        private void addNavBack()
+        /*private void addNavBack()
         {
             TapGestureRecognizer navBack = new TapGestureRecognizer();
             navBack.Tapped += (s, e) =>
@@ -55,7 +55,7 @@ namespace BUTTERPOP.vistas.pelicula
             };
 
             nav_back.GestureRecognizers.Add(navBack);
-        }
+        }*/
 
         // Llenar los elementos del picker
         async Task LlenarPickerAsync()

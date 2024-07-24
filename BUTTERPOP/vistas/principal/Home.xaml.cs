@@ -121,7 +121,7 @@ namespace BUTTERPOP.vistas
 
             // Lógica que deseas implementar al hacer clic en el ImageButton
             //DisplayAlert("Película seleccionada", $"Título: {pelicula.titulo}", "OK");
-            await Navigation.PushAsync(new InfoPelicula(null,pelicula));
+            await Navigation.PushAsync(new InfoPelicula(this.cliente,pelicula));
         }
 
 
