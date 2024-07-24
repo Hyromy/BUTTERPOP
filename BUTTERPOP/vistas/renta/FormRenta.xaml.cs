@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using BUTTERPOP.modelo.rentar;
 using BUTTERPOP.crud.renta;
 using BUTTERPOP.db;
+using BUTTERPOP.utils;
 
 namespace BUTTERPOP.vistas.renta
 {
@@ -62,6 +63,7 @@ namespace BUTTERPOP.vistas.renta
         private void LoadFilm()
         {
             film_name.Text = this.pelicula.titulo;
+            banner.Source = ImageResourceExtension.ImageHelper.ConvertByteArrayToImage(this.pelicula.imagen);
         }
 
         private async void ToPay(object sender, EventArgs e)
