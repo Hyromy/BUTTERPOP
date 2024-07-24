@@ -69,6 +69,7 @@
                                 </Grid.ColumnDefinitions>
 
                                     <Label Text="{Binding id_contiene}"
+                                           IsVisible="false"
                                            x:Name="txtId"
                                            Grid.RowSpan="2"
                                            VerticalOptions="Center"
