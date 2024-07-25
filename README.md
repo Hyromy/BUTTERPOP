@@ -69,7 +69,7 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
     - [Diccionario de datos](#22-diccionario-de-datos)
     - [Diseño de pruebas](#23-diseño-de-pruebas)
     - [Diseño de las interfaces (maquetas)](#24-diseño-de-las-interfaces-maquetas)
-- [CAPÍTULO 3 ...]()
+- [CAPÍTULO 3 ...](#capítulo-3-no-se-xd)
 - [DESARROLLADORES](#desarolladores)
 
 ## RESUMEN
@@ -2219,7 +2219,7 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
 
-## CAPÍTULO 3 ...
+## CAPÍTULO 3 no se xd
 introduccion de capitulo
 
 ---
@@ -2244,10 +2244,6 @@ introduccion de capitulo
 | 10 | btnConfirmCard | Button | Al presionar, la aplicación validará los campos y procesará el cobro |  | Table.Renta |
 
 ---
-
-
-
-
 
 ## DESAROLLADORES
 <!-- stats -->
