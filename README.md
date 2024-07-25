@@ -2306,12 +2306,12 @@ introduccion de capitulo
 				<br>Hyromy
 			</a>
 		</td>
-		<td>87</td>
-		<td>77974</td>
-		<td>31338</td>
-		<td>46636</td>
-		<td>536</td>
-		<td>58.53%</td>
+		<td>89</td>
+		<td>78678</td>
+		<td>31800</td>
+		<td>46878</td>
+		<td>526</td>
+		<td>58.66%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2325,7 +2325,7 @@ introduccion de capitulo
 		<td>5856</td>
 		<td>31763</td>
 		<td>1588</td>
-		<td>39.87%</td>
+		<td>39.74%</td>
 	</tr>
 </table>
 <br>
@@ -2431,3 +2431,4 @@ introduccion de capitulo
 
 ![easter egg](img_doc/general/furinaDance.gif)
 <!-- /stats -->
+
