@@ -2219,6 +2219,32 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
 
+## CAPÍTULO 3 ...
+introduccion de capitulo
+
+---
+
+*La figura 3.`x`.1 muestra un formulario de pago donde el usuario podrá ingresar su número de tarjeta, la fecha de expiración, la clave de seguridad y la cantidad de semanas de ranta que desee. Esta vista esta alojada en el archivo **FormRenta.xaml**. Una vez esten llenos todos los campos y el usuario de click en el botón 'Confirmar', la aplicación validará tos los campos, mostrará algunos DisplayAlert mostrando el resumen de la renta o información adicional. Cuando todos los datos hayan sido validados, la aplicación procesará los datos ingresados y creará un nuevo registro en la base de datos SQLite 'ButterPop.db3'*
+
+![vista FormRenta.xaml](img_doc/cap3/renta/FormRenta.jpg)
+
+*La figura 3.`x`.2 muestra una descripción de los elementos de la vista FormRenta.xaml*
+
+| No. Elemento | Elemento | Tipo de elemento | Interacciones | Tipo de dato de entrada | Campo que afecta |
+| - | - | - | - | - | - |
+| 1 | nav_back | Frame | Al presionarlo, la aplicación regresará a vista (pantalla) anterior |  |  |
+| 2 | banner | Image | Imagen de cartel de la película previamente seleccionada | ImageSource |  |
+| 3 | film_name | Label | Título de la película previamente seleccionada | String |  |
+| 4 | card_number | Entry | Número de tarjeta bancaria, ingresada por el usuario | String |  |
+| 5 | month | Entry | Mes a 2 cifras de la tarjeta bancaria, ingresada por el usuario | String |  |
+| 6 | year | Entry | Año a 2 cifras de la tarjeta bancaria, ingresada por el usuario | String |  |
+| 7 | cvv | Entry | Clave de seguridad de la tarjeta bancaria, ingresada por el usuario | String |  |
+| 8 | output_semanas | Label | Cantidad de semanas de renta | String |  |
+| 9 | input_slide_semanas | Slider | Al deslizar el slide, la aplicación cambiará su valor entero desde 1 a 4 |  | Table.Renta.semanas_renta |
+| 10 | btnConfirmCard | Button | Al presionar, la aplicación validará los campos y procesará el cobro |  | Table.Renta |
+
+---
+
 
 
 
