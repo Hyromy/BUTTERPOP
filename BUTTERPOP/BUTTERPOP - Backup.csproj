@@ -12,14 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Fonts\Teko.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Fonts\Teko.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
 
     <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 
@@ -71,5 +63,6 @@
 
   <ItemGroup>
     <Folder Include="modelo\sesion\" />
+    <Folder Include="Res\" />
   </ItemGroup>
 </Project>

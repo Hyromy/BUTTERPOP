@@ -32,16 +32,18 @@
                            Margin="0, 0, 8, 0"/>
 
                     <Label Text="BUTTER"
-                           FontSize="40"
+                           FontSize="50"
                            VerticalTextAlignment="Center"
                            TextColor="#fff"
-                           FontAttributes="Bold"/>
+                           FontAttributes="Bold"
+                           FontFamily="Teko"/>
 
                     <Label Text="POP"
-                           FontSize="40"
+                           FontSize="50"
                            VerticalTextAlignment="Center"
                            TextColor="#c80000"
-                           FontAttributes="Bold"/>
+                           FontAttributes="Bold"
+                           FontFamily="Teko"/>
                 </StackLayout>
 
                 <!-- borde separador -->
@@ -71,12 +73,14 @@
                         
                         <Label Text="Estrenos" TextTransform="Uppercase" 
                                 TextColor="#C80000" FontAttributes="Bold" 
-                                FontSize="20" Margin="25,0,0,0"/>
+                                FontSize="25" Margin="25,0,0,0"
+                               FontFamily="Teko"/>
                         
                         
                         <Label Text="Proximamente" TextTransform="Uppercase" 
                                TextColor="White" FontAttributes="Bold" 
-                               FontSize="20" Margin="10,0,0,0"/>
+                               FontSize="25" Margin="10,0,0,0"
+                               FontFamily="Teko"/>
                         
                     </StackLayout>
 

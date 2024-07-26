@@ -44,16 +44,18 @@
                        Margin="0, 0, 8, 0"/>
 
                 <Label Text="BUTTER"
-                       FontSize="40"
-                       VerticalTextAlignment="Center"
-                       TextColor="#fff"
-                       FontAttributes="Bold"/>
+       FontSize="50"
+       VerticalTextAlignment="Center"
+       TextColor="#fff"
+       FontAttributes="Bold"
+       FontFamily="Teko"/>
 
                 <Label Text="POP"
-                       FontSize="40"
-                       VerticalTextAlignment="Center"
-                       TextColor="#c80000"
-                       FontAttributes="Bold"/>
+       FontSize="50"
+       VerticalTextAlignment="Center"
+       TextColor="#c80000"
+       FontAttributes="Bold"
+       FontFamily="Teko"/>
             </StackLayout>
 
             <!-- borde separador -->
@@ -104,7 +106,9 @@
                                Text="{Binding titulo}"
                                HorizontalTextAlignment="Center"
                                TextColor="#fff"
-                               FontSize="20"
+                               FontSize="25"
+
+                               FontFamily="Teko"
                                TextTransform="Uppercase"
                                FontAttributes="Bold"/>
 
