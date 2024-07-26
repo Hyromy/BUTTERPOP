@@ -1,24 +1,11 @@
 *`documento sujeto a cambios`*
 
 ### Cambios pendientes por realizar
-#### Roles de usuario
-- [ ] Comprobar la especificacion del rol "Administrador"
-
 #### Diagrama general
 - [x] Comprobar el diagrama general
 
-#### Diagramas de secuencia
-- [ ] Agregar diagrama "Gestionar película" en README
-
 #### Diagrama de actividades
-- [ ] Modificar el diagrama de actividades (eliminar admin)
-
-#### Diseño de pruebas
-- [ ] Realizar diseño de pruebas de "crear lista" en README
-- [ ] Realizar diseño de pruebas de "crear lista" en DOC
-- [ ] Realizar diseño de pruebas de "actualizar lista" en README
-- [ ] Realizar diseño de pruebas de "actualizar lista" en DOC
-- [ ] Realizar diseño de pruebas de "gestionar pelicula" en README
+- [ ] Modificar el diagrama de actividades (eliminar admin, ya no se si hace falta)
 
 ---
 
@@ -32,7 +19,6 @@
 *P R E S E N T A*
 
 **ANDREA DOMÍNGEZ ZENTENO**<br>
-**EMANUEL GARCIA CAPOTE**<br>
 **JESÚS MÍGUEL ROSALES MURILLO**<br>
 **JOEL GONZÁLEZ CRUZ**<br>
 **JOSÉ JULÁN MARTÍNEZ DE LA CRUZ**<br>
@@ -110,11 +96,11 @@ Desarrollar una aplicación multiplataforma innovadora, amigable, segura e intui
 | **PROGRAMA DE TRABAJO** | *FECHA: dd/mm/aaaa* |
 
 ### DATOS DEL O DE LA ESTUDIANTE
-| NOMBRE: | Domínguez Zenteno Andrea<br>Garcia Capote Emanuel<br>González Cruz Joel<br>Martínez de la Cruz José Julián<br>Rosales Murillo Jesús Miguel  |
+| NOMBRE: | Domínguez Zenteno Andrea<br>González Cruz Joel<br>Martínez de la Cruz José Julián<br>Rosales Murillo Jesús Miguel  |
 | - | - |
 | DIVISIÓN: | Tecnologías de la Información y Comunicación |
 | CARRERA: | Técnico Superior Universitario en Tecnologías de la Información Área Desarrollo de Software Multiplataforma |
-| MATRÍCULA: | 2523260004<br>2523260069<br>2523260021<br>2523260022<br>2523260068 |
+| MATRÍCULA: | 2523260004<br>2523260021<br>2523260022<br>2523260068 |
 | GENERACIÓN: | Enero 2023 – Diciembre 2024 |
 
 ### ASESORA ACADÉMICA
@@ -508,7 +494,6 @@ Desarrollar una aplicación multiplataforma innovadora, amigable, segura e intui
     <tr>
         <td>
             Andrea Domínguez Zenteno<br>
-            Emanuel Garcia Capote<br>
             Jesús Miguel Rosales Murillo<br>
             Joel González Cruz<br>
             José Julián Martínez de la Cruz<br> 
@@ -1334,7 +1319,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
     </tr>
     <tr>
         <td>Autores</td>
-        <td colspan="2">Garcia Capote Emanuel</td>
+        <td colspan="2">Martínez de la Cruz José Julián</td>
     </tr>
     <tr>
         <td>Actores</td>
