@@ -134,6 +134,9 @@
     <PackageReference Include="Xamarin.Forms">
       <Version>5.0.0.2662</Version>
     </PackageReference>
+    <PackageReference Include="Xamd.Plugins.Forms.ImageCarousel">
+      <Version>1.0.2</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

@@ -47,18 +47,20 @@
                            AbsoluteLayout.LayoutFlags="All"
                            HeightRequest="40"
                            Margin="0, 0, 8, 0"/>
-
+                    
                     <Label Text="BUTTER"
-                           FontSize="40"
+                           FontSize="50"
                            VerticalTextAlignment="Center"
                            TextColor="#fff"
-                           FontAttributes="Bold"/>
+                           FontAttributes="Bold"
+                           FontFamily="Teko"/>
 
                     <Label Text="POP"
-                           FontSize="40"
+                           FontSize="50"
                            VerticalTextAlignment="Center"
                            TextColor="#c80000"
-                           FontAttributes="Bold"/>
+                           FontAttributes="Bold"
+                           FontFamily="Teko"/>
                 </StackLayout>
 
                 <!-- borde separador -->
@@ -103,9 +105,12 @@
                                            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView, ElementName=banner, Property=Height, Factor=1}"
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"
-                                           FontSize="32"
+                                           FontSize="35"
                                            TextColor="#fff"
-                                           FontAttributes="Bold"/>
+                                           TextTransform="Uppercase"
+                                           FontAttributes="Bold"
+                                           FontFamily="Teko"
+                                           />
                                 </RelativeLayout>
                             </Frame>
 
@@ -302,6 +307,7 @@
                                                 Text="Confirmar"
                                                 Margin="0"
                                                 Padding="10"
+                                                TextColor="White"
                                                 BackgroundColor="#c80000"/>
                                     </Frame>
                                 </Grid>

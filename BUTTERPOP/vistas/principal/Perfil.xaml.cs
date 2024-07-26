@@ -17,6 +17,7 @@ using BUTTERPOP.db;
 using System.IO;
 using Xamarin.Essentials;
 using BUTTERPOP.crud.renta;
+using BUTTERPOP.crud.pelicula;
 
 
 
@@ -27,38 +28,28 @@ namespace BUTTERPOP.vistas
     {
         private CRUD_Usuario crud = new CRUD_Usuario();
         private CRUD_Lista crud2 = new CRUD_Lista();
+        private CRUD_Renta crud_renta = new CRUD_Renta();
+        private CRUD_Pelicula crud_pelicula = new CRUD_Pelicula();
 
         private Table.Cliente cliente;
-        
-
         
         public Perfil(Table.Cliente cliente)
         {
             InitializeComponent();
             DatosRecuperados(cliente);
-            
 
             this.cliente = cliente;
-
-           
-
         }
 
-        public Perfil()
-        {
-            InitializeComponent();
-            LlenarDatos();
-            
-            
-        }
-
+        /*
         public Perfil(int Id_lista, string Nombre, string Descipcion, byte[] Imagen)
         {
             BindingContext = new ListaViewModel(Id_lista, Nombre, Descipcion, Imagen);
             var si = ImageHelper.ConvertByteArrayToImage(Imagen);
         }
+        */
 
-        private void btnPeliculas_Clicked(object sender, EventArgs e)
+        private async void btnPeliculas_Clicked(object sender, EventArgs e)
         {
             btnPeliculas.BackgroundColor = Color.FromHex("#C80000");
             btnPeliculas.TextColor = Color.White;
@@ -73,7 +64,94 @@ namespace BUTTERPOP.vistas
             btnListas.TextColor = Color.White;
             btnDatos.BackgroundColor = Color.FromHex("#3A3A3A");
             btnDatos.TextColor = Color.White;
+
+            List<Table.Renta> rentasList = await crud_renta.GetRentasByCorreo(cliente.correo);
+
+            if (rentasList == null || !rentasList.Any())
+            {
+                // Mostrar mensaje cuando no haya rentas
+                scrollViewMensaje.IsVisible = true;
+                moviesGrid.IsVisible = false;
+            }
+            else
+            {
+                // Ocultar mensaje y mostrar las películas rentadas
+                scrollViewMensaje.IsVisible = false;
+                moviesGrid.IsVisible = true;
+
+                List<Table.Pelicula> peliculasList = new List<Table.Pelicula>();
+                foreach (var renta in rentasList)
+                {
+                    if (renta.fin_fecha_renta > DateTime.Now)
+                    {
+                        var pelicula = await crud_pelicula.GetPeliculasByIdAsync(renta.id_pelicula);
+                        if (pelicula != null)
+                        {
+                            peliculasList.Add(pelicula);
+                        }
+                    }
+                }
+
+                // Limpiar la cuadrícula antes de agregar nuevos elementos
+                moviesGrid.Children.Clear();
+                moviesGrid.RowDefinitions.Clear();
+                moviesGrid.ColumnDefinitions.Clear();
+
+                if (peliculasList != null && peliculasList.Any())
+                {
+                    int row = 0, column = 0;
+
+                    foreach (var pelicula in peliculasList)
+                    {
+                        var imageButton = new ImageButton
+                        {
+                            Source = ImageSource.FromStream(() => new MemoryStream(pelicula.imagen)),
+                            Aspect = Aspect.AspectFill,
+                            HeightRequest = 150,
+                            WidthRequest = 100,
+                            BindingContext = pelicula
+                        };
+
+                        //imageButton.Clicked += OnImageButtonClicked;
+
+                        Label label = new Label
+                        {
+                            Text = pelicula.titulo,
+                            TextColor = Color.White,
+                            HorizontalOptions = LayoutOptions.Center,
+                            VerticalOptions = LayoutOptions.Center,
+                            Margin = new Thickness(0, 5, 0, 0)
+                        };
+
+                        StackLayout stack = new StackLayout
+                        {
+                            Padding = 0,
+                            Margin = 0,
+                            Children = { imageButton, label }
+                        };
+
+                        var frame = new Frame
+                        {
+                            HeightRequest = 200,
+                            CornerRadius = 20,
+                            Margin = new Thickness(2),
+                            BackgroundColor = Color.Transparent,
+                            Content = stack
+                        };
+
+                        moviesGrid.Children.Add(frame, column, row);
+
+                        column++;
+                        if (column > 2) // Limitar a 3 columnas
+                        {
+                            column = 0;
+                            row++;
+                        }
+                    }
+                }
+            }
         }
+
         private void btnListas_Clicked(object sender, EventArgs e)
         {
             // Cambiar color del botón

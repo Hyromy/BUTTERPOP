@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Xamd.ImageCarousel.Forms.Plugin.Abstractions;assembly=Xamd.ImageCarousel.Forms.Plugin.Abstractions"
              x:Class="BUTTERPOP.vistas.Home"
              IconImageSource="home.png">
 
@@ -31,16 +32,18 @@
                            Margin="0, 0, 8, 0"/>
 
                     <Label Text="BUTTER"
-                           FontSize="40"
+                           FontSize="50"
                            VerticalTextAlignment="Center"
                            TextColor="#fff"
-                           FontAttributes="Bold"/>
+                           FontAttributes="Bold"
+                           FontFamily="Teko"/>
 
                     <Label Text="POP"
-                           FontSize="40"
+                           FontSize="50"
                            VerticalTextAlignment="Center"
                            TextColor="#c80000"
-                           FontAttributes="Bold"/>
+                           FontAttributes="Bold"
+                           FontFamily="Teko"/>
                 </StackLayout>
 
                 <!-- borde separador -->
@@ -62,9 +65,38 @@
 
                         <Image Source="pelicula_poster.png"
                                Aspect="AspectFill" />
+
+                        <!--<controls:ImageCarousel x:Name="imgSlider" />-->
                     </Frame>
 
+                    <StackLayout Orientation="Horizontal">
+                        
+                        <Label Text="Estrenos" TextTransform="Uppercase" 
+                                TextColor="#C80000" FontAttributes="Bold" 
+                                FontSize="25" Margin="25,0,0,0"
+                               FontFamily="Teko"/>
+                        
+                        
+                        <Label Text="Proximamente" TextTransform="Uppercase" 
+                               TextColor="White" FontAttributes="Bold" 
+                               FontSize="25" Margin="10,0,0,0"
+                               FontFamily="Teko"/>
+                        
+                    </StackLayout>
+
+                    
+
+
+
+
+
                     <ScrollView>
+                        
+                        
+                        
+
+                        
+                        
                 <Grid x:Name="moviesGrid" Padding="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

@@ -23,7 +23,7 @@ namespace BUTTERPOP.vistas
             InitializeComponent();
 
             this.Children.Add(new Home(cliente));
-            this.Children.Add(new Buscar());
+            this.Children.Add(new Buscar(cliente));
             this.Children.Add(new Perfil(cliente));
             new BillingPage(cliente);
             

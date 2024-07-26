@@ -110,7 +110,9 @@ namespace BUTTERPOP.vistas.renta
                 bool isPayed = (await DisplayAlert("Pagar", question, "Sí", "No"));
                 if (isPayed)
                 {
+                    await model.ComprobateRent(this.pelicula, this.cliente);
                     await ProcesingPay();
+
                     Pay();
 
                     String sucess = "Transacción realizada exitosamente, revisa tu lista privada 'Mis películas rentadas' o haz click en 'Ir' para ver la película que acabas de rentar";
