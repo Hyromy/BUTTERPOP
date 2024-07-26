@@ -121,6 +121,9 @@
 
                     <Button x:Name="btndelete"
                             Text="deleteRenta(Renta)"/>
+
+                    <Button x:Name="btndeleteall"
+                            Text="deteleAllRentas()"/>
                 </StackLayout>
             </ScrollView>
         </Grid>

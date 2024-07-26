@@ -33,33 +33,21 @@ namespace BUTTERPOP.vistas
 
         private Table.Cliente cliente;
         
-
-        
         public Perfil(Table.Cliente cliente)
         {
             InitializeComponent();
             DatosRecuperados(cliente);
-            
 
             this.cliente = cliente;
-
-           
-
         }
 
-        public Perfil()
-        {
-            InitializeComponent();
-            LlenarDatos();
-            
-            
-        }
-
+        /*
         public Perfil(int Id_lista, string Nombre, string Descipcion, byte[] Imagen)
         {
             BindingContext = new ListaViewModel(Id_lista, Nombre, Descipcion, Imagen);
             var si = ImageHelper.ConvertByteArrayToImage(Imagen);
         }
+        */
 
         private async void btnPeliculas_Clicked(object sender, EventArgs e)
         {
@@ -77,7 +65,6 @@ namespace BUTTERPOP.vistas
             btnDatos.BackgroundColor = Color.FromHex("#3A3A3A");
             btnDatos.TextColor = Color.White;
 
-           
             List<Table.Renta> rentasList = await crud_renta.GetRentasByCorreo(cliente.correo);
 
             if (rentasList == null || !rentasList.Any())
@@ -95,10 +82,13 @@ namespace BUTTERPOP.vistas
                 List<Table.Pelicula> peliculasList = new List<Table.Pelicula>();
                 foreach (var renta in rentasList)
                 {
-                    var pelicula = await crud_pelicula.GetPeliculasByIdAsync(renta.id_pelicula);
-                    if (pelicula != null)
+                    if (renta.fin_fecha_renta > DateTime.Now)
                     {
-                        peliculasList.Add(pelicula);
+                        var pelicula = await crud_pelicula.GetPeliculasByIdAsync(renta.id_pelicula);
+                        if (pelicula != null)
+                        {
+                            peliculasList.Add(pelicula);
+                        }
                     }
                 }
 
