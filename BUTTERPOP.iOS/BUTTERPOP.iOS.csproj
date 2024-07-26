@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{625F57E1-C30D-425B-9DDA-769EC1D878B1}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BUTTERPOP.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>BUTTERPOP.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.9.172</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.CommunityToolkit">
+      <Version>2.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+    <PackageReference Include="Xamarin.Forms">
+      <Version>5.0.0.2662</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\BUTTERPOP\BUTTERPOP.csproj">
+      <Project>{599F1E2F-C197-416C-BBC9-BEF2FAA8C692}</Project>
+      <Name>BUTTERPOP</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\card_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\shrek_portada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nav_home_black.png" />
+    <BundleResource Include="Resources\nav_home_white.png" />
+    <BundleResource Include="Resources\nav_profile_black.png" />
+    <BundleResource Include="Resources\nav_profile_white.png" />
+    <BundleResource Include="Resources\nav_search_black.png" />
+    <BundleResource Include="Resources\nav_search_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AppIcon%402x.png" />
+    <BundleResource Include="Resources\AppIcon%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon%403x.png" />
+    <BundleResource Include="Resources\AppIcon-20%402x.png" />
+    <BundleResource Include="Resources\AppIcon-20%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-20%403x.png" />
+    <BundleResource Include="Resources\AppIcon-20~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-29%402x.png" />
+    <BundleResource Include="Resources\AppIcon-29%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-29%403x.png" />
+    <BundleResource Include="Resources\AppIcon-29.png" />
+    <BundleResource Include="Resources\AppIcon-29~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-40%402x.png" />
+    <BundleResource Include="Resources\AppIcon-40%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-40%403x.png" />
+    <BundleResource Include="Resources\AppIcon-40~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-60%402x~car.png" />
+    <BundleResource Include="Resources\AppIcon-60%403x~car.png" />
+    <BundleResource Include="Resources\AppIcon-83.5%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon~ios-marketing.png" />
+    <BundleResource Include="Resources\AppIcon~ipad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\butterpop_main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\video2.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ButterPop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\butterpop_letras.png" />
+    <BundleResource Include="Resources\logo_palomitas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\pelicula_poster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\buscar.png" />
+    <BundleResource Include="Resources\perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\basura.png" />
+    <BundleResource Include="Resources\copa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ojo_pass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ojo_pass_ocultar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AppIcon%402x.png" />
+    <BundleResource Include="Resources\AppIcon%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon%403x.png" />
+    <BundleResource Include="Resources\AppIcon-20%402x.png" />
+    <BundleResource Include="Resources\AppIcon-20%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-20%403x.png" />
+    <BundleResource Include="Resources\AppIcon-20~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-29%402x.png" />
+    <BundleResource Include="Resources\AppIcon-29%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-29%403x.png" />
+    <BundleResource Include="Resources\AppIcon-29.png" />
+    <BundleResource Include="Resources\AppIcon-29~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-40%402x.png" />
+    <BundleResource Include="Resources\AppIcon-40%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-40%403x.png" />
+    <BundleResource Include="Resources\AppIcon-40~ipad.png" />
+    <BundleResource Include="Resources\AppIcon-60%402x~car.png" />
+    <BundleResource Include="Resources\AppIcon-60%403x~car.png" />
+    <BundleResource Include="Resources\AppIcon-83.5%402x~ipad.png" />
+    <BundleResource Include="Resources\AppIcon~ios-marketing.png" />
+    <BundleResource Include="Resources\AppIcon~ipad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star.png" />
+    <BundleResource Include="Resources\star_half.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cerrar_sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\header_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bgWelcome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\metodo_pago.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tarjeta.png" />
+  </ItemGroup>
+</Project>

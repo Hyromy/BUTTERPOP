@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.vistas.WelcomePage">
+    <ContentPage.Content>
+        <Grid>
+           
+            <Image Source="bgWelcome.jpg" Aspect="AspectFill"
+                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+
+            
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                        <GradientStop Color="Transparent" Offset="0" />
+                        <GradientStop Color="#C80000" Offset="0.9" />
+                        <GradientStop Color="#C80000" Offset="1" />
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+
+            <Grid>
+               
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+               
+                <FlexLayout Grid.Row="0" 
+                            Direction="Column"
+                            JustifyContent="Center"
+                            AlignItems="Center">
+                    <Image Source="ButterPop.png" 
+                           HorizontalOptions="Center" 
+                           WidthRequest="300"/>
+                </FlexLayout>
+
+                
+                <Label Grid.Row="1" 
+                       Text="2024 Copyright © ButterPop. Todos los derechos &#x0a;reservados" 
+                       HorizontalTextAlignment="Center"
+                       FontSize="16" 
+                       TextColor="White" 
+                       HorizontalOptions="Center" 
+                       VerticalTextAlignment="Center" 
+                       Margin="0,0,0,100"
+                       MaxLines="2"
+                       FontAttributes="Bold"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.vistas.renta.FormRenta"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ContentPage.Content>
+        <Grid x:Name="main"
+              BackgroundColor="#1c1c1c">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                
+                <!-- for debug -->
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- cabecera -->
+            <AbsoluteLayout Grid.Row="0"
+                            HeightRequest="64"
+                            BackgroundColor="#1c1c1c">
+
+                <!-- volver -->
+                <Frame x:Name="nav_back"
+                       AbsoluteLayout.LayoutBounds="0, 0, 64, 1"
+                       AbsoluteLayout.LayoutFlags="PositionProportional, HeightProportional"
+                       Padding="12"
+                       Margin="8"
+                       CornerRadius="0"
+                       BackgroundColor="#00000000">
+
+                    <Image Source="header_back.png"
+                           Aspect="Fill"/>
+                </Frame>
+
+                <!-- titulo -->
+                <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                             AbsoluteLayout.LayoutFlags="All"
+                             Orientation="Horizontal"
+                             HorizontalOptions="Center"
+                             Padding="0"
+                             Spacing="0">
+
+                    <Image Source="butterpop_main"
+                           AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                           AbsoluteLayout.LayoutFlags="All"
+                           HeightRequest="40"
+                           Margin="0, 0, 8, 0"/>
+
+                    <Label Text="BUTTER"
+                           FontSize="40"
+                           VerticalTextAlignment="Center"
+                           TextColor="#fff"
+                           FontAttributes="Bold"/>
+
+                    <Label Text="POP"
+                           FontSize="40"
+                           VerticalTextAlignment="Center"
+                           TextColor="#c80000"
+                           FontAttributes="Bold"/>
+                </StackLayout>
+
+                <!-- borde separador -->
+                <BoxView AbsoluteLayout.LayoutBounds="0, 1.1, 1, 6"
+                         AbsoluteLayout.LayoutFlags="YProportional, WidthProportional"
+                         BackgroundColor="#c80000"/>
+            </AbsoluteLayout>
+
+            <!-- cuerpo -->
+            <ScrollView Grid.Row="1"
+                        AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                        AbsoluteLayout.LayoutFlags="All">
+                
+                <AbsoluteLayout x:Name="abs_layout">
+
+                    <!-- contenedor -->
+                    <Frame x:Name="abs_frame"
+                           AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 516"
+                           AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional"
+                           BackgroundColor="#fff"
+                           CornerRadius="32"
+                           Padding="0"
+                           Margin="32">
+
+                        <StackLayout>
+                            
+                            <!-- banner -->
+                            <Frame Padding="0"
+                                   HeightRequest="128"
+                                   CornerRadius="32"
+                                   BackgroundColor="#000">
+
+                                <RelativeLayout>
+                                    <Image x:Name="banner"
+                                           RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                                           Source="pelicula_poster.png"
+                                           Aspect="AspectFill"
+                                           Opacity="0.5"/>
+
+                                    <Label x:Name="film_name"
+                                           RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToView, ElementName=banner, Property=Width, Factor=1}"
+                                           RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView, ElementName=banner, Property=Height, Factor=1}"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="32"
+                                           TextColor="#fff"
+                                           FontAttributes="Bold"/>
+                                </RelativeLayout>
+                            </Frame>
+
+                            <!-- formulario -->
+                            <StackLayout>
+
+                                <!-- metodo de pago -->
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="Center"
+                                             Spacing="16">
+
+                                    <Frame Padding="0"
+                                           BackgroundColor="#00000000">
+
+                                        <Label Text="Método de pago"
+                                               FontAttributes="Bold"
+                                               TextColor="#3a3a3a"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="16"/>
+                                    </Frame>
+
+                                    <Frame Padding="0"
+                                           BackgroundColor="#00000000">
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame Padding="0"
+                                                   BackgroundColor="#00000000">
+
+                                                <Image Source="card_icon.png"
+                                                       HeightRequest="16"/>
+                                            </Frame>
+
+                                            <Label Text="Tarjeta"
+                                                   TextColor="#3a3a3a"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   FontSize="16"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+
+                                <!-- inputs -->
+                                <Grid Margin="16, 8, 16, 8">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- numero de tarjeta -->
+                                    <Frame Grid.Row="0"
+                                           Grid.Column="0"
+                                           Grid.ColumnSpan="4"
+                                           Padding="0"
+                                           BackgroundColor="#eee"
+                                           CornerRadius="16">
+
+                                        <Entry x:Name="card_number"
+                                               Keyboard="Numeric"
+                                               MaxLength="16"
+                                               Placeholder="Número de tarjeta"
+                                               PlaceholderColor="#888"
+                                               TextColor="#c80000"
+                                               Margin="16, 0, 16, 0"
+                                               HorizontalTextAlignment="Center"/>
+                                    </Frame>
+
+                                    <Label Grid.Row="1"
+                                           Grid.Column="0"
+                                           Grid.ColumnSpan="2"
+                                           Text="Fecha de expiración"
+                                           FontAttributes="Bold"
+                                           TextColor="#3a3a3a"
+                                           HorizontalTextAlignment="Center"/>
+
+                                    <!-- mm -->
+                                    <Frame Grid.Row="2"
+                                           Grid.Column="0"
+                                           Padding="0"
+                                           BackgroundColor="#eee"
+                                           CornerRadius="16">
+
+                                        <Entry x:Name="month"
+                                               Keyboard="Numeric"
+                                               MaxLength="2"
+                                               Placeholder="MM"
+                                               PlaceholderColor="#888"
+                                               TextColor="#c80000"
+                                               Margin="8, 0, 8, 0"
+                                               HorizontalTextAlignment="Center"/>
+                                    </Frame>
+
+                                    <!-- aa -->
+                                    <Frame Grid.Row="2"
+                                           Grid.Column="1"
+                                           Padding="0"
+                                           BackgroundColor="#eee"
+                                           CornerRadius="16">
+
+                                        <Entry x:Name="year"
+                                               Keyboard="Numeric"
+                                               MaxLength="2"
+                                               Placeholder="AA"
+                                               PlaceholderColor="#888"
+                                               TextColor="#c80000"
+                                               Margin="8, 0, 8, 0"
+                                               HorizontalTextAlignment="Center"/>
+                                    </Frame>
+
+                                    <!-- cvv -->
+                                    <Frame Grid.Row="2"
+                                           Grid.Column="3"
+                                           Padding="0"
+                                           BackgroundColor="#eee"
+                                           CornerRadius="16">
+
+                                        <Entry x:Name="cvv"
+                                               Keyboard="Numeric"
+                                               MaxLength="3"
+                                               Placeholder="CVV"
+                                               PlaceholderColor="#888"
+                                               TextColor="#c80000"
+                                               Margin="8, 0, 8, 0"
+                                               HorizontalTextAlignment="Center"
+                                               IsPassword="True"/>
+                                    </Frame>
+
+                                    <Label Grid.Row="3"
+                                           Grid.Column="0"
+                                           Text="Mes"
+                                           TextColor="#3a3a3a"
+                                           HorizontalTextAlignment="Center"/>
+
+                                    <Label Grid.Row="3"
+                                           Grid.Column="1"
+                                           Text="Año"
+                                           TextColor="#3a3a3a"
+                                           HorizontalTextAlignment="Center"/>
+
+                                    <Label Grid.Row="3"
+                                           Grid.Column="3"
+                                           Text="Clave"
+                                           TextColor="#3a3a3a"
+                                           HorizontalTextAlignment="Center"/>
+
+                                    <!-- semanas de renta -->
+                                    <StackLayout Grid.Row="4"
+                                                 Grid.Column="0"
+                                                 Grid.ColumnSpan="4"
+                                                 Orientation="Horizontal"
+                                                 HorizontalOptions="Center">
+
+                                        <Label Text="Semanas de renta:"
+                                               TextColor="#1c1c1c"/>
+
+                                        <Label x:Name="output_semanas"
+                                               Text="1"
+                                               TextColor="#c80000"
+                                               FontAttributes="Bold"/>
+                                    </StackLayout>
+
+                                    <!-- slider -->
+                                    <Slider x:Name="input_slide_semanas"
+                                            Grid.Row="5"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="4"
+                                            Minimum="0"
+                                            Maximum="3"
+                                            Margin="48, 0, 48, 16"
+                                            MinimumTrackColor="#c80000"
+                                            MaximumTrackColor="#1c1c1c"/>
+
+                                    <!-- confirmar -->
+                                    <Frame Grid.Row="6"
+                                           Grid.Column="0"
+                                           Grid.ColumnSpan="4"
+                                           Padding="0"
+                                           Margin="64, 0, 64, 0"
+                                           CornerRadius="16">
+
+                                        <Button x:Name="btnConfirmCard"
+                                                Text="Confirmar"
+                                                Margin="0"
+                                                Padding="10"
+                                                BackgroundColor="#c80000"/>
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </AbsoluteLayout>
+            </ScrollView>
+
+            <!-- for debug -->
+            <Button Grid.Row="2"
+                    x:Name="toTest"
+                    Text="CRUD"
+                    IsVisible="False"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

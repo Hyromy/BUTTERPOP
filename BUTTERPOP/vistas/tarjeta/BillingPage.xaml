@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.vistas.tarjeta.BillingPage" 
+             Title="Agregar método de pago"
+             BackgroundColor="#1C1C1C">
+    <ContentPage.Content>
+        <StackLayout Margin="20" Spacing="20">
+            
+            <Label Text="Número de Tarjeta" FontAttributes="Bold" FontSize="15" TextColor="White" />
+
+            <Entry x:Name="txtCorreoElec" IsReadOnly="True" Text="{Binding CorreoUsuario}"  TextColor="White" WidthRequest="10" IsVisible="False"/>
+
+            <Frame CornerRadius="20" HeightRequest="40" BackgroundColor="Transparent" BorderColor="#838383">
+                <Entry x:Name="txtNumeroTarjeta" Keyboard="Numeric" Placeholder="Introduce el número de 16 digitos" 
+                       PlaceholderColor="#838383" TextColor="White" MaxLength="16"/>
+
+            </Frame>
+
+            <BoxView BackgroundColor="#838383" HeightRequest="1" Margin="10"/>
+
+            <Label Text="Tipo de Tarjeta" FontAttributes="Bold" FontSize="15" TextColor="White" />
+
+            <Frame CornerRadius="20" HeightRequest="40" BackgroundColor="Transparent" BorderColor="#838383">
+                <Picker x:Name="pickerTipoTarjeta" Title="Selecciona el tipo de tarjeta" TitleColor="#838383" TextColor="White" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Visa</x:String>
+                            <x:String>MasterCard</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Frame>
+
+            <BoxView BackgroundColor="#838383" HeightRequest="1" Margin="10"/>
+
+            <Grid HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="78" />
+
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Fecha de expiración" FontAttributes="Bold" FontSize="15" TextColor="White" Grid.Row="0" Grid.ColumnSpan="2"/>
+                <Frame CornerRadius="20" HeightRequest="20" BackgroundColor="Transparent" BorderColor="#838383" Grid.Row="1" Grid.Column="0">
+                    <Entry x:Name="txtMes" Placeholder="mm" Keyboard="Numeric" PlaceholderColor="#838383" TextColor="White" HorizontalTextAlignment="Center" MaxLength="2"/>
+                    
+                </Frame>
+                
+                <Label Text="Mes"  FontSize="Small" TextColor="White" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
+                       />
+                
+                <Frame CornerRadius="20" HeightRequest="20" BackgroundColor="Transparent" BorderColor="#838383" Grid.Row="1" Grid.Column="1">
+                    <Entry x:Name="txtAnio" MaxLength="4" Placeholder="yyyy" Keyboard="Numeric" PlaceholderColor="#838383" TextColor="White"  HorizontalTextAlignment="Center" />
+
+                </Frame>
+
+                <Label Text="Año"  FontSize="Small" TextColor="White" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center"
+          />
+
+
+
+                <Label  Text="CVV" FontAttributes="Bold" FontSize="15" TextColor="White" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"/>
+                <Frame CornerRadius="20" HeightRequest="40" BackgroundColor="Transparent" BorderColor="#838383" Grid.Row="1" Grid.Column="2">
+                    <Entry x:Name="txtCVV" Placeholder="123" Keyboard="Numeric" PlaceholderColor="#838383" IsPassword="True" TextColor="White" MaxLength="3" HorizontalTextAlignment="Center"/>
+                </Frame>
+
+            </Grid>
+
+            <StackLayout Orientation="Vertical" Margin="20" Spacing="15">
+                <Button x:Name="btnGuardarTarjeta" Clicked="btnGuardarTarjeta_Clicked" BackgroundColor="#C80000" CornerRadius="50" Text="Guardar" TextColor="White" WidthRequest="100" />
+                <Button x:Name="btnVerTarjetas" Clicked="btnVerTarjetas_Clicked" BackgroundColor="Transparent" CornerRadius="50" Text="Mis tarjetas" TextColor="White" WidthRequest="100" />
+            </StackLayout>
+
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

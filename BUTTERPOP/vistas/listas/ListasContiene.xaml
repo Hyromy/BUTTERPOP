@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.Vistas.listas.ListasContiene">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#1E1E1E">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding Nombre}"
+                       TextColor="white"
+                       HorizontalTextAlignment="Start"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       Grid.Row="0"
+                       Grid.Column="1"/>
+                <Label Text="{Binding Descripcion}"
+                       TextColor="#787878"
+                       Grid.Row="1"
+                       Grid.Column="1"/>
+                <Image BackgroundColor="#C80000"
+                       Source="{Binding Imagen}"
+                       x:Name="imgContiene"
+                       Grid.RowSpan="2"
+                       Grid.Column="0"
+                       Aspect="AspectFit"/>
+            </Grid>
+
+            <!-- Datos para recuperar despues -->
+            <!-- recupera id de la lista -->
+            <Label x:Name="lblIdLista"
+                   TextColor="white"
+                   IsVisible="false"/>
+            <!-- recupera id de contiene en la lista -->
+            <Label x:Name="lblIdContiene"
+                   TextColor="white"
+                   IsVisible="false"/>
+
+
+            <ListView x:Name="lstContiene" 
+                      HasUnevenRows="True" 
+                      ItemSelected="lstContiene_ItemSelected" 
+                      BackgroundColor="#3A3A3A" 
+                      Margin="15" 
+                      RefreshControlColor="Black" 
+                      SeparatorColor="black"
+                      SeparatorVisibility="Default">
+                
+
+                    <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding id_contiene}"
+                                           IsVisible="false"
+                                           x:Name="txtId"
+                                           Grid.RowSpan="2"
+                                           VerticalOptions="Center"
+                                           Grid.Column="0"
+                                           TextColor="White"
+                                           Padding="5"/>
+
+                                    <Label Text="{Binding id_pelicula}"
+                                           Grid.Row="0"
+                                           Grid.Column="1"
+                                           TextColor="white"
+                                           FontSize="20"/>
+
+                                    <Label Text="{Binding id_lista}"
+                                           Grid.Row="1"
+                                           Grid.Column="1"
+                                           TextColor="#787878"/>
+
+                                    <Button x:Name="btnEliminar"
+                                        IsVisible="true"
+                                        VerticalOptions="Center"
+                                        Text="Eliminar"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        Clicked="btnEliminar_Clicked"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

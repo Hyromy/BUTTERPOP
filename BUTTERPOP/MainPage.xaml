@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.MainPage">
+
+    <StackLayout>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Spacing="0"
+                     Margin="0, 16, 0, 16">
+
+            <Frame HeightRequest="48"
+                   Padding="0, 0, 8, 0"
+                   BackgroundColor="#00000000">
+                
+                <Image Source="butterpop_main.png"/>
+            </Frame>
+
+            <Label Text="BUTTER"
+                   FontAttributes="Bold"
+                   FontSize="48"/>
+
+            <Label Text="POP"
+                   FontAttributes="Bold"
+                   FontSize="48"
+                   TextColor="#f00"/>
+        </StackLayout>
+
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Selecciona un desarrollador"
+                       HorizontalTextAlignment="Center"
+                       FontSize="Large"/>
+
+                <Button x:Name="andrea"
+                        Text="Andrea"/>
+
+                <Button x:Name="emanuel"
+                        Text="Emanuel"/>
+
+                <Button x:Name="jesus"
+                        Text="Jesus"/>
+
+                <Button x:Name="joel"
+                        Text="Joel"/>
+
+                <Button x:Name="julian"
+                        Text="Julian"/>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

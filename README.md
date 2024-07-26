@@ -55,6 +55,8 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
     - [Diccionario de datos](#22-diccionario-de-datos)
     - [Diseño de pruebas](#23-diseño-de-pruebas)
     - [Diseño de las interfaces (maquetas)](#24-diseño-de-las-interfaces-maquetas)
+- [CAPÍTULO 3 ...](#capítulo-3-no-se-xd)
+- [DESARROLLADORES](#desarolladores)
 
 ## RESUMEN
 
@@ -2202,7 +2204,7 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
 
-## CAPÍTULO 3 ...
+## CAPÍTULO 3 no se xd
 introduccion de capitulo
 
 ---
@@ -2227,3 +2229,191 @@ introduccion de capitulo
 | 10 | btnConfirmCard | Button | Al presionar, la aplicación validará los campos y procesará el cobro |  | Table.Renta |
 
 ---
+
+## DESAROLLADORES
+<!-- stats -->
+<table>
+	<tr>
+		<td>Desarrollador</td>
+		<td>Commits</td>
+		<td>Inserciones</td>
+		<td>Eliminaciones</td>
+		<td>Inserciones efectivas</td>
+		<td>Líneas por commit</td>
+		<td>Porcentaje de código</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/And-Y21' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/157259544?v=4' height='128'>
+				<br>And-Y21
+			</a>
+		</td>
+		<td>8</td>
+		<td>1823</td>
+		<td>729</td>
+		<td>1094</td>
+		<td>136</td>
+		<td>1.37%</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/EmanuelGarciaCapote' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/157267129?v=4' height='128'>
+				<br>EmanuelGarciaCapote
+			</a>
+		</td>
+		<td>3</td>
+		<td>83</td>
+		<td>46</td>
+		<td>37</td>
+		<td>12</td>
+		<td>0.05%</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/Heisenburg3' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/169628671?v=4' height='128'>
+				<br>Heisenburg3
+			</a>
+		</td>
+		<td>1</td>
+		<td>170</td>
+		<td>25</td>
+		<td>145</td>
+		<td>145</td>
+		<td>0.18%</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/Hyromy' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/70178779?v=4' height='128'>
+				<br>Hyromy
+			</a>
+		</td>
+		<td>89</td>
+		<td>78678</td>
+		<td>31800</td>
+		<td>46878</td>
+		<td>526</td>
+		<td>58.66%</td>
+	</tr>
+	<tr>
+		<td>
+			<a href='https://github.com/josejulianmtnez' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/160277395?v=4' height='128'>
+				<br>josejulianmtnez
+			</a>
+		</td>
+		<td>20</td>
+		<td>37619</td>
+		<td>5856</td>
+		<td>31763</td>
+		<td>1588</td>
+		<td>39.74%</td>
+	</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+![easter egg](img_doc/general/furinaDance.gif)
+<!-- /stats -->
+
