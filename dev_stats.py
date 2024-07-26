@@ -34,6 +34,9 @@ if response.status_code == 200:
     devs = response.json()
 
     for dev in devs:
+        if dev["login"] == "EmanuelGarciaCapote":
+            continue
+
         name = dev["login"]
         avatar_url = dev["avatar_url"]
         profile_url = dev["html_url"]
@@ -108,7 +111,7 @@ egg = "<br>\n" * 100
 egg += "\n![easter egg](img_doc/general/furinaDance.gif)"
 
 data_stats = f"<!-- stats -->\n{table}{content}\n</table>\n{egg}\n<!-- /stats -->"
-data = f"{part1}{data_stats}{part3}\n"
+data = f"{part1}{data_stats}{part3}"
 
 with open("README.md", "w", encoding = "utf-8") as f:
     f.write(data)

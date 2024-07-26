@@ -1,11 +1,14 @@
 *`documento sujeto a cambios`*
 
 ### Cambios pendientes por realizar
-#### Diagrama general
-- [x] Comprobar el diagrama general
+#### Introduccion
+- [ ] Agregar descripcion y abstract
 
-#### Diagrama de actividades
-- [ ] Modificar el diagrama de actividades (eliminar admin, ya no se si hace falta)
+#### Diagrama general
+- [ ] Comprobar el diagrama general
+
+#### Capitulo 3
+- [ ] Agregar introduccion al capitulo
 
 ---
 
@@ -55,7 +58,7 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
     - [Diccionario de datos](#22-diccionario-de-datos)
     - [Diseño de pruebas](#23-diseño-de-pruebas)
     - [Diseño de las interfaces (maquetas)](#24-diseño-de-las-interfaces-maquetas)
-- [CAPÍTULO 3 ...](#capítulo-3-no-se-xd)
+- [CAPÍTULO 3 IMPLEMENTACIÓN Y PRUEBAS](#capítulo-3-implementación-y-pruebas)
 - [DESARROLLADORES](#desarolladores)
 
 ## RESUMEN
@@ -2204,7 +2207,7 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
 
-## CAPÍTULO 3 no se xd
+## CAPÍTULO 3 IMPLEMENTACIÓN Y PRUEBAS
 introduccion de capitulo
 
 ---
@@ -2258,20 +2261,6 @@ introduccion de capitulo
 	</tr>
 	<tr>
 		<td>
-			<a href='https://github.com/EmanuelGarciaCapote' target='_blanck'>
-				<img src='https://avatars.githubusercontent.com/u/157267129?v=4' height='128'>
-				<br>EmanuelGarciaCapote
-			</a>
-		</td>
-		<td>3</td>
-		<td>83</td>
-		<td>46</td>
-		<td>37</td>
-		<td>12</td>
-		<td>0.05%</td>
-	</tr>
-	<tr>
-		<td>
 			<a href='https://github.com/Heisenburg3' target='_blanck'>
 				<img src='https://avatars.githubusercontent.com/u/169628671?v=4' height='128'>
 				<br>Heisenburg3
@@ -2291,12 +2280,12 @@ introduccion de capitulo
 				<br>Hyromy
 			</a>
 		</td>
-		<td>89</td>
-		<td>78678</td>
-		<td>31800</td>
-		<td>46878</td>
-		<td>526</td>
-		<td>58.66%</td>
+		<td>95</td>
+		<td>78686</td>
+		<td>31807</td>
+		<td>46879</td>
+		<td>493</td>
+		<td>58.69%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2310,7 +2299,7 @@ introduccion de capitulo
 		<td>5856</td>
 		<td>31763</td>
 		<td>1588</td>
-		<td>39.74%</td>
+		<td>39.76%</td>
 	</tr>
 </table>
 <br>
@@ -2416,4 +2405,3 @@ introduccion de capitulo
 
 ![easter egg](img_doc/general/furinaDance.gif)
 <!-- /stats -->
-
