@@ -66,45 +66,48 @@ namespace BUTTERPOP.vistas
             btnPeliculas.BackgroundColor = Color.FromHex("#C80000");
             btnPeliculas.TextColor = Color.White;
 
-            
+            // Mostrar contenido relevante y ocultar el resto
             stckPeliculas.IsVisible = true;
             stckListas.IsVisible = false;
             stckDatos.IsVisible = false;
 
-            
+            // Resetear colores de los otros botones
             btnListas.BackgroundColor = Color.FromHex("#3A3A3A");
             btnListas.TextColor = Color.White;
             btnDatos.BackgroundColor = Color.FromHex("#3A3A3A");
             btnDatos.TextColor = Color.White;
 
-            
+            // Obtener todas las rentas para el cliente actual
             List<Table.Renta> rentasList = await crud_renta.GetRentasByCorreo(cliente.correo);
 
             if (rentasList == null || !rentasList.Any())
             {
-                
+                // Mostrar mensaje cuando no haya rentas
                 lblPeliculas.IsVisible = true;
                 moviesGrid.IsVisible = false;
             }
             else
             {
-                
+                // Ocultar mensaje y mostrar las películas rentadas
                 lblPeliculas.IsVisible = false;
                 moviesGrid.IsVisible = true;
 
-             
+                // Limpiar la cuadrícula antes de agregar nuevos elementos
                 moviesGrid.Children.Clear();
                 moviesGrid.RowDefinitions.Clear();
                 moviesGrid.ColumnDefinitions.Clear();
 
-                foreach (var renta in rentasList)
+                // Crear una fila por cada renta
+                foreach (var renta in rentasList.Where(r => r.fin_fecha_renta >= DateTime.Now))
                 {
-                    
+                    // Obtener la película asociada con la renta
                     var pelicula = await crud_pelicula.GetPeliculasByIdAsync(renta.id_pelicula);
                     if (pelicula != null)
                     {
+                        // Agregar una fila a la cuadrícula
                         moviesGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(200) }); // Altura fija
 
+                        // Crear el ImageButton
                         var imageButton = new ImageButton
                         {
                             Source = ImageSource.FromStream(() => new MemoryStream(pelicula.imagen)),
@@ -114,6 +117,7 @@ namespace BUTTERPOP.vistas
                             BindingContext = pelicula
                         };
 
+                        // Crear la etiqueta para el título
                         Label titleLabel = new Label
                         {
                             Text = pelicula.titulo ?? "Título no disponible",
@@ -123,6 +127,7 @@ namespace BUTTERPOP.vistas
                             Margin = new Thickness(0, 5, 0, 0)
                         };
 
+                        // Crear la etiqueta para las semanas de renta
                         Label weeksLabel = new Label
                         {
                             Text = $"Semanas de renta: {renta.semanas_renta}",
@@ -131,6 +136,7 @@ namespace BUTTERPOP.vistas
                             FontSize = 12
                         };
 
+                        // Crear la etiqueta para el cobro de renta
                         Label rentalChargeLabel = new Label
                         {
                             Text = $"Cobro renta: ${renta.cobro_renta:F2}",
@@ -139,6 +145,7 @@ namespace BUTTERPOP.vistas
                             FontSize = 12
                         };
 
+                        // Crear la etiqueta para la fecha y hora de renta
                         Label rentalDateTimeLabel = new Label
                         {
                             Text = $"Inicio de la renta: {renta.fecha_renta.ToString("dd/MM/yyyy HH:mm")}",
@@ -147,14 +154,16 @@ namespace BUTTERPOP.vistas
                             FontSize = 12
                         };
 
+                        // Crear la etiqueta para la fecha y hora de fin de renta
                         Label endRentalDateTimeLabel = new Label
                         {
-                            Text = $"Fin de la renta:\n{renta.fin_fecha_renta.ToString("dd/MM/yyyy HH:mm")}",
+                            Text = $"Termino de la renta: {renta.fin_fecha_renta.ToString("dd/MM/yyyy HH:mm")}",
                             TextColor = Color.White,
                             FontFamily = "Nunito_SemiBold",
                             FontSize = 12
                         };
 
+                        // Crear un StackLayout para los detalles a la derecha de la imagen
                         StackLayout detailsStack = new StackLayout
                         {
                             Orientation = StackOrientation.Vertical,
@@ -162,6 +171,7 @@ namespace BUTTERPOP.vistas
                             Children = { titleLabel, weeksLabel, rentalChargeLabel, rentalDateTimeLabel, endRentalDateTimeLabel }
                         };
 
+                        // Crear el Grid para contener la imagen y los detalles
                         Grid itemGrid = new Grid
                         {
                             ColumnDefinitions =
@@ -172,9 +182,11 @@ namespace BUTTERPOP.vistas
                             RowDefinitions = { new RowDefinition { Height = GridLength.Auto } }
                         };
 
+                        // Agregar la imagen y los detalles a la cuadrícula
                         itemGrid.Children.Add(imageButton, 0, 0);
                         itemGrid.Children.Add(detailsStack, 1, 0);
 
+                        // Agregar el Grid a la cuadrícula principal
                         moviesGrid.Children.Add(itemGrid, 0, rentasList.IndexOf(renta));
                     }
                 }
