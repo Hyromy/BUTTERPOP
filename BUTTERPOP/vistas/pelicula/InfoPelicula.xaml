@@ -170,6 +170,7 @@
                                     HorizontalTextAlignment="Center"
                                     x:Name="pickerLista"
                                     TitleColor="#787878"
+                                    TextColor="White"
                                     WidthRequest="100"/>
                         </StackLayout>
 

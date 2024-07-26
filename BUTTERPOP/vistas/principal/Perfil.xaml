@@ -11,43 +11,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- cabecera -->
-            <AbsoluteLayout Grid.Row="0"
-                            HeightRequest="64"
-                            BackgroundColor="#1c1c1c">
-
-                <!-- titulo -->
-                <StackLayout AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
-                             AbsoluteLayout.LayoutFlags="All"
-                             Orientation="Horizontal"
-                             HorizontalOptions="Center"
-                             Padding="0"
-                             Spacing="0">
-
-                    <Image Source="butterpop_main"
-                           AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
-                           AbsoluteLayout.LayoutFlags="All"
-                           HeightRequest="40"
-                           Margin="0, 0, 8, 0"/>
-
-                    <Label Text="BUTTER"
-                           FontSize="40"
-                           VerticalTextAlignment="Center"
-                           TextColor="#fff"
-                           FontAttributes="Bold"/>
-
-                    <Label Text="POP"
-                           FontSize="40"
-                           VerticalTextAlignment="Center"
-                           TextColor="#c80000"
-                           FontAttributes="Bold"/>
-                </StackLayout>
-
-                <!-- borde separador -->
-                <BoxView AbsoluteLayout.LayoutBounds="0, 1.1, 1, 6"
-                         AbsoluteLayout.LayoutFlags="YProportional, WidthProportional"
-                         BackgroundColor="#c80000"/>
-            </AbsoluteLayout>
+           
 
             <!-- cuerpo -->
             <StackLayout Grid.Row="1">
