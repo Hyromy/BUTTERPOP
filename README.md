@@ -2281,11 +2281,11 @@ introduccion de capitulo
 			</a>
 		</td>
 		<td>95</td>
-		<td>78686</td>
-		<td>31807</td>
-		<td>46879</td>
+		<td>78710</td>
+		<td>31855</td>
+		<td>46855</td>
 		<td>493</td>
-		<td>58.69%</td>
+		<td>58.67%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2299,7 +2299,7 @@ introduccion de capitulo
 		<td>5856</td>
 		<td>31763</td>
 		<td>1588</td>
-		<td>39.76%</td>
+		<td>39.77%</td>
 	</tr>
 </table>
 <br>
