@@ -97,7 +97,7 @@
 
                         
                         
-                <Grid x:Name="moviesGrid" Padding="10">
+                <Grid x:Name="moviesGrid" Padding="0" RowSpacing="1" ColumnSpacing="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -109,9 +109,9 @@
                         
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="130" />
              
     
                     </Grid.ColumnDefinitions>

@@ -125,6 +125,7 @@
                                            BackgroundColor="#00000000">
 
                                         <Label Text="Método de pago"
+                                               FontFamily="Nunito_ExtraBold"
                                                FontAttributes="Bold"
                                                TextColor="#3a3a3a"
                                                VerticalTextAlignment="Center"
@@ -144,6 +145,7 @@
                                             </Frame>
 
                                             <Label Text="Tarjeta"
+                                                    FontFamily="Nunito_Bold"
                                                    TextColor="#3a3a3a"
                                                    VerticalTextAlignment="Center"
                                                    HorizontalTextAlignment="Center"
@@ -180,6 +182,7 @@
                                            CornerRadius="16">
 
                                         <Entry x:Name="card_number"
+                                               FontFamily="Nunito_SemiBold"
                                                Keyboard="Numeric"
                                                MaxLength="16"
                                                Placeholder="Número de tarjeta"
@@ -193,6 +196,7 @@
                                            Grid.Column="0"
                                            Grid.ColumnSpan="2"
                                            Text="Fecha de expiración"
+                                           FontFamily="Nunito_Bold"
                                            FontAttributes="Bold"
                                            TextColor="#3a3a3a"
                                            HorizontalTextAlignment="Center"/>
@@ -206,6 +210,7 @@
 
                                         <Entry x:Name="month"
                                                Keyboard="Numeric"
+                                               FontFamily="Nunito_Regular"
                                                MaxLength="2"
                                                Placeholder="MM"
                                                PlaceholderColor="#888"
@@ -223,6 +228,7 @@
 
                                         <Entry x:Name="year"
                                                Keyboard="Numeric"
+                                               FontFamily="Nunito_Regular"
                                                MaxLength="2"
                                                Placeholder="AA"
                                                PlaceholderColor="#888"
@@ -239,6 +245,7 @@
                                            CornerRadius="16">
 
                                         <Entry x:Name="cvv"
+                                               FontFamily="Nunito_Regular"
                                                Keyboard="Numeric"
                                                MaxLength="3"
                                                Placeholder="CVV"
@@ -252,18 +259,21 @@
                                     <Label Grid.Row="3"
                                            Grid.Column="0"
                                            Text="Mes"
+                                           FontFamily="Nunito_Regular"
                                            TextColor="#3a3a3a"
                                            HorizontalTextAlignment="Center"/>
 
                                     <Label Grid.Row="3"
                                            Grid.Column="1"
                                            Text="Año"
+                                           FontFamily="Nunito_Regular"
                                            TextColor="#3a3a3a"
                                            HorizontalTextAlignment="Center"/>
 
                                     <Label Grid.Row="3"
                                            Grid.Column="3"
                                            Text="Clave"
+                                           FontFamily="Nunito_Regular"
                                            TextColor="#3a3a3a"
                                            HorizontalTextAlignment="Center"/>
 
@@ -275,10 +285,12 @@
                                                  HorizontalOptions="Center">
 
                                         <Label Text="Semanas de renta:"
+                                               FontFamily="Nunito_Bold"
                                                TextColor="#1c1c1c"/>
 
                                         <Label x:Name="output_semanas"
                                                Text="1"
+                                               FontFamily="Nunito_Bold"
                                                TextColor="#c80000"
                                                FontAttributes="Bold"/>
                                     </StackLayout>
@@ -306,6 +318,7 @@
                                                 Text="Confirmar"
                                                 Margin="0"
                                                 Padding="10"
+                                                FontFamily="Nunito_Bold"
                                                 TextColor="White"
                                                 BackgroundColor="#c80000"/>
                                     </Frame>

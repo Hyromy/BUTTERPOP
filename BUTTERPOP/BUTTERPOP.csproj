@@ -12,10 +12,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\Nunito_Bold.ttf" />
+    <None Remove="Resources\Fonts\Nunito_ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Nunito_Medium.ttf" />
+    <None Remove="Resources\Fonts\Nunito_Regular.ttf" />
+    <None Remove="Resources\Fonts\Nunito_SemiBold.ttf" />
     <None Remove="Resources\Fonts\Teko.ttf" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Nunito_Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_ExtraBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Nunito_SemiBold.ttf" />
     <EmbeddedResource Include="Resources\Fonts\Teko.ttf" />
   </ItemGroup>
 

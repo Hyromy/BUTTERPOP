@@ -107,7 +107,7 @@
                                HorizontalTextAlignment="Center"
                                TextColor="#fff"
                                FontSize="25"
-
+                               
                                FontFamily="Teko"
                                TextTransform="Uppercase"
                                FontAttributes="Bold"/>
@@ -120,7 +120,9 @@
                             <Label x:Name="film_description"
                                    Text="{Binding descripcion}"
                                    TextColor="#fff"                           
-                                   Margin="8, 0, 0, 16"/>
+                                   Margin="8, 0, 0, 16"
+                                   FontFamily="Nunito_SemiBold"
+                                   FontSize="15"/>
                         </ScrollView>
 
                         <!-- precio -->
@@ -131,6 +133,7 @@
 
                             <Label TextColor="#C80000"
                                    FontAttributes="Bold"
+                                   FontFamily="Nunito_ExtraBold"
                                    FontSize="20"
                                    Grid.Row="0"
                                    Grid.Column="0">
@@ -156,7 +159,8 @@
                             <Button x:Name="btn_rent"
                                     Text="rentar"
                                     BackgroundColor="#00000000"
-                                    TextColor="White"/>
+                                    TextColor="White"
+                                    FontFamily="Nunito_Bold"/>
                         </Frame>
 
                         <!-- boton lista -->
@@ -172,6 +176,7 @@
                             <Picker Title="Añadir a" 
                                     SelectedIndexChanged="Picker_SelectedIndexChanged"
                                     HorizontalTextAlignment="Center"
+                                     FontFamily="Nunito_SemiBold"
                                     x:Name="pickerLista"
                                     TitleColor="#787878"
                                     TextColor="White"
@@ -186,7 +191,7 @@
                                      HorizontalOptions="Center"
                                      HeightRequest="35">
 
-                            <Label TextColor="#fff" >
+                            <Label TextColor="#fff" FontFamily="Nunito_SemiBold">
                                 <Label.FormattedText>
                                     <FormattedString>
                                         <Span Text="{Binding duracion}"
@@ -199,11 +204,13 @@
                             <Label x:Name="film_genero"
                                    Text="{Binding genero}"
                                    TextColor="#fff"
+                                    FontFamily="Nunito_SemiBold"
                                    FontSize="Small"
                                    Margin="8, 0, 0, 16"/>
 
                             <Label x:Name="film_clasificacion"
                                    Text="{Binding clasificacion}"
+                                    FontFamily="Nunito_SemiBold"
                                    TextColor="#fff"
                                    FontSize="Small"
                                    Margin="8, 0, 0, 16"/>
