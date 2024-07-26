@@ -71,13 +71,13 @@ namespace BUTTERPOP.vistas.pelicula
         {
             string nombreListaSeleccionada = pickerLista.SelectedItem.ToString();
             int idLista = await crudContiene.GetIdListaByNombreAsync(nombreListaSeleccionada);
-
+            
             db.Table.Contiene contiene = new db.Table.Contiene
             {
                 id_lista = idLista,
-                id_pelicula = 20,
+                id_pelicula = pelicula.id_pelicula,
             };
-
+            
             await crudContiene.SaveContieneAsync(contiene);
             await DisplayAlert("Registro", "Lista guardada en tu interfaz", "OK");
         }

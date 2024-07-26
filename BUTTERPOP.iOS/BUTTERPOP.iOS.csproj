@@ -254,4 +254,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\tarjeta.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\delete.png" />
+  </ItemGroup>
 </Project>

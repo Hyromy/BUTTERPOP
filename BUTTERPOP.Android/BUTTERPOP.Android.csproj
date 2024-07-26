@@ -125,6 +125,7 @@
     <AndroidResource Include="Resources\drawable\bgWelcome.jpg" />
     <AndroidResource Include="Resources\drawable\metodo_pago.png" />
     <AndroidResource Include="Resources\drawable\tarjeta.png" />
+    <AndroidResource Include="Resources\drawable\eye.png" />
     <Content Include="Resources\mipmap-anydpi-v26\butterpop_icon.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon_background.png" />
