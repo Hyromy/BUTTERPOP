@@ -12,11 +12,18 @@ using BUTTERPOP.crud.pelicula;
 using System.IO;
 using BUTTERPOP.vistas.pelicula;
 
+using System.Collections.ObjectModel;
+
+
 namespace BUTTERPOP.vistas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Home : ContentPage
     {
+        ObservableCollection<FileImageSource> imageSources = new ObservableCollection<FileImageSource>();
+
+
+
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
 
@@ -28,6 +35,14 @@ namespace BUTTERPOP.vistas
             CargarPeliculas();
 
             this.cliente = cliente;
+
+            /*imageSources.Add("shrek_portada.jpg");
+            imageSources.Add("pelicula_poster.png");
+            imageSources.Add("shrek_portada.jpg");
+            imageSources.Add("shrek_portada.jpg");
+            imageSources.Add("shrek_portada.jpg");
+
+            imgSlider.Images = imageSources;*/
 
             /*
             // Crear un evento tipo click para el frame

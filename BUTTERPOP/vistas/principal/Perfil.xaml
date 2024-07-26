@@ -95,12 +95,44 @@
                                  IsVisible="True"
                                  Margin="20">
 
-                        <ScrollView>
+                        <ScrollView x:Name="scrollViewMensaje">
                             <Label x:Name="lblPeliculas"
                                    Text="¡Hola! Parece que aún no has rentado ninguna película. ¿Por qué no echas un vistazo a nuestro catálogo y encuentras algo genial para ver? 🤔"
                                    TextColor="White" FontSize="Medium"/>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                         </ScrollView>
+
+                        <Grid x:Name="moviesGrid" Padding="10">
+                            <!--<Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+
+
+                            </Grid.ColumnDefinitions>-->
+                        </Grid>
+
                     </StackLayout>
+                    
+                    
+                    
 
                     <!-- la seccion de listas se rompe con facilidad -->
                     <StackLayout x:Name="stckListas"

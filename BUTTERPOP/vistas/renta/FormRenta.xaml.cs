@@ -118,6 +118,7 @@ namespace BUTTERPOP.vistas.renta
                     if (toFilms)
                     {
                         Application.Current.MainPage = new NavigationPage(new HomePage(this.cliente));
+
                     }
                 }
                 else
