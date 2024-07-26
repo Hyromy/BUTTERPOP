@@ -50,10 +50,32 @@
             </AbsoluteLayout>
             
             <!-- cuerpo -->
-            <StackLayout Grid.Row="1">
-                <Label Text="Welcome to Xamarin.Forms!"
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" />
+            <StackLayout Grid.Row="1" Margin="20">
+                
+                <Frame CornerRadius="20" HeightRequest="23">
+                    <SearchBar x:Name="searchPelicula" Placeholder="¿Qué te gustaría ver hoy? 🤩" TextChanged="searchPelicula_TextChanged"/>
+                </Frame>
+
+                <Grid x:Name="moviesGrid" Padding="10">
+                    <!--<Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+
+
+                    </Grid.ColumnDefinitions>-->
+                </Grid>
+
             </StackLayout>
         </Grid>
     </ContentPage.Content>

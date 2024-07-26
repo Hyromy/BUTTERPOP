@@ -302,6 +302,7 @@
                                                 Text="Confirmar"
                                                 Margin="0"
                                                 Padding="10"
+                                                TextColor="White"
                                                 BackgroundColor="#c80000"/>
                                     </Frame>
                                 </Grid>

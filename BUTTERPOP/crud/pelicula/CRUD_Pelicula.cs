@@ -47,7 +47,12 @@ namespace BUTTERPOP.crud.pelicula
             return db.Table<Table.Pelicula>().Where(a => a.id_pelicula == idPelicula).FirstOrDefaultAsync();
         }
 
-      
+        public Task<List<Table.Pelicula>> GetPeliculasByNombre(string titPelicula)
+        {
+            return db.Table<Table.Pelicula>().Where(a => a.titulo.Contains(titPelicula)).ToListAsync();
+        }
+
+
 
 
 
