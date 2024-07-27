@@ -76,5 +76,12 @@ namespace BUTTERPOP.crud.contiene
             return peliculas;
         }
 
+        // sacar nombre de la pelicula por id
+        public async Task<string> GetNombrePeliculaById(int id_pelicula)
+        {
+            var pelicula = await db.Table<Pelicula>().Where(b => b.id_pelicula == id_pelicula).FirstOrDefaultAsync();
+            return pelicula?.titulo; // Devuelve el nombre de la película o null si no se encuentra.
+        }
+
     }
 }

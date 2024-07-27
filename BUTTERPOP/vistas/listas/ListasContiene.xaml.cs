@@ -24,10 +24,11 @@ namespace BUTTERPOP.Vistas.listas
         private CRUD_Contiene crud = new CRUD_Contiene();
         private Table.Lista lista;
         Table.Cliente cliente;
+        Table.Pelicula pelicula;
+        Table.Contiene contiene;
         public ListasContiene()
         {
             InitializeComponent();
-            
         }
 
         //llenado de la vista por lista
@@ -49,12 +50,13 @@ namespace BUTTERPOP.Vistas.listas
                 if (contieneList != null)
                 {
                     lstContiene.ItemsSource = contieneList;
+                    
                 }
             
         }
 
 
-        //Pendiente eliminar
+        //eliminar pelicula de la lista
         public async void btnEliminar_Clicked(object sender, EventArgs e)
         {
             var contiene = await crud.GetContieneByIdAsync(Convert.ToInt32(lblIdContiene.Text));
@@ -87,12 +89,18 @@ namespace BUTTERPOP.Vistas.listas
                 if (contiene != null)
                 {
                     lblIdContiene.Text = contiene.id_contiene.ToString();
-
+                    lblPeli.Text = await crud.GetNombrePeliculaById(contiene.id_pelicula);
                 }
             }
         }
 
         
+
+        
+
+        
+
+
     }
 
 }

@@ -261,4 +261,10 @@
     <BundleResource Include="Resources\star_empty.png" />
     <BundleResource Include="Resources\star_fill.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\delete.png" />
+  </ItemGroup>
 </Project>

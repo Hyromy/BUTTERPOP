@@ -41,13 +41,24 @@
             <Label x:Name="lblIdContiene"
                    TextColor="white"
                    IsVisible="false"/>
+            <!-- recupera nombre de la pelidula en la lista -->
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Pelicula: "
+                       TextColor="White"/>
+                <Label x:Name="lblPeli"
+                       TextColor="white"/>
+
+            </StackLayout>
+            
+
 
 
             <ListView x:Name="lstContiene" 
                       HasUnevenRows="True" 
                       ItemSelected="lstContiene_ItemSelected" 
                       BackgroundColor="#3A3A3A" 
-                      Margin="15" 
+                      Margin="20" 
                       RefreshControlColor="Black" 
                       SeparatorColor="black"
                       SeparatorVisibility="Default">
@@ -63,9 +74,9 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
 
                                     <Label Text="{Binding id_contiene}"
@@ -77,18 +88,35 @@
                                            TextColor="White"
                                            Padding="5"/>
 
-                                    <Label Text="{Binding id_pelicula}"
-                                           Grid.Row="0"
-                                           Grid.Column="1"
-                                           TextColor="white"
-                                           FontSize="20"/>
+                                <Label x:Name="lblidpeli"
+                                       Grid.Row="0"
+                                       Grid.Column="1"
+                                       TextColor="white"
+                                       FontSize="20">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="ID Película: " />
+                                            <Span Text="{Binding id_pelicula}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
 
-                                    <Label Text="{Binding id_lista}"
-                                           Grid.Row="1"
-                                           Grid.Column="1"
-                                           TextColor="#787878"/>
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       TextColor="#787878">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="En la lista:" />
+                                            <Span Text="{Binding id_lista}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
 
-                                    <Button x:Name="btnEliminar"
+
+                                <Button x:Name="btnEliminar"
+                                        HeightRequest="50"
+                                        BackgroundColor="#C80000"
+                                        TextColor="White"
                                         IsVisible="true"
                                         VerticalOptions="Center"
                                         Text="Eliminar"
