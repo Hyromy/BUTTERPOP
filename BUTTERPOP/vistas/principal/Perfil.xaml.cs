@@ -18,6 +18,7 @@ using System.IO;
 using Xamarin.Essentials;
 using BUTTERPOP.crud.renta;
 using BUTTERPOP.crud.pelicula;
+using BUTTERPOP.vistas.pelicula;
 
 
 
@@ -117,7 +118,8 @@ namespace BUTTERPOP.vistas
                             BindingContext = pelicula
                         };
 
-                        // Crear la etiqueta para el título
+                         imageButton.Clicked += OnImageButtonClicked;
+
                         Label titleLabel = new Label
                         {
                             Text = pelicula.titulo ?? "Título no disponible",
@@ -193,10 +195,15 @@ namespace BUTTERPOP.vistas
             }
         }
 
+        private async void OnImageButtonClicked(object sender, EventArgs e)
+        {
+            var imageButton = (ImageButton)sender;
+            var pelicula = (Table.Pelicula)imageButton.BindingContext;
 
-
-
-
+            // Lógica que deseas implementar al hacer clic en el ImageButton
+            //DisplayAlert("Película seleccionada", $"Título: {pelicula.titulo}", "OK");
+            await Navigation.PushAsync(new InfoPeliculaRentada(this.cliente, pelicula));
+        }
 
         private void btnListas_Clicked(object sender, EventArgs e)
         {

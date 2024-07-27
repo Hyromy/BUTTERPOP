@@ -1,38 +1,36 @@
-﻿using System;
+﻿using BUTTERPOP.crud.comentario;
+using BUTTERPOP.crud.contiene;
+using BUTTERPOP.crud.lista;
+using BUTTERPOP.crud.usuario;
+using BUTTERPOP.db;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using BUTTERPOP.db;
-using BUTTERPOP.crud.lista;
-using BUTTERPOP.crud.contiene;
-using BUTTERPOP.crud.comentario;
-using BUTTERPOP.crud.renta;
-using BUTTERPOP.crud.usuario;
 using static BUTTERPOP.utils.ImageResourceExtension;
 
 namespace BUTTERPOP.vistas.pelicula
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InfoPelicula : ContentPage
+    public partial class InfoPeliculaRentada : ContentPage
     {
-        // Propiedades de la clase Tablas
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
         private CRUD_Lista crudLista = new CRUD_Lista();
         private CRUD_Contiene crudContiene = new CRUD_Contiene();
         private CRUD_Comentario crudCOMENTA = new CRUD_Comentario();
         private CRUD_Usuario crudCliente = new CRUD_Usuario();
+        private int selectedRating = 0;
 
-
-        public InfoPelicula(Table.Cliente cliente, Table.Pelicula pelicula)
+        public InfoPeliculaRentada(Table.Cliente cliente, Table.Pelicula pelicula)
         {
             InitializeComponent();
-
-            // Referenciar propiedad con parámetros
+            
             this.cliente = cliente;
             this.pelicula = pelicula;
-
+       
             LoadComments();
             addNavBack();
             LlenarPickerAsync();
@@ -40,10 +38,23 @@ namespace BUTTERPOP.vistas.pelicula
             btn_rent.Clicked += ToRent;
             film_poster.Source = ImageHelper.ConvertByteArrayToImage(pelicula.imagen);
             BindingContext = pelicula;
+
+            foreach (var star in ratingStars.Children.OfType<Image>())
+            {
+                var tapGestureRecognizer = new TapGestureRecognizer();
+                tapGestureRecognizer.Tapped += (s, e) =>
+                {
+                    var tappedStar = s as Image;
+                    var starIndex = ratingStars.Children.IndexOf(tappedStar) + 1;
+                    SetStarRating(starIndex);
+                };
+                star.GestureRecognizers.Add(tapGestureRecognizer);
+            }
+
+            
         }
 
-      
-   
+
         private void addNavBack()
         {
             TapGestureRecognizer navBack = new TapGestureRecognizer();
@@ -83,6 +94,66 @@ namespace BUTTERPOP.vistas.pelicula
 
 
 
+
+
+
+        private void SetStarRating(int rating)
+        {
+            // Si la calificación actual es igual a la calificación seleccionada, deselecciona todas las estrellas
+            if (selectedRating == rating)
+            {
+                selectedRating = 0;
+                foreach (var star in ratingStars.Children.OfType<Image>())
+                {
+                    star.Source = "star_empty.png";
+                }
+            }
+            else
+            {
+                selectedRating = rating;
+                for (int i = 0; i < ratingStars.Children.Count; i++)
+                {
+                    var star = ratingStars.Children[i] as Image;
+                    if (i < rating)
+                    {
+                        star.Source = "star_fill.png";
+                    }
+                    else
+                    {
+                        star.Source = "star_empty.png";
+                    }
+                }
+            }
+        }
+
+        private async void btnEnviarComentario_Clicked(object sender, EventArgs e)
+        {
+            if (selectedRating == 0)
+            {
+                await DisplayAlert("Error", "Por favor, selecciona una calificación.", "OK");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(commentEntry.Text))
+            {
+                await DisplayAlert("Error", "Por favor, ingresa un comentario.", "OK");
+                return;
+            }
+
+            Table.Comenta nuevoComentario = new Table.Comenta
+            {
+                correo = cliente.correo,
+                id_pelicula = pelicula.id_pelicula,
+                Comentario = commentEntry.Text,
+                Puntuacion = selectedRating
+            };
+
+            await crudCOMENTA.InsertComentario(nuevoComentario);
+            await DisplayAlert("Comentario enviado", "Gracias por tu comentario.", "OK");
+
+            commentEntry.Text = string.Empty;
+            SetStarRating(0);
+        }
 
         private async void LoadComments()
         {
@@ -152,10 +223,6 @@ namespace BUTTERPOP.vistas.pelicula
                 commentsSection.Children.Add(gridLayout);
             }
         }
-
-
-
-
 
     }
 }

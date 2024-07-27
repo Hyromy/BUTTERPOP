@@ -191,12 +191,15 @@ namespace BUTTERPOP.db
             [ForeignKey(typeof(Table.Cliente)), MaxLength(50)]
             public string correo { get; set; }
 
+            [ForeignKey(typeof(Table.Cliente)), MaxLength(50)]
+            public string nombre { get; set; }
+
             [ForeignKey (typeof(Table.Pelicula))]
             public int id_pelicula { get; set; }
             [MaxLength(255)]
             public string Comentario { get; set; }
-            [MaxLength(255)]
-            public string Puntuacion { get; set; }
+            
+            public int Puntuacion { get; set; }
 
 
         }

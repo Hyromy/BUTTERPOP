@@ -56,5 +56,19 @@ namespace BUTTERPOP.crud.comentario
         {
             return db.DeleteAsync(comentario);
         }
+
+
+
+
+
+        public Task<List<Table.Comenta>> GetCommentsByMovieIdAsync(int movieId)
+        {
+            return db.Table<Table.Comenta>()
+                            .Where(c => c.id_pelicula == movieId)
+                            .ToListAsync();
+        }
+
+
+
     }
 }

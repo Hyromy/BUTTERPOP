@@ -257,4 +257,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\tarjeta.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\star_empty.png" />
+    <BundleResource Include="Resources\star_fill.png" />
+  </ItemGroup>
 </Project>
