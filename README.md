@@ -2218,7 +2218,7 @@ introduccion de capitulo
 
 *La figura 3.`x`.2 muestra una descripción de los elementos de la vista FormRenta.xaml*
 
-| No. Elemento | Elemento | Tipo de elemento | Interacciones | Tipo de dato de entrada | Campo que afecta |
+| No. Elemento | Elemento | Interacciones | Tipo de dato de entrada | Campo que afecta | AyudaNoSeQueIbaAqui
 | - | - | - | - | - | - |
 | 1 | nav_back | Frame | Al presionarlo, la aplicación regresará a vista (pantalla) anterior |  |  |
 | 2 | banner | Image | Imagen de cartel de la película previamente seleccionada | ImageSource |  |
@@ -2230,6 +2230,42 @@ introduccion de capitulo
 | 8 | output_semanas | Label | Cantidad de semanas de renta | String |  |
 | 9 | input_slide_semanas | Slider | Al deslizar el slide, la aplicación cambiará su valor entero desde 1 a 4 |  | Table.Renta.semanas_renta |
 | 10 | btnConfirmCard | Button | Al presionar, la aplicación validará los campos y procesará el cobro |  | Table.Renta |
+
+*La figura 3.1 muestra la interfaz de registro de clientes, donde se solicitan los datos necesarios para que el cliente realice con éxito su registro en la aplicación.
+
+![vista loginPage.xaml](img_doc/cap3/usuario/loginPage.png)
+
+*A continuación, en la figura 3.2 se muestra la tabla donde se describen detalladamente cada uno de los elementos de la interfaz de registro. En esta tabla, se especifican las funciones y características de cada campo requerido para completar el registro.
+
+| No. Elemento | Elemento | Interacciones | Tipo de dato de entrada | Campo que afecta |
+| - | - | - | - | - |
+| 1 | PanGestureRecognizer_PanUpdate | Al deslizar el dedo en el control switch se pone de color rojo la parte seleccionada y muestra el formulario ya sea para iniciar sesión o registrarse. | | | |
+| 2 | OnText1Tapped | Al presionar el texto en el control switch se pone de color rojo la parte seleccionada y muestra el formulario ya sea para iniciar sesión o registrarse. | | | |		
+| 3 | txtNombre | Entrada de tipo texto que permite al usuario ingresar su nombre. |String | Nombre | 
+| 4 | txtApaterno | Entrada de tipo texto que permite al usuario ingresar su apellido paterno. | String | Apaterno |
+| 5 | txtAmaterno | Entrada de tipo texto que permite al usuario ingresar su apellido materno. | String | Amaterno |
+| 6 | txtEmailR | Entrada de tipo email que permite al usuario ingresar su correo electrónico. | String | Correo |
+| 7 | txtPassR | Entrada de tipo password que permite al usuario ingresar una contraseña. |	String	| Password |
+| 8 | btnVerPassword | Al presionar el botón, la aplicación llama al método “btnVerPassword_Clicked”, el cual se encarga de mostrar los caracteres ocultos de la contraseña. Este método permite al usuario ver la contraseña ingresada. | | |		
+| 9 | BtnRegistrar | Al presionar el botón,9 la aplicación llama al método “btnRegistrar_Clicked”, el cual se encarga de validar que los campos ingresados por el usuario no estén vacíos y estén correctamente completados para posteriormente almacenar la información en la base de datos en la table Clientes. Posteriormente muestra la interfaz de inicio de sesión. | | |		
+
+![vista Perfil.xaml](img_doc/cap3/lista/Perfil.png)
+
+*En la figura … se muestra la tabla donde describe los elementos de la interfaz de edición de lista 
+La interfaz Perfil.xaml contiene un frame que conecta a la base SQLite ButterPop.db3, la actualización afecta a en la tabla Lista al confirmar una actualización con el botón btnConfirmarEdicion.
+
+El campo actNombre, actDesc e imgEditar alteran la tabla Lista al cambiar los valores antes registrados
+
+No. Elemento | Elemento	| Interacciones	| Tipo de datos	| Campo que afecta |
+| - | - | - | - | - |
+| 1	| btnImagen	| Al presionar el botón, el usuario podrá ingresar una imagen.	| Button | |	
+| 2	| imgEditar	| El usuario podrá visualizar la imagen seleccionada, previo a esto, muestra la imagen anterior. |	 Bytea[] |	Imagen |
+| 3 | actId | El entry únicamente muestra la Id correspondiente a la lista a editar. | Int |Id_lista |
+| 4	| actNombre	| Permite al usuario ingresar un nuevo nombre a la lista. | String | Nombre | 
+| 5| actDesc | Permite al usuario ingresar una nueva descripción a la lista. | String | Descripcion |
+| 6 | btnCancelar | Al presionar el botón, el usuario podrá cancelar los cambios de la lista. | Button | |	
+| 7	| btnConfirmarEdicion | Al presionar el botón, el usuario podrá confirmar los cambios de la lista. | Button | |	
+
 
 ---
 
