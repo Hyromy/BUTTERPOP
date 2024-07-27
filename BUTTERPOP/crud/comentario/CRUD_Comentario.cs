@@ -25,9 +25,9 @@ namespace BUTTERPOP.crud.comentario
         /// Recuperar todos los comentarios
         /// </summary>
         /// <returns></returns>
-        public Task<List<Table.Comenta>> GetComentariosAsync()
+        public async Task<List<Table.Comenta>> GetComentariosAsync()
         {
-            return db.Table<Table.Comenta>().ToListAsync();
+            return await db.Table<Table.Comenta>().ToListAsync();
         }
 
         /// <summary>
@@ -39,12 +39,12 @@ namespace BUTTERPOP.crud.comentario
         {
             return db.Table<Table.Comenta>().Where(a => a.IDpeli == IDpeli).FirstOrDefaultAsync();
         }
-
-        public Task<int> UpdateUsuarioAsync(Table.Cliente usuario)
+        */
+        public Task<int> UpdateComentarioAsync(Table.Comenta comentario)
         {
-            if (usuario.correo != null)
+            if (comentario.Comentario != null)
             {
-                return db.UpdateAsync(usuario);
+                return db.UpdateAsync(comentario);
             }
             else
             {
@@ -52,9 +52,9 @@ namespace BUTTERPOP.crud.comentario
             }
         }
 
-        public Task<int> DeleteUsuarioAsync(Table.Cliente usuario)
+        public Task<int> DeleteComentarioAsync(Table.Comenta comentario)
         {
-            return db.DeleteAsync(usuario);
-        }*/
+            return db.DeleteAsync(comentario);
+        }
     }
 }

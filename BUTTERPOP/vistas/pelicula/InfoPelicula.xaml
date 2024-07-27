@@ -199,30 +199,37 @@
 
                         <Entry Placeholder="Deja tu comentario" x:Name="txtComentario" TextColor="AntiqueWhite" PlaceholderColor="AntiqueWhite" />
 
-                        <BoxView BackgroundColor="Red" HeightRequest="2" WidthRequest="20"></BoxView>
+                        <BoxView BackgroundColor="#c80000" HeightRequest="2" WidthRequest="20"></BoxView>
 
 
                         <Label TextColor="AntiqueWhite" Text="Selecciona tu puntuacion (De 0 a 3 estrellas)" />
 
                         <Label TextColor="AntiqueWhite" Text="0 Estrellas" />
-                        <RadioButton  BorderColor="Red" BackgroundColor="Red" x:Name="rb0"  />
+                        <RadioButton  BorderColor="#c80000" BackgroundColor="#c80000" x:Name="rb0"  />
 
                         <Label TextColor="AntiqueWhite" Text="1 Estrella" />
-                        <RadioButton BorderColor="Red" BackgroundColor="Red" x:Name="rb1"  />
+                        <RadioButton BorderColor="#c80000" BackgroundColor="#c80000" x:Name="rb1"  />
 
                         <Label TextColor="AntiqueWhite" Text="2 Estrellas" />
-                        <RadioButton BorderColor="Red" BackgroundColor="Red" x:Name="rb2"  />
+                        <RadioButton BorderColor="Red" BackgroundColor="#c80000" x:Name="rb2"  />
 
                         <Label TextColor="AntiqueWhite" Text="3 Estrellas" />
-                        <RadioButton BorderColor="Red" BackgroundColor="Red" x:Name="rb3"  />
+                        <RadioButton BorderColor="Red" BackgroundColor="#c80000" x:Name="rb3"  />
 
 
-                        <Button x:Name="btnGuardar" HorizontalOptions="Center" Text="Guardar" BackgroundColor="Red" TextColor="AntiqueWhite"/>
+                        <Button x:Name="btnGuardar" HorizontalOptions="Center" Text="Guardar" BackgroundColor="#c80000" TextColor="AntiqueWhite"/>
 
-                        <ListView x:Name="ListaComentarios" BackgroundColor="Red">
+                        <ListView 
+                            x:Name="ListaComentarios" BackgroundColor="#c80000" IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsRefreshing}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextCell TextColor="AntiqueWhite"  Text="{Binding Comentario}" DetailColor="AntiqueWhite" Detail="{Binding Puntuacion}"></TextCell>
+                                    <ViewCell >
+                                        <StackLayout>
+                                            <Label TextColor="AntiqueWhite" Text="{Binding correo}" ></Label>
+                                            <Label TextColor="AntiqueWhite" Text="{Binding Comentario}" ></Label>
+                                            <Label TextColor="AntiqueWhite" Text="{Binding Puntuacion}"></Label>
+                                        </StackLayout>
+                                    </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>

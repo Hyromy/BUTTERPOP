@@ -11,16 +11,22 @@ using BUTTERPOP.db;
 using System.Security.Cryptography;
 using BUTTERPOP.crud.comentario;
 using System.Collections.ObjectModel;
+using BUTTERPOP.crud.renta;
+using SQLite;
+using BUTTERPOP.crud.usuario;
 
 namespace BUTTERPOP.vistas.pelicula
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InfoPelicula : ContentPage
     {
+        
         private Table.Cliente cliente;
         private Table.Pelicula pelicula;
         private ObservableCollection<Table.Comenta> TablaComentario;
-        
+
+        private CRUD_Comentario crudCOMENTA = new CRUD_Comentario();
+
 
         public InfoPelicula(Table.Cliente cliente, Table.Pelicula pelicula)
         {
@@ -28,6 +34,7 @@ namespace BUTTERPOP.vistas.pelicula
 
             this.cliente = cliente;
             this.pelicula = pelicula;
+            LoadCom();
             ListaComentarios.ItemSelected += ListaComentarios_ItemSelected;
 
 
@@ -52,20 +59,28 @@ namespace BUTTERPOP.vistas.pelicula
             }
             else
             {
-
-
+                CRUD_Usuario crud2 = new CRUD_Usuario();
                 Table.Comenta Comentario = new Table.Comenta
                 {
-
+                    correo = this.cliente.correo,
                     Comentario = txtComentario.Text,
                     Puntuacion = puntuacion
+
 
                 };
                 CRUD_Comentario crud = new CRUD_Comentario();
                 await crud.InsertComentario(Comentario);
+
                 await DisplayAlert("Confirmación", "Comentario ingresado", "ok");
                 limpiarFormulario();
             }
+
+        }
+        public async Task LoadCom()
+        {
+            CRUD_Comentario crud = new CRUD_Comentario();
+            var coments = await crud.GetComentariosAsync();
+            ListaComentarios.ItemsSource = coments;
         }
         private string ObtenerPuntuacionSeleccionada()
         {
@@ -98,6 +113,7 @@ namespace BUTTERPOP.vistas.pelicula
             rb3.IsChecked = false;
 
         }
+
         private void ListaComentarios_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var obj = (Table.Comenta)e.SelectedItem;
@@ -106,43 +122,71 @@ namespace BUTTERPOP.vistas.pelicula
             var pun = obj.Puntuacion.ToString();
             var ID = Convert.ToInt32(item);
 
+            /*
+             * 
+             *             if (!string.IsNullOrEmpty(actId.Text))
+            {
+                Lista lista = new Lista()
+                {
+                    id_lista = Convert.ToInt32(actId.Text),
+                    nombre = actNombre.Text,
+                    descripcion = actDesc.Text,
+                    imagen = ImageHelper.ConvertImageToByteArray(imgEditar.Source),
 
+                };
+                await crud2.SaveListaAsync(lista);
+                frameEditar.IsVisible = false;
+                await DisplayAlert("Actualización", "Lista actualizada", "OK");
+                llenarDatosListas();
+
+            }
+            try
+            {
+                Navigation.PushAsync(new V_Detalle(ID, com, pun));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         protected async override void OnAppearing()
         {
-            var ResulRegistros = await db.Table<Table.Comenta>().ToListAsync();
-            TablaComentario = new ObservableCollection<Table.Comenta>(ResulRegistros);
-            ListaComentarios.ItemsSource = TablaComentario;
+            CRUD_Comentario crud = new CRUD_Comentario();
+            var ResulRegistros = await crud.Table<Table.Comenta>().ToListAsync();
+            TablaContacto = new ObservableCollection<T_Contacto>(ResulRegistros);
+            ListaContactos.ItemsSource = TablaContacto;
             base.OnAppearing();
         }
-
+    
+            */
+        }
         private void addNavBack()
-        {
-            TapGestureRecognizer navBack = new TapGestureRecognizer();
-            navBack.Tapped += (s, e) =>
             {
-                Navigation.PopAsync();
-            };
+                TapGestureRecognizer navBack = new TapGestureRecognizer();
+                navBack.Tapped += (s, e) =>
+                {
+                    Navigation.PopAsync();
+                };
 
-            nav_back.GestureRecognizers.Add(navBack);
-        }
+                nav_back.GestureRecognizers.Add(navBack);
+            }
 
-        private void addTapList()
-        {
-            TapGestureRecognizer tapList = new TapGestureRecognizer();
-            tapList.Tapped += (s, e) =>
+            private void addTapList()
             {
-                // acciones para agregar a lista
-                DisplayAlert("Listas", "Función aun no disponible", "OK");
-            };
+                TapGestureRecognizer tapList = new TapGestureRecognizer();
+                tapList.Tapped += (s, e) =>
+                {
+                    // acciones para agregar a lista
+                    DisplayAlert("Listas", "Función aun no disponible", "OK");
+                };
 
-            add_list.GestureRecognizers.Add(tapList);
-        }
+                add_list.GestureRecognizers.Add(tapList);
+            }
 
-        private void ToRent(object sender, EventArgs e)
-        {
-            // enviar el usuario y la pelicula rescatados de la vista previa
-            Navigation.PushAsync(new vistas.renta.FormRenta(cliente, pelicula));
+            private void ToRent(object sender, EventArgs e)
+            {
+                // enviar el usuario y la pelicula rescatados de la vista previa
+                Navigation.PushAsync(new vistas.renta.FormRenta(cliente, pelicula));
+            }
         }
-    }
-}
+    } 
