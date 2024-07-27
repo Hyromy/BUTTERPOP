@@ -2252,12 +2252,12 @@ introduccion de capitulo
 				<br>And-Y21
 			</a>
 		</td>
-		<td>8</td>
-		<td>1823</td>
-		<td>729</td>
-		<td>1094</td>
-		<td>136</td>
-		<td>1.35%</td>
+		<td>10</td>
+		<td>1964</td>
+		<td>816</td>
+		<td>1148</td>
+		<td>114</td>
+		<td>1.41%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2294,12 +2294,12 @@ introduccion de capitulo
 				<br>Hyromy
 			</a>
 		</td>
-		<td>103</td>
-		<td>78840</td>
-		<td>31934</td>
+		<td>104</td>
+		<td>78853</td>
+		<td>31947</td>
 		<td>46906</td>
-		<td>455</td>
-		<td>57.77%</td>
+		<td>451</td>
+		<td>57.73%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2313,7 +2313,7 @@ introduccion de capitulo
 		<td>6339</td>
 		<td>32785</td>
 		<td>1092</td>
-		<td>40.38%</td>
+		<td>40.35%</td>
 	</tr>
 </table>
 <br>
