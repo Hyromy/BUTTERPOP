@@ -49,32 +49,21 @@
                          AbsoluteLayout.LayoutFlags="YProportional, WidthProportional"
                          BackgroundColor="#c80000"/>
             </AbsoluteLayout>
-            
+
             <!-- cuerpo -->
             <StackLayout Grid.Row="1" Margin="20">
-                
+
                 <Frame CornerRadius="20" HeightRequest="23">
-                    <SearchBar x:Name="searchPelicula" Placeholder="¿Qué te gustaría ver hoy? 🤩" PlaceholderColor="#3a3a3a" TextColor="Black" TextChanged="searchPelicula_TextChanged"/>
+                    <SearchBar x:Name="searchPelicula" FontFamily="Nunito_SemiBold" Placeholder="¿Qué te gustaría ver hoy? 🤩" PlaceholderColor="#3a3a3a" TextColor="Black" TextChanged="searchPelicula_TextChanged"/>
                 </Frame>
 
                 <Grid x:Name="moviesGrid" Padding="10">
-                    <!--<Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-
-                    </Grid.RowDefinitions>
+                    <!-- Columnas -->
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-
-
-                    </Grid.ColumnDefinitions>-->
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="150" />
+                        
+                    </Grid.ColumnDefinitions>
                 </Grid>
 
             </StackLayout>

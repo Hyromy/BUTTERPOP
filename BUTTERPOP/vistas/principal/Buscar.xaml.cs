@@ -31,31 +31,24 @@ namespace BUTTERPOP.vistas
 
         private async void searchPelicula_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Limpiar la cuadrícula antes de agregar nuevos elementos
             moviesGrid.Children.Clear();
             moviesGrid.RowDefinitions.Clear();
-            moviesGrid.ColumnDefinitions.Clear();
 
-            // Asegúrate de que hay texto para buscar
-            if (string.IsNullOrEmpty(searchPelicula.Text))
+            string searchText = searchPelicula.Text.ToLower();
+
+            if (string.IsNullOrEmpty(searchText))
                 return;
 
             try
             {
-                var peliculasList = await crud_pelicula.GetPeliculasByNombre(searchPelicula.Text);
+                var peliculasList = await crud_pelicula.GetPeliculasByNombre(searchText);
 
                 if (peliculasList != null && peliculasList.Any())
                 {
-                    // Definir columnas y filas de la cuadrícula
-                    for (int i = 0; i < 3; i++)
-                    {
-                        moviesGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    }
-
                     int totalRows = (int)Math.Ceiling((double)peliculasList.Count / 3);
                     for (int i = 0; i < totalRows; i++)
                     {
-                        moviesGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(200) });
+                        moviesGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                     }
 
                     int row = 0, column = 0;
@@ -66,42 +59,66 @@ namespace BUTTERPOP.vistas
                         {
                             Source = ImageSource.FromStream(() => new MemoryStream(pelicula.imagen)),
                             Aspect = Aspect.AspectFill,
-                            HeightRequest = 150,
-                            WidthRequest = 180,
-                            BindingContext = pelicula
+                            HeightRequest = 166, // Mantén este tamaño según el diseño que prefieras
+                            WidthRequest = 150,  // Ajusta este valor según el tamaño deseado
+                            BindingContext = pelicula,
+                            HorizontalOptions = LayoutOptions.FillAndExpand,
+                            VerticalOptions = LayoutOptions.FillAndExpand
                         };
 
                         imageButton.Clicked += OnImageButtonClicked;
 
-                        var label = new Label
+                        var imageFrame = new Frame
+                        {
+                            Content = imageButton,
+                            CornerRadius = 15,
+                            HasShadow = false,
+                            Padding = 0,
+                            Margin = 0,
+                            BackgroundColor = Color.Transparent,
+                            HorizontalOptions = LayoutOptions.FillAndExpand,
+                            VerticalOptions = LayoutOptions.FillAndExpand
+                        };
+
+                        Label label = new Label
                         {
                             Text = pelicula.titulo,
                             TextColor = Color.White,
                             HorizontalOptions = LayoutOptions.Center,
-                            VerticalOptions = LayoutOptions.Center,
-                            Margin = new Thickness(0, 5, 0, 0)
+                            VerticalOptions = LayoutOptions.Start,
+                            Margin = new Thickness(0, 5, 0, 0),
+                            FontFamily = "Nunito_SemiBold",
+                            FontSize = 12
                         };
 
-                        var stack = new StackLayout
+                        var grid = new Grid
                         {
-                            Padding = 0,
-                            Margin = 0,
-                            Children = { imageButton, label }
+                            RowSpacing = 0,
+                            ColumnSpacing = 0,
+                            HorizontalOptions = LayoutOptions.FillAndExpand,
+                            VerticalOptions = LayoutOptions.FillAndExpand
                         };
+                        grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                        grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                        grid.Children.Add(imageFrame, 0, 0);
+                        grid.Children.Add(label, 0, 1);
 
                         var frame = new Frame
                         {
-                            HeightRequest = 200,
+                            HeightRequest = 240,  // Ajusta este valor si es necesario
+                            WidthRequest = 150,  // Asegúrate de que este ancho sea consistente con el ancho de la columna
                             CornerRadius = 20,
                             Margin = new Thickness(2),
                             BackgroundColor = Color.Transparent,
-                            Content = stack
+                            Content = grid,
+                            HorizontalOptions = LayoutOptions.FillAndExpand,
+                            VerticalOptions = LayoutOptions.FillAndExpand
                         };
 
                         moviesGrid.Children.Add(frame, column, row);
 
                         column++;
-                        if (column > 2) // Limitar a 3 columnas
+                        if (column > 1)
                         {
                             column = 0;
                             row++;
@@ -111,10 +128,15 @@ namespace BUTTERPOP.vistas
             }
             catch (Exception ex)
             {
-                // Manejar el error (puedes usar algún método de logging o mostrar un mensaje)
                 await DisplayAlert("Error", "No se pudieron cargar las películas: " + ex.Message, "OK");
             }
         }
+
+
+
+
+
+
 
         private async void OnImageButtonClicked(object sender, EventArgs e)
         {

@@ -80,33 +80,50 @@ namespace BUTTERPOP.vistas
 
                 foreach (var pelicula in peliculasList)
                 {
+                    // Crear el ImageButton
                     var imageButton = new ImageButton
                     {
                         Source = ImageSource.FromStream(() => new MemoryStream(pelicula.imagen)),
                         Aspect = Aspect.AspectFill,
-                        HeightRequest = 150,
-                        WidthRequest = 100,
+                        HeightRequest = 166,
+                        WidthRequest = 112,
                         BindingContext = pelicula
                     };
-                    
+
                     imageButton.Clicked += OnImageButtonClicked;
 
+                    // Crear el Frame para contener la imagen
+                    var imageFrame = new Frame
+                    {
+                        Content = imageButton,
+                        CornerRadius = 12, // Ajusta el valor del radio de las esquinas
+                        HasShadow = false, // Opcional: elimina la sombra si no la quieres
+                        Padding = 0,
+                        Margin = 0,
+                        BackgroundColor = Color.Transparent // Asegúrate de que el color de fondo sea transparente si deseas solo el borde redondeado
+                    };
+
+                    // Crear la etiqueta para el título
                     Label label = new Label
                     {
                         Text = pelicula.titulo,
                         TextColor = Color.White,
                         HorizontalOptions = LayoutOptions.Center,
                         VerticalOptions = LayoutOptions.Center,
-                        Margin = new Thickness(0, 5, 0, 0)
+                        Margin = new Thickness(0, 5, 0, 0),
+                        FontFamily = "Nunito_SemiBold",
+                        FontSize = 12,
                     };
 
+                    // Crear el StackLayout para el contenido
                     StackLayout stack = new StackLayout
                     {
                         Padding = 0,
                         Margin = 0,
-                        Children = { imageButton, label }
+                        Children = { imageFrame, label }
                     };
 
+                    // Crear el Frame que contendrá el StackLayout
                     var frame = new Frame
                     {
                         HeightRequest = 200,
@@ -116,6 +133,7 @@ namespace BUTTERPOP.vistas
                         Content = stack
                     };
 
+                    // Agregar el Frame a la cuadrícula
                     moviesGrid.Children.Add(frame, column, row);
 
                     column++;

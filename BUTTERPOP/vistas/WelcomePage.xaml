@@ -40,13 +40,14 @@
                 <Label Grid.Row="1" 
                        Text="2024 Copyright © ButterPop. Todos los derechos &#x0a;reservados" 
                        HorizontalTextAlignment="Center"
-                       FontSize="16" 
+                       FontSize="15" 
                        TextColor="White" 
                        HorizontalOptions="Center" 
                        VerticalTextAlignment="Center" 
                        Margin="0,0,0,100"
                        MaxLines="2"
-                       FontAttributes="Bold"/>
+                       FontAttributes="Bold"
+                       FontFamily="Nunito_ExtraBold"/>
             </Grid>
         </Grid>
     </ContentPage.Content>

@@ -30,6 +30,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Label TextColor="White"
+                               FontFamily="Nunito_ExtraBold"
                                FontAttributes="Bold"
                                FontSize="20"
                                Grid.Row="0"
@@ -56,6 +57,7 @@
 
                         <Button x:Name="btnPeliculas"
                                 Text="Películas"
+                                FontFamily="Nunito_Bold"
                                 CornerRadius="20"
                                 WidthRequest="100"
                                 HeightRequest="35"
@@ -68,6 +70,7 @@
 
                         <Button x:Name="btnListas"
                                 Text="Listas"
+                                FontFamily="Nunito_Bold"
                                 CornerRadius="20"
                                 WidthRequest="100"
                                 HeightRequest="35"
@@ -80,6 +83,7 @@
 
                         <Button x:Name="btnDatos"
                                 Text="Cuenta"
+                                FontFamily="Nunito_Bold"
                                 CornerRadius="20"
                                 WidthRequest="100"
                                 HeightRequest="35"
@@ -93,46 +97,40 @@
 
                     <StackLayout x:Name="stckPeliculas"
                                  IsVisible="True"
-                                 Margin="20">
+                                 Margin="20"
+                                 >
 
-                        <ScrollView x:Name="scrollViewMensaje">
+                        
                             <Label x:Name="lblPeliculas"
+                                   FontFamily="Nunito_SemiBold"
                                    Text="¡Hola! Parece que aún no has rentado ninguna película. ¿Por qué no echas un vistazo a nuestro catálogo y encuentras algo genial para ver? 🤔"
                                    TextColor="White" FontSize="Medium"/>
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
+
+
+                        <ScrollView>
+                            <Grid x:Name="moviesGrid" Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                            </Grid>
                         </ScrollView>
-
-                        <Grid x:Name="moviesGrid" Padding="10">
-                            <!--<Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
+                        
 
 
-                            </Grid.ColumnDefinitions>-->
-                        </Grid>
+
+
+
+
 
                     </StackLayout>
+
                     
-                    
-                    
+
+
 
                     <!-- la seccion de listas se rompe con facilidad -->
                     <StackLayout x:Name="stckListas"
@@ -340,6 +338,7 @@
                             <StackLayout>
 
                                 <Label Text="Usuario"
+                                       FontFamily="Nunito_ExtraBold"
                                        TextColor="White"
                                        FontSize="18"
                                        FontAttributes="Bold"/>
@@ -369,7 +368,8 @@
                                             TextColor="White"
                                             FontSize="18"/>
 
-                                    <Entry x:Name="txtNombreUsuario" 
+                                    <Entry x:Name="txtNombreUsuario"
+                                           FontFamily="Nunito_Regular"
                                            Text="{Binding NombreUsuario}"
                                            TextColor="#838383"
                                            WidthRequest="100"
@@ -402,7 +402,8 @@
                                             TextColor="White"
                                             FontSize="18"/>
 
-                                    <Entry x:Name="txtApaternoUsuario"       
+                                    <Entry x:Name="txtApaternoUsuario"
+                                           FontFamily="Nunito_Regular"
                                            Text="{Binding ApaternoUsuario}"
                                            TextColor="#838383"
                                            WidthRequest="100"
@@ -437,6 +438,7 @@
 
                                     <Entry x:Name="txtAmaternoUsuario"        
                                            Text="{Binding AmaternoUsuario}"
+                                           FontFamily="Nunito_Regular"
                                            TextColor="#838383"
                                            WidthRequest="100"
                                            Grid.Row="0"
@@ -444,6 +446,7 @@
                                 </Grid>
 
                                 <Label Text="Correo eléctronico"
+                                       FontFamily="Nunito_ExtraBold"
                                        TextColor="White"
                                        FontSize="18"
                                        FontAttributes="Bold"/>
@@ -451,11 +454,13 @@
                                 <Entry x:Name="txtCorreoElec"
                                        IsReadOnly="True"
                                        Text="{Binding CorreoUsuario}"
+                                       FontFamily="Nunito_Regular"
                                        TextColor="#838383"
                                        WidthRequest="10"/>
 
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Contraseña"
+                                           FontFamily="Nunito_ExtraBold"
                                            TextColor="White"
                                            FontSize="18"
                                            FontAttributes="Bold"/>
@@ -510,6 +515,7 @@
                                            Grid.Row="0"
                                            Grid.ColumnSpan="7" 
                                            Text="{Binding PassUsuario}"
+                                           FontFamily="Nunito_Regular"
                                            IsPassword="True"
                                            PlaceholderColor="#838383"
                                            TextColor="#838383"
@@ -525,6 +531,7 @@
                                     <Button x:Name="btnAgregarMetodoPago"
                                             Clicked="btnAgregarMetodoPago_Clicked"
                                             Text="Agregar método de pago"
+                                            FontFamily="Nunito_ExtraBold"
                                             BackgroundColor="Transparent"
                                             TextColor="#838383"
                                             FontAttributes="Bold"/>
@@ -546,6 +553,7 @@
                                     <Image Source="copa.png" />
                                     <Button x:Name="btnPremios"
                                             Text="Mis premios"
+                                            FontFamily="Nunito_ExtraBold"
                                             BackgroundColor="Transparent"
                                             TextColor="#838383"
                                             FontAttributes="Bold"/>
@@ -557,6 +565,7 @@
                                     <Button x:Name="btnEliminarCuenta"
                                             Clicked="btnEliminarCuenta_Clicked"
                                             Text="Eliminar mí cuenta"
+                                            FontFamily="Nunito_ExtraBold"
                                             BackgroundColor="Transparent"
                                             TextColor="#c80000"
                                             FontAttributes="Bold"/>

@@ -64,19 +64,19 @@ namespace BUTTERPOP.vistas
             btnListas.TextColor = Color.White;
             btnDatos.BackgroundColor = Color.FromHex("#3A3A3A");
             btnDatos.TextColor = Color.White;
-
+            // Obtener todas las rentas para el cliente actual
             List<Table.Renta> rentasList = await crud_renta.GetRentasByCorreo(cliente.correo);
 
             if (rentasList == null || !rentasList.Any())
             {
                 // Mostrar mensaje cuando no haya rentas
-                scrollViewMensaje.IsVisible = true;
+                lblPeliculas.IsVisible = true;
                 moviesGrid.IsVisible = false;
             }
             else
             {
                 // Ocultar mensaje y mostrar las películas rentadas
-                scrollViewMensaje.IsVisible = false;
+                lblPeliculas.IsVisible = false;
                 moviesGrid.IsVisible = true;
 
                 List<Table.Pelicula> peliculasList = new List<Table.Pelicula>();
@@ -97,60 +97,106 @@ namespace BUTTERPOP.vistas
                 moviesGrid.RowDefinitions.Clear();
                 moviesGrid.ColumnDefinitions.Clear();
 
-                if (peliculasList != null && peliculasList.Any())
+                // Crear una fila por cada renta
+                foreach (var renta in rentasList.Where(r => r.fin_fecha_renta >= DateTime.Now))
                 {
-                    int row = 0, column = 0;
-
-                    foreach (var pelicula in peliculasList)
+                    // Obtener la película asociada con la renta
+                    var pelicula = await crud_pelicula.GetPeliculasByIdAsync(renta.id_pelicula);
+                    if (pelicula != null)
                     {
+                        // Agregar una fila a la cuadrícula
+                        moviesGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(200) }); // Altura fija
+
+                        // Crear el ImageButton
                         var imageButton = new ImageButton
                         {
                             Source = ImageSource.FromStream(() => new MemoryStream(pelicula.imagen)),
                             Aspect = Aspect.AspectFill,
-                            HeightRequest = 150,
-                            WidthRequest = 100,
+                            HeightRequest = 166,
+                            WidthRequest = 112,
                             BindingContext = pelicula
                         };
 
-                        //imageButton.Clicked += OnImageButtonClicked;
-
-                        Label label = new Label
+                        // Crear la etiqueta para el título
+                        Label titleLabel = new Label
                         {
-                            Text = pelicula.titulo,
+                            Text = pelicula.titulo ?? "Título no disponible",
                             TextColor = Color.White,
-                            HorizontalOptions = LayoutOptions.Center,
-                            VerticalOptions = LayoutOptions.Center,
+                            FontFamily = "Nunito_ExtraBold",
+                            FontSize = 14,
                             Margin = new Thickness(0, 5, 0, 0)
                         };
 
-                        StackLayout stack = new StackLayout
+                        // Crear la etiqueta para las semanas de renta
+                        Label weeksLabel = new Label
                         {
-                            Padding = 0,
-                            Margin = 0,
-                            Children = { imageButton, label }
+                            Text = $"Semanas de renta: {renta.semanas_renta}",
+                            TextColor = Color.White,
+                            FontFamily = "Nunito_SemiBold",
+                            FontSize = 12
                         };
 
-                        var frame = new Frame
+                        // Crear la etiqueta para el cobro de renta
+                        Label rentalChargeLabel = new Label
                         {
-                            HeightRequest = 200,
-                            CornerRadius = 20,
-                            Margin = new Thickness(2),
-                            BackgroundColor = Color.Transparent,
-                            Content = stack
+                            Text = $"Cobro renta: ${renta.cobro_renta:F2}",
+                            TextColor = Color.White,
+                            FontFamily = "Nunito_SemiBold",
+                            FontSize = 12
                         };
 
-                        moviesGrid.Children.Add(frame, column, row);
-
-                        column++;
-                        if (column > 2) // Limitar a 3 columnas
+                        // Crear la etiqueta para la fecha y hora de renta
+                        Label rentalDateTimeLabel = new Label
                         {
-                            column = 0;
-                            row++;
-                        }
+                            Text = $"Inicio de la renta: {renta.fecha_renta.ToString("dd/MM/yyyy HH:mm")}",
+                            TextColor = Color.White,
+                            FontFamily = "Nunito_SemiBold",
+                            FontSize = 12
+                        };
+
+                        // Crear la etiqueta para la fecha y hora de fin de renta
+                        Label endRentalDateTimeLabel = new Label
+                        {
+                            Text = $"Termino de la renta: {renta.fin_fecha_renta.ToString("dd/MM/yyyy HH:mm")}",
+                            TextColor = Color.White,
+                            FontFamily = "Nunito_SemiBold",
+                            FontSize = 12
+                        };
+
+                        // Crear un StackLayout para los detalles a la derecha de la imagen
+                        StackLayout detailsStack = new StackLayout
+                        {
+                            Orientation = StackOrientation.Vertical,
+                            Margin = new Thickness(10, 0),
+                            Children = { titleLabel, weeksLabel, rentalChargeLabel, rentalDateTimeLabel, endRentalDateTimeLabel }
+                        };
+
+                        // Crear el Grid para contener la imagen y los detalles
+                        Grid itemGrid = new Grid
+                        {
+                            ColumnDefinitions =
+                    {
+                        new ColumnDefinition { Width = new GridLength(130) },
+                        new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
+                    },
+                            RowDefinitions = { new RowDefinition { Height = GridLength.Auto } }
+                        };
+
+                        // Agregar la imagen y los detalles a la cuadrícula
+                        itemGrid.Children.Add(imageButton, 0, 0);
+                        itemGrid.Children.Add(detailsStack, 1, 0);
+
+                        // Agregar el Grid a la cuadrícula principal
+                        moviesGrid.Children.Add(itemGrid, 0, rentasList.IndexOf(renta));
                     }
                 }
             }
         }
+
+
+
+
+
 
         private void btnListas_Clicked(object sender, EventArgs e)
         {
