@@ -2261,6 +2261,20 @@ introduccion de capitulo
 	</tr>
 	<tr>
 		<td>
+			<a href='https://github.com/CaldoPollo45' target='_blanck'>
+				<img src='https://avatars.githubusercontent.com/u/171305006?v=4' height='128'>
+				<br>CaldoPollo45
+			</a>
+		</td>
+		<td>3</td>
+		<td>323</td>
+		<td>54</td>
+		<td>269</td>
+		<td>89</td>
+		<td>0.33%</td>
+	</tr>
+	<tr>
+		<td>
 			<a href='https://github.com/Heisenburg3' target='_blanck'>
 				<img src='https://avatars.githubusercontent.com/u/169628671?v=4' height='128'>
 				<br>Heisenburg3
@@ -2280,12 +2294,12 @@ introduccion de capitulo
 				<br>Hyromy
 			</a>
 		</td>
-		<td>101</td>
-		<td>78807</td>
-		<td>31915</td>
+		<td>102</td>
+		<td>78820</td>
+		<td>31928</td>
 		<td>46892</td>
-		<td>464</td>
-		<td>58.40%</td>
+		<td>459</td>
+		<td>58.20%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2299,7 +2313,7 @@ introduccion de capitulo
 		<td>6010</td>
 		<td>32167</td>
 		<td>1286</td>
-		<td>40.06%</td>
+		<td>39.93%</td>
 	</tr>
 </table>
 <br>
