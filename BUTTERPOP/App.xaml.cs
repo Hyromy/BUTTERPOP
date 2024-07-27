@@ -14,7 +14,8 @@ namespace BUTTERPOP
         {
             InitializeComponent();
             Device.SetFlags(new[] { "MediaElement_Experimental", "Brush_Experimental" });
-            MainPage = new NavigationPage(new vistas.LoginPage());
+            //MainPage = new NavigationPage(new vistas.LoginPage());
+            MainPage = new NavigationPage(new vistas.WelcomePage());
         }
 
         public static SQLiteHelper SQLiteDB

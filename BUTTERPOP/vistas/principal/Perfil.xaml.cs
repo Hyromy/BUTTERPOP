@@ -1,21 +1,25 @@
 ﻿using BUTTERPOP.modelo;
+using BUTTERPOP.vistas.tarjeta;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using BUTTERPOP.crud.usuario;
 using BUTTERPOP.crud.lista;
 using BUTTERPOP.Modelo;
 using static BUTTERPOP.utils.ImageResourceExtension;
 using BUTTERPOP.Vistas.listas;
 using static BUTTERPOP.db.Table;
+using BUTTERPOP.db;
 using System.IO;
 using Xamarin.Essentials;
+using BUTTERPOP.crud.renta;
+using BUTTERPOP.crud.pelicula;
+
+
 
 namespace BUTTERPOP.vistas
 {
@@ -24,21 +28,28 @@ namespace BUTTERPOP.vistas
     {
         private CRUD_Usuario crud = new CRUD_Usuario();
         private CRUD_Lista crud2 = new CRUD_Lista();
+        private CRUD_Renta crud_renta = new CRUD_Renta();
+        private CRUD_Pelicula crud_pelicula = new CRUD_Pelicula();
 
-        public Perfil()
+        private Table.Cliente cliente;
+        
+        public Perfil(Table.Cliente cliente)
         {
             InitializeComponent();
-            LlenarDatos();
-            llenarDatosListas();
+            DatosRecuperados(cliente);
+
+            this.cliente = cliente;
         }
 
-        public Perfil(string Nombre, string Descipcion, byte[] Imagen)
+        /*
+        public Perfil(int Id_lista, string Nombre, string Descipcion, byte[] Imagen)
         {
-            BindingContext = new ListaViewModel(Nombre, Descipcion, Imagen);
+            BindingContext = new ListaViewModel(Id_lista, Nombre, Descipcion, Imagen);
             var si = ImageHelper.ConvertByteArrayToImage(Imagen);
         }
+        */
 
-        private void btnPeliculas_Clicked(object sender, EventArgs e)
+        private async void btnPeliculas_Clicked(object sender, EventArgs e)
         {
             btnPeliculas.BackgroundColor = Color.FromHex("#C80000");
             btnPeliculas.TextColor = Color.White;
@@ -53,7 +64,94 @@ namespace BUTTERPOP.vistas
             btnListas.TextColor = Color.White;
             btnDatos.BackgroundColor = Color.FromHex("#3A3A3A");
             btnDatos.TextColor = Color.White;
+
+            List<Table.Renta> rentasList = await crud_renta.GetRentasByCorreo(cliente.correo);
+
+            if (rentasList == null || !rentasList.Any())
+            {
+                // Mostrar mensaje cuando no haya rentas
+                scrollViewMensaje.IsVisible = true;
+                moviesGrid.IsVisible = false;
+            }
+            else
+            {
+                // Ocultar mensaje y mostrar las películas rentadas
+                scrollViewMensaje.IsVisible = false;
+                moviesGrid.IsVisible = true;
+
+                List<Table.Pelicula> peliculasList = new List<Table.Pelicula>();
+                foreach (var renta in rentasList)
+                {
+                    if (renta.fin_fecha_renta > DateTime.Now)
+                    {
+                        var pelicula = await crud_pelicula.GetPeliculasByIdAsync(renta.id_pelicula);
+                        if (pelicula != null)
+                        {
+                            peliculasList.Add(pelicula);
+                        }
+                    }
+                }
+
+                // Limpiar la cuadrícula antes de agregar nuevos elementos
+                moviesGrid.Children.Clear();
+                moviesGrid.RowDefinitions.Clear();
+                moviesGrid.ColumnDefinitions.Clear();
+
+                if (peliculasList != null && peliculasList.Any())
+                {
+                    int row = 0, column = 0;
+
+                    foreach (var pelicula in peliculasList)
+                    {
+                        var imageButton = new ImageButton
+                        {
+                            Source = ImageSource.FromStream(() => new MemoryStream(pelicula.imagen)),
+                            Aspect = Aspect.AspectFill,
+                            HeightRequest = 150,
+                            WidthRequest = 100,
+                            BindingContext = pelicula
+                        };
+
+                        //imageButton.Clicked += OnImageButtonClicked;
+
+                        Label label = new Label
+                        {
+                            Text = pelicula.titulo,
+                            TextColor = Color.White,
+                            HorizontalOptions = LayoutOptions.Center,
+                            VerticalOptions = LayoutOptions.Center,
+                            Margin = new Thickness(0, 5, 0, 0)
+                        };
+
+                        StackLayout stack = new StackLayout
+                        {
+                            Padding = 0,
+                            Margin = 0,
+                            Children = { imageButton, label }
+                        };
+
+                        var frame = new Frame
+                        {
+                            HeightRequest = 200,
+                            CornerRadius = 20,
+                            Margin = new Thickness(2),
+                            BackgroundColor = Color.Transparent,
+                            Content = stack
+                        };
+
+                        moviesGrid.Children.Add(frame, column, row);
+
+                        column++;
+                        if (column > 2) // Limitar a 3 columnas
+                        {
+                            column = 0;
+                            row++;
+                        }
+                    }
+                }
+            }
         }
+
         private void btnListas_Clicked(object sender, EventArgs e)
         {
             // Cambiar color del botón
@@ -70,6 +168,9 @@ namespace BUTTERPOP.vistas
             btnPeliculas.TextColor = Color.White;
             btnDatos.BackgroundColor = Color.FromHex("#3A3A3A");
             btnDatos.TextColor = Color.White;
+
+            llenarDatosListas();
+
         }
 
         private void btnDatos_Clicked(object sender, EventArgs e)
@@ -151,7 +252,7 @@ namespace BUTTERPOP.vistas
                     if (usuario != null)
                     {
 
-                        usuario.usuario = txtNombreUsuario.Text;
+                        usuario.nombre = txtNombreUsuario.Text;
 
                         await crud.UpdateUsuarioAsync(usuario);
                         await DisplayAlert("Actualización Exitosa", "Tu nombre se ha actualizado correctamente", "Aceptar");
@@ -159,7 +260,7 @@ namespace BUTTERPOP.vistas
                     }
                     else
                     {
-                        await DisplayAlert("Error", "No se ha podido eliminar la cuenta. Usuario no encontrado.", "Aceptar");
+                        await DisplayAlert("Error", "No se ha podido realizar los cambios en tu cuenta. Usuario no encontrado.", "Aceptar");
                     }
                 }
             
@@ -211,6 +312,19 @@ namespace BUTTERPOP.vistas
         }
 
 
+        public async void DatosRecuperados(Table.Cliente cliente)
+        {
+           
+
+            lblCorreo.Text = cliente.correo;
+            welcomeUserName.Text = cliente.nombre;
+            txtNombreUsuario.Text = cliente.nombre;
+            txtCorreoElec.Text = cliente.correo;
+            txtApaternoUsuario.Text = cliente.apaterno;
+            txtAmaternoUsuario.Text = cliente.amaterno;
+            txtContra.Text = cliente.password;
+        }
+
 
         public async void LlenarDatos()
         {
@@ -219,8 +333,8 @@ namespace BUTTERPOP.vistas
             //Si la lista no está vacia, entonces mostrarla
             if (usuarioEncontrado != null)
             {
-                welcomeUserName.Text = usuarioEncontrado.usuario;
-                txtNombreUsuario.Text = usuarioEncontrado.usuario;
+                welcomeUserName.Text = usuarioEncontrado.nombre;
+                txtNombreUsuario.Text = usuarioEncontrado.nombre;
                 txtContra.Text = usuarioEncontrado.password;
             }
         }
@@ -234,9 +348,85 @@ namespace BUTTERPOP.vistas
             return regex.IsMatch(txtContra.Text);
         }
 
-        private void btnCerrarSesion_Clicked(object sender, EventArgs e)
+        private async void btnCerrarSesion_Clicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new LoginPage());
+            bool confirmacion = await DisplayAlert("Confirmación", "¿Estás seguro de que deseas cerrar sesión?", "Confirmar", "Cancelar");
+
+            if (confirmacion)
+            {
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
+
+            
+        }
+
+        private async void btnCambiarApaterno_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu apellido paterno a " + txtApaternoUsuario.Text + "?", "Confirmar", "Cancelar");
+
+                var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
+
+                if (confirmacion)
+                {
+                    if (usuario != null)
+                    {
+
+                        usuario.apaterno = txtApaternoUsuario.Text;
+
+                        await crud.UpdateUsuarioAsync(usuario);
+                        await DisplayAlert("Actualización Exitosa", "Tu apellido paterno se ha actualizado correctamente", "Aceptar");
+                        LlenarDatos();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "No se ha podido realizar los cambios en tu cuenta. Usuario no encontrado.", "Aceptar");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Ocurrió un error al actualizar la cuenta: {ex.Message}", "Aceptar");
+            }
+        }
+
+        private async void btnCambiarAmaterno_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                bool confirmacion = await DisplayAlert("Advertencia", "¿Estás seguro de que deseas cambiar tu apellido materno a " + txtAmaternoUsuario.Text + "?", "Confirmar", "Cancelar");
+
+                var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
+
+                if (confirmacion)
+                {
+                    if (usuario != null)
+                    {
+                        usuario.amaterno = txtAmaternoUsuario.Text;
+
+                        await crud.UpdateUsuarioAsync(usuario);
+                        await DisplayAlert("Actualización Exitosa", "Tu apellido materno se ha actualizado correctamente", "Aceptar");
+                        LlenarDatos();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "No se ha podido realizar los cambios en tu cuenta. Usuario no encontrado.", "Aceptar");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Ocurrió un error al actualizar la cuenta: {ex.Message}", "Aceptar");
+            }
+        }
+
+        private async void btnAgregarMetodoPago_Clicked(object sender, EventArgs e)
+        {
+            var usuario = await crud.GetUsuariosByCorreo(txtCorreoElec.Text);
+            await Navigation.PushAsync(new vistas.tarjeta.BillingPage(usuario));
         }
 
         private void btnCancelar_Clicked(object sender, EventArgs e)
@@ -246,7 +436,9 @@ namespace BUTTERPOP.vistas
 
         private async void confirmarEdicion_Clicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(actId.Text))
+            if (!string.IsNullOrEmpty(actId.Text) &&
+        !string.IsNullOrEmpty(actNombre.Text) &&
+        !string.IsNullOrEmpty(actDesc.Text))
             {
                 Lista lista = new Lista()
                 {
@@ -254,13 +446,17 @@ namespace BUTTERPOP.vistas
                     nombre = actNombre.Text,
                     descripcion = actDesc.Text,
                     imagen = ImageHelper.ConvertImageToByteArray(imgEditar.Source),
-
+                    correo = cliente.correo
                 };
+
                 await crud2.SaveListaAsync(lista);
                 frameEditar.IsVisible = false;
                 await DisplayAlert("Actualización", "Lista actualizada", "OK");
                 llenarDatosListas();
-
+            }
+            else
+            {
+                await DisplayAlert("Error", "Por favor, completa todos los campos.", "OK");
             }
 
         }
@@ -270,7 +466,6 @@ namespace BUTTERPOP.vistas
             var obj = (Lista)e.SelectedItem;
             if (!string.IsNullOrEmpty(obj.id_lista.ToString()))
             {
-
                 var lista = await crud2.GetListaByIdAsync(obj.id_lista);
                 if (lista != null)
                 {
@@ -282,6 +477,7 @@ namespace BUTTERPOP.vistas
                 }
 
 
+
             }
 
         }
@@ -291,9 +487,17 @@ namespace BUTTERPOP.vistas
             var lista = await crud2.GetListaByIdAsync(Convert.ToInt32(actId.Text));
             if (lista != null)
             {
-                await crud2.DeleteListaAsync(lista);
-                await DisplayAlert("Aviso", "Se elimino la lista", "OK");
-                llenarDatosListas();
+                var result = await DisplayAlert("Confirmación", "¿Estás segur@ la lista?", "Sí", "No");
+                if (result)
+                {
+                    await crud2.DeleteListaAsync(lista);
+                    await DisplayAlert("Aviso", "Se elimino la lista", "OK");
+                    llenarDatosListas();
+                }
+                else
+                {
+                    // El usuario hizo clic en "No"
+                }
             }
 
         }
@@ -302,18 +506,19 @@ namespace BUTTERPOP.vistas
         {
             //await Navigation.PushAsync(new ListaContiene());
             var lista = await crud2.GetListaByIdAsync(Convert.ToInt32(actId.Text));
-            Navigation.PushAsync(new ListasContiene(lista.nombre, lista.descripcion, lista.imagen));
-
+            await Navigation.PushAsync(new ListasContiene(lista.id_lista, lista.nombre, lista.descripcion, lista.imagen, this.cliente));
         }
 
         private void btnNueva_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new RegistroListas());
+            Navigation.PushAsync(new RegistroListas(this.cliente));
 
         }
         public async void llenarDatosListas()
         {
-            var listaList = await crud2.GetListasAsync();
+            List<Table.Lista> listaList = await crud2.GetListasByCorreoAsync(cliente.correo);
+            
+
             if (listaList != null)
             {
                 lstListas.ItemsSource = listaList;
@@ -324,6 +529,8 @@ namespace BUTTERPOP.vistas
                 lblListas.IsVisible = true;
                 lstListas.IsVisible = false;
             }
+
+           
         }
 
         private void btnEditar_Clicked(object sender, EventArgs e)

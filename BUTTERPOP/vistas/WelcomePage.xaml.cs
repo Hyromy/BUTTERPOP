@@ -21,8 +21,13 @@ namespace BUTTERPOP.vistas
 
         private async void StartTimer()
         {
-            await Task.Delay(3000); 
-            Application.Current.MainPage = new NavigationPage(new LoginPage()); 
+            await Task.Delay(3000);
+            var loginPage = new LoginPage();
+            var navigationPage = new NavigationPage(loginPage);
+            Application.Current.MainPage = navigationPage;
+            await Task.Delay(10);
+            await loginPage.Content.FadeTo(0, 0); 
+            await loginPage.Content.FadeTo(1, 500); 
         }
     }
 }

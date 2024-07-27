@@ -12,15 +12,33 @@ namespace BUTTERPOP.db
     {
         public class Cliente
         {
-            [PrimaryKey, MaxLength(50)]
+            [PrimaryKey, MaxLength(100)]
             public string correo { get; set; }
 
             [MaxLength(50)]
-            public string usuario { get; set; }
+            public string nombre { get; set; }
+            [MaxLength(50)]
+            public string apaterno { get; set; }
+            [MaxLength(50)]
+            public string amaterno { get; set; }
 
             [MaxLength(50)]
             public string password { get; set; }
-            
+
+            // Datos del número de cuenta
+
+            [MaxLength(16)]
+
+            public string numeroTarjeta { get; set; }
+
+
+            [MaxLength(50)]
+            public string tipoTarjeta { get; set; }
+            public int cvv { get; set; }
+            public int mes { get; set; }
+            public int anio { get; set; }
+
+
         }
 
         public class Lista
@@ -40,17 +58,29 @@ namespace BUTTERPOP.db
 
         }
 
-
-        public class Administrador
-        {
-            [PrimaryKey]
-            public string correo_admin { get; set; }
-        }
-
         public class Pelicula
         {
             [PrimaryKey, AutoIncrement]
             public int id_pelicula { get; set; }
+
+            [MaxLength(100)]
+            public string titulo { get; set; }
+
+            [MaxLength(50)]
+
+            public string genero { get; set; }
+
+            [MaxLength(500)]
+            public string descripcion { get; set; }
+
+            [MaxLength(10)]
+            public string clasificacion { get; set; }
+
+            public int duracion { get; set; } // Duración en minutos
+
+            public decimal precio { get; set; } 
+
+            public byte[] imagen { get; set; } // Imagen en formato byte array para almacenar en la base de datos
         }
 
         /// <summary>
@@ -61,32 +91,25 @@ namespace BUTTERPOP.db
         /// </summary>
         public class Renta
         {
-            // autogenerado
             [PrimaryKey, AutoIncrement]
             public int id_renta { get; set; }
 
-            // obligatorio
             [ForeignKey(typeof(Table.Cliente)), MaxLength(50)]
             public string correo { get; set; }
 
-            // obligatorio
             [ForeignKey(typeof(Table.Pelicula))]
             public int id_pelicula { get; set; }
 
-            // obligatorio
-            [ForeignKey(typeof(Table.Pelicula))]
+            [NotNull]
             public float precio { get; set; }
 
-            // obligatorio
+            [NotNull]
             public int semanas_renta { get; set; }
 
-            // autogenerado
             public DateTime fecha_renta { get; set; }
             
-            // autogenerado
             public DateTime fin_fecha_renta { get; set; }
 
-            // autogenerado
             public float cobro_renta { get; set; }
 
             /// <summary>
@@ -183,12 +206,17 @@ namespace BUTTERPOP.db
             [PrimaryKey, AutoIncrement]
             public int id_contiene { get; set; }
 
-            [MaxLength(20)]
+            [ForeignKey(typeof(Pelicula))]
             public int id_pelicula { get; set; }
 
-            [MaxLength(20)]
+            [ForeignKey(typeof(Lista))]
             public int id_lista { get; set; }
         }
+
+
+
+
+
 
     }
 }

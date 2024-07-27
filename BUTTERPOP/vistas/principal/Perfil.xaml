@@ -4,397 +4,568 @@
              x:Class="BUTTERPOP.vistas.Perfil"
              IconImageSource="perfil.png"
              BackgroundColor="#1C1C1C">
+    
     <ContentPage.Content>
-        <StackLayout>
-            
-                <StackLayout Orientation="Vertical" Margin="20">
+        <Grid BackgroundColor="#1c1c1c">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-                <Label TextColor="White" FontAttributes="Bold" FontSize="20">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="¡Hola, " />
-                            <Span x:Name="welcomeUserName"  Text="{Binding NombreUsuario}"  />
-                            <Span Text="! 🍿" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <StackLayout Orientation="Horizontal" Margin="10" >
-                    <Button     
-                            x:Name="btnPeliculas"
-                             Text="Películas"
-                             CornerRadius="20"
-                             WidthRequest="100"
-                             HeightRequest="35"
-                             FontSize="12"
-                             BackgroundColor="#C80000"
-                             TextColor="White"
-                             HorizontalOptions="Start"
-                             VerticalOptions="Center"
-                             Clicked="btnPeliculas_Clicked"/>
+           
 
-                    <Button     
-                            x:Name="btnListas"
-                             Text="Listas"
-                             CornerRadius="20"
-                             WidthRequest="100"
-                             HeightRequest="35"
-                             FontSize="12"
-                             BackgroundColor="#3A3A3A"
-                             TextColor="White"
-                             HorizontalOptions="Start"
-                             VerticalOptions="Center"
-                             Clicked="btnListas_Clicked"/>
+            <!-- cuerpo -->
+            <StackLayout Grid.Row="1">
+                <StackLayout Orientation="Vertical"
+                             Margin="20">
 
-                    <Button     
-                            x:Name="btnDatos"
-                             Text="Datos"
-                             CornerRadius="20"
-                             WidthRequest="100"
-                             HeightRequest="35"
-                             FontSize="12"
-                             BackgroundColor="#3A3A3A"
-                             TextColor="White"
-                             HorizontalOptions="Start"
-                             VerticalOptions="Center"
-                             Clicked="btnDatos_Clicked"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
 
-                </StackLayout>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
 
-                <StackLayout x:Name="stckPeliculas" IsVisible="True" Margin="20">
-                    <Label x:Name="lblPeliculas" Text="¡Hola! Parece que aún no has rentado ninguna película. ¿Por qué no echas un vistazo a nuestro catálogo y encuentras algo genial para ver? 🤔 " 
-                       TextColor="White" FontSize="Medium"/>
-                </StackLayout>
+                        <Label TextColor="White"
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               Grid.Row="0"
+                               Grid.Column="0">
 
-                <StackLayout x:Name="stckListas" IsVisible="False" Margin="20">
-                    
-                    <Label x:Name="lblListas" 
-                           Text="Parece que aún no has creado ninguna lista. ¿Por qué no comienzas ahora? 🤩"
-                           TextColor="White" 
-                           FontSize="Medium"/>
-                    
-                        <StackLayout BackgroundColor="#1E1E1E">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="¡Hola, "/>
+                                    <Span x:Name="welcomeUserName"/>
+                                    <Span Text="! 🍿"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
+                        <ImageButton Source="cerrar_sesion.png"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     Clicked="btnCerrarSesion_Clicked"
+                                     BackgroundColor="Transparent" />
+                    </Grid>
 
-                            <Frame IsVisible="false" 
-                                   x:Name="frameEditar" 
-                                   CornerRadius="20" 
-                                   Margin="10">
-                                <StackLayout BackgroundColor="white"
-                                             HeightRequest="450">
-                                    <Label Text="Editar lista" 
-                                           HorizontalTextAlignment="Start" 
-                                           FontAttributes="Bold" 
-                                           FontSize="Medium" 
-                                           TextColor="Black" 
-                                           Margin="5"/>
-                                <Button Text="Selecciona imagen"
-                                        x:Name="btnImagen"
-                                        Clicked="btnImagen_Clicked"
-                                        BackgroundColor="#C80000" 
-                                        TextColor="White" 
-                                        CornerRadius="40" 
-                                        />
-                                
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="10" >
 
-                                    <Image x:Name="imgEditar"
-                                           WidthRequest="100"
-                                           HeightRequest="100"
-                                           Source=""
-                                           BackgroundColor="Transparent"
-                                            />
-                                    <Frame Padding="5" 
-                                           Margin="5" 
-                                           BackgroundColor="#D6D6D6" 
-                                           CornerRadius="10" >
+                        <Button x:Name="btnPeliculas"
+                                Text="Películas"
+                                CornerRadius="20"
+                                WidthRequest="100"
+                                HeightRequest="35"
+                                FontSize="12"
+                                BackgroundColor="#C80000"
+                                TextColor="White"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                Clicked="btnPeliculas_Clicked"/>
 
-                                        <Entry x:Name="actId" 
-                                               IsReadOnly="True"/>
-                                    </Frame>
-                                    <Frame Padding="5" 
-                                           Margin="5" 
-                                           BackgroundColor="#D6D6D6" 
-                                           CornerRadius="10" >
-                                        <Entry x:Name="actNombre"
-                                               Placeholder="Nombre de la lista"/>
-                                    </Frame>
-                                    <Frame Padding="5" 
-                                           Margin="5" 
-                                           BackgroundColor="#D6D6D6" 
-                                           CornerRadius="10" >
-                                        <Entry x:Name="actDesc"
-                                               Placeholder="Descripcion de la lista"/>
-                                    </Frame>
+                        <Button x:Name="btnListas"
+                                Text="Listas"
+                                CornerRadius="20"
+                                WidthRequest="100"
+                                HeightRequest="35"
+                                FontSize="12"
+                                BackgroundColor="#3A3A3A"
+                                TextColor="White"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                Clicked="btnListas_Clicked"/>
 
-                                    <StackLayout Orientation="Horizontal"
-                                                 HorizontalOptions="Center">
-                                        <Button Text="Cancelar" 
-                                                FontAttributes="Bold" 
-                                                HorizontalOptions="End"
-                                                TextColor="white"
-                                                BackgroundColor="#C80000"
-                                                CornerRadius="20"
-                                                x:Name="btnCancelar"
-                                                Clicked="btnCancelar_Clicked"/>
+                        <Button x:Name="btnDatos"
+                                Text="Cuenta"
+                                CornerRadius="20"
+                                WidthRequest="100"
+                                HeightRequest="35"
+                                FontSize="12"
+                                BackgroundColor="#3A3A3A"
+                                TextColor="White"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                Clicked="btnDatos_Clicked"/>
+                    </StackLayout>
 
-                                        <Button Text="Editar" 
-                                                FontAttributes="Bold" 
-                                                HorizontalOptions="End"
-                                                TextColor="white"
-                                                x:Name="confirmarEdicion"
-                                                Clicked="confirmarEdicion_Clicked"
-                                                BackgroundColor="#C80000"
-                                                CornerRadius="20"/>
-                                    </StackLayout>
+                    <StackLayout x:Name="stckPeliculas"
+                                 IsVisible="True"
+                                 Margin="20">
 
-                                </StackLayout>
-                            </Frame>
-
-                            <ScrollView HeightRequest="300">
-                                <ListView x:Name="lstListas" 
-                                          ItemSelected="lstListas_ItemSelected" 
-                                          HasUnevenRows="False" 
-                                          IsVisible="true"
-                                          BackgroundColor="#3A3A3A" 
-                                          RefreshControlColor="Black" 
-                                          SeparatorColor="black"
-                                          SeparatorVisibility="Default"
-                                          >
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <ViewCell>
-                                                <Grid>
-                                                    <Grid.RowDefinitions>
-                                                        <RowDefinition Height="Auto"/>
-                                                        <RowDefinition Height="Auto"/>
-                                                    </Grid.RowDefinitions>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="30"/>
-                                                        <ColumnDefinition Width="160"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                    </Grid.ColumnDefinitions>
-
-                                                    <Label Text="{Binding id_lista}"
-                                                           x:Name="txtId"
-                                                           Grid.RowSpan="2"
-                                                           Grid.Column="0"
-                                                           TextColor="White"
-                                                           VerticalTextAlignment="Center"
-                                                           Padding="5"/>
-
-                                                    <Label Text="{Binding nombre}"
-                                                           FontSize="15"
-                                                           x:Name="txtnom"
-                                                           Grid.Row="0"
-                                                           Grid.Column="1"
-                                                           TextColor="white"/>
-
-                                                    <Label Text="{Binding descripcion}"
-                                                           x:Name="txtdesc"
-                                                           Grid.Row="1"
-                                                           Grid.Column="1"
-                                                           TextColor="#787878"/>
-
-                                                    <ImageButton x:Name="btnEditar"
-                                                                 VerticalOptions="Center"
-                                                                 BackgroundColor="Transparent"
-                                                                 IsVisible="true"
-                                                                 Source="editar_lista.png"
-                                                                 Grid.RowSpan="2"
-                                                                 Grid.Column="2"
-                                                                 Clicked="btnEditar_Clicked"
-                                                                 Margin="3"/>
-
-                                                    <ImageButton x:Name="btnEliminar"
-                                                                 VerticalOptions="Center"
-                                                                 IsVisible="true"
-                                                                 Source="basura.png"
-                                                                 BackgroundColor="Transparent"
-                                                                 Grid.RowSpan="2"
-                                                                 Grid.Column="3"
-                                                                 Clicked="btnEliminar_Clicked"
-                                                                 Margin="3"/>
-
-                                                    <ImageButton x:Name="btnVer"
-                                                                 VerticalOptions="Center"
-                                                                 IsVisible="true"
-                                                                 BackgroundColor="Transparent"
-                                                                 Source="ojo_pass.png"
-                                                                 Grid.RowSpan="2"
-                                                                 Grid.Column="4"
-                                                                 Clicked="btnVer_Clicked"
-                                                                 Margin="3"/>
-
-                                                </Grid>
-                                            </ViewCell>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-
-                            </ScrollView>
+                        <ScrollView x:Name="scrollViewMensaje">
+                            <Label x:Name="lblPeliculas"
+                                   Text="¡Hola! Parece que aún no has rentado ninguna película. ¿Por qué no echas un vistazo a nuestro catálogo y encuentras algo genial para ver? 🤔"
+                                   TextColor="White" FontSize="Medium"/>
                             
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        </ScrollView>
+
+                        <Grid x:Name="moviesGrid" Padding="10">
+                            <!--<Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
 
 
-                        </StackLayout>
-                        <Button x:Name="btnNueva" 
-                             TextColor="White"
-                             BackgroundColor="#C80000"
-                             CornerRadius="20"
-                             Margin="15"
-                             WidthRequest="50"
-                             HeightRequest="50"
-                             Clicked="btnNueva_Clicked"
-                             Text="+"/>
+                            </Grid.ColumnDefinitions>-->
+                        </Grid>
 
-                        <Label Text="Las listas se guardaran en tu cuenta con el correo:"
-                            TextColor="#787878"
-                            HorizontalOptions="Center"
-                            />
-                        <Label x:Name="lblCorreo"
-                            Text="{Binding CorreoUsuario}"
-                            TextColor="white"
-                            HorizontalOptions="Center"/>
+                    </StackLayout>
+                    
+                    
+                    
 
+                    <!-- la seccion de listas se rompe con facilidad -->
+                    <StackLayout x:Name="stckListas"
+                                 IsVisible="False"
+                                 Margin="20">
+
+                        <ScrollView>
+                            <StackLayout>
+                                <Label x:Name="lblListas" 
+                                       Text="Parece que aún no has creado ninguna lista. ¿Por qué no comienzas ahora? 🤩"
+                                       TextColor="White" 
+                                       FontSize="Medium"/>
+
+                                <StackLayout BackgroundColor="#1E1E1E">
+                                    <Frame IsVisible="false" 
+                                           x:Name="frameEditar" 
+                                           CornerRadius="20" 
+                                           Margin="10">
+
+                                        <StackLayout BackgroundColor="white"
+                                                     HeightRequest="450">
+
+                                            <Label Text="Editar lista" 
+                                                   HorizontalTextAlignment="Start" 
+                                                   FontAttributes="Bold" 
+                                                   FontSize="Medium" 
+                                                   TextColor="Black" 
+                                                   Margin="5"/>
+
+                                            <Button Text="Selecciona imagen"
+                                                    x:Name="btnImagen"
+                                                    Clicked="btnImagen_Clicked"
+                                                    BackgroundColor="#C80000" 
+                                                    TextColor="White" 
+                                                    CornerRadius="40"/>
+
+                                            <Image x:Name="imgEditar"
+                                                   WidthRequest="100"
+                                                   HeightRequest="100"
+                                                   Source=""
+                                                   BackgroundColor="Transparent"/>
+
+                                            <Frame Padding="5" 
+                                                   Margin="5" 
+                                                   BackgroundColor="#D6D6D6" 
+                                                   CornerRadius="10" >
+
+                                                <Entry x:Name="actId" 
+                                                       IsReadOnly="True"/>
+                                            </Frame>
+
+                                            <Frame Padding="5" 
+                                                   Margin="5" 
+                                                   BackgroundColor="#D6D6D6" 
+                                                   CornerRadius="10" >
+
+                                                <Entry x:Name="actNombre"
+                                                       Placeholder="Nombre de la lista"/>
+                                            </Frame>
+
+                                            <Frame Padding="5" 
+                                                   Margin="5" 
+                                                   BackgroundColor="#D6D6D6" 
+                                                   CornerRadius="10" >
+
+                                                <Entry x:Name="actDesc"
+                                                       Placeholder="Descripcion de la lista"/>
+                                            </Frame>
+
+                                            <StackLayout Orientation="Horizontal"
+                                                         HorizontalOptions="Center">
+
+                                                <Button Text="Cancelar" 
+                                                        FontAttributes="Bold" 
+                                                        HorizontalOptions="End"
+                                                        TextColor="white"
+                                                        BackgroundColor="#C80000"
+                                                        CornerRadius="20"
+                                                        x:Name="btnCancelar"
+                                                        Clicked="btnCancelar_Clicked"/>
+
+                                                <Button Text="Editar" 
+                                                        FontAttributes="Bold" 
+                                                        HorizontalOptions="End"
+                                                        TextColor="white"
+                                                        x:Name="confirmarEdicion"
+                                                        Clicked="confirmarEdicion_Clicked"
+                                                        BackgroundColor="#C80000"
+                                                        CornerRadius="20"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+
+                                    <ScrollView HeightRequest="300">
+                                        <ListView x:Name="lstListas" 
+                                                  ItemSelected="lstListas_ItemSelected" 
+                                                  HasUnevenRows="False" 
+                                                  IsVisible="true"
+                                                  BackgroundColor="#3A3A3A" 
+                                                  RefreshControlColor="Black" 
+                                                  SeparatorColor="black"
+                                                  SeparatorVisibility="Default">
+
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <Grid>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="30"/>
+                                                                <ColumnDefinition Width="160"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+
+                                                            <Label Text="{Binding id_lista}"
+                                                                   x:Name="txtId"
+                                                                   Grid.RowSpan="2"
+                                                                   Grid.Column="0"
+                                                                   TextColor="White"
+                                                                   VerticalTextAlignment="Center"
+                                                                   Padding="5"/>
+
+                                                            <Label Text="{Binding nombre}"
+                                                                   FontSize="15"
+                                                                   x:Name="txtnom"
+                                                                   Grid.Row="0"
+                                                                   Grid.Column="1"
+                                                                   TextColor="white"/>
+
+                                                            <Label Text="{Binding descripcion}"
+                                                                   x:Name="txtdesc"
+                                                                   Grid.Row="1"
+                                                                   Grid.Column="1"
+                                                                   TextColor="#787878"/>
+
+                                                            <ImageButton x:Name="btnEditar"
+                                                                         VerticalOptions="Center"
+                                                                         BackgroundColor="Transparent"
+                                                                         IsVisible="true"
+                                                                         Source="editar_lista.png"
+                                                                         Grid.RowSpan="2"
+                                                                         Grid.Column="2"
+                                                                         Clicked="btnEditar_Clicked"
+                                                                         Margin="3"/>
+
+                                                            <ImageButton x:Name="btnEliminar"
+                                                                         VerticalOptions="Center"
+                                                                         IsVisible="true"
+                                                                         Source="basura.png"
+                                                                         BackgroundColor="Transparent"
+                                                                         Grid.RowSpan="2"
+                                                                         Grid.Column="3"
+                                                                         Clicked="btnEliminar_Clicked"
+                                                                         Margin="3"/>
+
+                                                            <ImageButton x:Name="btnVer"
+                                                                         VerticalOptions="Center"
+                                                                         IsVisible="true"
+                                                                         BackgroundColor="Transparent"
+                                                                         Source="ojo_pass.png"
+                                                                         Grid.RowSpan="2"
+                                                                         Grid.Column="4"
+                                                                         Clicked="btnVer_Clicked"
+                                                                         Margin="3"/>
+                                                        </Grid>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </ScrollView>
+                                </StackLayout>
+
+                                <Button x:Name="btnNueva" 
+                                        TextColor="White"
+                                        BackgroundColor="#C80000"
+                                        CornerRadius="20"
+                                        Margin="15"
+                                        WidthRequest="50"
+                                        HeightRequest="50"
+                                        Clicked="btnNueva_Clicked"
+                                        Text="+"/>
+
+                                <Label Text="Las listas se guardaran en tu cuenta con el correo:"
+                                       TextColor="#787878"
+                                       HorizontalOptions="Center"/>
+
+                                <Label x:Name="lblCorreo"        
+                                       TextColor="white"
+                                       HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+
+                    <StackLayout x:Name="stckDatos"
+                                 IsVisible="False"
+                                 Margin="20">
+
+                        <ScrollView>
+                            <StackLayout>
+
+                                <Label Text="Usuario"
+                                       TextColor="White"
+                                       FontSize="18"
+                                       FontAttributes="Bold"/>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button x:Name="btnCambiarUser"
+                                            Clicked="btnCambiarUser_Clicked"
+                                            Text=">"
+                                            HorizontalOptions="End"
+                                            Grid.Row="0"
+                                            Grid.Column="7"
+                                            BackgroundColor="Transparent"
+                                            TextColor="White"
+                                            FontSize="18"/>
+
+                                    <Entry x:Name="txtNombreUsuario" 
+                                           Text="{Binding NombreUsuario}"
+                                           TextColor="#838383"
+                                           WidthRequest="100"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="7" />
+                                </Grid>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button x:Name="btnCambiarApaterno"
+                                            Clicked="btnCambiarApaterno_Clicked"
+                                            Text=">"
+                                            HorizontalOptions="End"
+                                            Grid.Row="0"
+                                            Grid.Column="7"
+                                            BackgroundColor="Transparent"
+                                            TextColor="White"
+                                            FontSize="18"/>
+
+                                    <Entry x:Name="txtApaternoUsuario"       
+                                           Text="{Binding ApaternoUsuario}"
+                                           TextColor="#838383"
+                                           WidthRequest="100"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="7" />
+                                </Grid>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button x:Name="btnCambiarAmaterno"
+                                            Clicked="btnCambiarAmaterno_Clicked" 
+                                            Text=">"
+                                            HorizontalOptions="End"
+                                            Grid.Row="0"
+                                            Grid.Column="7"
+                                            BackgroundColor="Transparent"
+                                            TextColor="White"
+                                            FontSize="18"/>
+
+                                    <Entry x:Name="txtAmaternoUsuario"        
+                                           Text="{Binding AmaternoUsuario}"
+                                           TextColor="#838383"
+                                           WidthRequest="100"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="7" />
+                                </Grid>
+
+                                <Label Text="Correo eléctronico"
+                                       TextColor="White"
+                                       FontSize="18"
+                                       FontAttributes="Bold"/>
+
+                                <Entry x:Name="txtCorreoElec"
+                                       IsReadOnly="True"
+                                       Text="{Binding CorreoUsuario}"
+                                       TextColor="#838383"
+                                       WidthRequest="10"/>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Contraseña"
+                                           TextColor="White"
+                                           FontSize="18"
+                                           FontAttributes="Bold"/>
+
+                                    <ImageButton x:Name="btnVerPassword"
+                                                 IsVisible="True"
+                                                 Clicked="btnVerPassword_Clicked"
+                                                 Source="ojo_pass.png"
+                                                 Grid.Row="0"
+                                                 Grid.Column="1"
+                                                 WidthRequest="20"
+                                                 HeightRequest="20"
+                                                 BackgroundColor="Transparent"/>
+
+                                    <ImageButton x:Name="btnOcultarPassword"
+                                                 IsVisible="False"
+                                                 Clicked="btnOcultarPassword_Clicked"
+                                                 Source="ojo_pass_ocultar.png"
+                                                 Grid.Row="0"
+                                                 Grid.Column="1"
+                                                 WidthRequest="20"
+                                                 HeightRequest="20"
+                                                 BackgroundColor="Transparent"/>
+                                </StackLayout>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button x:Name="btnCambiarPass"
+                                            Clicked="btnCambiarPass_Clicked"
+                                            Grid.Row="0"
+                                            Grid.Column="7"
+                                            Text=">"
+                                            HorizontalOptions="End"
+                                            BackgroundColor="Transparent"
+                                            TextColor="White"
+                                            FontSize="18"/>
+
+                                    <Entry x:Name="txtContra"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="7" 
+                                           Text="{Binding PassUsuario}"
+                                           IsPassword="True"
+                                           PlaceholderColor="#838383"
+                                           TextColor="#838383"
+                                           WidthRequest="10" />
+                                </Grid>
+
+                                <StackLayout Orientation="Horizontal" 
+                                             Margin="10">
+
+                                    <Image Source="tarjeta.png"
+                                           WidthRequest="30"/>
+
+                                    <Button x:Name="btnAgregarMetodoPago"
+                                            Clicked="btnAgregarMetodoPago_Clicked"
+                                            Text="Agregar método de pago"
+                                            BackgroundColor="Transparent"
+                                            TextColor="#838383"
+                                            FontAttributes="Bold"/>
+                                </StackLayout>
+
+                                <!-- <StackLayout Orientation="Horizontal"
+                                             Margin="20">
+                                    
+                                    <Image Source="cerrar_sesion.png"
+                                           WidthRequest="25"/>
+                                    
+                                    <Button x:Name="btnCerrarSesion"
+                                            FontAttributes="Bold"/>
+                                </StackLayout> -->
+
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="10">
+
+                                    <Image Source="copa.png" />
+                                    <Button x:Name="btnPremios"
+                                            Text="Mis premios"
+                                            BackgroundColor="Transparent"
+                                            TextColor="#838383"
+                                            FontAttributes="Bold"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="10">
+                                    <Image Source="basura.png" />
+                                    <Button x:Name="btnEliminarCuenta"
+                                            Clicked="btnEliminarCuenta_Clicked"
+                                            Text="Eliminar mí cuenta"
+                                            BackgroundColor="Transparent"
+                                            TextColor="#c80000"
+                                            FontAttributes="Bold"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
                 </StackLayout>
-                    
-                    
-                    
-                    
-                    
-
-                <StackLayout x:Name="stckDatos" IsVisible="False" Margin="20">
-
-
-                    
-
-                    <Label Text="Usuario" TextColor="White" FontSize="18" FontAttributes="Bold" />
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        
-                        
-                        <Button x:Name="btnCambiarUser" Clicked="btnCambiarUser_Clicked" Text=">" HorizontalOptions="End" Grid.Row="0" Grid.Column="7" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
-                        <Entry x:Name="txtNombreUsuario" 
-                               
-                               Text="{Binding NombreUsuario}" TextColor="#838383" WidthRequest="100"
-                              
-                               Grid.Row="0" Grid.ColumnSpan="7" />
-
-                    </Grid>
-                    
-
-                    <Label Text="Correo eléctronico" TextColor="White" FontSize="18" FontAttributes="Bold" />
-                    <Entry x:Name="txtCorreoElec" IsReadOnly="True" Text="{Binding CorreoUsuario}"  TextColor="#838383" WidthRequest="10" />
-
-
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Contraseña" TextColor="White" FontSize="18" FontAttributes="Bold" />
-
-                        <ImageButton x:Name="btnVerPassword" IsVisible="True" Clicked="btnVerPassword_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
-                        <ImageButton x:Name="btnOcultarPassword" IsVisible="False" Clicked="btnOcultarPassword_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
-
-                    </StackLayout>
-
-                    <Grid>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Button x:Name="btnCambiarPass" Clicked="btnCambiarPass_Clicked" Grid.Row="0" Grid.Column="7" Text=">" HorizontalOptions="End" BackgroundColor="Transparent" TextColor="White" FontSize="18"/>
-
-                        <Entry x:Name="txtContra" Grid.Row="0" Grid.ColumnSpan="7"  Text="{Binding PassUsuario}" IsPassword="True" PlaceholderColor="#838383" TextColor="#838383" WidthRequest="10" />
-                
-
-                    </Grid>
-
-
-
-
-
-
-
-
-
-                    <StackLayout Orientation="Horizontal" Margin="20">
-                        
-                        <Image Source="copa.png" />
-                        
-                        <Label Text="¡Explora tus premios por compras de películas aquí! Canjea tus puntos en cualquier cine de Cinemas AJEM y disfruta de grandes beneficios."
-                               TextColor="#838383" />
-
-
-
-
-                    </StackLayout>
-
-
-                    <StackLayout Orientation="Horizontal" Margin="20">
-                        <Image Source="cerrar_sesion.png" />
-                        <Button x:Name="btnCerrarSesion" Clicked="btnCerrarSesion_Clicked" Text="cerrar sesión" BackgroundColor="Transparent" TextColor="#c80000" FontAttributes="Bold"  />
-                    </StackLayout>
-
-
-                    <StackLayout Orientation="Horizontal" Margin="20">
-                        <Image Source="basura.png" />
-                        <Button x:Name="btnEliminarCuenta" Clicked="btnEliminarCuenta_Clicked" Text="Eliminar mí cuenta" BackgroundColor="Transparent" TextColor="#c80000" FontAttributes="Bold"  />
-                    </StackLayout>
-
-                    
-
-
-
-
-
-
-
-                </StackLayout>
-
-
-
-
-
-
             </StackLayout>
-
-
-
-
-
-        </StackLayout>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

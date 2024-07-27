@@ -8,6 +8,7 @@ namespace BUTTERPOP.Modelo
     public class ListaViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        private int _id_lista;
 
         private string _nombre;
 
@@ -15,14 +16,23 @@ namespace BUTTERPOP.Modelo
 
         private byte[] _imagen;
 
-
-        public ListaViewModel(string nombre, string descricpion, byte[] imagen)
+        
+        public ListaViewModel(int id_lista, string nombre, string descricpion, byte[] imagen)
         {
+            Id_lista = id_lista;
             Nombre = nombre;
             Descripcion = descricpion;
             Imagen = imagen;
         }
-
+        public int Id_lista 
+        {
+            get { return _id_lista; }
+            set
+            {
+                _id_lista = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Id_lista)));
+            }
+        }
         public string Nombre
         {
             get { return _nombre; }

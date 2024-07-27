@@ -18,7 +18,6 @@ namespace BUTTERPOP.db
 
             this.db.CreateTableAsync<Table.Cliente>().Wait();
             this.db.CreateTableAsync<Table.Lista>().Wait();
-            this.db.CreateTableAsync<Table.Administrador>().Wait();
             this.db.CreateTableAsync<Table.Pelicula>().Wait();
             this.db.CreateTableAsync<Table.Renta>().Wait();
             this.db.CreateTableAsync<Table.Comenta>().Wait();

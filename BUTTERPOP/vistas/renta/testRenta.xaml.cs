@@ -38,6 +38,7 @@ namespace BUTTERPOP.vistas
             btncountLogs.Clicked += CountLogs;
             btnupdate.Clicked += Update;
             btndelete.Clicked += Delete;
+            btndeleteall.Clicked += DeleteAll;
         }
 
         private async void Insert(object sender, EventArgs e)
@@ -171,6 +172,21 @@ namespace BUTTERPOP.vistas
             }
         }
 
+        private async void DeleteAll(object sender, EventArgs e)
+        {
+            int logs = await crudRenta.CountRentas();
+            bool delete = await DisplayAlert($"Eliminar {logs} registros", "¿Está seguro de eliminar todos los registros?", "Si", "No");
+
+            if (delete)
+            {
+                await crudRenta.DeteleAllRentas(delete);
+                Clear(sender, e);
+
+                String message = "Se han eliminado todos los registros";
+                await DisplayAlert("Eliminación masiva", message, "OK");
+            }
+        }
+
         private void addNavBack()
         {
             TapGestureRecognizer navBack = new TapGestureRecognizer();
@@ -232,6 +248,5 @@ namespace BUTTERPOP.vistas
             inputSRent.Value = value;
             outputSRent.Text = (1 + value).ToString();
         }
-
     }
 }

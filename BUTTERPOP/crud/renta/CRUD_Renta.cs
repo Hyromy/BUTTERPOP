@@ -97,5 +97,30 @@ namespace BUTTERPOP.crud.renta
         {
             return await this.db.DeleteAsync(renta);
         }
+
+        /// <summary>
+        /// Elimina todos los registros de la tabla 'renta'
+        /// </summary>
+        /// <param name="delete">¿Estas seguro...?</param>
+        /// <returns></returns>
+        public async Task DeteleAllRentas(bool delete)
+        {
+            if (delete)
+            {
+                await this.db.DeleteAllAsync<Table.Renta>();
+            }
+        }
+
+        /// <summary>
+        /// Obtiene todos los registros de la tabla 'renta' filtrados por el correo del cliente.
+        /// </summary>
+        /// <param name="correo">Correo del cliente</param>
+        /// <returns>Lista de objetos de la clase Renta</returns>
+        public async Task<List<Table.Renta>> GetRentasByCorreo(string correo)
+        {
+            return await this.db.Table<Table.Renta>()
+                                .Where(r => r.correo == correo)
+                                .ToListAsync();
+        }
     }
 }

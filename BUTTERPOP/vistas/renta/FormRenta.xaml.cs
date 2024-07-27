@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using BUTTERPOP.modelo.rentar;
 using BUTTERPOP.crud.renta;
 using BUTTERPOP.db;
+using BUTTERPOP.utils;
 
 namespace BUTTERPOP.vistas.renta
 {
@@ -49,13 +50,44 @@ namespace BUTTERPOP.vistas.renta
 
             btnConfirmCard.Clicked += ToPay;
 
-            //toTest.Clicked += ToTest;
+            toTest.Clicked += ToTest;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             adjustFrame();
+            LoadFilm();
+            LoadCard();
+        }
+
+        private void LoadFilm()
+        {
+            film_name.Text = this.pelicula.titulo;
+            banner.Source = ImageResourceExtension.ImageHelper.ConvertByteArrayToImage(this.pelicula.imagen);
+        }
+
+        private void LoadCard()
+        {
+            if (!String.IsNullOrEmpty(this.cliente.numeroTarjeta))
+            {
+                card_number.Text = this.cliente.numeroTarjeta;
+
+                String mes = "";
+                if (this.cliente.mes.ToString().Length != 2)
+                {
+                    mes = "0" + this.cliente.mes.ToString();
+                }
+                else
+                {
+                    mes = this.cliente.mes.ToString();
+                }
+                month.Text = mes;
+
+                year.Text = this.cliente.anio.ToString().Substring(2);
+
+                cvv.Text = this.cliente.cvv.ToString();
+            }
         }
 
         private async void ToPay(object sender, EventArgs e)
@@ -69,24 +101,25 @@ namespace BUTTERPOP.vistas.renta
                 slideValue = 1 + (int) input_slide_semanas.Value;
                 String timeEnd = DateTime.Now.AddDays(7 * slideValue).ToString("dd/MM/yyyy HH:mm");
 
-                // reemplazar por datos adecuados
                 String question = "";
-                question += $"¿Deseas rentar {this.pelicula.ToString()}";
+                question += $"¿Deseas rentar '{this.pelicula.titulo}'";
                 question += $" a la cuenta '{this.cliente.correo}'";
-                question += $" por ${this.pelicula.ToString()}?";
+                question += $" por ${model.CalculatePrice((float) this.pelicula.precio, slideValue)}?";
                 question += $"\n\nTu renta finalizará el {timeEnd}hrs";
 
                 bool isPayed = (await DisplayAlert("Pagar", question, "Sí", "No"));
                 if (isPayed)
                 {
+                    await model.ComprobateRent(this.pelicula, this.cliente);
+                    await ProcesingPay();
+
                     Pay();
 
                     String sucess = "Transacción realizada exitosamente, revisa tu lista privada 'Mis películas rentadas' o haz click en 'Ir' para ver la película que acabas de rentar";
                     bool toFilms = (await DisplayAlert("Pago exitoso", sucess, "Ir", "OK"));
                     if (toFilms)
                     {
-                        // modificar constructor
-                        Application.Current.MainPage = new NavigationPage(new HomePage(this.cliente.usuario, this.cliente.correo, this.cliente.password));
+                        Application.Current.MainPage = new NavigationPage(new HomePage(this.cliente));
                     }
                 }
                 else
@@ -200,7 +233,7 @@ namespace BUTTERPOP.vistas.renta
             {
                 correo = this.cliente.correo,
                 id_pelicula = this.pelicula.id_pelicula,
-                precio = 50, // reemplazar con pelicula.precio
+                precio = (float) this.pelicula.precio,
                 semanas_renta = slideValue
             };
 
@@ -211,11 +244,45 @@ namespace BUTTERPOP.vistas.renta
             Console.WriteLine($"Nuevo registro de renta con id: {this.renta.id_renta}");
         }
 
-        /*
+        private async Task ProcesingPay()
+        {
+            ActivityIndicator load = new ActivityIndicator
+            {
+                IsRunning = true,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Color = Color.FromHex("#c80000")
+            };
+
+            Frame frame = new Frame
+            {
+                CornerRadius = 32,
+                Margin = 0,
+                Padding = 32,
+                BackgroundColor = Color.FromHex("#1c1c1c"),
+                Content = load
+            };
+
+            AbsoluteLayout absolute = new AbsoluteLayout
+            {
+                BackgroundColor = Color.FromRgba(0, 0, 0, 128),
+                Children = { frame }
+            };
+
+            AbsoluteLayout.SetLayoutBounds(frame, new Rectangle(0.5, 0.5, 192, 192));
+            AbsoluteLayout.SetLayoutFlags(frame, AbsoluteLayoutFlags.PositionProportional);
+            absolute.Children.Add(frame);
+            Grid.SetRow(absolute, 0);
+            Grid.SetRowSpan(absolute, 3);
+
+            main.Children.Add(absolute);
+            await Task.Delay(new Random().Next(3000, 5001));
+            main.Children.Remove(absolute);
+        }
+
         private void ToTest(object sender, EventArgs e)
         {
             Navigation.PushAsync(new testRenta());
         }
-        */
     }
 }

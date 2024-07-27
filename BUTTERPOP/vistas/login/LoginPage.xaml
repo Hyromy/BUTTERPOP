@@ -25,25 +25,27 @@
             <!--END BACKGROUND VIDEO-->
 
             <FlexLayout Direction="Column"
-    JustifyContent="Center"
-    AlignItems="Center"
-    Padding="30">
+                JustifyContent="Center"
+                AlignItems="Center"
+                Padding="30">
 
                 <!--LOGO-->
                 <Image Source="ButterPop.png" 
                HorizontalOptions="Center" 
-               WidthRequest="300"
-               Margin="30"/>
+               WidthRequest="250"
+               Margin="10"/>
                 <!--#END LOGO-->
 
-                <Frame BackgroundColor="White"
-               CornerRadius="40"
-               WidthRequest="250"
-               HeightRequest="400">
+                <Frame x:Name="FrameLogin"
+                       BackgroundColor="White"
+                       CornerRadius="40"
+                       WidthRequest="250"
+                       HeightRequest="400">
 
-                    <StackLayout Orientation="Vertical"
-             Padding="20"
-             Spacing="20">
+                    <StackLayout x:Name="FrameStack"
+                                 Orientation="Vertical"
+                                 Padding="20"
+                                 Spacing="35">
 
                         <!--TOGGLE BUTTON-->
                         <Grid>
@@ -112,7 +114,7 @@
                         <!--END TOGGLE BUTTON-->
 
                         <!--FORMULARIO INICIO-->
-                        <StackLayout x:Name="loginForm" IsVisible="True" Orientation="Vertical" Spacing="30">
+                        <StackLayout x:Name="loginForm" IsVisible="True" Orientation="Vertical" Spacing="20">
                             <Label Text="¡Hola de Nuevo! :D" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
                             <Entry x:Name="txtEmailI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Correo electrónico" Keyboard="Email"/>
 
@@ -126,28 +128,36 @@
                             <Button x:Name="btnIniciarSesion" 
                                     Clicked="btnIniciarSesion_Clicked"
                                     Text="Iniciar Sesión" BackgroundColor="#C80000" TextColor="White" CornerRadius="40"/>
-                            <Label Text="¿Olvidaste tú contraseña?" TextColor="#4B4A4A" FontSize="Small" HorizontalTextAlignment="Center"/>
+                            <Label  Text="¿Olvidaste tú contraseña?" TextColor="#4B4A4A" FontSize="Small" HorizontalTextAlignment="Center"/>
                         </StackLayout>
 
 
                         <!--FORMULARIO REGISTRO-->
-                        <StackLayout x:Name="registerForm" IsVisible="False" Orientation="Vertical" Spacing="10">
+                        <StackLayout x:Name="registerForm" IsVisible="False" Orientation="Vertical" Spacing="5">
                             <Label Text="¡Bienvenido a ButterPop!" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
-                            <Entry x:Name="txtUsername" Placeholder="Nombre" TextColor="Black" PlaceholderColor="#838383"/>
+                            <Entry x:Name="txtNombre" Placeholder="Nombre" TextColor="Black" PlaceholderColor="#838383"/>
+                            <Entry x:Name="txtApaterno" Placeholder="Apellido paterno" TextColor="Black" PlaceholderColor="#838383"/>
+                            <Entry x:Name="txtAmaterno" Placeholder="Apellido materno" TextColor="Black" PlaceholderColor="#838383"/>
+
+
+
+
                             <Entry x:Name="txtEmailR" Placeholder="Correo electrónico" TextColor="Black" PlaceholderColor="#838383" Keyboard="Email"/>
                             <StackLayout Orientation="Horizontal">
 
-                                <Entry x:Name="txtPassR" Placeholder="Contraseña" WidthRequest="180" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
+                                <Entry x:Name="txtPassR" Placeholder="Contraseña nueva" WidthRequest="180" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
                                 <ImageButton x:Name="btnVerPassword2" IsVisible="True" Clicked="btnVerPassword2_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                                 <ImageButton x:Name="btnOcultarPassword2" IsVisible="False" Clicked="btnOcultarPassword2_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal">
-                                <Entry x:Name="txtPassRCheck" Placeholder="Confirmar contraseña" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
+
+                                <Entry x:Name="txtPassRCheck" Placeholder="Repetir contraseña" WidthRequest="180" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
                                 <ImageButton x:Name="btnVerPassword3" IsVisible="True" Clicked="btnVerPassword3_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                                 <ImageButton x:Name="btnOcultarPassword3" IsVisible="False" Clicked="btnOcultarPassword3_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
                             </StackLayout>
-                            
+
+
                             <Button x:Name="btnRegistrar" 
                                     Clicked="btnRegistrar_Clicked"
                                     Text="Registrarse" BackgroundColor="#C80000" TextColor="White" CornerRadius="40"/>

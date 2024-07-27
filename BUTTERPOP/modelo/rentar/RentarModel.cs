@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
+using BUTTERPOP.db;
+using BUTTERPOP.crud.renta;
+using System.Threading.Tasks;
+
 namespace BUTTERPOP.modelo.rentar
 {
     public class RentarModel
@@ -39,20 +43,6 @@ namespace BUTTERPOP.modelo.rentar
             return 0 <= days && days < 30;
         }
 
-        /// <summary>
-        /// Recibe un DateTime y verifica si hay menos de 30 días respecto a la hora y fecha actual
-        /// </summary>
-        /// <param name="time"></param>
-        /// <returns>Valor lógico sobre si la diferencia es menor a 30 días</returns>
-        public bool isActiveRent(DateTime time)
-        {
-            DateTime currentTime = DateTime.Now;
-            TimeSpan diference = time - currentTime;
-            int days = (int) diference.Days;
-
-            return 0 <= days && days < 30;
-        }
-
         public void validateInputsCard(String number, String mm, String aa, String cvv)
         {
             if (String.IsNullOrEmpty(number) ||
@@ -85,6 +75,13 @@ namespace BUTTERPOP.modelo.rentar
             }
         }
 
+        /// <summary>
+        /// Convierte un mes y año en un objeto DateTime
+        /// </summary>
+        /// <param name="month">mes a 2 cifras</param>
+        /// <param name="year">año a 2 cifras</param>
+        /// <returns>Objeto DateTime</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public DateTime monthYearToDate(String month, String year)
         {
             int y = int.Parse("20" + year);
@@ -97,6 +94,46 @@ namespace BUTTERPOP.modelo.rentar
             else
             {
                 return new DateTime(y, m, 1);
+            }
+        }
+
+        /// <summary>
+        /// Calcula el precio de renta de una película
+        /// </summary>
+        /// <param name="price">precio por semana de la pelicula</param>
+        /// <param name="weeks">semanas de renta</param>
+        /// <returns>Precio final de la renta</returns>
+        public float CalculatePrice(float price, int weeks)
+        {
+            float cobro = 0;
+            for (int i = 1; i <= weeks; i++)
+            {
+                cobro += price / (int) Math.Pow(2, i - 1);
+            }
+
+            return cobro;
+        }
+
+        /// <summary>
+        /// Verifica si el cliente tiene una renta activa de una película
+        /// </summary>
+        /// <param name="pelicula">registro de pelicula</param>
+        /// <param name="cliente">registro de cliente</param>
+        /// <exception cref="ArgumentException"></exception>
+        public async Task ComprobateRent(Table.Pelicula pelicula, Table.Cliente cliente)
+        {
+            CRUD_Renta crud = new CRUD_Renta();
+            List<Table.Renta> rentas = await crud.GetRentasByCorreo(cliente.correo);
+            
+            foreach (Table.Renta renta in rentas)
+            {
+                if (renta.id_pelicula == pelicula.id_pelicula &&
+                    renta.fin_fecha_renta > DateTime.Now)
+                {
+                    String endRent = renta.fin_fecha_renta.ToString("dd/MM/yyyy HH:mm");
+                    String reason = $"Ya tienes una renta activa de esta película. Tu renta termina {endRent}";
+                    throw new ArgumentException(reason);
+                }
             }
         }
     }

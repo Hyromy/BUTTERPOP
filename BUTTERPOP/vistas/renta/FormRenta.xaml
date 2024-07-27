@@ -5,19 +5,21 @@
              NavigationPage.HasNavigationBar="False">
     
     <ContentPage.Content>
-        <Grid BackgroundColor="#1c1c1c">
+        <Grid x:Name="main"
+              BackgroundColor="#1c1c1c">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 
                 <!-- for debug -->
-                <!-- <RowDefinition Height="Auto"/> -->
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- cabecera -->
             <AbsoluteLayout Grid.Row="0"
                             HeightRequest="64"
-                            BackgroundColor="#580000">
+                            BackgroundColor="#1c1c1c">
 
                 <!-- volver -->
                 <Frame x:Name="nav_back"
@@ -45,18 +47,20 @@
                            AbsoluteLayout.LayoutFlags="All"
                            HeightRequest="40"
                            Margin="0, 0, 8, 0"/>
-
+                    
                     <Label Text="BUTTER"
-                           FontSize="40"
+                           FontSize="50"
                            VerticalTextAlignment="Center"
                            TextColor="#fff"
-                           FontAttributes="Bold"/>
+                           FontAttributes="Bold"
+                           FontFamily="Teko"/>
 
                     <Label Text="POP"
-                           FontSize="40"
+                           FontSize="50"
                            VerticalTextAlignment="Center"
                            TextColor="#c80000"
-                           FontAttributes="Bold"/>
+                           FontAttributes="Bold"
+                           FontFamily="Teko"/>
                 </StackLayout>
 
                 <!-- borde separador -->
@@ -96,14 +100,17 @@
                                            Aspect="AspectFill"
                                            Opacity="0.5"/>
 
-                                    <Label Text="DEADPOOL &amp; WOLVERINE"
+                                    <Label x:Name="film_name"
                                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToView, ElementName=banner, Property=Width, Factor=1}"
                                            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView, ElementName=banner, Property=Height, Factor=1}"
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"
-                                           FontSize="32"
+                                           FontSize="35"
                                            TextColor="#fff"
-                                           FontAttributes="Bold"/>
+                                           TextTransform="Uppercase"
+                                           FontAttributes="Bold"
+                                           FontFamily="Teko"
+                                           />
                                 </RelativeLayout>
                             </Frame>
 
@@ -300,6 +307,7 @@
                                                 Text="Confirmar"
                                                 Margin="0"
                                                 Padding="10"
+                                                TextColor="White"
                                                 BackgroundColor="#c80000"/>
                                     </Frame>
                                 </Grid>
@@ -310,9 +318,10 @@
             </ScrollView>
 
             <!-- for debug -->
-            <!-- <Button Grid.Row="2"
+            <Button Grid.Row="2"
                     x:Name="toTest"
-                    Text="CRUD"/> -->
+                    Text="CRUD"
+                    IsVisible="False"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

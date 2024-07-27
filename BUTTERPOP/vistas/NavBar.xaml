@@ -12,12 +12,4 @@
             BarBackgroundColor="#c80000"
             SelectedTabColor="White"   
             UnselectedTabColor="Black">
-    
-  <!--Pages can be added as references or inline-->
-  <vistas:Home/>
-  <vistas:Buscar />
-  <vistas:Perfil />
 </TabbedPage>
-    
-    
-    

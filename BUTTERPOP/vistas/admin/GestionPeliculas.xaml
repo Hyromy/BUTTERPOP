@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BUTTERPOP.vistas.admin.GestionPeliculas"
+             Title="Gestionar Películas">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10" BackgroundColor="#1c1c1c">
+
+                <Label Text="Datos de la película" TextColor="White" FontAttributes="Bold" FontSize="Large" HorizontalOptions="CenterAndExpand"/>
+
+                <StackLayout Margin="20" Spacing="10">
+
+                    <Label Text="Imágen" TextColor="White" FontAttributes="Bold" />
+                    <!-- Imagen -->
+                    <Image x:Name="imgPelicula"/>
+
+
+                    <Button Text="Seleccionar imágen" x:Name="btnSeleccionarImagen" Clicked="btnSeleccionarImagen_Clicked" 
+                            BackgroundColor="#3a3a3a" TextColor="White" CornerRadius="25"
+                            WidthRequest="50" HeightRequest="50"/>
+
+                    <!-- Titulo -->
+                    <Label Text="Titulo" TextColor="White" FontAttributes="Bold" />
+
+                    <Entry x:Name="txtTitulo" Placeholder="Ingrese el título" PlaceholderColor="#787878" TextColor="#787878"/>
+
+                    <!-- Descripción -->
+                    <Label Text="Sinpsis" TextColor="White" FontAttributes="Bold" />
+
+                    <Editor x:Name="txtDescripcion" HeightRequest="150" Placeholder="Escriba aquí la sinopsis de la película" PlaceholderColor="#787878" TextColor="#787878"/>
+
+
+                    <!-- Genero -->
+                    <Label Text="Genero" TextColor="White" FontAttributes="Bold"/>
+                    <Picker x:Name="generoPicker"  TextColor="#787878"  >
+                        <Picker.Items >
+                            <x:String>Acción</x:String>
+                            <x:String>Comedia</x:String>
+                            <x:String>Drama</x:String>
+                            <x:String>Fantasía</x:String>
+                            <x:String>Terror</x:String>
+
+                        </Picker.Items>
+                    </Picker>
+
+                    <!-- Clasificacion -->
+                    <Label Text="Clasificación" TextColor="White" FontAttributes="Bold" />
+                    <Picker x:Name="clasificacionPicker" TextColor="#787878">
+                        <Picker.Items>
+                            <x:String>G</x:String>
+                            <x:String>PG</x:String>
+                            <x:String>PG-13</x:String>
+                            <x:String>R</x:String>
+                            <x:String>NC-17</x:String>
+
+                        </Picker.Items>
+                    </Picker>
+
+                    <!-- Duracion -->
+                    <Label Text="Duración (minutos)" TextColor="White" FontAttributes="Bold" />
+                    <Entry x:Name="txtDuracion" Placeholder="Ingrese la duración" Keyboard="Numeric" PlaceholderColor="#787878" TextColor="#787878" />
+
+                    <!-- Precio -->
+                    <Label Text="Precio" TextColor="White" FontAttributes="Bold"/>
+                    <Entry x:Name="txtPrecio" Placeholder="Ingrese el precio" Keyboard="Numeric" PlaceholderColor="#787878" TextColor="#787878"/>
+
+
+
+                    <!-- Botón para guardar -->
+                    <Button Text="Guardar Película" x:Name="btnGuardarPelicula" Clicked="btnGuardarPelicula_Clicked" CornerRadius="20" BackgroundColor="#c80000" TextColor="White"/>
+                    <Button Text="Ver películas" x:Name="btnVerPeliculas" Clicked="btnVerPeliculas_Clicked" CornerRadius="20" BackgroundColor="Transparent" TextColor="White"/>
+
+
+                    <!--<ScrollView HeightRequest="300">
+                        <ListView x:Name="lsPeliculas" 
+                                 
+                                  HasUnevenRows="False" 
+                                  IsVisible="true"
+                                  BackgroundColor="#3A3A3A" 
+                                  RefreshControlColor="Black" 
+                                  SeparatorColor="black"
+                                  SeparatorVisibility="Default"
+                                  >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Text="{Binding id_pelicula}"
+                                                   x:Name="txtId"
+                                                   Grid.RowSpan="2"
+                                                   Grid.Column="0"
+                                                   TextColor="White"
+                                                   VerticalTextAlignment="Center"
+                                                   Padding="5"/>
+
+                                            <Label Text="{Binding titulo}"
+                                                   FontSize="15"
+                                                   x:Name="txtnom"
+                                                   Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   TextColor="white"/>
+
+                                            <Label Text="{Binding descripcion}"
+                                                   x:Name="txtdesc"
+                                                   Grid.Row="1"
+                                                   Grid.Column="1"
+                                                   TextColor="#787878"/>
+
+
+                                            <Label Text="{Binding imagen}"
+                                                   Grid.Row="2"
+                                                   Grid.Column="1"
+                                                   TextColor="#787878"/>
+
+
+                                            <Label Text="{Binding duracion}"
+                                                   Grid.Row="3"
+                                                   Grid.Column="1"
+                                                   TextColor="#787878"/>
+
+                                            <Label Text="{Binding categoria}"
+                                                   Grid.Row="4"
+                                                   Grid.Column="1"
+                                                   TextColor="#787878"/>
+
+                                            <Label Text="{Binding clasificacion}"
+                                                   Grid.Row="5"
+                                                   Grid.Column="1"
+                                                   TextColor="#787878"/>
+
+
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </ScrollView> -->
+
+
+
+
+
+
+
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

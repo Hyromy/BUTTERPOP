@@ -61,9 +61,12 @@
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>2.0.6</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
     <PackageReference Include="Xamarin.Forms">
       <Version>5.0.0.2662</Version>
+    </PackageReference>
+    <PackageReference Include="Xamd.Plugins.Forms.ImageCarousel">
+      <Version>1.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +125,9 @@
     <AndroidResource Include="Resources\drawable\delete.png" />
     <AndroidResource Include="Resources\drawable\editar_lista.png" />
     <AndroidResource Include="Resources\drawable\header_back.png" />
+    <AndroidResource Include="Resources\drawable\bgWelcome.jpg" />
+    <AndroidResource Include="Resources\drawable\metodo_pago.png" />
+    <AndroidResource Include="Resources\drawable\tarjeta.png" />
     <Content Include="Resources\mipmap-anydpi-v26\butterpop_icon.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\butterpop_icon_background.png" />
