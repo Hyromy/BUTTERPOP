@@ -22172,22 +22172,28 @@ namespace BUTTERPOP.Droid
 			public const int star = 2131165351;
 			
 			// aapt resource value: 0x7F0700A8
-			public const int star_half = 2131165352;
+			public const int star_empty = 2131165352;
 			
 			// aapt resource value: 0x7F0700A9
-			public const int tarjeta = 2131165353;
+			public const int star_fill = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
-			public const int test_custom_background = 2131165354;
+			public const int star_half = 2131165354;
 			
 			// aapt resource value: 0x7F0700AB
-			public const int test_level_drawable = 2131165355;
+			public const int tarjeta = 2131165355;
 			
 			// aapt resource value: 0x7F0700AC
-			public const int tooltip_frame_dark = 2131165356;
+			public const int test_custom_background = 2131165356;
 			
 			// aapt resource value: 0x7F0700AD
-			public const int tooltip_frame_light = 2131165357;
+			public const int test_level_drawable = 2131165357;
+			
+			// aapt resource value: 0x7F0700AE
+			public const int tooltip_frame_dark = 2131165358;
+			
+			// aapt resource value: 0x7F0700AF
+			public const int tooltip_frame_light = 2131165359;
 			
 			static Drawable()
 			{
