@@ -40,6 +40,9 @@ namespace BUTTERPOP.vistas
             DatosRecuperados(cliente);
 
             this.cliente = cliente;
+
+            btnPeliculas_Clicked(null, null);
+            
         }
 
         /*
