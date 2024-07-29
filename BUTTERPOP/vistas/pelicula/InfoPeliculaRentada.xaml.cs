@@ -153,17 +153,18 @@ namespace BUTTERPOP.vistas.pelicula
 
             commentEntry.Text = string.Empty;
             SetStarRating(0);
+
+             LoadComments();
         }
 
         private async void LoadComments()
         {
-            // Limpiar la sección de comentarios
             commentsSection.Children.Clear();
 
-            // Crear el encabezado
             var header = new Label
             {
                 Text = "Comentarios",
+                FontFamily = "Nunito_ExtraBold",
                 FontSize = 20,
                 FontAttributes = FontAttributes.Bold,
                 TextColor = Color.White,
@@ -171,15 +172,13 @@ namespace BUTTERPOP.vistas.pelicula
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
 
-            // Añadir el encabezado a la sección de comentarios
             commentsSection.Children.Add(header);
 
-            // Obtener los comentarios
             List<Table.Comenta> comentarios = await crudCOMENTA.GetCommentsByMovieIdAsync(pelicula.id_pelicula);
 
             foreach (var comentario in comentarios)
             {
-                var cliente = await crudCliente.GetUsuariosByCorreo(comentario.correo);
+                var clienteComentario = await crudCliente.GetUsuariosByCorreo(comentario.correo);
 
                 var gridLayout = new Grid
                 {
@@ -187,16 +186,18 @@ namespace BUTTERPOP.vistas.pelicula
                     Margin = new Thickness(0, 0, 0, 10),
                     BackgroundColor = Color.FromHex("#3a3a3a"),
                     ColumnDefinitions =
-            {
-                new ColumnDefinition { Width = GridLength.Star },
-                new ColumnDefinition { Width = GridLength.Auto }
-            }
+                    {
+                        new ColumnDefinition { Width = GridLength.Star },
+                        new ColumnDefinition { Width = GridLength.Auto }
+                    }
                 };
 
                 var labelUsuario = new Label
                 {
-                    Text = cliente != null ? cliente.nombre : "Desconocido",
+                    Text = clienteComentario != null ? clienteComentario.nombre : "Desconocido",
                     TextColor = Color.White,
+                    FontFamily = "Nunito_Bold",
+                    FontSize = 16,
                     FontAttributes = FontAttributes.Bold,
                     VerticalOptions = LayoutOptions.Center
                 };
@@ -210,6 +211,7 @@ namespace BUTTERPOP.vistas.pelicula
                 var labelPuntuacion = new Label
                 {
                     Text = new string('★', comentario.Puntuacion),
+                    FontFamily = "Nunito_Regular",
                     TextColor = Color.Gold,
                     HorizontalOptions = LayoutOptions.End,
                     VerticalOptions = LayoutOptions.Center
@@ -220,9 +222,155 @@ namespace BUTTERPOP.vistas.pelicula
                 gridLayout.Children.Add(labelTexto, 0, 1);
                 Grid.SetColumnSpan(labelTexto, 2);
 
+                if (comentario.correo == cliente.correo)
+                {
+                    var btnEditar = new Button
+                    {
+                        Text = "Editar",
+                        TextColor = Color.White,
+                        BackgroundColor = Color.Transparent,
+                        HorizontalOptions = LayoutOptions.End,
+                        CommandParameter = comentario
+                    };
+                    btnEditar.Clicked += btnEditarComentario_Clicked;
+
+                    var btnEliminar = new Button
+                    {
+                        Text = "Eliminar",
+                        TextColor = Color.White,
+                        BackgroundColor = Color.Transparent,
+                        HorizontalOptions = LayoutOptions.End,
+                        CommandParameter = comentario
+                    };
+                    btnEliminar.Clicked += btnEliminarComentario_Clicked;
+
+                    var buttonStack = new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        HorizontalOptions = LayoutOptions.EndAndExpand,
+                        Children = { btnEditar, btnEliminar }
+                    };
+
+                    gridLayout.Children.Add(buttonStack, 0, 2);
+                    Grid.SetColumnSpan(buttonStack, 2);
+                }
+
                 commentsSection.Children.Add(gridLayout);
             }
         }
 
+        private async void btnEditarComentario_Clicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var comentario = button?.CommandParameter as Table.Comenta;
+            if (comentario == null) return;
+
+            // Crear un StackLayout para las estrellas
+            var starLayout = new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                HorizontalOptions = LayoutOptions.Center
+            };
+
+            // Inicializar puntuación actual
+            int currentRating = comentario.Puntuacion;
+
+            // Crear estrellas
+            for (int i = 1; i <= 3; i++)
+            {
+                var star = new Image
+                {
+                    Source = i <= currentRating ? "star_fill.png" : "star_empty.png",
+                    HeightRequest = 30,
+                    WidthRequest = 30,
+                    Margin = new Thickness(5)
+                };
+
+                int rating = i; // Capture the loop variable
+                star.GestureRecognizers.Add(new TapGestureRecognizer
+                {
+                    Command = new Command(() =>
+                    {
+                        currentRating = rating;
+                        // Actualizar las estrellas visualmente
+                        for (int j = 0; j < starLayout.Children.Count; j++)
+                        {
+                            var s = starLayout.Children[j] as Image;
+                            s.Source = j < currentRating ? "star_fill.png" : "star_empty.png";
+                        }
+                    })
+                });
+
+                starLayout.Children.Add(star);
+            }
+
+            // Crear una entrada para el comentario
+            var comentarioEntry = new Entry
+            {
+                Text = comentario.Comentario,
+                TextColor = Color.White,
+                Placeholder = "Modifica tu comentario",
+                Margin = new Thickness(10)
+            };
+
+            // Mostrar un botón de confirmación
+            var confirmButton = new Button
+            {
+                Text = "Guardar",
+                CornerRadius = 20,
+                BackgroundColor = Color.FromHex("#c80000"),
+                TextColor = Color.White,
+                Margin = new Thickness(10)
+            };
+
+            confirmButton.Clicked += async (s, args) =>
+            {
+                if (string.IsNullOrWhiteSpace(comentarioEntry.Text))
+                {
+                    await DisplayAlert("Error", "El comentario no puede estar vacío.", "OK");
+                    return;
+                }
+
+                comentario.Comentario = comentarioEntry.Text;
+                comentario.Puntuacion = currentRating;
+
+                await crudCOMENTA.UpdateComentarioAsync(comentario);
+                LoadComments(); // Recargar comentarios
+
+                await DisplayAlert("Éxito", "Comentario actualizado con éxito.", "OK");
+            };
+
+            // Crear el diseño principal
+            var layout = new StackLayout
+            {
+                Children = { comentarioEntry, starLayout, confirmButton },
+                BackgroundColor = Color.FromHex("#1c1c1c"),
+                Padding = new Thickness(10)
+            };
+
+            // Mostrar la página de edición
+            await Navigation.PushAsync(new ContentPage
+            {
+                Title = "Editar Comentario",
+                Content = layout
+            });
+        }
+
+        private async void btnEliminarComentario_Clicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var comentario = button?.CommandParameter as Table.Comenta;
+            if (comentario == null) return;
+
+            bool confirm = await DisplayAlert("Eliminar comentario", "¿Estás seguro de que deseas eliminar este comentario?", "Sí", "No");
+            if (!confirm) return;
+
+            await crudCOMENTA.DeleteComentarioByIDAsync(comentario.id_comentario);
+            LoadComments();
+        }
     }
 }
+
+
+    
+

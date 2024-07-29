@@ -52,9 +52,9 @@ namespace BUTTERPOP.crud.comentario
             }
         }
 
-        public Task<int> DeleteComentarioAsync(Table.Comenta comentario)
+        public Task<int> DeleteComentarioByIDAsync(int idcom)
         {
-            return db.DeleteAsync(comentario);
+            return db.Table<Table.Comenta>().DeleteAsync(c => c.id_comentario == idcom);
         }
 
 
@@ -67,6 +67,7 @@ namespace BUTTERPOP.crud.comentario
                             .Where(c => c.id_pelicula == movieId)
                             .ToListAsync();
         }
+
 
 
 
