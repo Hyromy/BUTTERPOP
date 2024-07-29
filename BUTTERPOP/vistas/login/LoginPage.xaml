@@ -24,151 +24,155 @@
             </BoxView>
             <!--END BACKGROUND VIDEO-->
 
-            <FlexLayout Direction="Column"
-                JustifyContent="Center"
-                AlignItems="Center"
-                Padding="30">
+            <ScrollView>
+                <FlexLayout Direction="Column"
+    JustifyContent="Center"
+    AlignItems="Center"
+    Padding="30">
 
-                <!--LOGO-->
-                <Image Source="ButterPop.png" 
-               HorizontalOptions="Center" 
-               WidthRequest="250"
-               Margin="10"/>
-                <!--#END LOGO-->
+                    <!--LOGO-->
+                    <Image Source="ButterPop.png" 
+   HorizontalOptions="Center" 
+   WidthRequest="250"
+   Margin="10"/>
+                    <!--#END LOGO-->
 
-                <Frame x:Name="FrameLogin"
-                       BackgroundColor="White"
-                       CornerRadius="40"
-                       WidthRequest="250"
-                       HeightRequest="400">
+                    <Frame x:Name="FrameLogin"
+           BackgroundColor="White"
+           CornerRadius="40"
+           WidthRequest="250"
+           HeightRequest="400">
 
-                    <StackLayout x:Name="FrameStack"
-                                 Orientation="Vertical"
-                                 Padding="20"
-                                 Spacing="35">
+                        <StackLayout x:Name="FrameStack"
+                     Orientation="Vertical"
+                     Padding="20"
+                     Spacing="35">
 
-                        <!--TOGGLE BUTTON-->
-                        <Grid>
-                            <Frame Grid.Row="0" x:Name="backgroundFrame" BackgroundColor="#BEBDBB"
-                           Padding="0" Margin="0" HasShadow="False"
-                           VerticalOptions="Center" HeightRequest="40"
-                           WidthRequest="250" HorizontalOptions="Start">
+                            <!--TOGGLE BUTTON-->
+                            <Grid>
+                                <Frame Grid.Row="0" x:Name="backgroundFrame" BackgroundColor="#BEBDBB"
+               Padding="0" Margin="0" HasShadow="False"
+               VerticalOptions="Center" HeightRequest="40"
+               WidthRequest="250" HorizontalOptions="Start">
 
-                                <Frame.CornerRadius>
-                                    <OnPlatform x:TypeArguments="x:Single">
-                                        <On Platform="iOS" Value="15"></On>
-                                        <On Platform="Android" Value="20"></On>
-                                    </OnPlatform>
-                                </Frame.CornerRadius>
+                                    <Frame.CornerRadius>
+                                        <OnPlatform x:TypeArguments="x:Single">
+                                            <On Platform="iOS" Value="15"></On>
+                                            <On Platform="Android" Value="20"></On>
+                                        </OnPlatform>
+                                    </Frame.CornerRadius>
 
 
-                            </Frame>
+                                </Frame>
 
-                            <Frame x:Name="runningFrame" HeightRequest="40"
-                           WidthRequest="125" BackgroundColor="#C80000"
-                           HasShadow="False" Margin="0" Padding="0"
-                           HorizontalOptions="Start"
-                           VerticalOptions="Center">
+                                <Frame x:Name="runningFrame" HeightRequest="40"
+               WidthRequest="125" BackgroundColor="#C80000"
+               HasShadow="False" Margin="0" Padding="0"
+               HorizontalOptions="Start"
+               VerticalOptions="Center">
 
-                                <Frame.CornerRadius>
-                                    <OnPlatform x:TypeArguments="x:Single">
-                                        <On Platform="iOS" Value="15"></On>
-                                        <On Platform="Android" Value="20"></On>
-                                    </OnPlatform>
-                                </Frame.CornerRadius>
+                                    <Frame.CornerRadius>
+                                        <OnPlatform x:TypeArguments="x:Single">
+                                            <On Platform="iOS" Value="15"></On>
+                                            <On Platform="Android" Value="20"></On>
+                                        </OnPlatform>
+                                    </Frame.CornerRadius>
 
-                            </Frame>
+                                </Frame>
 
-                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" 
-                                 HorizontalOptions="Start" WidthRequest="95" 
-                                 HeightRequest="40" BackgroundColor="Transparent">
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" 
+                     HorizontalOptions="Start" WidthRequest="95" 
+                     HeightRequest="40" BackgroundColor="Transparent">
 
-                                <StackLayout.GestureRecognizers>
-                                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
-                                    <TapGestureRecognizer Tapped="OnText1Tapped" />
-                                </StackLayout.GestureRecognizers>
+                                    <StackLayout.GestureRecognizers>
+                                        <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
+                                        <TapGestureRecognizer Tapped="OnText1Tapped" />
+                                    </StackLayout.GestureRecognizers>
 
-                                <Label x:Name="txt1" Text="Iniciar sesión" 
-                               TextColor="White" WidthRequest="125"
-                               HorizontalOptions="Center" HorizontalTextAlignment="Center" 
-                               VerticalOptions="Center" FontSize="13"
-                               MaxLines="1"
-                               FontFamily="Nunito_Bold"/>
+                                    <Label x:Name="txt1" Text="Iniciar sesión" 
+                   TextColor="White" WidthRequest="125"
+                   HorizontalOptions="Center" HorizontalTextAlignment="Center" 
+                   VerticalOptions="Center" FontSize="13"
+                   MaxLines="1"
+                   FontFamily="Nunito_Bold"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" VerticalOptions="Center" 
+                     HorizontalOptions="End" WidthRequest="95" 
+                     HeightRequest="50" BackgroundColor="Transparent">
+
+                                    <StackLayout.GestureRecognizers>
+                                        <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
+                                        <TapGestureRecognizer Tapped="OnText2Tapped" />
+                                    </StackLayout.GestureRecognizers>
+
+                                    <Label x:Name="txt2" Text="Regístrarse" 
+                   FontSize="13"
+                   TextColor="Black" WidthRequest="150"
+                   HorizontalOptions="Center" HorizontalTextAlignment="Center" 
+                   VerticalOptions="Center" 
+                           FontFamily="Nunito_Bold"
+                           />
+                                </StackLayout>
+                            </Grid>
+                            <!--END TOGGLE BUTTON-->
+
+                            <!--FORMULARIO INICIO-->
+                            <StackLayout x:Name="loginForm" IsVisible="True" Orientation="Vertical" Spacing="20">
+                                <Label Text="¡Hola de Nuevo! :D" FontFamily="Nunito_ExtraBold" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                                <Entry x:Name="txtEmailI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Correo electrónico" Keyboard="Email" FontFamily="Nunito_Regular"/>
+
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="txtPassI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Contraseña" IsPassword="True" WidthRequest="180" FontFamily="Nunito_Regular"/>
+                                    <ImageButton x:Name="btnVerPassword" IsVisible="True" Clicked="btnVerPassword_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
+                                    <ImageButton x:Name="btnOcultarPassword" IsVisible="False" Clicked="btnOcultarPassword_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
+                                </StackLayout>
+
+                                <Button x:Name="btnIniciarSesion" 
+                        Clicked="btnIniciarSesion_Clicked"
+                        Text="Iniciar Sesión" BackgroundColor="#C80000" TextColor="White" CornerRadius="40" FontFamily="Nunito_Bold"/>
+                                <Label  Text="¿Olvidaste tú contraseña?" FontFamily="Nunito_Regular" TextColor="#4B4A4A" FontSize="Small" HorizontalTextAlignment="Center"/>
                             </StackLayout>
 
-                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" 
-                                 HorizontalOptions="End" WidthRequest="95" 
-                                 HeightRequest="50" BackgroundColor="Transparent">
 
-                                <StackLayout.GestureRecognizers>
-                                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated" />
-                                    <TapGestureRecognizer Tapped="OnText2Tapped" />
-                                </StackLayout.GestureRecognizers>
+                            <!--FORMULARIO REGISTRO-->
+                            <StackLayout x:Name="registerForm" IsVisible="False" Orientation="Vertical" Spacing="5">
+                                <Label Text="¡Bienvenido a ButterPop!" HorizontalTextAlignment="Center"  FontFamily="Nunito_ExtraBold"  FontSize="14" TextColor="Black"/>
+                                <Entry x:Name="txtNombre" Placeholder="Nombre" TextColor="Black" PlaceholderColor="#838383"  FontFamily="Nunito_Regular"/>
+                                <Entry x:Name="txtApaterno" Placeholder="Apellido paterno" TextColor="Black" PlaceholderColor="#838383"  FontFamily="Nunito_Regular"/>
+                                <Entry x:Name="txtAmaterno" Placeholder="Apellido materno" TextColor="Black" PlaceholderColor="#838383"  FontFamily="Nunito_Regular"/>
 
-                                <Label x:Name="txt2" Text="Regístrarse" 
-                               FontSize="13"
-                               TextColor="Black" WidthRequest="150"
-                               HorizontalOptions="Center" HorizontalTextAlignment="Center" 
-                               VerticalOptions="Center" 
-                                       FontFamily="Nunito_Bold"
-                                       />
+
+
+
+                                <Entry x:Name="txtEmailR" Placeholder="Correo electrónico"  FontFamily="Nunito_Regular" TextColor="Black" PlaceholderColor="#838383" Keyboard="Email"/>
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Entry x:Name="txtPassR" Placeholder="Contraseña nueva"  FontFamily="Nunito_Regular" WidthRequest="180" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
+                                    <ImageButton x:Name="btnVerPassword2" IsVisible="True" Clicked="btnVerPassword2_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
+                                    <ImageButton x:Name="btnOcultarPassword2" IsVisible="False" Clicked="btnOcultarPassword2_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Entry x:Name="txtPassRCheck" Placeholder="Repetir contraseña"  FontFamily="Nunito_Regular" WidthRequest="180" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
+                                    <ImageButton x:Name="btnVerPassword3" IsVisible="True" Clicked="btnVerPassword3_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
+                                    <ImageButton x:Name="btnOcultarPassword3" IsVisible="False" Clicked="btnOcultarPassword3_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
+                                </StackLayout>
+
+
+                                <Button x:Name="btnRegistrar" 
+                        Clicked="btnRegistrar_Clicked"
+                        Text="Regístrarse" BackgroundColor="#C80000" TextColor="White" CornerRadius="40" FontFamily="Nunito_Bold"/>
                             </StackLayout>
-                        </Grid>
-                        <!--END TOGGLE BUTTON-->
-
-                        <!--FORMULARIO INICIO-->
-                        <StackLayout x:Name="loginForm" IsVisible="True" Orientation="Vertical" Spacing="20">
-                            <Label Text="¡Hola de Nuevo! :D" FontFamily="Nunito_ExtraBold" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
-                            <Entry x:Name="txtEmailI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Correo electrónico" Keyboard="Email" FontFamily="Nunito_Regular"/>
-
-
-                            <StackLayout Orientation="Horizontal">
-                                <Entry x:Name="txtPassI" TextColor="Black" PlaceholderColor="#838383" Placeholder="Contraseña" IsPassword="True" WidthRequest="180" FontFamily="Nunito_Regular"/>
-                                <ImageButton x:Name="btnVerPassword" IsVisible="True" Clicked="btnVerPassword_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
-                                <ImageButton x:Name="btnOcultarPassword" IsVisible="False" Clicked="btnOcultarPassword_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
-                            </StackLayout>
-                            
-                            <Button x:Name="btnIniciarSesion" 
-                                    Clicked="btnIniciarSesion_Clicked"
-                                    Text="Iniciar Sesión" BackgroundColor="#C80000" TextColor="White" CornerRadius="40" FontFamily="Nunito_Bold"/>
-                            <Label  Text="¿Olvidaste tú contraseña?" FontFamily="Nunito_Regular" TextColor="#4B4A4A" FontSize="Small" HorizontalTextAlignment="Center"/>
                         </StackLayout>
 
+                    </Frame>
+                </FlexLayout>
+            </ScrollView>
 
-                        <!--FORMULARIO REGISTRO-->
-                        <StackLayout x:Name="registerForm" IsVisible="False" Orientation="Vertical" Spacing="5">
-                            <Label Text="¡Bienvenido a ButterPop!" HorizontalTextAlignment="Center"  FontFamily="Nunito_ExtraBold"  FontSize="14" TextColor="Black"/>
-                            <Entry x:Name="txtNombre" Placeholder="Nombre" TextColor="Black" PlaceholderColor="#838383"  FontFamily="Nunito_Regular"/>
-                            <Entry x:Name="txtApaterno" Placeholder="Apellido paterno" TextColor="Black" PlaceholderColor="#838383"  FontFamily="Nunito_Regular"/>
-                            <Entry x:Name="txtAmaterno" Placeholder="Apellido materno" TextColor="Black" PlaceholderColor="#838383"  FontFamily="Nunito_Regular"/>
-
-
-
-
-                            <Entry x:Name="txtEmailR" Placeholder="Correo electrónico"  FontFamily="Nunito_Regular" TextColor="Black" PlaceholderColor="#838383" Keyboard="Email"/>
-                            <StackLayout Orientation="Horizontal">
-
-                                <Entry x:Name="txtPassR" Placeholder="Contraseña nueva"  FontFamily="Nunito_Regular" WidthRequest="180" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
-                                <ImageButton x:Name="btnVerPassword2" IsVisible="True" Clicked="btnVerPassword2_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
-                                <ImageButton x:Name="btnOcultarPassword2" IsVisible="False" Clicked="btnOcultarPassword2_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
-                            </StackLayout>
-
-                            <StackLayout Orientation="Horizontal">
-
-                                <Entry x:Name="txtPassRCheck" Placeholder="Repetir contraseña"  FontFamily="Nunito_Regular" WidthRequest="180" IsPassword="True" TextColor="Black" PlaceholderColor="#838383"/>
-                                <ImageButton x:Name="btnVerPassword3" IsVisible="True" Clicked="btnVerPassword3_Clicked" Source="ojo_pass.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
-                                <ImageButton x:Name="btnOcultarPassword3" IsVisible="False" Clicked="btnOcultarPassword3_Clicked" Source="ojo_pass_ocultar.png" Grid.Row="0" Grid.Column="1" WidthRequest="20" HeightRequest="20" BackgroundColor="Transparent"/>
-                            </StackLayout>
-
-
-                            <Button x:Name="btnRegistrar" 
-                                    Clicked="btnRegistrar_Clicked"
-                                    Text="Regístrarse" BackgroundColor="#C80000" TextColor="White" CornerRadius="40" FontFamily="Nunito_Bold"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                </Frame>
-            </FlexLayout>
+            
 
         </Grid>
 
