@@ -4,6 +4,9 @@
 #### Introduccion
 - [ ] Agregar descripcion y abstract
 
+#### Marco teorico
+- [ ] Expandir el marco teorico una hoja mas
+
 #### Diagrama general
 - [ ] Comprobar el diagrama general
 
@@ -556,10 +559,9 @@ Se empleará este lenguaje de marcado para diseñar las interfaces de la aplicac
 
 - **SQLite**
 
-Es un sistema de gestión de bases de datos relacional compatible con ACID, esta escrita en C. A diferencia de los sistema de gestión de bases de datos cliente-servidor, el motor de SQLite no es un proceso independiente con el que el programa principal se comunica. En lugar de eso, la biblioteca SQLite se enlaza con el programa pasando a ser parte integral del mismo. El programa utiliza la funcionalidad de SQLite a través de llamadas simples a subrutinas y funciones. Esto reduce la latencia en el acceso a la base de datos, debido a que las llamadas a funciones son más eficientes que la comunicación entre procesos.
+Es un sistema de gestión de bases de datos relacional compatible con ACID, está escrita en C. A diferencia de los sistemas de gestión de bases de datos cliente-servidor, el motor de SQLite no es un proceso independiente con el que el programa principal se comunica. En lugar de eso, la biblioteca SQLite se enlaza con el programa pasando a ser parte integral del mismo. El programa utiliza la funcionalidad de SQLite a través de llamadas simples a subrutinas y funciones. Esto reduce la latencia en el acceso a la base de datos, debido a que las llamadas a funciones son más eficientes que la comunicación entre procesos.
 
-Se empleará este gestor de base de datos para almacenar y procesar la información necesaria para la ejecucion de la aplicación
-"BUTTERPOP".
+Se empleará este gestor de base de datos para almacenar y procesar la información necesaria para la ejecución de la aplicación "BUTTERPOP".
 
 - **Git**
 
@@ -569,9 +571,9 @@ Se hará uso de esta herramienta para facilitar y agilizar un flujo colaborativo
 
 - **Visual Studio Code**
 
-Es un editor de código fuente desarrollado por Microsoft para Windows, Linux, macOS y Web. Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización inteligente de código, fragmentos y refactorización de código. También es personalizable, por lo que los usuarios pueden cambiar el tema del editor, los atajos de teclado y las preferencias. Es gratuito y de código abierto,1​2​ aunque la descarga oficial está bajo software privativo e incluye características personalizadas por Microsoft.
+Es un editor de código fuente desarrollado por Microsoft para Windows, Linux, macOS y Web. Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización inteligente de código, fragmentos y refactorización de código. También es personalizable, por lo que los usuarios pueden cambiar el tema del editor, los atajos de teclado y las preferencias. Es gratuito y de código abierto,12 aunque la descarga oficial está bajo software privativo e incluye características personalizadas por Microsoft.
 
-Se empleará este editor de código para la edicon de archivos ligeros como archivos markdown o md y asistencia en reolucion de conflictos de merge en git.
+Se empleará este editor de código para la edición de archivos ligeros como archivos markdown o md y asistencia en resolución de conflictos de merge en git.
 
 - **StarUML**
 
@@ -587,7 +589,7 @@ Se usará este programa para realizar el maquetado del diseño de interfaces.
 
 - **Dia**
 
-Dia es una aplicación informática de propósito general para la creación de diagramas, creada originalmente por Alexander Larsson,1​ y desarrollada como parte del proyecto GNOME . Está concebido de forma modular, con diferentes paquetes de formas para diferentes necesidades.
+Dia es una aplicación informática de propósito general para la creación de diagramas, creada originalmente por Alexander Larsson,1​ y desarrollada como parte del proyecto GNOME. Está concebido de forma modular, con diferentes paquetes de formas para diferentes necesidades.
 
 Se usará este programa para modelar el modelo relacional de la base de datos de "BUTTERPOP".
 
@@ -919,7 +921,7 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
     </tr>
     <tr>
         <td>5.1</td>
-        <td>En caso de que exista informacián bancaria del cliente, se rellenarán los datos del formulario automaticamente</td>
+        <td>En caso de que exista información bancaria del cliente, se rellenarán los datos del formulario automáticamente</td>
     </tr>
     <tr>
         <td>5.2</td>
@@ -1473,6 +1475,9 @@ Los requerimientos no funcionales son aquellas descripciones que determinan como
 *La figura 1.9.6 muestra el diagrama de secuencia del caso de uso "Gestionar puntuación"*
 ![DS puntuar película](img_doc/cap1/_9/DSPuntuar.jpg)
 
+*La figura 1.9.7 muestra el diagrama de secuencia del caso de uso "Gestionar película"*
+![DS gestionar película](img_doc/cap1/_9/DSPelicula.jpg)
+
 ### 1.10 Diagrama de actividades
 *La figura 1.10.1 muestra el diagrama de actividades de la aplicación*
 ![diagrama de actividades](img_doc/cap1/_10/DActividades.jpg)
@@ -1485,6 +1490,8 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
 ![diagrama relacional de la base de datos](img_doc/cap2/_1/DBDRelacional.jpg)
 
 ### 2.2 Diccionario de datos
+El diccionario de datos son todas aquellas tablas donde especifican el nombre del campo, el tipo, la extensión, restricción y observaciones de cada tabla en la base de datos.
+
 *La figura 2.2.1 muestra el diccionario de datos de la tabla "pelicula"*
 <table>
     <tr>
@@ -1527,10 +1534,10 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
     </tr>
     <tr>
         <td>duracion</td>
-        <td>float</td>
+        <td>int</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>Duración de la película (HH.MM)</td>
+        <td>Duración de la película en minutos</td>
     </tr>
     <tr>
         <td>precio</td>
@@ -1587,29 +1594,29 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>precio</td>
         <td>float</td>
         <td>N/A</td>
-        <td>FK</td>
-        <td>Llave foranea de pelicula</td>
+        <td>N/A</td>
+        <td>precio de la película</td>
     </tr>
     <tr>
         <td>semanas_renta </td>
         <td>int</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>Semanas de renta de las peliculas</td>
+        <td>Semanas de renta de la peliculas</td>
     </tr>
     <tr>
         <td>fecha_renta</td>
         <td>timestap</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>Fecha de renta</td>
+        <td>Fecha y hora en la que se registra la renta</td>
     </tr>
     <tr>
         <td>fin_fecha_renta</td>
         <td>timestap</td>
         <td>N/A</td>
         <td>N/A</td>
-        <td>Fin de fecha renta</td>
+        <td>Fecha y hora en la que finaliza la renta.</td>
     </tr>
     <tr>
         <td>cobro_renta</td>
@@ -1641,12 +1648,12 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>PK</td>
         <td>Llave primaria de comentar</td>
     </tr>
-        <tr>
+    <tr>
         <td>id_pelicula</td>
-        <td>varchar</td>
-        <td>30</td>
+        <td>int</td>
+        <td>N/A</td>
         <td>FK</td>
-        <td>Llave forànea de pelìcula</td>
+        <td>Llave foránea de película</td>
     </tr>
     <tr>
         <td>correo</td>
@@ -1746,7 +1753,7 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
     <tr>
         <td>amaterno</td>
         <td>varchar</td>
-        <td>30</td>
+        <td>50</td>
         <td>N/A</td>
         <td>Apellido materno del cliente</td>
     </tr>
@@ -1762,7 +1769,7 @@ El segundo capítulo contiene la especificación de la base de datos, tales como
         <td>varchar</td>
         <td>16</td>
         <td>N/A</td>
-        <td>Numero de tarjeta del cliente</td>
+        <td>Número de tarjeta del cliente</td>
     </tr>
     <tr>
         <td>tipoTarjeta</td>
@@ -2124,6 +2131,70 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 
 ---
 
+#### GESTIONAR PELICULA
+##### TABLAS DE CONSIGNACIÓN
+Figura 2.3.5.1 muestra la tabla de consignación para el plan de pruebas "Gestionar película"
+<table>
+    <tr>
+        <td>Condiciones de entrada</td>
+        <td>Regla Heurística</td>
+        <td>Clases Válidas</td>
+        <td>Clases No Válidas</td>
+    </tr>
+    <tr>
+        <td rowspan="7">Subir Película</td>
+        <td rowspan="2">Rango</td>
+        <td rowspan="2">Título de la película <= 50 caracteres</td>
+        <td>Título > 50 caracteres</td>
+    </tr>
+    <tr>
+        <td>Título nulo</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Rango</td>
+        <td rowspan="2">Descripción <= 500 caracteres</td>
+        <td>Descripción > 500 caracteres</td>
+    </tr>
+    <tr>
+        <td>Descripción nulo</td>
+    </tr>
+    <tr>
+        <td rowspan="3">Booleana</td>
+        <td>Imagen existe en la BD</td>
+        <td>Imagen no existe en la BD</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Imagen en formato jpg</td>
+        <td>Imagen en formato diferente</td>
+    </tr>
+    <tr>
+        <td>Imagen nula</td>
+    </tr>
+</table>
+
+##### CLASES VÁLIDAS
+Figura 2.3.5.2 muestra la tabla de clases válidas para el plan de pruebas "Gestión de Películas"
+| No. Caso | Título <= 50 | Descripción <= 500 | Imagen en BD | Formato de Imagen |
+| - | - | - | - | - |
+| 1 | titulo = 40 | descripcion = 250 | true | png | 
+| 2 | titulo = 50 | descripcion = 350 | true | png |
+| 3 | titulo = 22 | descripcion = 500 | true | png |
+
+##### CLASES NO VÁLIDAS
+Figura 2.3.5.3 muestra la tavla se clases No válidas para el plan de pruebas "Gestión de Películas"
+| No. Caso | Título <= 50 | Descripción <= 500 | Imagen en BD | Formato de Imagen |
+| - | - | - | - | - |
+| 4 | titulo = 60 | descripcion = 450 | true | png |
+| 5 | titulo = 60 | descripcion = 600 | true | png |
+| 6 | titulo = 60 | descripcion = 600 | false | png |
+| 7 | titulo = 60 | descripcion = 600 | false | jpg |
+| 8 | titulo = 50 | descripcion = 700 | true | png |
+| 9 | titulo = 50 | descripcion = 500 | false | jpg |
+| 10 | titulo = 50 | descripcion = 500 | true | jpg |
+| 11 | titulo = 45 | descripcion = 450 | false | png |
+
+---
+
 ### 2.4 Diseño de las interfaces (maquetas)
 *La figura 2.4.1 muestra la interfaz de bienvenida a la aplicación*
 
@@ -2208,34 +2279,13 @@ Figura 2.3.4.4 muestra la tabla de casos de prueba para el plan de pruebas "elim
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
 
 ## CAPÍTULO 3 IMPLEMENTACIÓN Y PRUEBAS
-introduccion de capitulo
+En el capitulo 3 se presenta la documentación de interfaces de la aplicación "ButterPop"
 
----
-
-*La figura 3.`x`.1 muestra un formulario de pago donde el usuario podrá ingresar su número de tarjeta, la fecha de expiración, la clave de seguridad y la cantidad de semanas de ranta que desee. Esta vista esta alojada en el archivo **FormRenta.xaml**. Una vez esten llenos todos los campos y el usuario de click en el botón 'Confirmar', la aplicación validará tos los campos, mostrará algunos DisplayAlert mostrando el resumen de la renta o información adicional. Cuando todos los datos hayan sido validados, la aplicación procesará los datos ingresados y creará un nuevo registro en la base de datos SQLite 'ButterPop.db3'*
-
-![vista FormRenta.xaml](img_doc/cap3/renta/FormRenta.jpg)
-
-*La figura 3.`x`.2 muestra una descripción de los elementos de la vista FormRenta.xaml*
-
-| No. Elemento | Elemento | Interacciones | Tipo de dato de entrada | Campo que afecta | AyudaNoSeQueIbaAqui
-| - | - | - | - | - | - |
-| 1 | nav_back | Frame | Al presionarlo, la aplicación regresará a vista (pantalla) anterior |  |  |
-| 2 | banner | Image | Imagen de cartel de la película previamente seleccionada | ImageSource |  |
-| 3 | film_name | Label | Título de la película previamente seleccionada | String |  |
-| 4 | card_number | Entry | Número de tarjeta bancaria, ingresada por el usuario | String |  |
-| 5 | month | Entry | Mes a 2 cifras de la tarjeta bancaria, ingresada por el usuario | String |  |
-| 6 | year | Entry | Año a 2 cifras de la tarjeta bancaria, ingresada por el usuario | String |  |
-| 7 | cvv | Entry | Clave de seguridad de la tarjeta bancaria, ingresada por el usuario | String |  |
-| 8 | output_semanas | Label | Cantidad de semanas de renta | String |  |
-| 9 | input_slide_semanas | Slider | Al deslizar el slide, la aplicación cambiará su valor entero desde 1 a 4 |  | Table.Renta.semanas_renta |
-| 10 | btnConfirmCard | Button | Al presionar, la aplicación validará los campos y procesará el cobro |  | Table.Renta |
-
-*La figura 3.1 muestra la interfaz de registro de clientes, donde se solicitan los datos necesarios para que el cliente realice con éxito su registro en la aplicación.
+*La figura 3.1.1 muestra la interfaz de registro de clientes, donde se solicitan los datos necesarios para que el cliente realice con éxito su registro en la aplicación*
 
 ![vista loginPage.xaml](img_doc/cap3/usuario/loginPage.png)
 
-*A continuación, en la figura 3.2 se muestra la tabla donde se describen detalladamente cada uno de los elementos de la interfaz de registro. En esta tabla, se especifican las funciones y características de cada campo requerido para completar el registro.
+*La figura 3.1.2 se muestra la tabla donde se describen detalladamente cada uno de los elementos de la interfaz de registro. En esta tabla, se especifican las funciones y características de cada campo requerido para completar el registro*
 
 | No. Elemento | Elemento | Interacciones | Tipo de dato de entrada | Campo que afecta |
 | - | - | - | - | - |
@@ -2246,17 +2296,18 @@ introduccion de capitulo
 | 5 | txtAmaterno | Entrada de tipo texto que permite al usuario ingresar su apellido materno. | String | Amaterno |
 | 6 | txtEmailR | Entrada de tipo email que permite al usuario ingresar su correo electrónico. | String | Correo |
 | 7 | txtPassR | Entrada de tipo password que permite al usuario ingresar una contraseña. |	String	| Password |
-| 8 | btnVerPassword | Al presionar el botón, la aplicación llama al método “btnVerPassword_Clicked”, el cual se encarga de mostrar los caracteres ocultos de la contraseña. Este método permite al usuario ver la contraseña ingresada. | | |		
-| 9 | BtnRegistrar | Al presionar el botón,9 la aplicación llama al método “btnRegistrar_Clicked”, el cual se encarga de validar que los campos ingresados por el usuario no estén vacíos y estén correctamente completados para posteriormente almacenar la información en la base de datos en la table Clientes. Posteriormente muestra la interfaz de inicio de sesión. | | |		
+| 8 | btnVerPassword | Al presionar el botón, la aplicación llama al método "btnVerPassword_Clicked", el cual se encarga de mostrar los caracteres ocultos de la contraseña. Este método permite al usuario ver la contraseña ingresada. | | |
+| 9 | BtnRegistrar | Al presionar el botón,9 la aplicación llama al método "btnRegistrar_Clicked", el cual se encarga de validar que los campos ingresados por el usuario no estén vacíos y estén correctamente completados para posteriormente almacenar la información en la base de datos en la table Clientes. Posteriormente muestra la interfaz de inicio de sesión. | | |
+
+---
+
+*La figura 3.2.1 muestra la interfaz de creación de listas*
 
 ![vista Perfil.xaml](img_doc/cap3/lista/Perfil.png)
 
-*En la figura … se muestra la tabla donde describe los elementos de la interfaz de edición de lista 
-La interfaz Perfil.xaml contiene un frame que conecta a la base SQLite ButterPop.db3, la actualización afecta a en la tabla Lista al confirmar una actualización con el botón btnConfirmarEdicion.
+*La figura 3.2.2 muestra la tabla donde describe los elementos de la interfaz de edición de lista. La interfaz Perfil.xaml contiene un frame que conecta a la base SQLite ButterPop.db3, la actualización afecta a en la tabla Lista al confirmar una actualización con el botón btnConfirmarEdicion. El campo actNombre, actDesc e imgEditar alteran la tabla Lista al cambiar los valores antes registrados*
 
-El campo actNombre, actDesc e imgEditar alteran la tabla Lista al cambiar los valores antes registrados
-
-No. Elemento | Elemento	| Interacciones	| Tipo de datos	| Campo que afecta |
+| No. Elemento | Elemento | Interacciones | Tipo de datos | Campo que afecta |
 | - | - | - | - | - |
 | 1	| btnImagen	| Al presionar el botón, el usuario podrá ingresar una imagen.	| Button | |	
 | 2	| imgEditar	| El usuario podrá visualizar la imagen seleccionada, previo a esto, muestra la imagen anterior. |	 Bytea[] |	Imagen |
@@ -2266,13 +2317,40 @@ No. Elemento | Elemento	| Interacciones	| Tipo de datos	| Campo que afecta |
 | 6 | btnCancelar | Al presionar el botón, el usuario podrá cancelar los cambios de la lista. | Button | |	
 | 7	| btnConfirmarEdicion | Al presionar el botón, el usuario podrá confirmar los cambios de la lista. | Button | |	
 
+---
+
+*La figura 3.3.1 muestra un formulario de pago donde el usuario podrá ingresar su número de tarjeta, la fecha de expiración, la clave de seguridad y la cantidad de semanas de ranta que desee. Esta vista esta alojada en el archivo **FormRenta.xaml**. Una vez esten llenos todos los campos y el usuario de click en el botón 'Confirmar', la aplicación validará tos los campos, mostrará algunos DisplayAlert mostrando el resumen de la renta o información adicional. Cuando todos los datos hayan sido validados, la aplicación procesará los datos ingresados y creará un nuevo registro en la base de datos SQLite 'ButterPop.db3'*
+
+![vista FormRenta.xaml](img_doc/cap3/renta/FormRenta.jpg)
+
+*La figura 3.3.2 muestra una descripción de los elementos de la vista FormRenta.xaml*
+
+| No. Elemento | Elemento | Tipo de elemento | Interacciones | Tipo de dato de entrada | Campo que afecta |
+| - | - | - | - | - | - |
+| 1 | nav_back | Frame | Al presionarlo, la aplicación regresará a vista (pantalla) anterior |  |  |
+| 2 | banner | Image | Imagen de cartel de la película previamente seleccionada | ImageSource |  |
+| 3 | film_name | Label | Título de la película previamente seleccionada | String |  |
+| 4 | card_number | Entry | Número de tarjeta bancaria, ingresada por el usuario | String |  |
+| 5 | month | Entry | Mes a 2 cifras de la tarjeta bancaria, ingresada por el usuario | String |  |
+| 6 | year | Entry | Año a 2 cifras de la tarjeta bancaria, ingresada por el usuario | String |  |
+| 7 | cvv | Entry | Clave de seguridad de la tarjeta bancaria, ingresada por el usuario | String |  |
+| 8 | output_semanas | Label | Cantidad de semanas de renta | String |  |
+| 9 | input_slide_semanas | Slider | Al deslizar el slide, la aplicación cambiará su valor entero desde 1 a 4 |  | semanas_renta |
+| 10 | btnConfirmCard | Button | Al presionar, la aplicación validará los campos y procesará el cobro |  |  |
+
+---
+
+*La figura 3.4.1 muestra la interfaz de gestión de películas (parte 1)*
+
 ![vista GestionPeliculas.xaml](img_doc/cap3/pelicula/GetionPeli_1.png)
+
+*La figura 3.4.2 muestra la interfaz de gestión de peliculas (parte 2)*
+
 ![vista GestionPeliculas.xaml](img_doc/cap3/pelicula/GetionPeli_2.png)
 
-*En las figuras … y ... se muestra la tabla donde describe los elementos de la interfaz de gestión de películas por parte del administrador. 
-La interfaz GestionPeliculas.xaml conecta a la base SQLite ButterPop.db3, el registro afecta a en la tabla Pelicula al confirmar un registro con el botón btnGuardarPelicula.
+*En la figura 3.4.3 se muestra la tabla donde describe los elementos de la interfaz de gestión de películas por parte del administrador. La interfaz GestionPeliculas.xaml conecta a la base SQLite ButterPop.db3, el registro afecta a en la tabla Pelicula al confirmar un registro con el botón btnGuardarPelicula.*
 
-No. Elemento | Elemento |Interacciones | Tipo de datos | Campo que afecta |
+| No. Elemento | Elemento |Interacciones | Tipo de datos | Campo que afecta |
 | - | - | - | - | - |
 | 1	| imgPelicula | El elemento mostrará la imagen previamente seleccionada por el administrador que lleve la película | Byte [] | portada |
 | 2 | btnSeleccionarImagen | Al dar click en el botón, la aplicación permitirá al administrador seleccionar la imagen para la portada de la película. | | |		
@@ -2282,9 +2360,7 @@ No. Elemento | Elemento |Interacciones | Tipo de datos | Campo que afecta |
 | 6 | clasificacionPicker |	Este picker permite al administrador escoger una clasificación de entre varias que están dentro del picker.	| String | clasificacion |
 | 7	| txtDuracion | Entrada de tipo numeric que permite al administrador ingresar la duración en minutos de la película. | int | duracion |
 | 8 | txtPrecio | Entrada de tipo numeric que permite al administrador ingresar el precio de la película. | Int | precio |
-| 9 | btnGuardarPelicula | Al presionar el botón, la aplicación llama al método “btnGuardarPelicula_Clicked”, el cual se encarga de validar que los campos ingresados por el administrador no estén vacíos y estén correctamente completados para posteriormente almacenar la información en la base de datos en la tabla Pelicula. Posteriormente muestra la interfaz de inicio de sesión.	| | |	
-
-
+| 9 | btnGuardarPelicula | Al presionar el botón, la aplicación llama al método “btnGuardarPelicula_Clicked”, el cual se encarga de validar que los campos ingresados por el administrador no estén vacíos y estén correctamente completados para posteriormente almacenar la información en la base de datos en la tabla Pelicula. Posteriormente muestra la interfaz de inicio de sesión.	| | |
 
 ---
 
