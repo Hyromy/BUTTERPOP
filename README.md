@@ -2266,6 +2266,25 @@ No. Elemento | Elemento	| Interacciones	| Tipo de datos	| Campo que afecta |
 | 6 | btnCancelar | Al presionar el botón, el usuario podrá cancelar los cambios de la lista. | Button | |	
 | 7	| btnConfirmarEdicion | Al presionar el botón, el usuario podrá confirmar los cambios de la lista. | Button | |	
 
+![vista GestionPeliculas.xaml](img_doc/cap3/pelicula/GetionPeli_1.png)
+![vista GestionPeliculas.xaml](img_doc/cap3/pelicula/GetionPeli_2.png)
+
+*En las figuras … y ... se muestra la tabla donde describe los elementos de la interfaz de gestión de películas por parte del administrador. 
+La interfaz GestionPeliculas.xaml conecta a la base SQLite ButterPop.db3, el registro afecta a en la tabla Pelicula al confirmar un registro con el botón btnGuardarPelicula.
+
+No. Elemento | Elemento |Interacciones | Tipo de datos | Campo que afecta |
+| - | - | - | - | - |
+| 1	| imgPelicula | El elemento mostrará la imagen previamente seleccionada por el administrador que lleve la película | Byte [] | portada |
+| 2 | btnSeleccionarImagen | Al dar click en el botón, la aplicación permitirá al administrador seleccionar la imagen para la portada de la película. | | |		
+| 3 | txtTitulo	| Entrada de tipo texto que permite al administrador ingresar el título de la película.	| String | título |
+| 4	| txtDescripcion | Entrada de tipo texto que permite al administrador la sinopsis de la película. | String | sinopsis |
+| 5	| generoPicker | Este picker permite al administrador escoger un género de entre varios que están dentro del picker. | String | genero |
+| 6 | clasificacionPicker |	Este picker permite al administrador escoger una clasificación de entre varias que están dentro del picker.	| String | clasificacion |
+| 7	| txtDuracion | Entrada de tipo numeric que permite al administrador ingresar la duración en minutos de la película. | int | duracion |
+| 8 | txtPrecio | Entrada de tipo numeric que permite al administrador ingresar el precio de la película. | Int | precio |
+| 9 | btnGuardarPelicula | Al presionar el botón, la aplicación llama al método “btnGuardarPelicula_Clicked”, el cual se encarga de validar que los campos ingresados por el administrador no estén vacíos y estén correctamente completados para posteriormente almacenar la información en la base de datos en la tabla Pelicula. Posteriormente muestra la interfaz de inicio de sesión.	| | |	
+
+
 
 ---
 
