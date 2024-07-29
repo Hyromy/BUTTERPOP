@@ -2383,12 +2383,12 @@ En el capitulo 3 se presenta la documentación de interfaces de la aplicación "
 				<br>And-Y21
 			</a>
 		</td>
-		<td>10</td>
-		<td>1964</td>
-		<td>816</td>
-		<td>1148</td>
-		<td>114</td>
-		<td>3.32%</td>
+		<td>12</td>
+		<td>2020</td>
+		<td>817</td>
+		<td>1203</td>
+		<td>100</td>
+		<td>1.47%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2402,7 +2402,7 @@ En el capitulo 3 se presenta la documentación de interfaces de la aplicación "
 		<td>54</td>
 		<td>269</td>
 		<td>89</td>
-		<td>0.78%</td>
+		<td>0.33%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2416,7 +2416,7 @@ En el capitulo 3 se presenta la documentación de interfaces de la aplicación "
 		<td>25</td>
 		<td>145</td>
 		<td>145</td>
-		<td>0.42%</td>
+		<td>0.18%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2425,12 +2425,12 @@ En el capitulo 3 se presenta la documentación de interfaces de la aplicación "
 				<br>Hyromy
 			</a>
 		</td>
-		<td>105</td>
-		<td>0</td>
-		<td>0</td>
-		<td>0</td>
-		<td>0</td>
-		<td>0.00%</td>
+		<td>110</td>
+		<td>79045</td>
+		<td>32068</td>
+		<td>46977</td>
+		<td>427</td>
+		<td>57.53%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2439,12 +2439,12 @@ En el capitulo 3 se presenta la documentación de interfaces de la aplicación "
 				<br>josejulianmtnez
 			</a>
 		</td>
-		<td>31</td>
-		<td>39581</td>
+		<td>35</td>
+		<td>39584</td>
 		<td>6520</td>
-		<td>33061</td>
-		<td>1066</td>
-		<td>95.49%</td>
+		<td>33064</td>
+		<td>944</td>
+		<td>40.49%</td>
 	</tr>
 </table>
 <br>
