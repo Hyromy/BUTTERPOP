@@ -2257,7 +2257,7 @@ introduccion de capitulo
 		<td>816</td>
 		<td>1148</td>
 		<td>114</td>
-		<td>1.41%</td>
+		<td>3.32%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2271,7 +2271,7 @@ introduccion de capitulo
 		<td>54</td>
 		<td>269</td>
 		<td>89</td>
-		<td>0.33%</td>
+		<td>0.78%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2285,7 +2285,7 @@ introduccion de capitulo
 		<td>25</td>
 		<td>145</td>
 		<td>145</td>
-		<td>0.18%</td>
+		<td>0.42%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2294,12 +2294,12 @@ introduccion de capitulo
 				<br>Hyromy
 			</a>
 		</td>
-		<td>104</td>
-		<td>78853</td>
-		<td>31947</td>
-		<td>46906</td>
-		<td>451</td>
-		<td>57.73%</td>
+		<td>105</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0</td>
+		<td>0.00%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2308,12 +2308,12 @@ introduccion de capitulo
 				<br>josejulianmtnez
 			</a>
 		</td>
-		<td>30</td>
-		<td>39124</td>
-		<td>6339</td>
-		<td>32785</td>
-		<td>1092</td>
-		<td>40.35%</td>
+		<td>31</td>
+		<td>39581</td>
+		<td>6520</td>
+		<td>33061</td>
+		<td>1066</td>
+		<td>95.49%</td>
 	</tr>
 </table>
 <br>
