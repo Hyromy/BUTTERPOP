@@ -2279,22 +2279,13 @@ Figura 2.3.5.3 muestra la tavla se clases No válidas para el plan de pruebas "G
 ![interfaz de mi perfil](img_doc/cap2/_4/perfil.jpg)
 
 ## CAPÍTULO 3 IMPLEMENTACIÓN Y PRUEBAS
-introduccion de capitulo
+En el capitulo 3 se presenta la documentación de interfaces de la aplicación "ButterPop"
 
----
-
-
-*La figura 3.1.1 `(login)`*
-
-*La figura 3.1.2 `(login)`*
-
----
-
-*La figura 3.2.1 muestra la interfaz de registro de clientes, donde se solicitan los datos necesarios para que el cliente realice con éxito su registro en la aplicación*
+*La figura 3.1.1 muestra la interfaz de registro de clientes, donde se solicitan los datos necesarios para que el cliente realice con éxito su registro en la aplicación*
 
 ![vista loginPage.xaml](img_doc/cap3/usuario/loginPage.png)
 
-*La figura 3.2.2 se muestra la tabla donde se describen detalladamente cada uno de los elementos de la interfaz de registro. En esta tabla, se especifican las funciones y características de cada campo requerido para completar el registro*
+*La figura 3.1.2 se muestra la tabla donde se describen detalladamente cada uno de los elementos de la interfaz de registro. En esta tabla, se especifican las funciones y características de cada campo requerido para completar el registro*
 
 | No. Elemento | Elemento | Interacciones | Tipo de dato de entrada | Campo que afecta |
 | - | - | - | - | - |
@@ -2310,29 +2301,11 @@ introduccion de capitulo
 
 ---
 
-*La figura 3.3.1 `(inicio)`*
-
-*La figura 3.3.2 `(inicio)`*
-
----
-
-*La figura 3.4.1 `(buscar)`*
-
-*La figura 3.4.2 `(buscar)`*
-
----
-
-*La figura 3.5.1 `(user / pelis)`*
-
-*La figura 3.5.2 `(user / pelis)`*
-
----
-
-*La figura 3.6.1 muestra la interfaz de creación de listas*
+*La figura 3.2.1 muestra la interfaz de creación de listas*
 
 ![vista Perfil.xaml](img_doc/cap3/lista/Perfil.png)
 
-*La figura 3.6.2 muestra la tabla donde describe los elementos de la interfaz de edición de lista. La interfaz Perfil.xaml contiene un frame que conecta a la base SQLite ButterPop.db3, la actualización afecta a en la tabla Lista al confirmar una actualización con el botón btnConfirmarEdicion. El campo actNombre, actDesc e imgEditar alteran la tabla Lista al cambiar los valores antes registrados*
+*La figura 3.2.2 muestra la tabla donde describe los elementos de la interfaz de edición de lista. La interfaz Perfil.xaml contiene un frame que conecta a la base SQLite ButterPop.db3, la actualización afecta a en la tabla Lista al confirmar una actualización con el botón btnConfirmarEdicion. El campo actNombre, actDesc e imgEditar alteran la tabla Lista al cambiar los valores antes registrados*
 
 | No. Elemento | Elemento | Interacciones | Tipo de datos | Campo que afecta |
 | - | - | - | - | - |
@@ -2346,25 +2319,13 @@ introduccion de capitulo
 
 ---
 
-*La figura 3.7.1 `(user / cuenta)`*
-
-*La figura 3.7.2 `(user / cuenta)`*
-
----
-
-*La figura 3.8.1 `(info peli)`*
-
-*La figura 3.8.2 `(info peli)`*
-
----
-
-*La figura 3.9.1 muestra un formulario de pago donde el usuario podrá ingresar su número de tarjeta, la fecha de expiración, la clave de seguridad y la cantidad de semanas de ranta que desee. Esta vista esta alojada en el archivo **FormRenta.xaml**. Una vez esten llenos todos los campos y el usuario de click en el botón 'Confirmar', la aplicación validará tos los campos, mostrará algunos DisplayAlert mostrando el resumen de la renta o información adicional. Cuando todos los datos hayan sido validados, la aplicación procesará los datos ingresados y creará un nuevo registro en la base de datos SQLite 'ButterPop.db3'*
+*La figura 3.3.1 muestra un formulario de pago donde el usuario podrá ingresar su número de tarjeta, la fecha de expiración, la clave de seguridad y la cantidad de semanas de ranta que desee. Esta vista esta alojada en el archivo **FormRenta.xaml**. Una vez esten llenos todos los campos y el usuario de click en el botón 'Confirmar', la aplicación validará tos los campos, mostrará algunos DisplayAlert mostrando el resumen de la renta o información adicional. Cuando todos los datos hayan sido validados, la aplicación procesará los datos ingresados y creará un nuevo registro en la base de datos SQLite 'ButterPop.db3'*
 
 ![vista FormRenta.xaml](img_doc/cap3/renta/FormRenta.jpg)
 
-*La figura 3.9.2 muestra una descripción de los elementos de la vista FormRenta.xaml*
+*La figura 3.3.2 muestra una descripción de los elementos de la vista FormRenta.xaml*
 
-| No. Elemento | Elemento | Interacciones | Tipo de dato de entrada | Campo que afecta | AyudaNoSeQueIbaAqui
+| No. Elemento | Elemento | Tipo de elemento | Interacciones | Tipo de dato de entrada | Campo que afecta |
 | - | - | - | - | - | - |
 | 1 | nav_back | Frame | Al presionarlo, la aplicación regresará a vista (pantalla) anterior |  |  |
 | 2 | banner | Image | Imagen de cartel de la película previamente seleccionada | ImageSource |  |
@@ -2374,8 +2335,8 @@ introduccion de capitulo
 | 6 | year | Entry | Año a 2 cifras de la tarjeta bancaria, ingresada por el usuario | String |  |
 | 7 | cvv | Entry | Clave de seguridad de la tarjeta bancaria, ingresada por el usuario | String |  |
 | 8 | output_semanas | Label | Cantidad de semanas de renta | String |  |
-| 9 | input_slide_semanas | Slider | Al deslizar el slide, la aplicación cambiará su valor entero desde 1 a 4 |  | Table.Renta.semanas_renta |
-| 10 | btnConfirmCard | Button | Al presionar, la aplicación validará los campos y procesará el cobro |  | Table.Renta |
+| 9 | input_slide_semanas | Slider | Al deslizar el slide, la aplicación cambiará su valor entero desde 1 a 4 |  | semanas_renta |
+| 10 | btnConfirmCard | Button | Al presionar, la aplicación validará los campos y procesará el cobro |  |  |
 
 ---
 
