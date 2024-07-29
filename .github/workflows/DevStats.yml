@@ -35,4 +35,4 @@ jobs:
           commit_message: update dev stats
           commit_user_name: Hyromy [GitHub Actions]
           commit_user_email: formulajoel9@gmail.com
-          commit_author: Hyromy
+          commit_author: Hyromy [GitHub Actions] <formulajoel9@gmail.com>
