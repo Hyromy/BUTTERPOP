@@ -65,8 +65,18 @@ CUATRIMESTRE DE TÉRMINO: SEPTIEMBRE-DICIEMBRE 2024
 - [DESARROLLADORES](#desarolladores)
 
 ## RESUMEN
+El presente documento tiene como finalidad mostrar el desarrollo del proyecto de renta de películas digitales “BUTTERPOP”, en este documento se desglosa sus partes, tales como: los objetivos del proyecto, alcance, herramientas empleadas para su desarrollo, metodología empleada, especificación de requisitos, diseño y desarrollo del proyecto, así como su implementación.
+
+La aplicación BUTTERPOP está destinada a la renta de películas digitales, mientras el usuario tenga una renta activa podrá ver la película cuantas veces desee hasta que su renta expire, dicha renta podrá hacerse durante 1 hasta 4 semanas. También el usuario podrá crear listas de reproducción de películas, las cuales podrán estar rentadas por el usuario o no. Por último, los usuarios que hayan rentado alguna película podrán comentar y puntuar la película para que otros usuarios puedan ver los comentarios y las puntuaciones.
+
+La finalidad de la aplicación es ofrecer una alternativa de renta de películas para que los consumidores tengan la elección de decidir al disfrutar de sus películas favoritas en el cine o en la comodidad de su hogar. Las películas disponibles en “BUTTERPOP” dependen de la cartelera vigente de Cinemas AJEM.
+
+Aquí mismo se entra en detalle sobre que herramientas se emplean para su especificación de requisitos, desarrollo, implementación, pruebas, despliegue y mantenimiento futuro. Esto con la finalidad de dar claridad en los pasos del desarrollo, partiendo de una interfaz amigable para el usuario.
+
+BUTTERPOP tiene interfaces amigables para facilitar la interacción del usuario con todas las funcionalidades de la aplicación, asegurando que el producto final tenga portabilidad, usabilidad, mantenibilidad, fiabilidad, eficiencia, seguridad y compatibilidad con sistemas operativos móviles tales como Android e iOS, asegurando la calidad de la aplicación “BUTTERPOP”.
 
 ## ABSTRACT
+
 
 ## INTRODUCCIÓN
 Cinemas AJEM será una empresa mexicana líder en entretenimiento dedicada al desarrollo y operación de complejos múltiples de exhibición cinematográfica. Con más de 23 años en el mercado, se posicionará en el top 10 de las mejores cadenas cinematográficas del mundo, contando con 335 complejos y 2,898 pantallas en 98 ciudades de la República Mexicana.
@@ -537,11 +547,15 @@ Para el desarrollo de este proyecto se utilizarán diversos lenguajes de program
 
 Microsoft Visual Studio es un entorno de desarrollo integrado (IDE, por sus siglas en inglés) para Windows y macOS. Es compatible con múltiples lenguajes de programación, tales como C++, C#, Fortran, Visual Basic .NET, F#, Java, Python, Ruby y PHP, al igual que entornos de desarrollo web, como ASP.NET MVC, Django, etc.
 
+Visual Studio se emplea para abarcar todo el ciclo de vida del desarrollo de software, generalmente de aplicaciones complejas escritas en C#, C++, F#, Python, entre otros. Este entorno de desarrollo ofrece herramientas de depuración avanzadas, diseño de interfaces, integración con bases de datos, herramientas de colaboración, herramientas de testing y de publicación.
+
 Se hará uso de este entorno para desarrollar la aplicación, compilar y depurarla.
 
 - **Xamarin**
 
 Es un marco de interfaz de usuario de código abierto. Xamarin.froms permite a los desarrolladores compilar aplicaciones en Xamarin, Android y xamarin.ios y Windows desde un código base compartido. Xamarin.forms permite a los desarrolladores crear interfaces de usuario XAML con código subyacente en C#. Estas interfaces se representan como controles nativos con mejor rendimiento en cada plataforma.
+
+Xamarin se usa para desarrollar aplicaciones móviles multiplataforma con un solo código fuente con un rendimiento cercano al de una aplicación nativa, permite el desarrollo de interfaces de usuario, otorga acceso a funcionalidades del dispositivo móvil, ofrece herramientas de depuración y herramientas de testing.
 
 Se utilizará este Framework ya que es requisito que la aplicación sea multiplataforma, usando como entorno de desarrollo Android Studio para posteriormente ser compilada a diversos sistemas operativos móviles de manera sencilla, rápida y eficiente.
 
@@ -549,11 +563,15 @@ Se utilizará este Framework ya que es requisito que la aplicación sea multipla
 
 Es un lenguaje de programación multiparadigma desarrollado por Microsoft, que evoluciona de la familia de lenguajes C, toma lo mejor de los lenguajes C y C++, los cuales se asemejan mucho a lenguajes de alto nivel de abstracción como Java y JavaScript. Forma parte de la plataforma .NET de Microsoft.
 
+Este lenguaje de programación se utiliza principalmente para el desarrollo aplicaciones de escritorio, desarrollo web, de aplicaciones móviles, desarrollo de videojuegos, servicios en la nube y de backend, desarrollo empresarial, y scripts de automatización en entornos Windows.
+
 Se usará este lenguaje de programación para desarrollar un código general, el cual posteriormente será compilado por XAMARIN para Android e iOS.
 
 - **XAML**
 
 El lenguaje de marcado de aplicaciones extensible (XAML) es un lenguaje declarativo. En concreto, XAML puede inicializar objetos y establecer propiedades de objetos mediante una estructura de lenguaje que muestra relaciones jerárquicas entre varios objetos y una convención de tipo de respaldo que admite la extensión de tipos. Puedes crear elementos visibles de la interfaz de usuario en el marcado XAML declarativo. A continuación, puedes asociar un archivo de código subyacente distinto para cada archivo XAML que puede responder a eventos y manipular los objetos que originalmente declares en XAML.
+
+Este lenguaje de marcado se utiliza para definir interfaces de usuario en aplicaciones de escritorio y móviles, permite también la vinculación de datos, además de uso de recursos y estilos.
 
 Se empleará este lenguaje de marcado para diseñar las interfaces de la aplicación.
 
@@ -561,11 +579,15 @@ Se empleará este lenguaje de marcado para diseñar las interfaces de la aplicac
 
 Es un sistema de gestión de bases de datos relacional compatible con ACID, está escrita en C. A diferencia de los sistemas de gestión de bases de datos cliente-servidor, el motor de SQLite no es un proceso independiente con el que el programa principal se comunica. En lugar de eso, la biblioteca SQLite se enlaza con el programa pasando a ser parte integral del mismo. El programa utiliza la funcionalidad de SQLite a través de llamadas simples a subrutinas y funciones. Esto reduce la latencia en el acceso a la base de datos, debido a que las llamadas a funciones son más eficientes que la comunicación entre procesos.
 
+SQLite sirve para almacenar información relacional de forma local, prototipado y desarrollo de pruebas de almacenamiento, almacenamiento en aplicaciones móviles, de escritorio y web. 
+
 Se empleará este gestor de base de datos para almacenar y procesar la información necesaria para la ejecución de la aplicación "BUTTERPOP".
 
 - **Git**
 
 Es un sistema de control de versiones distribuido, cada desarrollador tiene una copia integral del mismo. A diferencia de los sistemas de control de versiones centralizados los DVCS necesitan una conexión constante a un repositorio central. Git es un sistema de control de versiones distribuido más popular y se utiliza el desarrollo de proyectos de código abierto.
+
+Este sistema de control de versiones permite participar en un flujo colaborativo, manipular el historial de cambios, además de la creación y fusión de ramas.
 
 Se hará uso de esta herramienta para facilitar y agilizar un flujo colaborativo para el equipo, además de mejorar el versionado del proyecto y aumentar la eficiencia de correcciones, implementaciones y reducir tiempos de desarrollo.
 
@@ -573,17 +595,23 @@ Se hará uso de esta herramienta para facilitar y agilizar un flujo colaborativo
 
 Es un editor de código fuente desarrollado por Microsoft para Windows, Linux, macOS y Web. Incluye soporte para la depuración, control integrado de Git, resaltado de sintaxis, finalización inteligente de código, fragmentos y refactorización de código. También es personalizable, por lo que los usuarios pueden cambiar el tema del editor, los atajos de teclado y las preferencias. Es gratuito y de código abierto,12 aunque la descarga oficial está bajo software privativo e incluye características personalizadas por Microsoft.
 
+Visual Studio Code posee de ciertas características como herramientas de depuración, extensiones que aumentan las capacidades de este editor de código, integración de un sistema de control de versiones como git, autocompletado inteligente y remarcado de sintaxis, terminales integradas, entre otros.
+
 Se empleará este editor de código para la edición de archivos ligeros como archivos markdown o md y asistencia en resolución de conflictos de merge en git.
 
 - **StarUML**
 
 Es un sofisticado modelador de software destinado a soportar un modelado ágil y conciso.
 
+Este software de modelado se usa para desarrollar diagramas UML (Unified Modeling Language), los cuales se emplean para diseñar software, aplicar ingeniería inversa, ingeniería directa, entre otros tipos de requerimientos de documentación en proyectos de software.
+
 Se utilizará este programa para modelar diagramas de casos de uso, de secuencia, actividades, entre otros, para sustentar el desarrollo del proyecto.
 
 - **Figma**
 
 Figma es un editor de gráficos vectoriales y una herramienta de generación de prototipos, principalmente basada en la web, con características offline adicionales habilitadas por aplicaciones de escritorio en macOS y Windows. Permite a los diseñadores colaborar en tiempo real, lo cual es ideal para equipos distribuidos geográficamente. Esta herramienta es conocida por su capacidad de mantener un flujo de trabajo eficiente gracias a sus funciones de coedición y comentarios en vivo. Además, Figma soporta la creación de componentes reutilizables, lo que facilita la consistencia en el diseño de la interfaz de usuario.
+
+Figma se utiliza para diseñar interfaces de usuario, colaborar en tiempo real, prototipado interactivo, diseño vectorial, usar bibliotecas de diseño.
 
 Se usará este programa para realizar el maquetado del diseño de interfaces.
 
