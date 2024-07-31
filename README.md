@@ -1,20 +1,3 @@
-*`documento sujeto a cambios`*
-
-### Cambios pendientes por realizar
-#### Introduccion
-- [ ] Agregar descripcion y abstract
-
-#### Marco teorico
-- [ ] Expandir el marco teorico una hoja mas
-
-#### Diagrama general
-- [ ] Comprobar el diagrama general
-
-#### Capitulo 3
-- [ ] Agregar introduccion al capitulo
-
----
-
 ![uttec](img_doc/general/uttec.jpg)
 
 # BUTTERPOP - DIGITAL DREAM<br>INTEGRAGORA II<br>REPORTE TÉCNICO
@@ -25,7 +8,7 @@
 *P R E S E N T A*
 
 **ANDREA DOMÍNGEZ ZENTENO**<br>
-**JESÚS MÍGUEL ROSALES MURILLO**<br>
+**JESÚS MIGUEL ROSALES MURILLO**<br>
 **JOEL GONZÁLEZ CRUZ**<br>
 **JOSÉ JULÁN MARTÍNEZ DE LA CRUZ**<br>
 
@@ -76,7 +59,11 @@ Aquí mismo se entra en detalle sobre que herramientas se emplean para su especi
 BUTTERPOP tiene interfaces amigables para facilitar la interacción del usuario con todas las funcionalidades de la aplicación, asegurando que el producto final tenga portabilidad, usabilidad, mantenibilidad, fiabilidad, eficiencia, seguridad y compatibilidad con sistemas operativos móviles tales como Android e iOS, asegurando la calidad de la aplicación “BUTTERPOP”.
 
 ## ABSTRACT
-
+The purpose of this document is to show the development of the digital film rental project "BUTTERPOP", in this document all of its parts are well specified, such as: the objectives of the project, scope, tools used for its development, methodology used, specification of requirements, design and development of the project, as well as its implementation.
+The BUTTERPOP application is intended for the rental of digital films, while the user has an active rent where they can watch movies as many times as they want until their rent expires, this rent can be made for 1 to 4 weeks. The user will also be able to create movie playlists, which can be rented by the user or not. Finally, users who have rented a movie will be able to comment and rate the movie so that other users can see all the comments and ratings from other users. 
+The purpose of the application is to offer a movie rental alternative so that consumers have the choice to decide when enjoying their favorite movies in the cinema or in the comfort of their home. The movies available in "BUTTERPOP" depend on the current Cinemas AJEM billboard. 
+Right here we go into detail about what tools are used for your requirements specification, development, implementation, testing, deployment and future maintenance. This in order to give clarity in the steps of development, starting from a user-friendly interface.
+BUTTERPOP has user-friendly interfaces to facilitate user interaction with all the functionalities of the application, ensuring that the final product has portability, usability, maintainability, reliability, efficiency, security and compatibility with mobile operating systems such as Android and iOS, ensuring the quality of the "BUTTERPOP" application.
 
 ## INTRODUCCIÓN
 Cinemas AJEM será una empresa mexicana líder en entretenimiento dedicada al desarrollo y operación de complejos múltiples de exhibición cinematográfica. Con más de 23 años en el mercado, se posicionará en el top 10 de las mejores cadenas cinematográficas del mundo, contando con 335 complejos y 2,898 pantallas en 98 ciudades de la República Mexicana.
