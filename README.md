@@ -60,9 +60,13 @@ BUTTERPOP tiene interfaces amigables para facilitar la interacción del usuario 
 
 ## ABSTRACT
 The purpose of this document is to show the development of the digital film rental project "BUTTERPOP", in this document all of its parts are well specified, such as: the objectives of the project, scope, tools used for its development, methodology used, specification of requirements, design and development of the project, as well as its implementation.
+
 The BUTTERPOP application is intended for the rental of digital films, while the user has an active rent where they can watch movies as many times as they want until their rent expires, this rent can be made for 1 to 4 weeks. The user will also be able to create movie playlists, which can be rented by the user or not. Finally, users who have rented a movie will be able to comment and rate the movie so that other users can see all the comments and ratings from other users. 
+
 The purpose of the application is to offer a movie rental alternative so that consumers have the choice to decide when enjoying their favorite movies in the cinema or in the comfort of their home. The movies available in "BUTTERPOP" depend on the current Cinemas AJEM billboard. 
+
 Right here we go into detail about what tools are used for your requirements specification, development, implementation, testing, deployment and future maintenance. This in order to give clarity in the steps of development, starting from a user-friendly interface.
+
 BUTTERPOP has user-friendly interfaces to facilitate user interaction with all the functionalities of the application, ensuring that the final product has portability, usability, maintainability, reliability, efficiency, security and compatibility with mobile operating systems such as Android and iOS, ensuring the quality of the "BUTTERPOP" application.
 
 ## INTRODUCCIÓN
