@@ -2430,12 +2430,12 @@ En el capitulo 3 se presenta la documentación de interfaces de la aplicación "
 				<br>Heisenburg3
 			</a>
 		</td>
-		<td>1</td>
-		<td>170</td>
-		<td>25</td>
-		<td>145</td>
-		<td>145</td>
-		<td>0.18%</td>
+		<td>2</td>
+		<td>176</td>
+		<td>44</td>
+		<td>132</td>
+		<td>66</td>
+		<td>0.16%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2444,12 +2444,12 @@ En el capitulo 3 se presenta la documentación de interfaces de la aplicación "
 				<br>Hyromy
 			</a>
 		</td>
-		<td>110</td>
-		<td>79045</td>
-		<td>32068</td>
-		<td>46977</td>
-		<td>427</td>
-		<td>57.53%</td>
+		<td>116</td>
+		<td>79130</td>
+		<td>32194</td>
+		<td>46936</td>
+		<td>404</td>
+		<td>57.52%</td>
 	</tr>
 	<tr>
 		<td>
@@ -2463,7 +2463,7 @@ En el capitulo 3 se presenta la documentación de interfaces de la aplicación "
 		<td>6520</td>
 		<td>33064</td>
 		<td>944</td>
-		<td>40.49%</td>
+		<td>40.52%</td>
 	</tr>
 </table>
 <br>
