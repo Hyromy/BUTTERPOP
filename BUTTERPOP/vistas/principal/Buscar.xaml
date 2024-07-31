@@ -29,6 +29,7 @@
                            AbsoluteLayout.LayoutFlags="All"
                            HeightRequest="40"
                            Margin="0, 0, 8, 0"/>
+                    
                     <Label Text="BUTTER"
                             FontSize="50"
                             VerticalTextAlignment="Center"
@@ -60,12 +61,10 @@
                 <Grid x:Name="moviesGrid" Padding="10">
                     <!-- Columnas -->
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150" />
-                        <ColumnDefinition Width="150" />
-                        
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                 </Grid>
-
             </StackLayout>
         </Grid>
     </ContentPage.Content>

@@ -69,79 +69,43 @@
                     </Frame>
 
                     <StackLayout Orientation="Horizontal">
-                        
+
                         <Label Text="Estrenos" TextTransform="Uppercase" 
                                 TextColor="#C80000" FontAttributes="Bold" 
                                 FontSize="25" Margin="25,0,0,0"
                                FontFamily="Teko"/>
-                        
-                        
+
+
                         <Label Text="Proximamente" TextTransform="Uppercase" 
                                TextColor="White" FontAttributes="Bold" 
                                FontSize="25" Margin="10,0,0,0"
                                FontFamily="Teko"/>
-                        
+
                     </StackLayout>
 
-                    
-
-
-
-
-
                     <ScrollView>
-                        
-                        
-                        
+                        <Grid x:Name="moviesGrid"
+                              Padding="0"
+                              RowSpacing="1"
+                              ColumnSpacing="1">
+                            
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        
-                        
-                <Grid x:Name="moviesGrid" Padding="0" RowSpacing="1" ColumnSpacing="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130" />
-                        <ColumnDefinition Width="130" />
-                        <ColumnDefinition Width="130" />
-             
-    
-                    </Grid.ColumnDefinitions>
-                </Grid>
-            </ScrollView>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-
-            <!--<Frame x:Name="film2"
-                           HeightRequest="200"
-                           Margin="0"
-                           CornerRadius="80"
-                           BackgroundColor="#00000000">
-
-                        <Image Source="shrek_portada.jpg"
-                               Aspect="AspectFill"/>
-                    </Frame>-->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ScrollView>
                 </StackLayout>
             </ScrollView>
         </Grid>
